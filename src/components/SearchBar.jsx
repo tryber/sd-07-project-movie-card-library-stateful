@@ -17,9 +17,10 @@ class SearchBar extends Component {
         <h1>SearchBar</h1>
         <form data-testid="search-bar-form">
           <fieldset>
-            <label data-testid="text-input-label">
+            <label htmlFor="searchText" data-testid="text-input-label">
               Inclui o texto:
               <input
+                id="searchText"
                 name="searchText"
                 data-testid="text-input"
                 value={searchText}
@@ -29,9 +30,10 @@ class SearchBar extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="checkbox-input-label">
+            <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
               Mostrar somente favoritos
               <input
+                id="bookmarkedOnly"
                 name="bookmarkedOnly"
                 data-testid="checkbox-input"
                 type="checkbox"
@@ -42,9 +44,10 @@ class SearchBar extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="select-input-label">
+            <label htmlFor="selectedGenre" data-testid="select-input-label">
               Filtrar por gênero
               <select
+                id="selectedGenre"
                 name="selectedGenre"
                 data-testid="select-input"
                 value={selectedGenre}

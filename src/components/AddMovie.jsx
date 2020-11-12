@@ -44,9 +44,10 @@ class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <fieldset>
-            <label data-testid="title-input-label">
+            <label htmlFor="name" data-testid="title-input-label">
               Título
               <input
+                id="name"
                 name="title"
                 value={title}
                 data-testid="title-input"
@@ -56,9 +57,10 @@ class AddMovie extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="subtitle-input-label">
+            <label htmlFor="subtitle" data-testid="subtitle-input-label">
               Subtítulo
               <input
+                id="subtitle"
                 name="subtitle"
                 value={subtitle}
                 data-testid="subtitle-input"
@@ -68,9 +70,10 @@ class AddMovie extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="image-input-label">
+            <label htmlFor="imagePath" data-testid="image-input-label">
               Imagem
               <input
+                id="imagePath"
                 name="imagePath"
                 value={imagePath}
                 data-testid="image-input"
@@ -80,9 +83,10 @@ class AddMovie extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="storyline-input-label">
+            <label htmlFor="storyline" data-testid="storyline-input-label">
               Sinopse
               <textarea
+                id="storyline"
                 name="storyline"
                 value={storyline}
                 data-testid="storyline-input"
@@ -92,9 +96,10 @@ class AddMovie extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="rating-input-label">
+            <label htmlFor="rating" data-testid="rating-input-label">
               Avaliação
               <input
+                id="rating"
                 type="number"
                 name="rating"
                 value={rating}
@@ -105,9 +110,10 @@ class AddMovie extends Component {
           </fieldset>
 
           <fieldset>
-            <label data-testid="genre-input-label">
+            <label htmlFor="genre" data-testid="genre-input-label">
               Gênero
               <select
+                id="genre"
                 name="genre"
                 data-testid="genre-input"
                 value={genre}
