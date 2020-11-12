@@ -82,6 +82,7 @@ class AddMovie extends Component {
             value={this.state.storyline}
             data-testid="storyline-input"
             onChange={this.handleInputChange}
+            rows={3}
           />
         </label>
 
