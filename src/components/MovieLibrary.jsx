@@ -21,6 +21,8 @@ class MovieLibrary extends React.Component {
   }
 }
 
+export default MovieLibrary;
+
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
@@ -34,5 +36,3 @@ MovieLibrary.propTypes = {
     }),
   ).isRequired,
 };
-
-export default MovieLibrary;
