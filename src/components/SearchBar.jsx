@@ -4,29 +4,52 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-     <div>
-       <form>
-         <label>
-           <input type='text' value={this.props.searchText} onChange={this.props.onSearchTextChange}/>
-         </label>
-         <label>
-           <input type='checklist' name='bookmarkedOnly' onChange={this.props.onBookmarkedChange} />
-         </label>
-         <select onChange={this.props.onSelectedGenreChange}>
-           <option name='masculino'>Masculino</option>
-           <option name='feminino'>Feminino</option>
-         </select>
-         <
-        
-       </form>
-
-  {/* - `searchText`, uma string
-  - `onSearchTextChange`, uma callback
-  - `bookmarkedOnly`, um boolean
-  - `onBookmarkedChange`, uma callback
-  - `selectedGenre`, uma string
-  - `onSelectedGenreChange`, uma callback */}
-     </div>
+      <div>
+        <form data-testid="search-bar-form">
+          <label data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              type="text"
+              value={this.props.searchText}
+              onChange={this.props.onSearchTextChange}
+              data-testid="text-input"
+              name="searchText"
+            />
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              name="bookmarkedOnly"
+              onChange={this.props.onBookmarkedChange}
+              data-testid="checkbox-input"
+            />
+            Mostrar Somente Favoritos
+          </label>
+          <br />
+          Filtrar por gênero:
+          <select
+            onChange={this.props.onSelectedGenreChange}
+            data-testid="select-input-label"
+            data-testid="select-input"
+          >
+            <option name="todos" value="" data-testid="select-option">
+              Todos
+            </option>
+            <option name="action" value="action" data-testid="select-option">
+              Ação
+            </option>
+            <option name="comedy" value="comedy" data-testid="select-option">
+              Comédia
+            </option>
+            <option name="thriller" value="thriller" data-testid="select-option">
+              Suspense
+            </option>
+            - `Todos`, com o valor `""`; - `Ação`, com o valor `action`; - `Comédia`, com o valor
+            `comedy`; - `Suspense`, com o valor `thriller`.
+          </select>
+        </form>
+      </div>
     );
   }
 }
