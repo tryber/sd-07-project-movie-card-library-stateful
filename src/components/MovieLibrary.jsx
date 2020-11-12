@@ -3,6 +3,7 @@ import PropTypes, { object } from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -11,6 +12,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.eventHandle = this.eventHandle.bind(this);
 
     this.state = {
       searchText: '',
@@ -33,6 +35,8 @@ class MovieLibrary extends React.Component {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
+
+  eventHandle() {}
 
   render() {
     const { movies } = this.props;
@@ -58,6 +62,8 @@ class MovieLibrary extends React.Component {
               element.storyline.includes(searchText),
           )}
         />
+
+        <AddMovie />
       </div>
     );
   }
