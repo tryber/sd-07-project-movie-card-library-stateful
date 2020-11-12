@@ -5,7 +5,7 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.inputTextChange = this.inputTextChange.bind(this);
     this.clearState = this.clearState.bind(this);
 
     this.state = {
@@ -18,7 +18,7 @@ class AddMovie extends Component {
     };
   }
 
-  onSearchTextChange({ target }) {
+  inputTextChange({ target }) {
     const { name, value } = target;
 
     this.setState({ [name]: value });
@@ -44,54 +44,54 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
+        <label htmlFor data-testid="title-input-label">
           Título
           <br />
           <input
             type="text"
             name="title"
             value={title}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="title-input"
           />
         </label>
         <br />
-        <label data-testid="subtitle-input-label">
+        <label htmlFor data-testid="subtitle-input-label">
           Subtítulo
           <br />
           <input
             type="text"
             name="subtitle"
             value={subtitle}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="subtitle-input"
           />
         </label>
         <br />
-        <label data-testid="image-input-label">
+        <label htmlFor data-testid="image-input-label">
           Imagem
           <br />
           <input
             type="text"
             name="imagePath"
             value={imagePath}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="image-input"
           />
         </label>
         <br />
-        <label data-testid="storyline-input-label">
+        <label htmlFor data-testid="storyline-input-label">
           Sinopse
           <br />
           <textarea
             name="storyline"
             value={storyline}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="storyline-input"
           />
         </label>
         <br />
-        <label data-testid="rating-input-label">
+        <label htmlFor data-testid="rating-input-label">
           Avaliação
           <br />
           <input
@@ -101,18 +101,18 @@ class AddMovie extends Component {
             max="5"
             name="rating"
             value={rating}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="rating-input"
           />
         </label>
         <br />
-        <label data-testid="genre-input-label">
+        <label htmlFor data-testid="genre-input-label">
           Gênero
           <br />
           <select
             name="genre"
             value={genre}
-            onChange={this.onSearchTextChange}
+            onChange={this.inputTextChange}
             data-testid="genre-input"
           >
             <option value="action" data-testid="genre-option">Ação</option>
