@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -11,7 +12,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies
+      movies: this.props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -45,12 +46,20 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange} />
-        <MovieList movies={movies}/>
-        <AddMovie handleClick={this.handleClick}/>
+          onSelectedGenreChange={this.onSelectedGenreChange}
+        />
+        <MovieList movies={movies} />
+        <AddMovie handleClick={this.handleClick} />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  movies: propTypes.arrayOf(propTypes.object).isRequired,
+};
 
 export default MovieLibrary;
