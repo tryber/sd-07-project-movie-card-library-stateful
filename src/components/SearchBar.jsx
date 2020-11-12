@@ -28,13 +28,15 @@ class SearchBar extends React.Component {
         />
         <label
           htmlFor="checkbox-input"
-          data-testid="checkbox-input-label" >
-            Mostrar somente favoritos
+          data-testid="checkbox-input-label"
+        >
+          Mostrar somente favoritos
         </label>
         <label
           htmlFor="select-input"
-          data-testid="select-input-label" >
-            Filtrar por gênero
+          data-testid="select-input-label"
+        >
+          Filtrar por gênero
         </label>
         <select
           id="select-input"
