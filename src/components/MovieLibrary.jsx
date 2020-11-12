@@ -56,10 +56,9 @@ class MovieLibrary extends React.Component {
 
         <MovieList
           movies={movies.filter(
-            (element) =>
-              element.title.includes(searchText) ||
-              element.subtitle.includes(searchText) ||
-              element.storyline.includes(searchText),
+            (element) => element.title.includes(searchText)
+            || element.subtitle.includes(searchText)
+            || element.storyline.includes(searchText),
           )}
         />
 

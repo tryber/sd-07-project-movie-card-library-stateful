@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form>
@@ -35,6 +35,69 @@ class AddMovie extends React.Component {
             name="title"
             data-testid="title-input"
           />
+        </label>
+
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={subtitle}
+            onChange={this.eventChange}
+            name="subtitle"
+            data-testid="subtitle-input"
+          />
+        </label>
+
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            value={imagePath}
+            onChange={this.eventChange}
+            name="imagePath"
+            data-testid="image-input"
+          />
+        </label>
+
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            value={storyline}
+            onChange={this.eventChange}
+            name="storyline"
+            data-testid="storyline-input"
+          />
+        </label>
+
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            value={rating}
+            onChange={this.eventChange}
+            name="rating"
+            data-testid="rating-input"
+          />
+        </label>
+
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            value={genre}
+            onChange={this.eventChange}
+            name="genre"
+            data-testid="genre-input"
+          >
+            <option value="action" data-testid="genre-option">
+              Ação
+            </option>
+            <option value="comedy" data-testid="genre-option">
+              Comédia
+            </option>
+            <option value="thriller" data-testid="genre-option">
+              Suspense
+            </option>
+          </select>
         </label>
       </form>
     );
