@@ -2,11 +2,15 @@
 import React from 'react';
 import MovieList from './MovieList';
 import movies from '../data';
+import Addmovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   render() {
     return (
-      <MovieList movies={movies} />
+      <div>
+        <MovieList movies={movies} />
+        <Addmovie />
+      </div>
     );
   }
 }
