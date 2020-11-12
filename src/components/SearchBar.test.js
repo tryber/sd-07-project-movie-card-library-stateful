@@ -33,7 +33,7 @@ const beforeEachUnitTest = () => {
 describe('Verifica o componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Será validado se o componente `SearchBar` renderiza com sucesso', () => {
+  it('Será validado se o componente `SearchBar` renderiza com sucesso', () => {
     searchBar();
   });
 });
@@ -42,7 +42,7 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
+  it('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
@@ -103,7 +103,7 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
 
     expect(checkboxInput).toBeChecked();
   });
-  
+
   it.skip('Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId('checkbox-input');
