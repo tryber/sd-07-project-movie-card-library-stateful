@@ -1,15 +1,16 @@
-import React from "react";
-import AddMovie from "./AddMovie";
-import SearchBar from "./SearchBar";
-import MovieList from "./MovieList";
+import React from 'react';
+import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: this.props.movies,
     };
     this.searchTextChange = this.searchTextChange.bind(this);
@@ -19,14 +20,14 @@ class MovieLibrary extends React.Component {
     this.insertMovie = this.insertMovie.bind(this);
   }
 
-  filteredListUpdate({searchText, bookmarkedOnly, selectedGenre, movies}) {
+  filteredListUpdate({ searchText, bookmarkedOnly, selectedGenre, movies }) {
     return (
       movies
-      .filter(mov => !bookmarkedOnly || bookmarkedOnly === mov.bookmarked)
-      .filter(mov => searchText === '' || (mov.title + mov.subtitle + mov.storyline)
+      .filter((mov) => !bookmarkedOnly || bookmarkedOnly === mov.bookmarked)
+      .filter((mov) => searchText === '' || (mov.title + mov.subtitle + mov.storyline)
       .toLowerCase().includes(searchText.toLowerCase()))
-      .filter(mov => selectedGenre === '' || selectedGenre === mov.genre)
-      );
+      .filter((mov) => selectedGenre === '' || selectedGenre === mov.genre)
+    );
   }
 
   searchTextChange({ target }) {
@@ -36,7 +37,7 @@ class MovieLibrary extends React.Component {
 
   bookmarkedChange({ target }) {
     const textNew = target.checked;
-    this.setState({ bookmarkedOnly: textNew });    
+    this.setState({ bookmarkedOnly: textNew });
   }
 
   selectedGenreChange({ target }) {
@@ -45,16 +46,16 @@ class MovieLibrary extends React.Component {
   }
 
   insertMovie({ subtitle, title, imagePath, storyline, rating, genre }) {
-    const objInput = { subtitle, title, imagePath, storyline, rating, genre }
-    
-    this.setState((prevState, _prop) => {
-      const arrInput = [...prevState.movies, objInput]
-      return {...prevState , movies : arrInput}})
+    const objInput = { subtitle, title, imagePath, storyline, rating, genre };
+    this.setState((prevState) => {
+      const arrInput = [...prevState.movies, objInput];
+      return { ...prevState, movies: arrInput };
+    });
   }
 
   render() {
     return (
-      < >
+      <div>
         <SearchBar
           searchText={this.state.searchText}
           onSearchTextChange={this.searchTextChange}
@@ -64,10 +65,12 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.selectedGenreChange}
         />
         <MovieList movies={this.filteredListUpdate(this.state)} />
-        <AddMovie onClick={this.insertMovie}/>
-      </>
+        <AddMovie onClick={this.insertMovie} />
+      </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
