@@ -33,7 +33,11 @@ exclude_patterns:
 - "**/*.test.js"
 - "src/serviceWorker.js"
 - "src/index.css"
+<<<<<<< HEAD
 - "node_modules"
+=======
+- "**/node_modules/"
+>>>>>>> 01c5a4a1616526e7f4105c8bb8aa827120586da2
 plugins:
   csslint:
     enabled: true
