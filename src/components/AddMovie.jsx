@@ -22,72 +22,91 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  fncClick(callBack) {
+    callBack(this.state); // checar se isso é isso mesmo!!!
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { onClick } = this.props;
 
     return (
-      <form>
-        <label data-testid="title-input-label">Título
-          <input
-            name="title"
-            type="text"
-            value={this.state.title}
-            data-testid="title-input"
-            onChange={this.handleChanges}
-          />
-        </label>
+      <div>
+        <form>
+          <label data-testid="title-input-label">Título
+            <input
+              name="title"
+              type="text"
+              value={this.state.title}
+              data-testid="title-input"
+              onChange={this.handleChanges}
+            />
+          </label>
 
-        <label data-testid="subtitle-input-label">Subtítulo
-          <input
-            name="subtitle"
-            type="text"
-            value={this.state.subtitle}
-            data-testid="subtitle-input"
-            onChange={this.handleChanges}
-          />
-        </label>
+          <label data-testid="subtitle-input-label">Subtítulo
+            <input
+              name="subtitle"
+              type="text"
+              value={this.state.subtitle}
+              data-testid="subtitle-input"
+              onChange={this.handleChanges}
+            />
+          </label>
 
-        <label data-testid="image-input-label">Imagem
-          <input
-            name="imagePath"
-            type="text"
-            value={this.state.imagePath}
-            data-testid="image-input"
-            onChange={this.handleChanges}
-          />
-        </label>
+          <label data-testid="image-input-label">Imagem
+            <input
+              name="imagePath"
+              type="text"
+              value={this.state.imagePath}
+              data-testid="image-input"
+              onChange={this.handleChanges}
+            />
+          </label>
 
-        <label data-testid="storyline-input-label">Sinopse
-          <textarea
-            name="storyline"
-            value={this.state.storyline}
-            data-testid="storyline-input"
-            onChange={this.handleChanges}
-          />
-        </label>
+          <label data-testid="storyline-input-label">Sinopse
+            <textarea
+              name="storyline"
+              value={this.state.storyline}
+              data-testid="storyline-input"
+              onChange={this.handleChanges}
+            />
+          </label>
 
-        <label data-testid="rating-input-label">Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={this.state.rating}
-            ata-testid="rating-input"
-            onChange={this.handleChanges}
-          />
-        </label>
+          <label data-testid="rating-input-label">Avaliação
+            <input
+              type="number"
+              name="rating"
+              value={this.state.rating}
+              ata-testid="rating-input"
+              onChange={this.handleChanges}
+            />
+          </label>
 
-        <label data-testid="genre-input-label">Gênero</label>
-        <select
-          name="genre"
-          value={this.state.genre}
-          data-testid="genre-input"
-          onChange={this.handleChanges}
-        >
-          <option ata-testid="genre-option" value="action">Ação</option>
-          <option ata-testid="genre-option" value="comedy">Comédia</option>
-          <option ata-testid="genre-option" value="thriller">Suspense</option>
-        </select>
-      </form>
+          <label data-testid="genre-input-label">Gênero</label>
+          <select
+            name="genre"
+            value={this.state.genre}
+            data-testid="genre-input"
+            onChange={this.handleChanges}
+          >
+            <option ata-testid="genre-option" value="action">Ação</option>
+            <option ata-testid="genre-option" value="comedy">Comédia</option>
+            <option ata-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </form>
+
+        <button
+          onClick={() => this.fncClick(onClick)}
+          data-testid="send-button">Adicionar filme
+        </button>
+      </div>
     );
   }
 }
