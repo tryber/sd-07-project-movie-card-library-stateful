@@ -12,11 +12,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     };
+    this.onTextChange = this.onTextChange.bind(this);
   }
 
-  onTextChange = event => {
+  onTextChange() {
     //
   }
+
   render() {
     const {
       subtitle,
