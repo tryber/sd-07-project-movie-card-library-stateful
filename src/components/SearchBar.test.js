@@ -59,20 +59,20 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Será validado que o input de texto contém a label "Inclui o texto"', () => {
+  it('Será validado que o input de texto contém a label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);
     expect(textInputLabel[0]).toHaveTextContent('Inclui o texto');
   });
 
-  it.skip('Será validado se o input de texto tem o valor passado pela props `searchText`', () => {
+  it('Será validado se o input de texto tem o valor passado pela props `searchText`', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId('text-input');
     expect(textInput).toHaveValue(props.searchText);
   });
 
-  it.skip('Será validado que a props `onSearchTextChange` é passada para o atributo `onChange` do input', () => {
+  it('Será validado que a props `onSearchTextChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId('text-input');
     event.type(textInput, 'change');
@@ -84,27 +84,27 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado se uma checkbox é renderizada dentro do form', () => {
+  it('Será validado se uma checkbox é renderizada dentro do form', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInput = getAllByTestId('checkbox-input');
     expect(checkboxInput).toHaveLength(1);
   });
 
-  it.skip('Será validado que o checkbox tem a label "Mostrar somente favoritos"', () => {
+  it('Será validado que o checkbox tem a label "Mostrar somente favoritos"', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInputLabel = getAllByTestId('checkbox-input-label');
     expect(checkboxInputLabel).toHaveLength(1);
     expect(checkboxInputLabel[0]).toHaveTextContent('Mostrar somente favoritos');
   });
 
-  it.skip('Será validado que a prop `bookmarkedOnly` é passada para o atributo `checked` do input', () => {
+  it('Será validado que a prop `bookmarkedOnly` é passada para o atributo `checked` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId('checkbox-input');
 
     expect(checkboxInput).toBeChecked();
   });
   
-  it.skip('Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input', () => {
+  it('Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId('checkbox-input');
     event.click(checkboxInput);
