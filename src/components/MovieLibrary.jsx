@@ -24,9 +24,7 @@ class MovieLibrary extends Component {
   }
 
   onSubmitAddMovie(movie) {
-    this.setState((prevState) => {
-      return { movies: [...prevState.movies, movie] };
-    });
+    this.setState((prevState) => ({ movies: [...prevState.movies, movie] }));
   }
 
   onSearchTextChange({ target }) {
