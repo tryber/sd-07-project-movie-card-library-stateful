@@ -18,15 +18,14 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({
-      [name]: value,
+      [name]: target.value,
     });
   }
 
-  addMovieBtn(callback) {
-    this.props.onClick()
+  addMovieBtn(e) {
+    e.preventDefault();
+    this.props.onClick(this.state)
     this.setState({ 
       subtitle:'',
       title:'',
