@@ -87,7 +87,7 @@ class AddMovie extends Component {
             onChange={this.handleChange}
             data-testid="storyline-input"
             type="text"
-          ></textarea>
+          />
         </fildser>
 
         <fildser>
@@ -138,8 +138,4 @@ class AddMovie extends Component {
 
 export default AddMovie;
 
-
-
-SearchBar.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
