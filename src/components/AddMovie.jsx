@@ -17,13 +17,13 @@ class AddMovie extends Component {
   }
 
   handleState({ target }) {
-    let { name, value } = target;
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  filme(onclick) {
+  filme() {
     this.setState({
       subtitle: '',
       title: '',
@@ -35,10 +35,9 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título</label>
+        <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           name="title"
           type="text"
@@ -47,7 +46,7 @@ class AddMovie extends Component {
           value={this.state.title}
         ></input>
 
-        <label data-testid="subtitle-input-label">Subtítulo</label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
         <input
           name="subtitle"
           type="text"
@@ -56,7 +55,7 @@ class AddMovie extends Component {
           value={this.state.subtitle}
         ></input>
 
-        <label data-testid="image-input-label">Imagem</label>
+        <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
         <input
           onChange={this.handleState}
           name="imagePath"
@@ -65,7 +64,7 @@ class AddMovie extends Component {
           value={this.state.imagePath}
         ></input>
 
-        <label data-testid="storyline-input-label">Sinopse</label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
         <textarea
           data-testid="storyline-input"
           name="storyline"
@@ -73,7 +72,7 @@ class AddMovie extends Component {
           onChange={this.handleState}
         ></textarea>
 
-        <label data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
         <input
           onChange={this.handleState}
           name="rating"
@@ -82,7 +81,7 @@ class AddMovie extends Component {
           value={this.state.rating}
         ></input>
 
-        <label data-testid="genre-input-label">Gênero</label>
+        <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
         <select
           onChange={this.handleState}
           name="genre"
@@ -100,11 +99,7 @@ class AddMovie extends Component {
             Suspense
           </option>
         </select>
-        <button
-          type="button"
-          onClick={() => this.filme(onClick)}
-          data-testid="send-button"
-        >
+        <button type="button" onClick={this.filme} data-testid="send-button">
           Adicionar filme
         </button>
       </form>
