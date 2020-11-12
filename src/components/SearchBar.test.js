@@ -42,7 +42,7 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
+  it('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
