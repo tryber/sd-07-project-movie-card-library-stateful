@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import PropTypes from 'prop-types';
 
 
 class MovieLibrary extends Component {
@@ -24,7 +24,9 @@ class MovieLibrary extends Component {
   }
 
   onSubmitAddMovie(movie) {
-    this.setState((prevState) => { movies: [...prevState.movies, movie] });
+    this.setState((prevState) => {
+      return { movies: [...prevState.movies, movie] };
+    });
   }
 
   onSearchTextChange({ target }) {
