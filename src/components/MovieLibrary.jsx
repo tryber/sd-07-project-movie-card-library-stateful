@@ -54,7 +54,6 @@ class MovieLibrary extends Component {
   render() {
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
           bookmarkedOnly={this.state.bookmarkedOnly}

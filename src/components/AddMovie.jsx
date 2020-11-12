@@ -37,8 +37,8 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
+      <form data-testid="add-movie-form" className="form">
+        <label data-testid="title-input-label" htmlFor="title" className="form-block">
           Título
           <input
             id="title"
@@ -50,7 +50,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+        <label data-testid="subtitle-input-label" htmlFor="subtitle" className="form-block">
           Subtítulo
           <input
             id="subtitle"
@@ -62,7 +62,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="image-input-label" htmlFor="imagePath">
+        <label data-testid="image-input-label" htmlFor="imagePath" className="form-block">
           Imagem
           <input
             id="imagePath"
@@ -74,7 +74,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="storyline-input-label" htmlFor="storyline">
+        <label data-testid="storyline-input-label" htmlFor="storyline" className="form-block">
           Sinopse
           <textarea
             id="storyline"
@@ -85,7 +85,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="rating-input-label" htmlFor="rating">
+        <label data-testid="rating-input-label" htmlFor="rating" className="form-block">
           Avaliação
           <input
             id="rating"
@@ -100,7 +100,7 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label data-testid="genre-input-label" htmlFor="genre">
+        <label data-testid="genre-input-label" htmlFor="genre" className="form-block">
           Gênero
           <select
             id="genre"
@@ -121,7 +121,7 @@ class AddMovie extends Component {
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={this.handleSubmit}>
+        <button data-testid="send-button" onClick={this.handleSubmit} className="form-submit">
           Adicionar filme
         </button>
       </form>
