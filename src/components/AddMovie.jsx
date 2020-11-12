@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import PropTypes from 'prop-types';
+import Proptypes from 'prop-types';
 import React from 'react';
 
 class AddMovie extends React.Component {
