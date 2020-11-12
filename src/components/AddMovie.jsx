@@ -1,41 +1,37 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.handleEventAddMovie = this.handleEventAddMovie.bind(this);
     this.submitButton = this.submitButton.bind(this);
   }
 
   handleEventAddMovie({ target }) {
-    const MovieSpecKey = target.name;
-    const type = target.type;
-    const MovieSpecValue =
-      type === "checkbox"
-        ? target.checked 
-        : type === "number"
-        ? Number(target.value)
-        : target.value;
+    const MovieKey = target.name;
 
-    this.setState({ [MovieSpecKey]: MovieSpecValue });
+    const MovieValue = MovieKey === 'rating' ? Number(target.value) : target.value;
+
+    this.setState({ [MovieKey]: MovieValue });
   }
 
   submitButton(functionCall) {
     const originState = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
 
     functionCall(this.state);
@@ -44,85 +40,99 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-
     return (
       <form data-testid="add-movie-form" onSubmit={() => {}}>
         <fieldset>
-          <label data-testid="title-input-label">Título</label>
-          <input
-            name="title"
-            value={this.state.title}
-            data-testid="title-input"
-            onChange={this.handleEventAddMovie}
-            type="text"
-          />
+          <label data-testid="title-input-label" htmlFor="title">
+            Título
+            <input
+              id="title"
+              name="title"
+              value={this.state.title}
+              data-testid="title-input"
+              onChange={this.handleEventAddMovie}
+              type="text"
+            />
+          </label>
         </fieldset>
         <fieldset>
-          <label data-testid="subtitle-input-label">Subtítulo</label>
-          <input
-            name="subtitle"
-            value={this.state.subtitle}
-            data-testid="subtitle-input"
-            onChange={this.handleEventAddMovie}
-            type="text"
-          />
+          <label data-testid="subtitle-input-label" htmlFor="subtitle">
+            Subtítulo
+            <input
+              id="subtitle"
+              name="subtitle"
+              value={this.state.subtitle}
+              data-testid="subtitle-input"
+              onChange={this.handleEventAddMovie}
+            />
+          </label>
         </fieldset>
         <fieldset>
-          <label data-testid="image-input-label">Imagem</label>
-          <input
-            name="imagePath"
-            value={this.state.imagePath}
-            data-testid="image-input"
-            onChange={this.handleEventAddMovie}
-            type="text"
-          />
+          <label data-testid="image-input-label" htmlFor="image-input-label">
+            Imagem
+            <input
+              id="image-input-label"
+              name="imagePath"
+              value={this.state.imagePath}
+              data-testid="image-input"
+              onChange={this.handleEventAddMovie}
+              type="text"
+            />
+          </label>
         </fieldset>
         <fieldset>
-          <label data-testid="storyline-input-label">Sinopse</label>
-          <textarea
-            onChange={this.handleEventAddMovie}
-            name="storyline"
-            value={this.state.storyline}
-            cols="30"
-            rows="10"
-            data-testid="storyline-input"
-          />
+          <label data-testid="storyline-input-label" htmlFor="storyline-input-label">
+            Sinopse
+            <textarea
+              id="storyline-input-label"
+              onChange={this.handleEventAddMovie}
+              name="storyline"
+              value={this.state.storyline}
+              data-testid="storyline-input"
+            />
+          </label>
         </fieldset>
         <fieldset>
-          <label data-testid="rating-input-label">Avaliação</label>
-          <input
-            name="rating"
-            value={this.state.rating}
-            data-testid="rating-input"
-            onChange={this.handleEventAddMovie}
-            type="number"
-          />
+          <label data-testid="rating-input-label" htmlFor="rating">
+            Avaliação
+            <input
+              id="rating"
+              name="rating"
+              value={this.state.rating}
+              data-testid="rating-input"
+              onChange={this.handleEventAddMovie}
+              type="number"
+            />
+          </label>
         </fieldset>
         <fieldset>
-          <label data-testid="genre-input-label">Gênero</label>
-          <select
-            name= "genre"
-            value={this.state.genre}
-            onChange={this.handleEventAddMovie}
-            data-testid="genre-input"
-          >
-            <option data-testid="genre-option" value="action">
-              Ação
-            </option>
-            <option data-testid="genre-option" value="comedy">
-              Comédia
-            </option>
-            <option data-testid="genre-option" value="thriller">
-              Suspense
-            </option>
-          </select>
+          <label data-testid="genre-input-label" htmlFor="genre">
+            Gênero
+            <select
+              id="genre"
+              name="genre"
+              value={this.state.genre}
+              onChange={this.handleEventAddMovie}
+              data-testid="genre-input"
+            >
+              <option data-testid="genre-option" value="action">
+                Ação
+              </option>
+              <option data-testid="genre-option" value="comedy">
+                Comédia
+              </option>
+              <option data-testid="genre-option" value="thriller">
+                Suspense
+              </option>
+            </select>
+          </label>
         </fieldset>
         <button
           type="submit"
           data-testid="send-button"
           onClick={(event) => {
             this.submitButton(onClick);
-            event.preventDefault() 
+            event.preventDefault();
           }}
         >
           Adicionar filme
@@ -131,5 +141,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
