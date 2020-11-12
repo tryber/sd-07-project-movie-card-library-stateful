@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar'
 
 class MovieLibrary extends Component {
-render() {
-    return (<span>Ai... vou eu!!</span>);
+    render() {
+        return (
+        <SearchBar />
+        );
+    }
 }
-}
+
+export default MovieLibrary;
