@@ -5,23 +5,23 @@ class MovieLibrary extends React.Component {
     constructor() {
         super()
         this.state = {
-            searchText: '', 
-            bookmarkedOnly: false, 
-            selectedGenre: '',         
+            searchText: '',
+            bookmarkedOnly: false,
+            selectedGenre: '',
         }
     }
-    onSearchTextChange = ({target}) => {
-       const {value} = target;
+    onSearchTextChange = (event) => {
+       const {value} = event.target;
         this.setState({
             searchText:value})
     };
-    onBookmarkedChange = ({target}) => {
-        const {checked} = target;
+    onBookmarkedChange = (event) => {
+        const {checked} = event.target;
         this.setState({
             bookmarkedOnly:checked})
     };
-    onSelectedGenreChange = ({target}) => {
-        const {value} = target;
+    onSelectedGenreChange = (event) => {
+        const {value} = event.target;
         this.setState({
             selectedGenre:value})
     };
