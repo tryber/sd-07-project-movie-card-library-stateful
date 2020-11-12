@@ -49,7 +49,7 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
   });
 });
 
-describe('Verifica o input de texto do componente <SearchBar />', () => {
+describe.skip('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
@@ -80,7 +80,7 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
   });
 });
 
-describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
+describe.skip('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
@@ -112,7 +112,7 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
   });
 });
 
-describe('Verifica se o componente <SearchBar /> renderiza um select de gênero', () => {
+describe.skip('Verifica se o componente <SearchBar /> renderiza um select de gênero', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
