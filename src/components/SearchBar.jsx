@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   inputSearch() {
-    const { searchText, onSearchChange } = this.props;
-    return(
+    const { searchText, onSearchTextChange } = this.props;
+    return (
       <label htmlFor="search-text" data-testid="text-input-label">
-        Inclui o texto
-        <input 
+        Inclui o texto:
+        <input
           type="text"
           name="search-text"
           value={searchText}
           onChange={onSearchTextChange}
           data-testid="text-input"
-          data-key="searchtext"
+          data-key="searchText"
         />
       </label>
     );
@@ -21,33 +21,31 @@ class SearchBar extends Component {
 
   bookmarked() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
-    return(
+    return (
       <label htmlFor="bookmarked-change" data-testid="checkbox-input-label">
-        <input 
+        <input
           type="checkbox"
           name="bookmarked-change"
           data-testid="checkbox-input"
           checked={bookmarkedOnly}
           onChange={onBookmarkedChange}
           data-key="bookmarkedOnly"
-          />
-          Mostrar somente favoritos
+        />
+        Mostrar somente favoritos
       </label>
     );
   }
-
   selectedGenre() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
-    return(
+    return (
       <label htmlFor="select-input" data-testid="select-input-label">
-        Filtrar por Gênero
-        <select 
+        Filtrar por gênero
+        <select
           value={selectedGenre}
           onChange={onSelectedGenreChange}
-          data-testid="selected-input"
+          data-testid="select-input"
           name="selected-genre"
           data-key="selectedGenre"
-
         >
           <option value="" data-testid="select-option">
             Todos
@@ -56,17 +54,17 @@ class SearchBar extends Component {
             Ação
           </option>
           <option value="comedy" data-testid="select-option">
-            Comedia
+            Comédia
           </option>
           <option value="thriller" data-testid="select-option">
             Suspense
           </option>
-          </select>
-      </label> 
+        </select>
+      </label>
     );
   }
   render() {
-    return(
+    return (
       <div>
         <form
           // prettier-ignore
@@ -83,7 +81,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  seachText: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
