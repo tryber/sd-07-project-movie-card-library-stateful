@@ -22,7 +22,11 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form action="" method="get">
+      <form
+        data-testid="add-movie-form"
+        action=""
+        method="get"
+      >
         <label
           data-testid="title-input-label"
           htmlFor="title-input"
@@ -85,10 +89,11 @@ class AddMovie extends React.Component {
         </label>
         <label
           data-testid="genre-input-label"
-          htmlFor="genre-input"
+          htmlFor="select-input"
         > Gênero
           <select
-            data-testid="send-button"
+            data-testid="genre-input"
+            defaultValue={this.state.genre}
             onClick={this.props.onClick}
           >
             <option
