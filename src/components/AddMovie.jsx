@@ -9,22 +9,20 @@ class AddMovie extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   handleOnSubmit() {
@@ -32,12 +30,12 @@ class AddMovie extends Component {
     onClick(this.state);
 
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     });
   }
 
@@ -45,8 +43,9 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <fildser>
-          <label data-testid="title-input-label">Título</label>
+          <label htmlFor="title-input-label" data-testid="title-input-label">Título</label>
           <input
+            id="title-input-label"
             name="title"
             value={this.state.title}
             onChange={this.handleChange}
@@ -56,8 +55,9 @@ class AddMovie extends Component {
         </fildser>
 
         <fildser>
-          <label data-testid="subtitle-input-label">Subtítulo</label>
+          <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">Subtítulo</label>
           <input
+            id="subtitle-input-label"
             name="subtitle"
             value={this.state.subtitle}
             onChange={this.handleChange}
@@ -67,8 +67,9 @@ class AddMovie extends Component {
         </fildser>
 
         <fildser>
-          <label data-testid="image-input-label">Imagem</label>
+          <label htmlFor="image-input-label" data-testid="image-input-label">Imagem</label>
           <input
+            id="image-input-label"
             name="imagePath"
             value={this.state.imagePath}
             onChange={this.handleChange}
@@ -78,8 +79,9 @@ class AddMovie extends Component {
         </fildser>
 
         <fildser>
-          <label data-testid="storyline-input-label">Sinopse</label>
+          <label htmlFor="storyline-input-label" data-testid="storyline-input-label">Sinopse</label>
           <textarea
+            id="storyline-input-label"
             name="storyline"
             value={this.state.storyline}
             onChange={this.handleChange}
@@ -89,8 +91,9 @@ class AddMovie extends Component {
         </fildser>
 
         <fildser>
-          <label data-testid="rating-input-label">Avaliação</label>
+          <label htmlFor="rating-input-label" data-testid="rating-input-label">Avaliação</label>
           <input
+            id="rating-input-label"
             name="rating"
             value={this.state.rating}
             onChange={this.handleChange}
@@ -100,8 +103,9 @@ class AddMovie extends Component {
         </fildser>
 
         <fieldset>
-          <label data-testid="genre-input-label">Gênero</label>
+          <label htmlFor="genre-input-label" data-testid="genre-input-label">Gênero</label>
           <select
+            id="genre-input-label"
             name="genre"
             data-testid="genre-input"
             onChange={this.handleChange}
@@ -133,3 +137,9 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+
+
+SearchBar.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
