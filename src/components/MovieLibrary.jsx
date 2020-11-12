@@ -1,9 +1,9 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -24,35 +24,26 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange({ target: { value } }) {
-    this.setState({
-      searchText: value,
-    });
+    this.setState({ searchText: value });
   }
 
   onBookmarkedChange({ target: { checked } }) {
-    this.setState({
-      bookmarkedOnly: checked,
-    });
+    this.setState({ bookmarkedOnly: checked });
   }
 
   onSelectedGenreChange({ target: { value } }) {
-    this.setState({
-      selectedGenre: value,
-    });
+    this.setState({ selectedGenre: value });
   }
 
   filteredMovies(allStates) {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = allStates;
+    const checkGender = (element) => selectedGenre === '' || element === selectedGenre;
 
     const bookMarkedFilter = movies.filter((movie) => {
-      if (bookmarkedOnly) return movie.bookmarked;
+      if (bookmarkedOnly) return movie.bookmarkedOnly;
       return movie;
     });
-
-    const genreFilter = bookMarkedFilter.filter(({ genre }) => {
-      return selectedGenre === '' || genre === selectedGenre;
-    });
-
+    const genreFilter = bookMarkedFilter.filter(({ genre }) => checkGender(genre));
     return genreFilter.filter(({ title, subtitle, storyline }) => {
       const movieInfo = `${title} - ${subtitle} - ${storyline}`;
       return movieInfo.includes(searchText);
@@ -90,8 +81,7 @@ MovieLibrary.propTypes = {
       storyline: PropTypes.string,
       rating: PropTypes.number,
       imagePath: PropTypes.string,
-    }).isRequired
-  ).isRequired,
+    })).isRequired,
 };
 
 export default MovieLibrary;
