@@ -74,7 +74,7 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           onSearchTextChange={this.state.computedInputsSearchBar}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={}
+          onSelectedGenreChange={this.computedInputsSearchBar}
         />
         <MovieList movies={this.moviesSearchResult()} />
         <AddMovie onClick={this.addComputedMovie} />

@@ -15,7 +15,7 @@ class addMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookmarked: false
+      bookmarked: false,
     };
   }
 
@@ -39,7 +39,7 @@ class addMovie extends Component {
     return (
       <label htmlFor="title" data-testid="title-input-label">
         Titulo
-        <input 
+        <input
           name="title"
           type="text"
           data-testid="title-input"
@@ -52,9 +52,9 @@ class addMovie extends Component {
 
   subtitle() {
     return(
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+    <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtitulo
-        <input 
+        <input
           name="subtitle"
           type="text"
           data-testid="subtitleinput"
@@ -66,7 +66,7 @@ class addMovie extends Component {
   }
 
   image() {
-    <label htmlFor="imagePath" data-testid="image-input-label">
+    <label htmlFor="imagePath" data-testid="image-input-label" >
       Imagem
       <input
         name="subtitle"
@@ -76,13 +76,13 @@ class addMovie extends Component {
         onChange={this.computedInputsAddMovie}
       />
     </label>
-  };
+  }
 
   storyline() {
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
-        <textarea 
+        <textarea
           name="storyline"
           data-testid="storyline-input"
           value={this.state.storyline}
@@ -94,7 +94,7 @@ class addMovie extends Component {
 
   rating() {
     return (
-    <label htmlFor="rating" data-testid="rating-input-label">
+      <label htmlFor="rating" data-testid="rating-input-label">
       Avaliação
       <input 
         name="rating"
@@ -110,9 +110,9 @@ class addMovie extends Component {
 
   genre() {
     return (
-    <label htmlFor="genre" data-testid="genre-input-label">
+      <label htmlFor="genre" data-testid="genre-input-label">
       Gênero
-      <select 
+      <select
         name="genre"
         data-testid="genre-input"
         value={this.state.genre}
@@ -162,6 +162,6 @@ class addMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+addMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
-export default AddMovie;
+export default addMovie;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import movies from './data';
-import MovieLibrary from './components/MovieLibrary'
+import MovieLibrary from './components/MovieLibrary';
 
 class Header extends React.Component {
   render() {
