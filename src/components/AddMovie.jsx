@@ -27,6 +27,7 @@ class AddMovie extends React.Component {
           <input
             data-testid="title-input"
             id="title-input"
+            type="text"
             name="title"
             value={this.state.title}
             onChange={this.changeInput}>
@@ -36,6 +37,7 @@ class AddMovie extends React.Component {
           <input
             data-testid="subtitle-input"
             id="subtitle-input"
+            type="text"
             name="subtitle"
             value={this.state.subtitle}
             onChange={this.changeInput}>
@@ -45,6 +47,7 @@ class AddMovie extends React.Component {
           <input
             data-testid="image-input"
             id="image-input"
+            type="text"
             name="imagePath"
             value={this.state.imagePath}
             onChange={this.changeInput}>
@@ -59,6 +62,16 @@ class AddMovie extends React.Component {
             onChange={this.changeInput}
             rows="4" cols="50">
           </textarea>
+
+          <label data-testid="rating-input-label" htmlFor="rating-input">Avaliação</label>
+          <input
+            data-testid="rating-input"
+            id="rating-input"
+            type="number"
+            name="rating"
+            value={this.state.rating}
+            onChange={this.changeInput}>
+          </input>
 
         </form>
       </div>
