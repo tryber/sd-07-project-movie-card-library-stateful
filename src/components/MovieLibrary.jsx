@@ -26,6 +26,11 @@ class MovieLibrary extends React.Component {
   onSelectedGenreChange = event => {
     //
   }
+
+  handleClick = event => {
+    //
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.props;
     return (
@@ -38,7 +43,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange} />
         <MovieList movies={movies}/>
-        <AddMovie />
+        <AddMovie handleClick={this.handleClick}/>
       </div>
     );
   }
