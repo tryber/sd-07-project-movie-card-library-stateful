@@ -24,13 +24,16 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onBookmarkedChange() {}
+  onBookmarkedChange({ target }) {
+    const { name, checked } = target;
+    this.setState({ [name]: checked });
+  }
 
   onSelectedGenreChange() {}
 
   render() {
     const { movies } = this.props;
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly } = this.state;
 
     return (
       <div>
@@ -38,6 +41,8 @@ class MovieLibrary extends React.Component {
         <SearchBar
           searchText={searchText}
           onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
         />
         <MovieList movies={movies} />
       </div>
