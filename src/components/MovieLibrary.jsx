@@ -6,7 +6,7 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   render() {
-    return(
+    return (
       <div>
         <SearchBar />
         <MovieList />
