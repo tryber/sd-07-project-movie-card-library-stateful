@@ -4,6 +4,13 @@ import React from 'react';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
+    this.changeTitle = this.changeTitle.bind(this);
+    this.changeSubtitle = this.changeSubtitle.bind(this);
+    this.changeImage = this.changeImage.bind(this);
+    this.changeStoryline = this.changeStoryline.bind(this);
+    this.changeRating = this.changeRating.bind(this);
+    this.changeGenre = this.changeGenre.bind(this);
+
     this.state = {
       'subtitle': '',
       'title': '',
@@ -20,28 +27,31 @@ class AddMovie extends React.Component {
   }
   changeTitle({target}) {
     this.setState({
-      'title': target.value;
+      'title': target.value
     })
   }
   changeImage({target}) {
     this.setState({
-      'imagePath': target.value;
+      'imagePath': target.value
     })
   }
   changeStoryline({target}) {
     this.setState({
-      'storyline': target.value;
+      'storyline': target.value
     })
   }
   changeRating({target}) {
     this.setState({
-      'rating': target.value;
+      'rating': target.value
     })
   }
   changeGenre({target}) {
     this.setState({
-      'genre': target.value;
+      'genre': target.value
     })
+  }
+  clickButton() {
+    this.props.onClick();
   }
   changeGenre
   render() {
@@ -89,25 +99,20 @@ class AddMovie extends React.Component {
           <label data-testid="genre-input-label">
             Gênero
             <select value={this.state.genre} data-testid="genre-input" onChange={this.changeGenre}>
-              <option name="action" value="action">
+              <option name="action" value="action" data-testid="genre-option">
                 Ação
               </option>
-              <option name="comedy" value="comedy">
+              <option name="comedy" value="comedy" data-testid="genre-option">
                 Comédia
               </option>
-              <option name="thriller" value="thriller">
+              <option name="thriller" value="thriller" data-testid="genre-option">
                 Suspense
               </option>
             </select>
           </label>
+          <button data-testid="send-button" onClick={() => this.props.onClick())}>Adicionar filme</button>
         </form>
       </div>
-      // - subtítulo
-      // - título
-      // - caminho da imagem
-      // - sinopse
-      // - avaliação
-      // - gênero
     );
   }
 }
