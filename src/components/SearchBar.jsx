@@ -39,9 +39,10 @@ class SearchBar extends Component {
           />
         </fieldset>
         <fieldset>
-          <label data-testid="select-input-label">Filtrar por gênero</label>
+          <label htmlFor="selectedGenre" data-testid="select-input-label">Filtrar por gênero</label>
           <select
-            name='selectedGenre'
+            id="selectedGenre"
+            name="selectedGenre"
             data-testid="select-input"
             value={selectedGenre}
             onChange={onSelectedGenreChange}
@@ -61,7 +62,6 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-
 SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
@@ -69,12 +69,4 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.func.isRequired,
   searchText: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.func.isRequired,
-}
-
-  // selectedGenre: PropTypes.func,
-  // optionalBool: PropTypes.bool,
-  // optionalFunc: PropTypes.func,
-  // optionalNumber: PropTypes.number,
-  // optionalObject: PropTypes.object,
-  // optionalString: PropTypes.string,
-  // optionalSymbol: PropTypes.symbol,
+};
