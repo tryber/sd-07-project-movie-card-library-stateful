@@ -51,13 +51,14 @@ class AddMovie extends React.Component {
           </input>
 
           <label data-testid="storyline-input-label" htmlFor="storyline-input">Sinopse</label>
-          <input
+          <textarea
             data-testid="storyline-input"
             id="storyline-input"
             name="storyline"
             value={this.state.storyline}
-            onChange={this.changeInput}>
-          </input>
+            onChange={this.changeInput}
+            rows="4" cols="50">
+          </textarea>
 
         </form>
       </div>
