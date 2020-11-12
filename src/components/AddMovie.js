@@ -15,9 +15,9 @@ class AddMovie extends React.Component {
         }
     }
 
-    addTitle = ({target}) => {
+    changeStateValue = ({target}) => {
         this.setState({
-            title: target.value
+            [target.name]: target.value
         })
     }
 
@@ -27,7 +27,9 @@ class AddMovie extends React.Component {
         return (
             <form data-testid="add-movie-form">
                 <label data-testid="title-input-label">Título</label>
-                <input onChange={this.addTitle} data-testid="title-input" value={this.state.title} />
+                <input name="title" onChange={this.changeStateValue} data-testid="title-input" value={this.state.title} />
+                <label data-testid="subtitle-input-label">Subtítulo</label>
+                <input name="subtitle" onChange={this.changeStateValue} data-testid="subtitle-input" value={this.state.subtitle} />
             </form>
         );
     }

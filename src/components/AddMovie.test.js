@@ -83,20 +83,20 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
 });
 
 describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
-  it.skip('Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme', () => {
+  it('Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
   
-  it.skip('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
+  it('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
     expect(subtitleInputLabel).toBeInTheDocument();
     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
   });
 
-  it.skip('Será validado se o estado inicial do subtitulo é "", ou seja, uma string vazia', () => {
+  it('Será validado se o estado inicial do subtitulo é "", ou seja, uma string vazia', () => {
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it.skip('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
+  it('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
