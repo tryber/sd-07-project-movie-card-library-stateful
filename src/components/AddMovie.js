@@ -16,13 +16,28 @@ class AddMovie extends React.Component {
     }
 
     changeStateValue = ({target}) => {
+        const { name, value } = target;
+
         this.setState({
-            [target.name]: target.value
+            [name]: value
+        })
+    }
+
+    addMovieForm = () => {
+        const { onClick } = this.props;
+        onClick(this.state);
+
+        this.setState({
+            subtitle: '',
+            title: '',
+            imagePath: '',
+            storyline: '',
+            rating: 0,
+            genre: 'action'
         })
     }
 
     render() {
-        const { onClick } = this.props;
 
         return (
             <form data-testid="add-movie-form">
@@ -36,6 +51,13 @@ class AddMovie extends React.Component {
                 <textarea data-testid="storyline-input" name="storyline" onChange={this.changeStateValue} value={this.state.storyline}></textarea>
                 <label data-testid="rating-input-label">Avaliação</label>
                 <input data-testid="rating-input" onChange={this.changeStateValue} name="rating" type="number" value={this.state.rating} />
+                <label data-testid="genre-input-label">Gênero</label>
+                <select name="genre" data-testid="genre-input" value={this.state.genre} onChange={this.changeStateValue}>
+                    <option data-testid="genre-option" value="action">Ação</option>
+                    <option data-testid="genre-option" value="comedy">Comédia</option>
+                    <option data-testid="genre-option" value="thriller">Suspense</option>
+                </select>
+                <button onClick={this.addMovieForm} data-testid="send-button">Adicionar filme</button>
             </form>
         );
     }
