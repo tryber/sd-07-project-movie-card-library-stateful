@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
@@ -12,11 +13,12 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      
       <form data-testid="search-bar-form">
         <fieldset>
-          <label data-testid="text-input-label">Inclui o texto:</label>
+          <label htmlFor='seachText' data-testid="text-input-label">Inclui o texto:</label>
           <input
+            name='searchText'
+            id='searchText'
             type="text"
             onChange={onSearchTextChange}
             value={searchText}
@@ -42,7 +44,7 @@ class SearchBar extends Component {
             value={selectedGenre}
             onChange={onSelectedGenreChange}
             type="select"
-            
+
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
@@ -56,3 +58,25 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
+
+
+SearchBar.propTypes = {
+
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  searchText: PropTypes.func,
+  bookmarkedOnly: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  optionalBool: PropTypes.bool,
+  optionalFunc: PropTypes.func,
+  optionalNumber: PropTypes.number,
+  optionalObject: PropTypes.object,
+  optionalString: PropTypes.string,
+  optionalSymbol: PropTypes.symbol,
+
+}

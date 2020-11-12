@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import MovieList from "./MovieList";
-import AddMovie from "./AddMovie";
+import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
       });
   }
 
-  onSubmitAddMovie(movie) {    
+  onSubmitAddMovie(movie) {
     this.setState(prevState => {
       return { movies: [...prevState.movies, movie] };
     });
