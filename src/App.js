@@ -20,23 +20,17 @@ class App extends React.Component {
     console.log(target.name);
     const { name } = target;
     const value = target.value;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
   onBookmarkedChange({ target }) {
     const { name } = target;
     const value = target.checked;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
   onSelectedGenreChange({ target }) {
     const { name } = target;
     const value = target.value;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
   render() {
     return (
