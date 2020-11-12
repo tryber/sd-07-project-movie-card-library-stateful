@@ -15,10 +15,10 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form">
         <fieldset>
-          <label htmlFor='seachText' data-testid="text-input-label">Inclui o texto:</label>
+          <label htmlFor="text-input-label" data-testid="text-input-label">Inclui o texto:</label>
           <input
-            name='searchText'
-            id='searchText'
+            name="text-input-label"
+            id="text-input-label"
             type="text"
             onChange={onSearchTextChange}
             value={searchText}
@@ -26,10 +26,12 @@ class SearchBar extends Component {
           />
         </fieldset>
         <fieldset>
-          <label data-testid="checkbox-input-label">
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
             Mostrar somente favoritos
           </label>
           <input
+            id="checkbox-input"
+            name="checkbox-input"
             data-testid="checkbox-input"
             onChange={onBookmarkedChange}
             checked={bookmarkedOnly}
@@ -61,22 +63,18 @@ export default SearchBar;
 
 
 SearchBar.propTypes = {
-
-  onSearchTextChange: PropTypes.func,
-  onBookmarkedChange: PropTypes.func,
-  onSelectedGenreChange: PropTypes.func,
-  selectedGenre: PropTypes.func,
-  searchText: PropTypes.func,
-  bookmarkedOnly: PropTypes.func,
-  selectedGenre: PropTypes.func,
-  selectedGenre: PropTypes.func,
-  selectedGenre: PropTypes.func,
-  selectedGenre: PropTypes.func,
-  optionalBool: PropTypes.bool,
-  optionalFunc: PropTypes.func,
-  optionalNumber: PropTypes.number,
-  optionalObject: PropTypes.object,
-  optionalString: PropTypes.string,
-  optionalSymbol: PropTypes.symbol,
-
+  onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.func.isRequired,
+  searchText: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.func.isRequired,
 }
+
+  // selectedGenre: PropTypes.func,
+  // optionalBool: PropTypes.bool,
+  // optionalFunc: PropTypes.func,
+  // optionalNumber: PropTypes.number,
+  // optionalObject: PropTypes.object,
+  // optionalString: PropTypes.string,
+  // optionalSymbol: PropTypes.symbol,
