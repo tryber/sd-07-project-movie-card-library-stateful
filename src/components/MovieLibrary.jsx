@@ -20,7 +20,7 @@ class MovieLibrary extends React.Component {
   // }
 
   // onBookmarkedChange() {
- 
+
   // }
 
   // onSelectedGenreChange() {
