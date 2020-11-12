@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-     return (
+    return (
        <form data-testid="search-bar-form">
-        <label data-testid="text-input-label">
+         <label data-testid="text-input-label" htmlFor="search">
        Inclui o texto
-        <input data-testid="text-input" type="text" name="" id="" />
-       </label>
-      </form>);
-   }
+        <input data-testid="text-input" type="text" name="" id="search" />
+        </label>
+       </form>);
+  }
 }
 
 export default SearchBar;
