@@ -3,18 +3,18 @@ import PropType from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
 
-      this.state = {
+  this.state = {
         subtitle: '',
         title: '',
         imagePath: '',
         storyline: '',
         rating: 0,
-        genre:'action',
+        genre: 'action',
       }
   }
 
@@ -100,6 +100,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropTypes = { onClicK: PropType.func.isRequired };
+AddMovie.PropTypes = { onClick: PropType.func.isRequired };
 
 export default AddMovie;
