@@ -41,19 +41,24 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título</label>
-        <input data-testid="title-input" value={this.state.title} name='title' onChange={this.handleChange} />
+        <input data-testid="title-input" value={this.state.title}
+          name="title" onChange={this.handleChange} />
 
         <label data-testid="subtitle-input-label">Subtítulo</label>
-        <input data-testid="subtitle-input" value={this.state.subtitle} name='subtitle' onChange={this.handleChange} />
+        <input data-testid="subtitle-input" value={this.state.subtitle}
+          name="subtitle" onChange={this.handleChange} />
 
         <label data-testid="image-input-label">Imagem</label>
-        <input data-testid="image-input" value={this.state.imagePath} name='imagePath' onChange={this.handleChange} />
+        <input data-testid="image-input" value={this.state.imagePath}
+          name="imagePath" onChange={this.handleChange} />
 
         <label data-testid="storyline-input-label">Sinopse</label>
-        <textarea data-testid="storyline-input" value={this.state.storyline} name='storyline' onChange={this.handleChange} />
+        <textarea data-testid="storyline-input" value={this.state.storyline}
+          name="storyline" onChange={this.handleChange} />
 
         <label data-testid="rating-input-label">Avaliação</label>
-        <input type='number' data-testid="rating-input" value={this.state.rating} name='rating' onChange={this.handleChange} />
+        <input type="number" data-testid="rating-input" value={this.state.rating}
+          name="rating" onChange={this.handleChange} />
 
         <label data-testid="genre-input-label">Gênero</label>
         <select data-testid="genre-input" value={this.state.genre} name='genre' onChange={this.handleChange}>

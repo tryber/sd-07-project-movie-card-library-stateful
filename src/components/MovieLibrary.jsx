@@ -31,14 +31,14 @@ class MovieLibrary extends React.Component {
           (this.state.bookmarkedOnly ? movie.bookmarked === true : true) &&
           (this.state.selectedGenre === '' ? true : movie.genre === this.state.selectedGenre)
       )
-    }))
+    }));
   }
 
   addNewMovie(movieDetails) {
     this.setState(state => ({
       movies: state.movies.concat(movieDetails),
-      currentMovies: state.movies.concat(movieDetails)
-    }))
+      currentMovies: state.movies.concat(movieDetails),
+    }));
   }
 
   render() {
