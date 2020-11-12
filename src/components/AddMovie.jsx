@@ -27,7 +27,7 @@ class addMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookmarked: false
+      bookmarked: false,
     });
   }
 
@@ -37,21 +37,21 @@ class addMovie extends Component {
 
   title() {
     return (
-      <label htmlFor="title" data-testid="title-input-label">
-        Titulo
-        <input
-          name="title"
-          type="text"
-          data-testid="title-input"
-          value={this.state.value}
-          onChange={this.computedInputsAddMovie}
-        />
-      </label>
+        <label htmlFor="title" data-testid="title-input-label">
+          Titulo
+          <input
+            name="title"
+            type="text"
+            data-testid="title-input"
+            value={this.state.value}
+            onChange={this.computedInputsAddMovie}
+          />
+        </label>
     );
   }
 
   subtitle() {
-    return(
+    return (
     <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtitulo
         <input
@@ -66,7 +66,7 @@ class addMovie extends Component {
   }
 
   image() {
-    <label htmlFor="imagePath" data-testid="image-input-label" >
+    <label htmlFor="imagePath" data-testid="image-input-label">
       Imagem
       <input
         name="subtitle"
