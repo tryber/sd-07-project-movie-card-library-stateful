@@ -49,7 +49,15 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={movies} />
+
+        <MovieList
+          movies={movies.filter(
+            (element) =>
+              element.title.includes(searchText) ||
+              element.subtitle.includes(searchText) ||
+              element.storyline.includes(searchText),
+          )}
+        />
       </div>
     );
   }
