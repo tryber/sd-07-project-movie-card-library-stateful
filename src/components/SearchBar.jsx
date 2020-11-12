@@ -71,7 +71,7 @@ class SearchBar extends React.Component {
 
 export default SearchBar;
 
-AddMovie.propTypes = {
+SearchBar.propTypes = {
   searchText = propTypes.string,
   onSearchTextChange = propTypes.func,
   bookmarkedOnly = propTypes.bool,
