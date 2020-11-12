@@ -112,7 +112,7 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
   });
 });
 
-describe.skip('Verifica se o componente <SearchBar /> renderiza um select de gênero', () => {
+describe('Verifica se o componente <SearchBar /> renderiza um select de gênero', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
