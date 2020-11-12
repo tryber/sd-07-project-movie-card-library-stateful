@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class addMovie extends Component {
+class AddMovie extends Component {
   constructor(props) {
     super(props);
 
@@ -35,29 +35,36 @@ class addMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  computedMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.cleanState();
+  }
+
   title() {
     return (
-        <label htmlFor="title" data-testid="title-input-label">
-          Titulo
-          <input
-            name="title"
-            type="text"
-            data-testid="title-input"
-            value={this.state.value}
-            onChange={this.computedInputsAddMovie}
-          />
-        </label>
+      <label htmlFor="title" data-testid="title-input-label">
+        Título
+        <input
+          name="title"
+          type="text"
+          data-testid="title-input"
+          value={this.state.title}
+          onChange={this.computedInputsAddMovie}
+        />
+      </label>
     );
   }
 
   subtitle() {
     return (
-    <label htmlFor="subtitle" data-testid="subtitle-input-label">
-        Subtitulo
+      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        Subtítulo
         <input
           name="subtitle"
           type="text"
-          data-testid="subtitleinput"
+          data-testid="subtitle-input"
           value={this.state.subtitle}
           onChange={this.computedInputsAddMovie}
         />
@@ -66,16 +73,18 @@ class addMovie extends Component {
   }
 
   image() {
-    <label htmlFor="imagePath" data-testid="image-input-label">
-      Imagem
-      <input
-        name="subtitle"
-        type="text"
-        data-testid="image-input"
-        value={this.state.imagePath}
-        onChange={this.computedInputsAddMovie}
-      />
-    </label>
+    return (
+      <label htmlFor="imagePath" data-testid="image-input-label">
+        Imagem
+        <input
+          name="imagePath"
+          type="text"
+          data-testid="image-input"
+          value={this.state.imagePath}
+          onChange={this.computedInputsAddMovie}
+        />
+      </label>
+    );
   }
 
   storyline() {
@@ -95,40 +104,40 @@ class addMovie extends Component {
   rating() {
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
-      Avaliação
-      <input 
-        name="rating"
-        type="number"
-        step="0.1"
-        data-testid="rating-input"
-        value={this.state.rating}
-        onChange={this.computedInputsAddMovie}
-      />
-    </label>
+        Avaliação
+        <input
+          name="rating"
+          type="number"
+          step="0.1"
+          data-testid="rating-input"
+          value={this.state.rating}
+          onChange={this.computedInputsAddMovie}
+        />
+      </label>
     );
   }
 
   genre() {
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
-      Gênero
-      <select
-        name="genre"
-        data-testid="genre-input"
-        value={this.state.genre}
-        onChange={this.computedInputsAddMovie}
-      >
-        <option value="action" data-testid="genre-option">
-          Ação
-        </option>
-        <option value="comedy" data-testid="genre-option">
-          Comédia
-        </option>
-        <option value="thriller" data-testid="genre-option">
-          Suspense
-        </option>
-      </select>
-    </label>
+        Gênero
+        <select
+          name="genre"
+          data-testid="genre-input"
+          value={this.state.genre}
+          onChange={this.computedInputsAddMovie}
+        >
+          <option value="action" data-testid="genre-option">
+            Ação
+          </option>
+          <option value="comedy" data-testid="genre-option">
+            Comédia
+          </option>
+          <option value="thriller" data-testid="genre-option">
+            Suspense
+          </option>
+        </select>
+      </label>
     );
   }
 
@@ -162,6 +171,6 @@ class addMovie extends Component {
   }
 }
 
-addMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
-export default addMovie;
+export default AddMovie;
