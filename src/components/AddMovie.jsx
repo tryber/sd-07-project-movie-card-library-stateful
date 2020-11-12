@@ -1,11 +1,11 @@
 import React from 'react';
 
-class AddMovie extends React.Component{
+class AddMovie extends React.Component {
   render() {
     return (
       <div>teste</div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default AddMovie;
