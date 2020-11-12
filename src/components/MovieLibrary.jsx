@@ -14,25 +14,15 @@ class MovieLibrary extends Component {
     this.onSubmitAddMovie = this.onSubmitAddMovie.bind(this);
 
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: this.props.movies,
     };
   }
 
-  filtroBolado({ movies, searchText, bookmarkedOnly, selectedGenre }) {
-    return movies
-      .filter((filme) => selectedGenre === "" || filme.genre === selectedGenre)
-      .filter((filme) => (bookmarkedOnly ? filme.bookmarked : filme))
-      .filter((filme) => {
-        const text = `${filme.title} ${filme.subtitle} ${filme.storyline}`.toLowerCase();
-        return text.includes(searchText.toLowerCase());
-      });
-  }
-
   onSubmitAddMovie(movie) {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { movies: [...prevState.movies, movie] };
     });
   }
@@ -47,6 +37,16 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
+  }
+
+  filtroBolado({ movies, searchText, bookmarkedOnly, selectedGenre }) {
+    return movies
+      .filter((filme) => selectedGenre === '' || filme.genre === selectedGenre)
+      .filter((filme) => (bookmarkedOnly ? filme.bookmarked : filme))
+      .filter((filme) => {
+        const text = `${filme.title} ${filme.subtitle} ${filme.storyline}`.toLowerCase();
+        return text.includes(searchText.toLowerCase());
+      });
   }
 
   render() {
@@ -69,3 +69,5 @@ class MovieLibrary extends Component {
 }
 
 export default MovieLibrary;
+
+movies
