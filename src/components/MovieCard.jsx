@@ -4,10 +4,12 @@ import Rating from './Rating';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    // retirar gambiarra quando feito protoType
+    const prop = this.props;
+    const { movie } = prop;
     const { title, subtitle, storyline, rating, imagePath } = movie;
     return (
-      <div className="movie-card" data-testid='movie-card'>
+      <div className="movie-card" data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
         <div className="movie-card-body">
           <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>

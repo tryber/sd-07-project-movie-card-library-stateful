@@ -1,25 +1,50 @@
 import React, { Component } from 'react';
-
-import MovieList from './MovieList';
+// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  /* constructor(props) {
+  constructor(props) {
     super(props);
-  } */
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
+  }
+  // Poderia ser só um método... Vamos ver se o CC deixa
+  SearchTextChange(valeu) {
+    this.setState({ searchText: valeu });
+  }
+
+  BookmarkedChange(valeu) {
+    this.setState({ bookmarkedOnly: valeu });
+  }
+
+  SelectedGenreChange(valeu) {
+    this.setState({ selectedGenre: valeu });
+  }
 
   render() {
-    const prop = this.props;
+    // const prop = this.props;
     return (
       <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={prop.movies} />
-        <AddMovie />
+        <h2> MovieLibrary Funciona</h2>
+        <SearchBar
+          {...this.state}
+          onSearchTextChange={this.SearchTextChange}
+          onBookmarkedChange={this.BookmarkedChange}
+          onSelectedGenreChange={this.SelectedGenreChange}
+        />
       </div>
     );
   }
 }
 
 export default MovieLibrary;
+
+/* <MovieList movies={prop.movies} />
+<AddMovie /> */
