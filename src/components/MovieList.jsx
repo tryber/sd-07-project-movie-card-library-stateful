@@ -18,8 +18,6 @@ export default MovieList;
 
 MovieList.propTypes = {
   movies: propTypes.arrayOf(
-    propTypes.shape(movieShape),
-  ),
+    propTypes.shape(movieShape).isRequired,
+  ).isRequired,
 };
-
-MovieList.defaultProps = [];
