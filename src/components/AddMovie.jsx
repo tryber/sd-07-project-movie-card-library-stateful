@@ -1,11 +1,14 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleChanges = this.handleChanges.bind(this);
+    this.submitAndReset = this.submitAndReset.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -22,9 +25,21 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  submitAndReset() {
     const { onClick } = this.props;
 
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
@@ -59,10 +74,9 @@ class AddMovie extends React.Component {
         </label>
         <label data-testid="storyline-input-label">
           Sinopse
-          <input
+          <textarea
             name="storyline"
             data-testid="storyline-input"
-            type="textarea"
             value={this.state.storyline}
             onChange={this.handleChanges}
           />
@@ -81,7 +95,7 @@ class AddMovie extends React.Component {
           Gênero
           <select
             name="genre"
-            value={this.genre}
+            value={this.state.genre}
             onChange={this.handleChanges}
             data-testid="genre-input"
           >
@@ -96,7 +110,7 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={() => onClick(this.state)}>
+        <button data-testid="send-button" onClick={this.submitAndReset}>
           Adicionar filme
         </button>
       </form>
@@ -105,3 +119,5 @@ class AddMovie extends React.Component {
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
