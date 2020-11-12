@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Proptype from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-// import movies from '../data';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
