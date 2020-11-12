@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
         />
 
 
-        <label data-testid="select-input-label" for="labelselect">
+        <label data-testid="select-input-label" htmlFor="labelselect">
           Filtrar por gênero
         </label>
         <select

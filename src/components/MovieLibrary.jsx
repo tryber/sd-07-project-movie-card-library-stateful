@@ -22,20 +22,21 @@ class MovieLibrary extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    }, () => this.setState({currentMovies: this.props.movies.filter(
-        (movie) => (movie.title.includes(this.state.searchText) ||
-          movie.subtitle.includes(this.state.searchText) ||
-          movie.storyline.includes(this.state.searchText)) &&
-          (this.state.bookmarkedOnly ? movie.bookmarked === true : true) &&
-          (this.state.selectedGenre === '' ? true : movie.genre === this.state.selectedGenre),
-      ),
-    }));
+    this.setState({ [name]: value }, () =>
+      this.setState({
+        currentMovies: this.props.movies.filter(
+          (movie) => (movie.title.includes(this.state.searchText) ||
+            movie.subtitle.includes(this.state.searchText) ||
+            movie.storyline.includes(this.state.searchText)) &&
+            (this.state.bookmarkedOnly ? movie.bookmarked === true : true) &&
+            (this.state.selectedGenre === '' ? true : movie.genre === this.state.selectedGenre),
+        ),
+      }));
   }
 
   addNewMovie(movieDetails) {
-    this.setState((state) => ({movies: state.movies.concat(movieDetails),
+    this.setState((state) => ({
+      movies: state.movies.concat(movieDetails),
       currentMovies: state.movies.concat(movieDetails),
     }));
   }
@@ -61,7 +62,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-MovieLibrary.propTypes = { 
+MovieLibrary.propTypes = {
   movies: Proptypes.arrayOf(Proptypes.object),
   moviesfilter: Proptypes.arrayOf(Proptypes.object),
 };
