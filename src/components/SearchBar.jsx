@@ -23,28 +23,28 @@ class SearchBar extends React.Component {
             onChange={onSearchTextChange}
             data-testid="text-input"
           />
-          </label>
-          <label htmlFor="bookmarked" data-testid="checkbox-input-label">
-            Mostrar somente favoritos
-            <input
-              type="checkbox"
-              checked={bookmarkedOnly}
-              onChange={onBookmarkedChange}
-              data-testid="checkbox-input"
-            />
-          </label>
-          <label htmlFor="genre" data-testid="select-input-label">
-            Filtrar por gênero
-            <select
-              name="genre"
-              value={selectedGenre}
-              onChange={onSelectedGenreChange}
-              data-testid="select-input"
-            >
-              <option value="" data-testid="select-option">Todos</option>
-              <option value="action" data-testid="select-option">Ação</option>
-              <option value="comedy" data-testid="select-option">Comédia</option>
-              <option value="thriller" data-testid="select-option">Suspense</option>
+        </label>
+        <label htmlFor="bookmarked" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            data-testid="checkbox-input"
+          />
+        </label>
+        <label htmlFor="genre" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            name="genre"
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </label>
       </form>
