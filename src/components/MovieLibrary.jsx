@@ -1,4 +1,4 @@
-// código do readme:
+// código do readm
 import React, { Component } from 'react';
 
 import MovieList from './MovieList';
