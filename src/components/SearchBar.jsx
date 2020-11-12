@@ -1,20 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  /*  constructor(props) {
-    super(props);
-    this.teste = this.teste.bind(this);
-    
-    this.state = {
-      searchText: '',
-      onSearchTextChange: '',
-      bookmarkedOnly: false,
-      onBookmarkedChange: '',
-      selectedGenre: '',
-      onSelectedGenreChange: '',
-    };
-  } */
 
   render() {
     const {
@@ -26,16 +13,16 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
-    return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="searchText" data-testid="text-input-label">
-          Inclui o texto
-          <input
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}
-            data-testid="text-input"
-          />
+  return (
+    <form data-testid="search-bar-form">
+      <label htmlFor="searchText" data-testid="text-input-label">
+        Inclui o texto
+        <input
+          type="text"
+          value={searchText}
+          onChange={onSearchTextChange}
+          data-testid="text-input"
+        />
         </label>
         <label htmlFor="bookmarked" data-testid="checkbox-input-label">
           Mostrar somente favoritos
