@@ -15,47 +15,49 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label 
-          data-testid="text-input-label"
-          htmlFor="search">
-          Inclui o texto:W
+          <label data-testid="text-input-label" htmlFor="search">
+            Inclui o texto:W
           </label>
           <input
-          name="search"
-          type="text" 
-          data-testid="text-input" 
-          value={searchText}
-          onChange={onSearchTextChange}
+            name="search"
+            type="text"
+            data-testid="text-input"
+            value={searchText}
+            onChange={onSearchTextChange}
           />
 
-          <label 
-          data-testid="checkbox-input-label"
-          htmlFor="chekSearch">
-          Mostrar somente favoritos
+          <label data-testid="checkbox-input-label" htmlFor="chekSearch">
+            Mostrar somente favoritos
           </label>
           <input
-          name="chekSearch" 
-          type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
-          data-testid="checkbox-input"
+            name="chekSearch"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            data-testid="checkbox-input"
           />
 
-          <label 
-          data-testid="select-input-label"
-          htmlFor="labelSelect">
-          Filtrar por gênero
+          <label data-testid="select-input-label" htmlFor="labelSelect">
+            Filtrar por gênero
           </label>
-          <select 
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
-          name="labelSelect"
-          data-testid="select-input"
+          <select
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            name="labelSelect"
+            data-testid="select-input"
           >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+            <option data-testid="select-option" value="">
+              Todos
+            </option>
+            <option data-testid="select-option" value="action">
+              Ação
+            </option>
+            <option data-testid="select-option" value="comedy">
+              Comédia
+            </option>
+            <option data-testid="select-option" value="thriller">
+              Suspense
+            </option>
           </select>
         </form>
       </div>
