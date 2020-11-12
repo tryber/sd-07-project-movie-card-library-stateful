@@ -1,24 +1,13 @@
-import React, { Component } from 'react';
-
-import MovieList from './MovieList';
-import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
-
-class MovieLibrary extends Component {
-  constructor() {
-    super();
-  }
-
+import React from 'react';
+import MovieCard from './MovieCard';
+class MovieList extends React.Component {
   render() {
+    const { movies } = this.props;
     return (
-      <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar />
-        
-        <AddMovie />
+      <div data-testid="movie-list" className="movie-list">
+        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
 }
-
-export default MovieLibrary;
+export default MovieList;
