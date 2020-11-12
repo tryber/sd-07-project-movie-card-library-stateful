@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form" for="searchtextimput">
+      <form data-testid="search-bar-form" htmlFor="searchtextimput">
         <label data-testid="text-input-label">
           Inclui o texto
         </label>
@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
         />
 
 
-        <label data-testid="checkbox-input-label" for="checkboxfaves">
+        <label data-testid="checkbox-input-label" htmlFor="checkboxfaves">
           Mostrar somente favoritos
         </label>
         <input
