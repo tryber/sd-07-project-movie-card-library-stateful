@@ -85,7 +85,6 @@ class Addmovie extends React.Component {
           </select>
         </label><br />
         <input type="button" value="Adicionar filme" data-testid="send-button" />
-        <div>Cosmo</div>
       </form>
     );
   }
