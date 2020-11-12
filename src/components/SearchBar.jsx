@@ -3,16 +3,20 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const {searchText,
-          onSearchTextChange,
-          bookmarkedOnly,
-          onBookmarkedChange,
-          selectedGenre,
-          onSelectedGenreChange} = this.props
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
 
-    return(
-      <input type='text'></input>
-    )
+    return (
+      <form data-testid="search-bar-form">
+        <input type="text" />
+      </form>
+    );
   }
 }
 

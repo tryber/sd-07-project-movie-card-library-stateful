@@ -4,9 +4,9 @@ import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   render() {
-    return(
+    return (
       <SearchBar />
-    )
+    );
   }
 }
 
