@@ -5,11 +5,11 @@ import '@testing-library/jest-dom';
 import Header from './Header';
 
 describe('Verifica o componente <Header />', () => {
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     render(<Header />);
   });
 
-  it.skip('Será validado se existe o texto "Movie Cards Library" dentro do heading ', () => {
+  it('Será validado se existe o texto "Movie Cards Library" dentro do heading ', () => {
     const { getByRole } = render(<Header />);
     const header = getByRole('heading');
 
