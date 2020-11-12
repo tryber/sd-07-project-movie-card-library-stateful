@@ -80,7 +80,7 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
   });
 });
 
-describe.skip('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
+describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
