@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
 
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <div>
             <label htmlFor="title-input" data-testid="title-input-label">Título</label>
             <input
