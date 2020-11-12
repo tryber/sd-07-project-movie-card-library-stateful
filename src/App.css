@@ -37,7 +37,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -80,4 +79,53 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.form {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 30px;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.form:nth-child( 1 ) .form-block:nth-child( 2 ) {
+  align-items: center;
+  flex-direction: row;
+}
+
+.form-block textarea , .form-block select , .form-block input {
+  background: white;
+  border: 1px solid #343a40;
+  border-radius: 4px;
+  height: 42px;
+  margin-top: 5px;
+  padding: 10px 15px;
+}
+
+.form:nth-child( 1 ) .form-block:nth-child( 2 ) input {
+  margin-right: 10px;
+  margin-top: 0;
+  width: 18px;
+}
+
+.form-block textarea {
+  height: initial;
+  resize: none;
+}
+
+.form-submit {
+  align-self: flex-end;
+  background: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  height: 42px;
+  margin-top: 10px;
+  padding: 10px 15px;
 }
