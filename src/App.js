@@ -5,11 +5,11 @@ import MovieLibrary from './components/MovieLibrary';
 import movies from './data.js';
 
 function App() {
-  const data = movies
+  const data = movies;
   return (
     <div className="App">
       <Header />
-      <MovieLibrary movies={data}/>
+      <MovieLibrary movies={data} />
     </div>
   );
 }
