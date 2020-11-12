@@ -53,7 +53,7 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
+  it('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
     const { getAllByTestId } = searchBar();
     const textInput = getAllByTestId('text-input');
     expect(textInput).toHaveLength(1);
