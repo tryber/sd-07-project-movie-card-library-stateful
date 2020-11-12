@@ -49,7 +49,7 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
   });
 });
 
-describe.skip('Verifica o input de texto do componente <SearchBar />', () => {
+describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
