@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
@@ -118,6 +118,7 @@ class AddMovie extends React.Component {
             id="genre-selection"
             value={genre}
             onChange={this.handleChange}
+            data-testid="genre-input"
           >
             <option value="action" data-testid="genre-option" >Ação</option>
             <option value="comedy" data-testid="genre-option" >Comédia</option>
