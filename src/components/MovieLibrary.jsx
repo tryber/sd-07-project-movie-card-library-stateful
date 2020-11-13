@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -13,16 +14,16 @@ class MovieLibrary extends React.Component {
     this.markedBook = this.markedBook.bind(this);
     this.genderSelectedChange = this.genderSelectedChange.bind(this);
     this.moviesFiltered = this.moviesFiltered.bind(this);
-    
+  
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    }
+    };
   }
-  
+
   textChange({ target }) {
     this.setState({ searchText: target.value });
   }
@@ -44,17 +45,16 @@ class MovieLibrary extends React.Component {
       .filter((movie) => movie.genre === this.state.selectedGenre);
     }
     return this.state.movies
-      .filter((movie) => 
+      .filter((movie) =>
         movie.title.includes(this.state.searchText) ||
         movie.subtitle.includes(this.state.searchText) ||
         movie.storyline.includes(this.state.searchText));
   }
 
   render() {
-
     return (
-    <div>
-      <SearchBar 
+      <div>
+      <SearchBar
         searchText={this.state.searchText}
         bookmarkedOnly={this.state.bookmarkedOnly}
         selectedGenre={this.state.selectedGenre}
@@ -64,8 +64,21 @@ class MovieLibrary extends React.Component {
       />
       <MovieList movies={this.moviesFiltered()} />
       <AddMovie />
-    </div>)
+    </div>
+    );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      imagePath: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired
+};
 
 export default MovieLibrary;
