@@ -1,4 +1,5 @@
-/* import.. React from 'react';
+import PropsTypes from 'prop-types';
+import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -18,10 +19,8 @@ class AddMovie extends React.Component {
 
   handlerInput({ target }) {
     const { name } = target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   handlerClick(value) {
@@ -37,8 +36,8 @@ class AddMovie extends React.Component {
   }
   render() {
     return (
-      <form>
-        <label data-testid="title-input-label">
+      <form data-testid="add-movie-form">
+        <label htmlFor="Genre" data-testid="title-input-label">
           Título
           <input
             name="title"
@@ -48,7 +47,7 @@ class AddMovie extends React.Component {
             onChange={this.handlerInput}
           />
         </label>
-        <label data-testid="subtitle-input-label">
+        <label htmlFor="Genre" data-testid="subtitle-input-label">
           Subtítulo
           <input
             data-testid="subtitle-input"
@@ -56,8 +55,8 @@ class AddMovie extends React.Component {
             value={this.state.subtitle}
             onChange={this.handlerInput}
           />
-        </label>
-        <label data-testid="image-input-label">
+        </label >
+        <label htmlFor="Genre" data-testid="image-input-label">
           Imagem
           <input
             data-testid="image-input"
@@ -66,7 +65,7 @@ class AddMovie extends React.Component {
             onChange={this.handlerInput}
           />
         </label>
-        <label data-testid="storyline-input-label">
+        <label htmlFor="Genre" data-testid="storyline-input-label">
           Sinopse
           <textarea
             data-testid="storyline-input"
@@ -74,7 +73,7 @@ class AddMovie extends React.Component {
             onChange={this.handlerInput}
           />
         </label>
-        <label data-testid="rating-input-label">
+        <label htmlFor="Genre" data-testid="rating-input-label">
           Avaliação
           <input
             data-testid="rating-input"
@@ -82,8 +81,8 @@ class AddMovie extends React.Component {
             value={this.state.rating}
             onChange={this.handlerInput}
           />
-        </label>
-        <label data-testid="genre-input-label">
+        </label >
+        <label htmlFor="Genre" data-testid="genre-input-label">
           Gênero
           <select
             data-testid="genre-input"
@@ -112,4 +111,6 @@ class AddMovie extends React.Component {
   }
 }
 
-export default AddMovie; */
+export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropsTypes.func.isRequired };
