@@ -22,7 +22,11 @@ class AddMovie extends React.Component {
   changeStateValue({ target }) {
     const { name, value } = target;
 
-    this.setState({ [name]: value });
+    if (name === 'rating') {
+      this.setState({ [name]: Number(value) });
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   addMovieForm() {
