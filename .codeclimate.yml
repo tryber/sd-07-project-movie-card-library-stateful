@@ -30,7 +30,7 @@ checks:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
 exclude_patterns:
-- "**/*.test.js"
+- "**/*.test"
 - "src/serviceWorker.js"
 - "src/index.css"
 - "**/node_modules/"
