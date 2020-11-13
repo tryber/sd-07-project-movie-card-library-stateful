@@ -40,7 +40,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
     return (
       <div>
         <SearchBar
@@ -59,11 +59,11 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
+  // searchText: PropTypes.string.isRequired,
+  // bookmarkedOnly: PropTypes.bool.isRequired,
+  // selectedGenre: PropTypes.string.isRequired,
+  // filteredMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filteredMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
