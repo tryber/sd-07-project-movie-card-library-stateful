@@ -20,10 +20,6 @@ class MovieLibrary extends React.Component {
     this.handleAddNewMovie = this.handleAddNewMovie.bind(this);
   }
 
-  handleAddNewMovie(movie) {
-    this.setState({ movies: [...this.state.movies, movie] });
-  }
-
   onChange({ target }) {
     const { movies } = this.state;
 
@@ -45,10 +41,14 @@ class MovieLibrary extends React.Component {
         movies: movies.filter((movie) => (
           movie.title.includes(value)) ||
           movie.subtitle.includes(value) ||
-          movie.storyline.includes(value)
-        )
+          movie.storyline.includes(value),
+        ),
       });
     }
+  }
+
+  handleAddNewMovie(movie) {
+    this.setState({ movies: [...this.state.movies, movie] });
   }
 
   render() {
@@ -85,7 +85,7 @@ MovieLibrary.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  }))
-}
+  })).isRequired,
+};
 
 export default MovieLibrary;
