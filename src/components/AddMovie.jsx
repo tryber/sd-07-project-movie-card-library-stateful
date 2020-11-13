@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class AddMovie extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <label data-testid="title-input-label" htmlFor="title-input-label">
             {' '}
             Título
@@ -125,5 +126,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

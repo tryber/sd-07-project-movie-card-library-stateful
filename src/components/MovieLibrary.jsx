@@ -41,14 +41,27 @@ class MovieLibrary extends Component {
   }
 
   onClick(newMovie) {
-    console.log('entrou na funcao onClick');
-    console.log(newMovie);
     const newMovieList = [...this.state.movies, newMovie];
     console.log(newMovieList);
-    this.setState({
-      movies: newMovieList,
-    });
+    this.setState({ movies: newMovieList });
   }
+  // movieFilter() {
+  //   const list = this.props.movies
+  //     .filter((check) => {
+  //       if (this.state.bookmarkedOnly) return check.bookmarked;
+  //       return true;
+  //     })
+  //     .filter((genero) => {
+  //       if (this.state.selectedGenre === '') return true;
+  //       return this.state.selectedGenre === genero.genre;
+  //     })
+  //     .filter((text) => {
+  //       if (this.state.searchText === '') return true;
+  //       const total = `${text.title}*${text.subtitle}*${text.storyline}`;
+  //       return total.includes(this.state.searchText);
+  //     });
+  //   this.setState({ movies: list });
+  // }
 
   movieFilter() {
     const list = this.props.movies
@@ -59,15 +72,17 @@ class MovieLibrary extends Component {
       .filter((genero) => {
         if (this.state.selectedGenre === '') return true;
         return this.state.selectedGenre === genero.genre;
-      })
-      .filter((text) => {
-        if (this.state.searchText === '') return true;
-        const total = `${text.title}*${text.subtitle}*${text.storyline}`;
-        return total.includes(this.state.searchText);
       });
-    this.setState({ movies: list });
+    const list2 = this.filter2(list);
+    this.setState({ movies: list2 });
   }
-
+  filter2(list) {
+    return list.filter((text) => {
+      if (this.state.searchText === '') return true;
+      const total = `${text.title}*${text.subtitle}*${text.storyline}`;
+      return total.includes(this.state.searchText);
+    });
+  }
   render() {
     console.log(this.state);
     return (
@@ -88,16 +103,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      storyline: PropTypes.string,
-      imagePath: PropTypes.string,
-      rating: PropTypes.number,
-    }),
-  ).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf().isRequired };
 
 export default MovieLibrary;
