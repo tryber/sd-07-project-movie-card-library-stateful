@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-
-    this.onTitleChange = this.onTitleChange.bind(this);
+    this.eventHandler = this.eventHandler.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       subtitle: '',
@@ -37,7 +37,7 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title">
           Título
           <input
@@ -117,7 +117,7 @@ class AddMovie extends Component {
             </option>
           </select>
         </label>
-        <button type="submit" onClick={this.onSubmit}>
+        <button data-testid="send-button" type="submit" onClick={this.onSubmit}>
           Adicionar filme
         </button>
       </form>
