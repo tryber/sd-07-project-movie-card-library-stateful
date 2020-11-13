@@ -20,7 +20,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.baseState = this.state;
+  }
+  clearState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
   changeSubtitle({ target }) {
     this.setState({ subtitle: target.value });
@@ -35,14 +44,15 @@ class AddMovie extends React.Component {
     this.setState({ storyline: target.value });
   }
   changeRating({ target }) {
-    this.setState({ rating: target.value });
+    this.setState({ rating: parseFloat(target.value) });
   }
   changeGenre({ target }) {
     this.setState({ genre: target.value });
   }
-  clickButton() {
+  clickButton(event) {
+    event.preventDefault();
     this.props.onClick(this.state);
-    this.setState(this.baseState);
+    this.clearState();
   }
   render() {
     return (
@@ -107,7 +117,7 @@ class AddMovie extends React.Component {
               </option>
             </select>
           </label>
-          <button data-testid="send-button" onClick={this.clickButton}>
+          <button data-testid="send-button" onClick={(event) => this.clickButton(event)}>
             Adicionar filme
           </button>
         </form>
