@@ -20,12 +20,12 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange() {
-    //
+  onSearchTextChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   onBookmarkedChange() {
-    //
+    console.log(this.state);
   }
 
   onSelectedGenreChange() {
@@ -49,7 +49,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie onSearchTextChange={this.onSearchTextChange} />
       </div>
     );
   }

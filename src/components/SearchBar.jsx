@@ -7,7 +7,6 @@ class SearchBar extends React.Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      onSearchTextChange,
       onBookmarkedChange,
       onSelectedGenreChange,
     } = this.props;
@@ -17,9 +16,10 @@ class SearchBar extends React.Component {
           <div>
             <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto:</label>
             <input
+              name="searchText"
               id="text-input"
               type="text" value={searchText}
-              onChange={onSearchTextChange}
+              onChange={this.props.onSearchTextChange}
               data-testid="text-input"
             />
           </div>
