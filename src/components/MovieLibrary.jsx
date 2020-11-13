@@ -22,10 +22,9 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  // prettier-ignore
   onClick(newMovie) {
-    const { movies } = this.state;
-    movies.push(newMovie);
-    this.render();
+    this.setState((previousState) => ({ movies: previousState.movies.concat(newMovie) }));
   }
 
   eventChange({ target }) {
