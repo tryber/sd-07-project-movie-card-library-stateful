@@ -9,6 +9,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props)
     this.filterMovies = this.filterMovies.bind(this);
+    this.filterByText = this.filterByText.bind(this)
     this.state = {
       searchText:"",
       bookmarkedOnly: false,
@@ -28,7 +29,7 @@ class MovieLibrary extends Component {
     }))
   }
 
-  filterByText = (parameter) => {
+  filterByText(parameter) {
     const movies = this.props.movies;
     let filtered = movies;
     const filterByTitle = movies.filter(movie => parameter === movie.title);
