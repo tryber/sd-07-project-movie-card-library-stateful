@@ -1,5 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -7,7 +8,7 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.filterMovies = this.filterMovies.bind(this);
     this.filterByText = this.filterByText.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -15,30 +16,28 @@ class MovieLibrary extends Component {
     this.handleAddMovie = this.handleAddMovie.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
-      searchText:"",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
-      movies: this.props.movies
-    }
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
   }
 
   filterMovies(parameter) {
     const { movies } = this.state;
     let filtered = this.props.movies;
     if (parameter) {
-      filtered = movies.filter(movie => parameter === movie.bookmarked);
-    } 
-    this.setState(() => ({
-      movies: filtered,
-    }))
+      filtered = movies.filter((movie) => parameter === movie.bookmarked);
+    };
+    this.setState(() => ({ movies: filtered }));
   }
 
   filterByText(parameter) {
     const movies = this.props.movies;
     let filtered = movies;
-    const filterByTitle = movies.filter(movie => parameter === movie.title);
-    const filterBySubTitle = movies.filter(movie => parameter === movie.subtitle);
-    const filterByStory = movies.filter(movie => parameter === movie.storyline);
+    const filterByTitle = movies.filter((movie) => parameter === movie.title);
+    const filterBySubTitle = movies.filter((movie) => parameter === movie.subtitle);
+    const filterByStory = movies.filter((movie) => parameter === movie.storyline);
 
     if (filterByTitle.length > 0) filtered = filterByTitle;
 
@@ -46,30 +45,21 @@ class MovieLibrary extends Component {
 
     if (filterByStory.length > 0) filtered = filterByStory;
 
-    this.setState(() => ({
-      movies: filtered,
-    }))
-
+    this.setState(() => ({ movies: filtered }));
   }
 
   onSearchTextChange(event) {
     const { value } = event.target;
-    this.setState(() => ({
-      searchText: value
-    }))
+    this.setState(() => ({ searchText: value }));
     this.filterByText(value);
   }
 
   onBookmarkedChange(event) {
     const { checked } = event.target;
     if (checked) {
-      this.setState(() => ({
-        bookmarkedOnly: checked,
-      }))
+      this.setState(() => ({ bookmarkedOnly: checked }));
     } else {
-      this.setState(() => ({
-        bookmarkedOnly: checked,
-      }))
+      this.setState(() => ({ bookmarkedOnly: checked }));
     }
     this.filterMovies(checked);
   }
@@ -81,9 +71,9 @@ class MovieLibrary extends Component {
   onSelectedGenreChange(event) {
     const { value } = event.target;
     const { movies } = this.props;
-    let filterByGenre = movies
+    let filterByGenre = movies;
     if (value) {
-      filterByGenre = movies.filter(movie => value === movie.genre)
+      filterByGenre = movies.filter((movie) => value === movie.genre)
     }
     this.setState(() => ({
       selectedGenre: value,
@@ -91,10 +81,10 @@ class MovieLibrary extends Component {
     }))
   }
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state
-    return(
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    return (
       <div>
-        <SearchBar 
+        <SearchBar
           searchText={searchText}
           onSearchTextChange={this.onSearchTextChange} 
           bookmarkedOnly={bookmarkedOnly}
@@ -104,10 +94,19 @@ class MovieLibrary extends Component {
         />
         <MovieList movies={movies} />
         <AddMovie onClick={this.handleAddMovie} />
-        
       </div>
-    )
+    );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default MovieLibrary;
