@@ -36,15 +36,11 @@ class SearchBar extends Component {
 
           <label data-testid="select-input-label" htmlFor="text-input">
            Filtrar por gênero
-           <select
-              data-testid="select-input"
-              value={selectedGenre}
-              onChange={onSelectedGenreChange}
-            >
-              <option data-testid="select-option" value="">Todos</option>
-              <option data-testid="select-option" value="action">Ação</option>
-              <option data-testid="select-option" value="comedy">Comédia</option>
-              <option data-testid="select-option" value="thriller">Suspense</option>
+           <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
            </select>
           </label>
         </form>
