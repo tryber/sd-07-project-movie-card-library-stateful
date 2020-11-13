@@ -24,7 +24,7 @@ MovieList.propTypes = {
       storyline: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       imagePath: PropTypes.string.isRequired,
-      bookmarked: PropTypes.bool.isRequired,
+      bookmarked: PropTypes.bool,
       genre: PropTypes.string.isRequired,
     }),
   ).isRequired,

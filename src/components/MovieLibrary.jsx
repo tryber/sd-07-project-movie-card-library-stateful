@@ -17,10 +17,11 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.moviesFilter = this.moviesFilter.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value }, this.moviesFilter);
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange(event) {
@@ -43,6 +44,10 @@ class MovieLibrary extends React.Component {
     return filteredMovies;
   }
 
+  addMovie(childState) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, childState] }));
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +60,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.moviesFilter()} />
-        <AddMovie onClick={() => { }} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
@@ -71,7 +76,7 @@ MovieLibrary.propTypes = {
       storyline: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       imagePath: PropTypes.string.isRequired,
-      bookmarked: PropTypes.bool.isRequired,
+      bookmarked: PropTypes.bool,
       genre: PropTypes.string.isRequired,
     }),
   ).isRequired,

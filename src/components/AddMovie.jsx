@@ -18,11 +18,16 @@ class AddMovie extends React.Component {
 
   handlerChange({ target }) {
     const { name } = target;
-    this.setState({ [name]: target.value });
+    if (target.type === 'number') {
+      this.setState({ [name]: parseFloat(target.value) });
+    } else {
+      this.setState({ [name]: target.value });
+    }
   }
 
   resetAndSendState() {
-    this.props.onClick();
+    this.props.onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
