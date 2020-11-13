@@ -24,8 +24,8 @@ class MovieLibrary extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  onBookmarkedChange() {
-    console.log(searchText, bookmarkedOnly, selectedGenre);
+  onBookmarkedChange(event) {
+    this.setState({ [event.target.name]: event.target.checked });
   }
 
   onSelectedGenreChange() {

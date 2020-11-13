@@ -26,6 +26,7 @@ class SearchBar extends React.Component {
 
           <div>
             <input
+              name="bookmarkedOnly"
               id="checkbox-input"
               data-testid="checkbox-input"
               type="checkbox"
