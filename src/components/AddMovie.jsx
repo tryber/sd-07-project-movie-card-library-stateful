@@ -36,10 +36,29 @@ class AddMovie extends React.Component {
         <label htmlFor="subtitleText" data-testid="subtitle-input-label">
           Subtítulo
           <input
-            name="titleText"
+            name="subtitleText"
             type="text"
             value={this.subtitle}
             data-testid="subtitle-input"
+            onChange={this.changingInputsState}
+          />
+        </label>
+        <label htmlFor="img" data-testid="image-input-label">
+          Imagem
+          <input
+            name="img"
+            type="text"
+            value={this.imagePath}
+            data-testid="image-input"
+            onChange={this.changingInputsState}
+          />
+        </label>
+        <label htmlFor="storylineTxt" ddata-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storylineTxt"
+            value={this.storyline}
+            data-testid="storyline-input"
             onChange={this.changingInputsState}
           />
         </label>
