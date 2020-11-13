@@ -10,89 +10,100 @@ class AddMovie extends React.Component {
     this.changeStoryline = this.changeStoryline.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
+    this.clickButton = this.clickButton.bind(this);
 
     this.state = {
-      'subtitle': '',
-      'title': '',
-      'imagePath': '',
-      'storyline': '',
-      'rating': 0,
-      'genre': 'action',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
+    this.baseState = this.state;
   }
-  changeSubtitle({target}) {
+  changeSubtitle({ target }) {
     this.setState({
-      'subtitle': target.value
-    })
+      subtitle: target.value,
+    });
   }
-  changeTitle({target}) {
+  changeTitle({ target }) {
     this.setState({
-      'title': target.value
-    })
+      title: target.value,
+    });
   }
-  changeImage({target}) {
+  changeImage({ target }) {
     this.setState({
-      'imagePath': target.value
-    })
+      imagePath: target.value,
+    });
   }
-  changeStoryline({target}) {
+  changeStoryline({ target }) {
     this.setState({
-      'storyline': target.value
-    })
+      storyline: target.value,
+    });
   }
-  changeRating({target}) {
+  changeRating({ target }) {
     this.setState({
-      'rating': target.value
-    })
+      rating: target.value,
+    });
   }
-  changeGenre({target}) {
+  changeGenre({ target }) {
     this.setState({
-      'genre': target.value
-    })
+      genre: target.value,
+    });
   }
   clickButton() {
-    this.props.onClick();
+    this.props.onClick(this.state);
+    this.setState(this.baseState); //é pra ter essa linha mesmo?
   }
-  changeGenre
+  changeGenre;
   render() {
     const { onClick } = this.props;
     return (
       <div>
         <form>
           <label data-testid="title-input-label">
+            {' '}
             Título
             <input
               type="text"
               value={this.state.title}
               data-testid="title-input"
-              onChange={this.props.title}
+              onChange={this.changeTitle}
             />
           </label>
-          <label data-testid="subtitle-input-label" > Subtítulo
-            <input 
-              value={this.state.subtitle} 
-              data-testid="subtitle-input" 
-              onChange={this.changeSubtitle} 
+          <label data-testid="subtitle-input-label">
+            {' '}
+            Subtítulo
+            <input
+              value={this.state.subtitle}
+              data-testid="subtitle-input"
+              onChange={this.changeSubtitle}
             />
           </label>
-          <label data-testid="image-input-label"> Imagem
-            <input 
-              value={this.state.imagePath} 
-              data-testid="image-input" 
-              onChange={this.changeImage}/>
+          <label data-testid="image-input-label">
+            {' '}
+            Imagem
+            <input
+              value={this.state.imagePath}
+              data-testid="image-input"
+              onChange={this.changeImage}
+            />
           </label>
-          <label data-testid="storyline-input-label">Sinopse
-            <textarea 
-              value={this.state.storyline} 
+          <label data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              value={this.state.storyline}
               data-testid="storyline-input"
               onChange={this.changeStoryline}
             />
           </label>
-          <label data-testid="rating-input-label">Avaliação
-            <input 
-              type='number' 
-              value={this.state.rating} 
-              data-testid="rating-input" 
+          <label data-testid="rating-input-label">
+            Avaliação
+            <input
+              type="number"
+              value={this.state.rating}
+              data-testid="rating-input"
               onChange={this.changeRating}
             />
           </label>
@@ -110,7 +121,9 @@ class AddMovie extends React.Component {
               </option>
             </select>
           </label>
-          <button data-testid="send-button" onClick={() => this.props.onClick())}>Adicionar filme</button>
+          <button data-testid="send-button" onClick={this.clickButton}>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
