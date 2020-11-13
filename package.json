@@ -35,10 +35,12 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.5",
+    "add": "^2.0.6",
     "babel-eslint": "^10.0.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1"
+    "eslint-config-airbnb": "^18.0.1",
+    "yarn": "^1.22.10"
   }
 }
