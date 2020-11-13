@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 class AddMovie extends Component {
   constructor(props) {
     super(props)
+    this.handleAdds = this.handleAdds.bind(this)
+    this.handleChange =  this.handleChange.bind(this)
     this.state = {
       subtitle: '',
       title: '',
@@ -14,7 +16,7 @@ class AddMovie extends Component {
     }
   }
 
-  handleAdds = (event) => {
+  handleAdds(event) {
     event.preventDefault();
     this.props.onClick(this.state);
     this.setState(() => ({
@@ -29,7 +31,6 @@ class AddMovie extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    
     this.setState(() => ({
       [name]: value
     }))
