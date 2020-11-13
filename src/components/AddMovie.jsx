@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class AddMovie extends Component {
-  constructor(props) {
-    super(props);
-  }
+// class AddMovie extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  render() {
-    return (
-      <div>
+//   render() {
+//     return (
+//       <div>
 
-      </div>
-    );
-  }
-}
+//       </div>
+//     );
+//   }
+// }
 
-export default AddMovie;
+// export default AddMovie;

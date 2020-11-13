@@ -21,7 +21,12 @@ class SearchBar extends Component {
             onChange={onSearchTextChange}
             data-testid="text-input"
           />
-          <label data-testid="checkbox-input-label" htmlFor="checkbox-input">Mostrar somente favoritos</label>
+          <label
+            data-testid="checkbox-input-label"
+            htmlFor="checkbox-input"
+          >
+            Mostrar somente favoritos
+          </label>
           <input
             type="checkbox"
             checked={bookmarkedOnly}
