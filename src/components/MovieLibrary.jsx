@@ -89,10 +89,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  onSearchTextChange: PropTypes.func,
-  onBookmarkedChange: PropTypes.func,
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
