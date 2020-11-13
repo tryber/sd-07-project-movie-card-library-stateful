@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
 
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <label htmlFor="title" data-testid="title-input-label">Título</label>
           <input
             type="text"
@@ -90,7 +90,9 @@ class AddMovie extends React.Component {
           </select>
         </form>
 
-        <button onClick={onClick} data-testid="send-button">Adicionar Filme</button>
+        <button onClick={() => onClick(this.state)} data-testid="send-button">
+          Adicionar filme
+        </button>
       </div>
     );
   }
