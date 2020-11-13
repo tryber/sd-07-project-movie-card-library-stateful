@@ -3,23 +3,23 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = ({
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: '',
-    }
+      selectedGenre: ''
+    });
   }
 
   onSearchTextChange = event => {
-    return 'teste'
+    console.log(event)
   }
 
    onBookmarkedChange = event => {
-    return 'teste'
+    console.log(event)
   }
 
    onSelectedGenreChange = event => {
-    return 'teste'
+    console.log(event)
   }
 
   render() {
