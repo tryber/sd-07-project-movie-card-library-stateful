@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class MovieLibrary extends React.Component {
 
     this.changeValue = this.changeValue.bind(this);
     this.filtredCard = this.filtredCard.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -16,6 +18,22 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: this.props.movies,
     };
+  }
+
+  onClick(newCard) {
+    const { title, subtitle, storyline, rating, imagePath, genre } = newCard;
+
+    const addCard = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    };
+
+    this.setState((previousState) => ({ movies: [...previousState.movies, addCard] }));
   }
 
   filtredCard(movies) {
@@ -56,19 +74,12 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.changeValue}
         />
         <MovieList movies={this.filtredCard(movies)} />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    imagePath: PropTypes.string,
-  }).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;

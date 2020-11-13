@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -23,21 +23,20 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleClick(onClick) {
-    onClick();
+  handleClick(event) {
+    event.preventDefault();
+    this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
   }
 
   render() {
-    const { onClick } = this.props;
-
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title">
@@ -77,8 +76,8 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea
             id="storyLine"
-            name="storyLine"
-            value={this.state.storyLine}
+            name="storyline"
+            value={this.state.storyline}
             data-testid="storyline-input"
             onChange={this.handleChange}
           />
@@ -115,7 +114,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-          onClick={() => this.handleClick(onClick)}
+          onClick={this.handleClick}
           data-testid="send-button"
         >
           Adicionar filme
