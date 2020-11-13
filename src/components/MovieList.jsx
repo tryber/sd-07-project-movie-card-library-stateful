@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
-  render() {
-    const { movies } = this.props;
+  constructor(props) {
+    super(props);
 
+    const { movies } = props;
+
+    this.state = { movies };
+  }
+
+  render() {
     return (
       <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        {this.state.movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
   }
