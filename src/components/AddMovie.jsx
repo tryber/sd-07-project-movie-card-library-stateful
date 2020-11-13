@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
     this.setState({ storyline: target.value });
   }
   changeRating({ target }) {
-    this.setState({ rating: parseFloat(target.value) });
+    this.setState({ rating: target.value });
   }
   changeGenre({ target }) {
     this.setState({ genre: target.value });

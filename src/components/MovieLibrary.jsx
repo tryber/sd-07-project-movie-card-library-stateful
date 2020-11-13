@@ -84,7 +84,6 @@ class MovieLibrary extends Component {
     });
   }
   render() {
-    console.log(this.state);
     return (
       <div>
         <h2> My awesome movie library </h2>
