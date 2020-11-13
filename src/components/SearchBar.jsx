@@ -14,11 +14,11 @@ class SearchBar extends React.Component {
     console.log(event)
   }
 
-   onBookmarkedChange = event => {
+   onBookmarkedChange(event) {
     console.log(event)
   }
 
-   onSelectedGenreChange = event => {
+   onSelectedGenreChange(event) {
     console.log(event)
   }
 
