@@ -1,12 +1,15 @@
 // implement MovieLibrary component here
 import React from 'react';
 import SearchBar from './SearchBar';
-import MovieList from './MovieList'
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
 	constructor(props) {
 		super(props);
+		this.newMovie = this.newMovie.bind(this);
+		this.handleFilteredMovies = this.handleFilteredMovies.bind(this);
+		this.handleStates = this.handleStates.bind(this);
 
 		const { movies } = this.props;
 		this.state = {
@@ -17,28 +20,57 @@ class MovieLibrary extends React.Component {
 		};
 	}
 
-	handleCallbacksStates = target => {
-		const { type, name, value, checkbox } = target;
+	newMovie(movie) {
+		this.setState(previousElement => ({
+			movies: [...previousElement.movies, movie],
+		}));
+	}
+
+	handleFilteredMovies() {
+		const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+		let arrayFilter = movies.filter(
+			movie =>
+				movie.title.includes(searchText) ||
+				movie.subtitle.includes(searchText) ||
+				movie.storyline.includes(searchText),
+		);
+
+		if (bookmarkedOnly) {
+			arrayFilter = arrayFilter.filter(movie => movie.bookmarked === true);
+		}
+
+		if (selectedGenre !== '') {
+			arrayFilter = arrayFilter.filter(movie => movie.genre === selectedGenre);
+		}
+
+		return arrayFilter;
+	}
+
+	handleStates({ target }) {
+		const { type, name, value, checked } = target;
 		let newValue = value;
-		if (type === 'checkbox') newValue = checkbox;
+		if (type === 'checkbox') newValue = checked;
 
 		this.setState({
 			[name]: newValue,
 		});
-	};
+	}
 
 	render() {
+		const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 		return (
 			<div>
 				<SearchBar
-					searchText={this.state.searchText}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          selectedGenre={this.state.selectedGenre}
-					onSearchTextChange={this.handleCallbacksStates}
-					onBookmarkedChange={this.handleCallbacksStates}
-					onSelectedGenreChange={this.handleCallbacksStates}
+					searchText={searchText}
+					onSearchTextChange={this.handleStates}
+					bookmarkedOnly={bookmarkedOnly}
+					onBookmarkedChange={this.handleStates}
+					selectedGenre={selectedGenre}
+					onSelectedGenreChange={this.handleStates}
 				/>
-        <MovieList movies={this.state.movies} />
+				<MovieList movies={this.handleFilteredMovies()} />
+				<AddMovie onClick={this.newMovie} />
 			</div>
 		);
 	}

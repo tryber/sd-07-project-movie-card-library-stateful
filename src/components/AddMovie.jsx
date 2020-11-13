@@ -7,6 +7,7 @@ class AddMovie extends React.Component {
 
 		this.handleStates = this.handleStates.bind(this);
 		this.updateStates = this.updateStates.bind(this);
+		this.resetState = this.resetState.bind(this);
 
 		this.state = {
 			subtitle: '',
@@ -26,9 +27,7 @@ class AddMovie extends React.Component {
 		});
 	}
 
-	updateStates() {
-		const { onClick } = this.props;
-		onClick(this.state);
+	resetState() {
 		this.setState({
 			subtitle: '',
 			title: '',
@@ -39,9 +38,16 @@ class AddMovie extends React.Component {
 		});
 	}
 
+	updateStates(event) {
+		event.preventDefault();
+		const { onClick } = this.props;
+		onClick(this.state);
+		this.resetState();
+	}
+
 	render() {
 		return (
-			<form action=''>
+			<form action='' data-testid='add-movie-form'>
 				<div>
 					<label htmlFor='title' data-testid='title-input-label'>
 						Título
@@ -77,6 +83,7 @@ class AddMovie extends React.Component {
 							id='imagePath'
 							value={this.state.imagePath}
 							onChange={this.handleStates}
+							data-testid='image-input'
 						/>
 					</label>
 				</div>
