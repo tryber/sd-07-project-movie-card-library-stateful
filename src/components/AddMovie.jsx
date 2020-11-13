@@ -133,12 +133,13 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
+  // subtitle: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // imagePath: PropTypes.string.isRequired,
+  // storyline: PropTypes.string.isRequired,
+  // rating: PropTypes.number.isRequired,
+  // genre: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
