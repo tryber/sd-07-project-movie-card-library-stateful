@@ -8,6 +8,7 @@ class MovieLibrary extends React.Component {
     super(props);
 
     this.changeValue = this.changeValue.bind(this);
+    this.filtredCard = this.filtredCard.bind(this);
 
     this.state = {
       searchText: '',
@@ -17,31 +18,44 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  filtredCard(movies) {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+
+    if (selectedGenre !== '') {
+      return movies.filter((card) => card.genre === selectedGenre);
+    } else if (searchText !== '') {
+      return movies.filter(
+        (card) =>
+          card.title.includes(searchText) ||
+          card.subtitle.includes(searchText) ||
+          card.storyline.includes(searchText),
+      );
+    } else if (bookmarkedOnly === true) {
+      return movies.filter((card) => card.bookmarked === true);
+    }
+    return movies;
+  }
+
   changeValue({ target }) {
     const { name, type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-
-    let cards = [...this.props.movies];
-    if (this.state.selectedGenre === '') {
-      this.setState({ movies: cards });
-    } else {
-      cards = cards.filter((card) => card.genre === this.state.selectedGenre);
-      this.setState({ movies: cards });
-    }
+    this.setState(() => ({ [name]: value }));
   }
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+
     return (
       <div>
         <SearchBar
-          searchText={this.state.searchText}
+          searchText={searchText}
           onSearchTextChange={this.changeValue}
-          bookmarkedOnly={this.state.bookmarkedOnly}
+          bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.changeValue}
-          selectedGenre={this.state.selectedGenre}
+          selectedGenre={selectedGenre}
           onSelectedGenreChange={this.changeValue}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={this.filtredCard(movies)} />
       </div>
     );
   }
