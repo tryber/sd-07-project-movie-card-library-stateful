@@ -1,14 +1,14 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
+/*   constructor(props) {
     super(props);
-  }
+  } */
 
   render() {
     return (
@@ -23,3 +23,5 @@ class MovieLibrary extends Component {
 }
 
 export default MovieLibrary;
+
+MovieLibrary.propTypes = { movies: PropTypes.string.isRequired };
