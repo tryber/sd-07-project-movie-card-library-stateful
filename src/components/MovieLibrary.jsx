@@ -1,5 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -58,12 +59,14 @@ class MovieLibrary extends Component {
             return true;
           })}
         />
-        {/* <MovieList 
+        {/* <MovieList
         movies={list.filter((movie) => movie.genre === this.state.selectedGenre)} /> */}
         <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf().isRequired };
 
 export default MovieLibrary;

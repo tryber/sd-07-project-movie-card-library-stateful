@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
     this.props.onClick(this.state);
     this.setState(this.baseState); //é pra ter essa linha mesmo?
   }
-  changeGenre;
+  changeGenre();
   render() {
     const { onClick } = this.props;
     return (
