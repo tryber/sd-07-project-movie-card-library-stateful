@@ -15,7 +15,6 @@ class App extends React.Component {
       genero: '',
     };
   }
-  
   onSearchTextChange(event) {
     this.setState({ barra: event.target.value });
   }
@@ -32,13 +31,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar
-        searchText={this.state.barra}
-        onSearchTextChange={this.onSearchTextChange}
-        bookmarkedOnly={this.state.favorito}
-        onBookmarkedChange={this.onBookmarkedChange}
-        selectedGenre={this.state.genero}
-        onSelectedGenreChange={this.onSelectedGenreChange} />
+        <SearchBar searchText={this.state.barra} onSearchTextChange={this.onSearchTextChange} bookmarkedOnly={this.state.favorito} onBookmarkedChange={this.onBookmarkedChange} selectedGenre={this.state.genero} onSelectedGenreChange={this.onSelectedGenreChange} />
       </div>
     );
   }
