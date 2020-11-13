@@ -11,7 +11,7 @@ class App extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       barra: '',
-      f: false,
+      favorito: false,
       genero: '',
     };
   }
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   onBookmarkedChange(event) {
-    this.setState({ f: event.target.checked });
+    this.setState({ favorito: event.target.checked });
   }
 
   onSelectedGenreChange(event) {
@@ -28,16 +28,10 @@ class App extends React.Component {
   }
 
   render() {
-    const b = this.state.barra;
-    const f = this.state.fav;
-    const n = this.state.genero;
-    const t = this.onSearchTextChange;
-    const k = this.onBookmarkedChange;
-    const g = this.onSelectedGenreChange;
     return (
       <div className="App">
         <Header />
-        <SearchBar sea={b} onT={t} b={f} onk={k} sel={n} onG={g} />
+        <SearchBar searchText={this.state.barra} onSearchTextChange={this.onSearchTextChange} bookmarkedOnly={this.state.favorito} onBookmarkedChange={this.onBookmarkedChange} selectedGenre={this.state.genero} onSelectedGenreChange={this.onSelectedGenreChange} />
       </div>
     );
   }
