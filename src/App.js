@@ -31,8 +31,8 @@ class App extends React.Component {
   }
 
   onClick(obj) {
-    if (obj.title !== "" && obj.subtitle !== "" && obj.storyline !== "" && obj.imagePath !== "") {
-      Lista.push(obj)
+    if (obj.title !== '' && obj.subtitle !== '' && obj.storyline !== '' && obj.imagePath !== '') {
+      Lista.push(obj);
     }
   }
 

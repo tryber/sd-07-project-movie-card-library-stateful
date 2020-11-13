@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
       rating: 0,
       imagePath: '',
       genre: 'action',
-    })
+    });
   }
 
   render() {
