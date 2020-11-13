@@ -11,7 +11,8 @@ class MovieLibrary extends Component {
     this.filterMovies = this.filterMovies.bind(this);
     this.filterByText = this.filterByText.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this)
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
     this.state = {
       searchText:"",
       bookmarkedOnly: false,
@@ -72,7 +73,7 @@ class MovieLibrary extends Component {
     this.filterMovies(checked);
   }
 
-  handleAddMovie = (addMovieState) => {
+  handleAddMovie(addMovieState) {
     this.props.movies.append(addMovieState);
   }
 
