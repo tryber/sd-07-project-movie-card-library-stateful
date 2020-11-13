@@ -12,7 +12,14 @@ class MovieList extends React.Component {
     const { movies } = this.props;
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText=""
+          onSearchTextChange=""
+          bookmarkedOnly=""
+          onBookmarkedChange=""
+          selectedGenre=""
+          onSelectedGenreChange=""
+        />
         <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         </div>
