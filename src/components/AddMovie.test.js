@@ -30,9 +30,10 @@ let genreInputLabel;
 let genreOptions;
 let sendButton;
 
-
 beforeEach(() => {
-  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={onClick} />);
+  const { queryAllByTestId, queryByTestId } = render(
+    <AddMovie onClick={onClick} />,
+  );
   form = queryAllByTestId('add-movie-form');
   titleInput = queryByTestId('title-input');
   titleInputLabel = queryByTestId('title-input-label');
@@ -49,7 +50,6 @@ beforeEach(() => {
   genreOptions = queryAllByTestId('genre-option');
   sendButton = queryByTestId('send-button');
 });
-
 
 describe('Verifica o componente <AddMovie />', () => {
   it('Será validado se o componente renderiza', () => {
@@ -119,7 +119,9 @@ describe('Verifica o input de imagem do componente <AddMovie />', () => {
 
   it('Será validado se o valor do input de imagem muda quando algo é digitado por quem usa', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
-    expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
+    expect(imageInput).toHaveValue(
+      'http://localhost:3000/images/Appleseed_Alpha.jpg',
+    );
   });
 });
 
@@ -172,7 +174,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     { value: 'thriller', text: 'Suspense' },
   ];
 
-
   it('Será validado se o componente renderiza um select com 3 opções de genero de filme', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
@@ -182,7 +183,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
-
 
   it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
@@ -209,7 +209,7 @@ describe('Verifica botão de criar filme do componente <AddMovie />', () => {
   it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, 'Harry Potter I');
     event.type(subtitleInput, 'Magical subtitle');
-    fireEvent.change(storylineInput, { target: { value: 'The boy who lived.' } });
+    fireEvent.change(storylineInput, {target: { value: 'The boy who lived.' },});
     event.type(storylineInput, 'The boy who lived.');
     event.type(ratingInput, '3.5');
 
@@ -221,7 +221,7 @@ describe('Verifica botão de criar filme do componente <AddMovie />', () => {
   it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
     event.type(titleInput, 'Harry Potter I');
     event.type(subtitleInput, 'Magical subtitle');
-    fireEvent.change(storylineInput, { target: { value: 'The boy who lived.' } });
+    fireEvent.change(storylineInput, {target: { value: 'The boy who lived.' },});
     event.type(ratingInput, '3.5');
     event.selectOptions(genreInput, 'comedy');
 
