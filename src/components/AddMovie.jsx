@@ -91,6 +91,13 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.object.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.objectOf({
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
+}).isRequired };
 
 export default AddMovie;

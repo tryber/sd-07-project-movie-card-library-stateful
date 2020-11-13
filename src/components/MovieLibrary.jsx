@@ -33,6 +33,14 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  imagePatch: PropTypes.string.isRequired,
+  bookmarked: PropTypes.bool.isRequired,
+  genre: PropTypes.string.isRequired,
+})).isRequired };
 
 export default MovieLibrary;
