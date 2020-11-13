@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   render() {
@@ -13,6 +15,7 @@ class MovieLibrary extends React.Component {
           selectedGenre=""
           onSelectedGenreChange="function"
         />
+        <MovieList movies={movies} />
       </div>
     );
   }
