@@ -20,14 +20,14 @@ class AddMovie extends Component {
   handleAdds(event) {
     event.preventDefault();
     this.props.onClick(this.state);
-    this.setState(() => ({
+    setInterval(this.setState(() => ({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    }));
+    })),10000);
   }
 
   handleChange(event) {

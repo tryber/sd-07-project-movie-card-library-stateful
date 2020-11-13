@@ -55,9 +55,10 @@ class MovieLibrary extends Component {
 
   handleAddMovie(addMovieState) {
     const newMovie = addMovieState;
-    data.push(newMovie);
+    const { movies } = this.props 
+    movies.push(newMovie);
 
-    this.setState(() => ({ movies: data }));
+    this.setState(() => ({ movies: movies }));
   }
 
   filterByText(parameter) {
