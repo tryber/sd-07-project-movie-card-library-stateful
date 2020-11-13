@@ -11,9 +11,7 @@ class MovieLibrary extends React.Component {
 
     const { movies } = props;
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.eventChange = this.eventChange.bind(this);
     this.onClick = this.onClick.bind(this);
 
     this.state = {
@@ -24,24 +22,16 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
-
-  onBookmarkedChange({ target }) {
-    const { name, checked } = target;
-    this.setState({ [name]: checked });
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
-
   onClick(newMovie) {
     const { movies } = this.state;
     movies.push(newMovie);
+    this.render();
+  }
+
+  eventChange({ target }) {
+    const { name } = target;
+    const value = target.type !== 'checkbox' ? target.value : target.checked;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -52,20 +42,20 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.onSearchTextChange}
+          onSearchTextChange={this.eventChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange}
+          onBookmarkedChange={this.eventChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          onSelectedGenreChange={this.eventChange}
         />
 
         <MovieList
+          // prettier-ignore
           movies={movies
             .filter(
-              (element) =>
-                element.title.includes(searchText) ||
-                element.subtitle.includes(searchText) ||
-                element.storyline.includes(searchText),
+              (element) => element.title.includes(searchText)
+              || element.subtitle.includes(searchText)
+              || element.storyline.includes(searchText),
             )
             .filter((element) => (bookmarkedOnly ? element.bookmarked : true))
             .filter((element) => element.genre.includes(selectedGenre))}
