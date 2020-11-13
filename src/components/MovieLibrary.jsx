@@ -1,6 +1,6 @@
 // implement MovieLibrary component here
 import React from 'react';
-import movies from '../data';
+import data from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -16,16 +16,15 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '', // checar porque this.props.movies não funciona
+      movies: data,
     };
   }
 
   render() {
-    // const { movies } = this.props;
     return (
       <div>
         <SearchBar />
-        <MovieList movies={movies} />
+        <MovieList movies={this.state.movies} />
         <AddMovie />
       </div>
     );
