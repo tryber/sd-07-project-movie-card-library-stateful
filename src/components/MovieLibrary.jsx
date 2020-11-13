@@ -5,14 +5,12 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
-
-// PAREI EM Configure o estado inicial do componente MovieLibray
-
 class MovieLibrary extends React.Component {
   constructor() {
     super();
 
     this.handleChanges = this.handleChanges.bind(this);
+    // this.handleBookMarked = this.handleBookMarked.bind(this);
 
     this.state = {
       searchText: '',
@@ -29,6 +27,23 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    let filteredMovies = data;
+
+    if (this.state.bookmarkedOnly === true) {
+      filteredMovies = data.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (this.state.selectedGenre !== '') {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+
+    if (this.state.searchText !== '') {
+      filteredMovies = filteredMovies.filter((movie) =>
+        movie.title.includes(this.state.searchText) ||
+        movie.subtitle.includes(this.state.searchText) ||
+        movie.storyline.includes(this.state.searchText));
+    }
+
     return (
       <div>
         <SearchBar
@@ -39,7 +54,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.handleChanges}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={filteredMovies} handleBookMarked={this.handleBookMarked} />
         <AddMovie />
       </div>
     );
