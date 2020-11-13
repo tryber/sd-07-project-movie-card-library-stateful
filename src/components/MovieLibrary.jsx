@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,6 +17,10 @@ class MovieLibrary extends Component {
     };
   }
   // Poderia ser só um método... Vamos ver se o CC deixa
+  onClick() {
+    return '';
+  }
+
   SearchTextChange(valeu) {
     this.setState({ searchText: valeu });
   }
@@ -39,6 +44,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={this.BookmarkedChange}
           onSelectedGenreChange={this.SelectedGenreChange}
         />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
@@ -47,4 +53,4 @@ class MovieLibrary extends Component {
 export default MovieLibrary;
 
 /* <MovieList movies={prop.movies} />
-<AddMovie /> */
+*/
