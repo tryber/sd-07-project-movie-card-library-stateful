@@ -37,7 +37,7 @@ const movies = [
 
 
 describe('Verifica o componente <MovieLibrary />', () => {
-  it.skip('Será validado se o componente é renderizado com sucesso', () => {
+  it('Será validado se o componente é renderizado com sucesso', () => {
     render(<MovieLibrary movies={movies} />);
   });
 });
@@ -45,7 +45,7 @@ describe('Verifica o componente <MovieLibrary />', () => {
 describe('Verifica o estado inicial do component <MovieLibrary />', () => {
 
   
-  it.skip('Será validado se o `searchText` é inicializado com uma string vazia', () => {
+  it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const searchText = getByTestId('text-input');
     expect(searchText).toHaveValue('');
