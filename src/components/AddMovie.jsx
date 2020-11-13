@@ -73,7 +73,7 @@ class AddMovie extends React.Component {
               type="text"
               data-testid="storyline-input"
               value={storyline}
-              onChange={this.onTextChange}
+              onChange={(this.onTextChange)}
             />
           </div>
 
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
               type="number"
               data-testid="rating-input"
               value={rating}
-              onChange={this.onTextChange}
+              onChange={(this.onTextChange)}
             />
           </div>
 
