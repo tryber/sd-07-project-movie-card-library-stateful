@@ -6,18 +6,18 @@ import SearchBar from './SearchBar';
 class MovieList extends React.Component {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       titleFind: '',
       favorit: false,
-      genere: ''
+      genere: '',
     };
-    this.handleChange = this.handleChange.bind();
   }
 
-  handleChange({target}) {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-      // this.setState({ [name]: value });
+    this.setState({ [name]: value });
   }
   render() {
     const { movies } = this.props;
@@ -26,7 +26,7 @@ class MovieList extends React.Component {
         <SearchBar
           searchText={this.state.titleFind}
           onSearchTextChange={this.handleChange}
-          bookmarkedOnly={this.state.favorits}
+          bookmarkedOnly={this.state.favorit}
           onBookmarkedChange={this.handleChange}
           selectedGenre={this.state.genere}
           onSelectedGenreChange={this.handleChange}
