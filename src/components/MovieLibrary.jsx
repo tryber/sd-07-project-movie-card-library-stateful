@@ -5,6 +5,15 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: [],
+    };
+  }
   render() {
     const { movies } = this.props;
 
