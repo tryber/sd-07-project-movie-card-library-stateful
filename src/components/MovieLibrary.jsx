@@ -17,10 +17,10 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-      favoritos: '',
     };
   }
-
+  //Referenciando a estrutura das funções: addMovieClick e checkedMovies:
+  //https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/88/commits
   addMovieClick(newMovie) {
     const set = this.state.movies.concat(newMovie);
     this.setState({ movies: set });
@@ -33,9 +33,9 @@ class MovieLibrary extends Component {
         (selectedGenre === '' ? true : movie.genre === selectedGenre) &&
         (searchText === ''
           ? true
-          : movie.title.includes(searchText) ||
-            movie.subtitle.includes(searchText) ||
-            movie.storyline.includes(searchText)),
+          : movie.title.toLowerCase().includes(searchText) ||
+            movie.subtitle.toLowerCase().includes(searchText) ||
+            movie.storyline.toLowerCase().includes(searchText)),
     );
   }
 
