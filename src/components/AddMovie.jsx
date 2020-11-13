@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.handleState = this.handleState.bind(this);
     this.filme = this.filme.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -107,5 +108,13 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+    subtitle: PropTypes.string.isRequired,
+    bookmarkedOnly: PropTypes.bool.isRequired,
+    onBookmarkedChange: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    onSelectedGenreChange: PropTypes.func.isRequired,
+  };
 
 export default AddMovie;

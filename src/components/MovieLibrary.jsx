@@ -1,13 +1,32 @@
-import React from 'react';
-import MovieCard from './MovieCard';
-class MovieList extends React.Component {
+import React, { Component } from 'react';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
+  }
   render() {
-    const { movies } = this.props;
     return (
-      <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+      <div>
+        <h2> My awesome movie library </h2>
+        <SearchBar
+          searchText={this.state.searchText}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          selectedGenre={this.state.selectedGenre}
+        />
+        <MovieList movies={this.state.movies} />
+        <AddMovie />
       </div>
     );
   }
 }
-export default MovieList;
+export default MovieLibrary;
