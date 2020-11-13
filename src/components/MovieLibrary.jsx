@@ -6,8 +6,10 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const { movies } = props;
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -18,7 +20,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
+      movies,
     };
   }
 
@@ -37,11 +39,13 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onClick() {}
+  onClick(newMovie) {
+    const { movies } = this.state;
+    movies.push(newMovie);
+  }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
       <div>

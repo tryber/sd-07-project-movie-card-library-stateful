@@ -6,6 +6,7 @@ class AddMovie extends React.Component {
     super();
 
     this.eventChange = this.eventChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
