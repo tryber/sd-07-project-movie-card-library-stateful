@@ -14,7 +14,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
 
     this.onChange = this.onChange.bind(this);
     this.handleAddNewMovie = this.handleAddNewMovie.bind(this);
@@ -33,23 +33,21 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
 
     if (name === 'bookmarkedOnly') {
-      this.setState({
-        movies: movies.filter(movie => movie.bookmarked === true)
-      });
+      this.setState({ movies: movies.filter((movie) => movie.bookmarked === true) });
     }
 
     if (name === 'selectedGenre') {
-      this.setState({
-        movies: movies.filter((movie) => movie.genre === value)
-      });
+      this.setState({ movies: movies.filter((movie) => movie.genre === value) });
     }
 
     if (name === 'searchText') {
       this.setState({
         movies: movies.filter((movie) => (
-          movie.title.includes(value)) || movie.subtitle.includes(value) || movie.storyline.includes(value)
+          movie.title.includes(value)) ||
+          movie.subtitle.includes(value) ||
+          movie.storyline.includes(value)
         )
-      })
+      });
     }
   }
 
@@ -78,6 +76,16 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array }
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }))
+}
 
 export default MovieLibrary;
