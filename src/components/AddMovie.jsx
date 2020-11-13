@@ -23,46 +23,32 @@ class AddMovie extends React.Component {
     this.baseState = this.state;
   }
   changeSubtitle({ target }) {
-    this.setState({
-      subtitle: target.value,
-    });
+    this.setState({ subtitle: target.value });
   }
   changeTitle({ target }) {
-    this.setState({
-      title: target.value,
-    });
+    this.setState({ title: target.value });
   }
   changeImage({ target }) {
-    this.setState({
-      imagePath: target.value,
-    });
+    this.setState({ imagePath: target.value });
   }
   changeStoryline({ target }) {
-    this.setState({
-      storyline: target.value,
-    });
+    this.setState({ storyline: target.value });
   }
   changeRating({ target }) {
-    this.setState({
-      rating: target.value,
-    });
+    this.setState({ rating: target.value });
   }
   changeGenre({ target }) {
-    this.setState({
-      genre: target.value,
-    });
+    this.setState({ genre: target.value });
   }
   clickButton() {
     this.props.onClick(this.state);
-    this.setState(this.baseState); //é pra ter essa linha mesmo?
+    this.setState(this.baseState);
   }
-  changeGenre();
   render() {
-    const { onClick } = this.props;
     return (
       <div>
         <form>
-          <label data-testid="title-input-label">
+          <label data-testid="title-input-label" htmlFor="title-input-label">
             {' '}
             Título
             <input
@@ -72,7 +58,7 @@ class AddMovie extends React.Component {
               onChange={this.changeTitle}
             />
           </label>
-          <label data-testid="subtitle-input-label">
+          <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
             {' '}
             Subtítulo
             <input
@@ -81,7 +67,7 @@ class AddMovie extends React.Component {
               onChange={this.changeSubtitle}
             />
           </label>
-          <label data-testid="image-input-label">
+          <label data-testid="image-input-label" htmlFor="image-input-label">
             {' '}
             Imagem
             <input
@@ -90,7 +76,7 @@ class AddMovie extends React.Component {
               onChange={this.changeImage}
             />
           </label>
-          <label data-testid="storyline-input-label">
+          <label data-testid="storyline-input-label" htmlFor="storyline-input-label">
             Sinopse
             <textarea
               value={this.state.storyline}
@@ -98,7 +84,7 @@ class AddMovie extends React.Component {
               onChange={this.changeStoryline}
             />
           </label>
-          <label data-testid="rating-input-label">
+          <label data-testid="rating-input-label" htmlFor="rating-input-label">
             Avaliação
             <input
               type="number"
@@ -107,7 +93,7 @@ class AddMovie extends React.Component {
               onChange={this.changeRating}
             />
           </label>
-          <label data-testid="genre-input-label">
+          <label data-testid="genre-input-label" htmlFor="genre-input-label">
             Gênero
             <select value={this.state.genre} data-testid="genre-input" onChange={this.changeGenre}>
               <option name="action" value="action" data-testid="genre-option">

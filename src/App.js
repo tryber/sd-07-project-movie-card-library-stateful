@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
-import addMovie from './components/AddMovie';
+// import addMovie from './components/AddMovie';
 
 class App extends React.Component {
   render() {
