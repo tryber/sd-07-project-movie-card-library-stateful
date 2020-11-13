@@ -36,16 +36,7 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onClick(state) {
-    let { subtitle, title, imagePath, storyline, rating, genre } = state;
-
-    subtitle = '';
-    title = '';
-    imagePath = '';
-    storyline = '';
-    rating = 0;
-    genre = 'action';
-  }
+  onClick() {}
 
   render() {
     const { movies } = this.props;
@@ -65,9 +56,10 @@ class MovieLibrary extends React.Component {
 
         <MovieList
           movies={movies.filter(
-            (element) => element.title.includes(searchText)
-            || element.subtitle.includes(searchText)
-            || element.storyline.includes(searchText),
+            (element) =>
+              element.title.includes(searchText) ||
+              element.subtitle.includes(searchText) ||
+              element.storyline.includes(searchText),
           )}
         />
 
