@@ -1,4 +1,5 @@
 /*
+REFERÊNCIAS:
 Lógica Principal: https://pt-br.reactjs.org/docs/forms.html
 Lógicas Auxiliares:
 (1) www.codota.com/code/javascript/functions/react/ChangeEvent/target
