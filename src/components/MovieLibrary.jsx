@@ -1,25 +1,51 @@
 import React from 'react';
 
 import MovieList from './MovieList';
-import movies from '../data';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  // constructor() {
-  //   super();
+  constructor(props) {
+    super(props);
 
-  //   this.state = {
-  //     test: 'test'
-  //   }
-  // }
-  //functions here if required
+    this.changeHandler = this.changeHandler.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
+  }
+
+  addMovie(movie) {
+    console.log('CHAMOU A FUNÇÃO!');
+    this.setState((estadoAnterior) => ({ movies: [...estadoAnterior.movies, movie] }));
+  }
+
+  changeHandler({ target }) {
+    const { name } = target;
+    const value = target.type === 'option' ? target.checked : target.value;
+
+    this.setState({ [name]: value });
+  }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.props;
     return (
       <div className="movie-library">
-        <SearchBar />
-        <MovieList movies={movies}/>
-        {/* <AddMovie /> */}
+        <SearchBar
+          searchText={searchText}
+          // onSearchTextChange={}
+          bookmarkedOnly={bookmarkedOnly}
+          // onBookmarkedChange={}
+          selectedGenre={selectedGenre}
+          // onSelectedGenreChange={}
+          movies={movies}
+        />
+        <MovieList movies={this.state.movies} />
+        <AddMovie addMovie={this.addMovie} />
       </div>
     );
   }
