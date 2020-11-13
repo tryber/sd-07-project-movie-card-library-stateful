@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
         <select
           id="select-input"
           value={prop.selectedGenre}
-          onChange={prop.onSelectedGenreChange}
+          onChange={(e) => prop.onSelectedGenreChange(e.target.value)}
           data-testid="select-input"
         >
           <option value="" data-testid="select-option" >Todos</option>

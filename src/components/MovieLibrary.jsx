@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    // Retirar prop
+    const prop = this.props;
+    this.SearchTextChange = this.SearchTextChange.bind(this);
+    this.BookmarkedChange = this.BookmarkedChange.bind(this);
+    this.SelectedGenreChange = this.SelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: prop.movies,
     };
   }
   // Poderia ser só um método... Vamos ver se o CC deixa
@@ -34,7 +37,6 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    // const prop = this.props;
     return (
       <div>
         <h2> MovieLibrary Funciona</h2>
@@ -44,6 +46,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={this.BookmarkedChange}
           onSelectedGenreChange={this.SelectedGenreChange}
         />
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
@@ -51,6 +54,3 @@ class MovieLibrary extends Component {
 }
 
 export default MovieLibrary;
-
-/* <MovieList movies={prop.movies} />
-*/
