@@ -39,7 +39,6 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <SearchBar

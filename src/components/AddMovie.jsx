@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,10 +16,16 @@ class AddMovie extends Component {
     };
   }
 
+  handleInputChange({ target }) {
+    const { name, value } = target;
+
+    this.setState({ [name]: value });
+  }
+
   render() {
     const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={onClick}>
 
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
@@ -83,6 +90,7 @@ class AddMovie extends Component {
           Gênero
           <select
             id="genre-input"
+            name="genre"
             data-testid="genre-input"
             onChange={this.handleInputChange}
           >
@@ -92,7 +100,7 @@ class AddMovie extends Component {
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={onClick(this.state)}>Adicionar filme</button>
+        <button type="submit" data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
