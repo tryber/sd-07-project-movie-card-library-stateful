@@ -90,7 +90,7 @@ class Addmovie extends React.Component {
             <option value="thriller" data-testid="genre-option" >Suspense</option>
           </select>
         </label><br />
-        <button type="submit" data-testid="send-button" >Adicionar filme</button>
+        <button type="submit" data-testid="send-button" value="">Adicionar filme</button>
       </form>
     );
   }
