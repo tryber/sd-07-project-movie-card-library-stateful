@@ -15,7 +15,7 @@ class AddMovie extends Component {
     };
   }
 
-  handleChange( {target} ) {
+  handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
@@ -32,24 +32,21 @@ class AddMovie extends Component {
             data-testid="title-input"
             onChange={this.handleChange}
             value={this.state.title}
-          >
-          </input>
+          />
           <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo</label>
           <input
             type="text"
             data-testid="subtitle-input"
             onChange={this.handleChange}
             value={this.state.subtitle}
-          >
-          </input>
+          />
           <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
           <input
             type="text"
             data-testid="image-input"
             onChange={this.handleChange}
             value={this.state.imagePath}
-          >
-          </input>
+          />
           <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
           <textarea
             data-testid="storyline-input"
@@ -62,8 +59,7 @@ class AddMovie extends Component {
             data-testid="rating-input"
             onChange={this.handleChange}
             value={this.state.rating}
-          >
-          </input>
+          />
           <label htmlFor="genre-input" data-testid="genre-input-label">Gênero</label>
           <select
             data-testid="genre-input"
