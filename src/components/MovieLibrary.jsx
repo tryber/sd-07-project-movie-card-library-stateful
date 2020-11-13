@@ -18,6 +18,8 @@ class MovieLibrary extends Component {
     };
   }
 
+  // filter e onClick
+  // https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/88/commits/77d55ca3faadadb6a8bdb058f4c5366201e68150
   onClick(newMovie) {
     const joined = this.state.movies.concat(newMovie);
     this.setState({ movies: joined });
@@ -30,9 +32,9 @@ class MovieLibrary extends Component {
         && (selectedGenre === '' ? true : movie.genre === selectedGenre)
         && (searchText === ''
           ? true
-          : movie.title.includes(searchText)
-            || movie.subtitle.includes(searchText)
-            || movie.storyline.includes(searchText)),
+          : movie.title.toLowerCase().includes(searchText.toLowerCase())
+            || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+            || movie.storyline.toLowerCase().includes(searchText.toLowerCase())),
     );
   }
 
