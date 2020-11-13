@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
             type="text"
             value={title}
             data-testid="title-input"
-            onChange={this.changingTitleState()}
+            onChange={this.changingTitleState}
           />
         </label>
       </form>
