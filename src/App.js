@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import AddMovie from './components/AddMovie.js';
+import MovieLibrary from './components/MovieLibrary.js';
+import movies from './data';
 
 import Header from './components/Header';
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie />
+      <MovieLibrary movies={movies} />
     </div>
   );
 }
