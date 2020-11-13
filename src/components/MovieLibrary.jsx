@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import data from '../data'
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -53,16 +54,21 @@ class MovieLibrary extends Component {
   }
 
   handleAddMovie(addMovieState) {
-    const arrayMovies = this.props.movies;
-    arrayMovies.append(addMovieState);
+    const newMovie = addMovieState
+    data.push(newMovie)
+    
+    console.log(data)
+    this.setState(() => ({
+      movies: data,
+    }));
   }
 
   filterByText(parameter) {
     const movies = this.props.movies;
     let filtered = movies;
-    const filterByTitle = movies.filter((movie) => parameter === movie.title);
-    const filterBySubTitle = movies.filter((movie) => parameter === movie.subtitle);
-    const filterByStory = movies.filter((movie) => parameter === movie.storyline);
+    const filterByTitle = movies.filter((movie) => movie.title.indexOf(parameter) > 0);
+    const filterBySubTitle = movies.filter((movie) => movie.subtitle.indexOf(parameter) > 0);
+    const filterByStory = movies.filter((movie) => movie.storyline.indexOf(parameter) > 0);
 
     if (filterByTitle.length > 0) filtered = filterByTitle;
 
@@ -101,13 +107,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-  }).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default MovieLibrary;
