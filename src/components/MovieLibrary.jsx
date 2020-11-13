@@ -39,11 +39,6 @@ class MovieLibrary extends Component {
     this.filterMovies(checked);
   }
 
-  handleAddMovie(addMovieState) {
-    const arrayMovies = this.props.movies;
-    arrayMovies.append(addMovieState);
-  }
-
   onSelectedGenreChange(event) {
     const { value } = event.target;
     const { movies } = this.props;
@@ -55,6 +50,11 @@ class MovieLibrary extends Component {
       selectedGenre: value,
       movies: filterByGenre,
     }));
+  }
+
+  handleAddMovie(addMovieState) {
+    const arrayMovies = this.props.movies;
+    arrayMovies.append(addMovieState);
   }
 
   filterByText(parameter) {
