@@ -32,7 +32,7 @@ class AddMovie extends Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState(() => ({ [name]: value} ))
+    this.setState(() => ({ [name]: value }));
   }
   render() {
     return (
@@ -91,17 +91,17 @@ class AddMovie extends Component {
               value={this.state.rating}
               data-testid="rating-input"
               onChange={this.handleChange}
-            />
+          />
           </label>
           <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
-            <select
-              id="genre"
-              name="genre"
-              value={this.state.genre}
-              data-testid="genre-input"
-              onChange={this.handleChange}
-          >
+            <select 
+              id="genre" 
+              name="genre" 
+              value={this.state.genre} 
+              data-testid="genre-input" 
+              onChange={this.handleChange} 
+            >
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
@@ -117,9 +117,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
-
+AddMovie.propTypes = { onClick: PropTypes.funcisRequired };
 
 export default AddMovie;
