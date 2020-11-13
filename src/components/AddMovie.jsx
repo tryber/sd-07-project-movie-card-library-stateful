@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -40,7 +41,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label data-testid="title-input-label">Título
+          <label htmlFor="title" data-testid="title-input-label">Título
             <input
               name="title"
               type="text"
@@ -50,7 +51,7 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label data-testid="subtitle-input-label">Subtítulo
+          <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
             <input
               name="subtitle"
               type="text"
@@ -60,7 +61,7 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label data-testid="image-input-label">Imagem
+          <label htmlFor="imagePath" data-testid="image-input-label">Imagem
             <input
               name="imagePath"
               type="text"
@@ -70,7 +71,7 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label data-testid="storyline-input-label">Sinopse
+          <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse
             <textarea
               name="storyline"
               value={this.state.storyline}
@@ -79,7 +80,7 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label data-testid="rating-input-label">Avaliação
+          <label htmlFor="rating" data-testid="rating-input-label">Avaliação
             <input
               type="number"
               name="rating"
@@ -89,7 +90,7 @@ class AddMovie extends React.Component {
             />
           </label>
 
-          <label data-testid="genre-input-label">Gênero</label>
+          <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
           <select
             name="genre"
             value={this.state.genre}
@@ -104,11 +105,15 @@ class AddMovie extends React.Component {
 
         <button
           onClick={() => this.fncClick(onClick)}
-          data-testid="send-button">Adicionar filme
-        </button>
+          data-testid="send-button"
+        >Adicionar filme</button>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func };
+
+AddMovie.defaultProps = { onClick: '' };
 
 export default AddMovie;
