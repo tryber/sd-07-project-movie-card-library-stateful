@@ -5,11 +5,11 @@ class AddMovieTextInputImage extends React.Component {
     return (
       <fieldset>
         <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           name="image-input"
           data-testid="image-input"
-        //   value={this.props} 
+          // value={this.props}
           // onChange={}
         />
       </fieldset>
@@ -17,4 +17,4 @@ class AddMovieTextInputImage extends React.Component {
   }
 }
 
-export default AddMovieTextInputImage
+export default AddMovieTextInputImage;

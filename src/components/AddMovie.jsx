@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 import AddMovieTextInputTitle from './AddMovieTextInputTitle';
 import AddMovieTextInputSubtitle from './AddMovieTextInputSubtitle';
@@ -11,7 +11,7 @@ import AddMovieSendButton from './AddMovieSendButton';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
   render() {
     return (
@@ -37,8 +37,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

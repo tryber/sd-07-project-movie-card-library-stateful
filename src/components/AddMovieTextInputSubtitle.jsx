@@ -5,11 +5,11 @@ class AddMovieTextInputSubtitle extends React.Component {
     return (
       <fieldset>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           name="subtitle-input"
           data-testid="subtitle-input"
-        //   value={this.props} 
+        //   value={this.props}
           // onChange={}
         />
       </fieldset>
@@ -17,4 +17,4 @@ class AddMovieTextInputSubtitle extends React.Component {
   }
 }
 
-export default AddMovieTextInputSubtitle
+export default AddMovieTextInputSubtitle;

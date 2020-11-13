@@ -5,8 +5,8 @@ class SearchBarSelect extends React.Component {
     return (
       <fieldset>
         <label htmlFor="select-input" data-testid="select-input-label">Filtrar por gênero</label>
-        <select 
-          name="select-input" 
+        <select
+          name="select-input"
           value={this.selectedGenre}
           onChange={this.onSelectedGenreChange}
           data-testid="select-input"

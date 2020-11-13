@@ -5,10 +5,10 @@ class AddMovieTextInputTitle extends React.Component {
     return (
       <fieldset>
         <label htmlFor="title-input" data-testid="title-input-label">Título</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           name="title-input"
-          data-testid="title-input" 
+          data-testid="title-input"
           // onChange={}
         />
       </fieldset>
@@ -16,4 +16,4 @@ class AddMovieTextInputTitle extends React.Component {
   }
 }
 
-export default AddMovieTextInputTitle
+export default AddMovieTextInputTitle;

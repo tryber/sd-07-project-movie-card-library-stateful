@@ -5,19 +5,18 @@ class AddMovieTextArea extends React.Component {
     return (
       <fieldset>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
-        <textarea 
-          type="text" 
+        <textarea
+          type="text"
           name="storyline-input"
           data-testid="storyline-input"
-          cols="30" 
+          cols="30"
           rows="10"
-        //   value={this.props} 
+          // value={this.props}
           // onChange={}
-        >
-        </textarea>
+        />
       </fieldset>
     );
   }
 }
 
-export default AddMovieTextArea
+export default AddMovieTextArea;

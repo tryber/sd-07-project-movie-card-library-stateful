@@ -5,8 +5,8 @@ class AddMovieInputRating extends React.Component {
     return (
       <fieldset>
         <label htmlFor="rating-input" data-testid="rating-input-label">Avaliação</label>
-        <input 
-          type="number" 
+        <input
+          type="number"
           name="rating-input"
           data-testid="rating-input"
           // onChange={}
@@ -17,4 +17,4 @@ class AddMovieInputRating extends React.Component {
   }
 }
 
-export default AddMovieInputRating
+export default AddMovieInputRating;

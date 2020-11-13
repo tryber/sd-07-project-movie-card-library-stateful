@@ -5,8 +5,8 @@ class AddMovieSelect extends React.Component {
     return (
       <fieldset>
         <label htmlFor="select-input" data-testid="genre-input-label">Gênero</label>
-        <select 
-          name="select-input" 
+        <select
+          name="select-input"
           // value={this.selectedGenre}
           // onChange={this.onSelectedGenreChange}
           data-testid="genre-input"

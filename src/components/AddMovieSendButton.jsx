@@ -2,10 +2,10 @@ import React from 'react';
 
 class AddMovieSendButton extends React.Component {
   render() {
-    return(
-      <button 
+    return (
+      <button
         data-testid="send-button"
-        // onClick={}  
+        // onClick={}
       >
         Adicionar filme
       </button>
