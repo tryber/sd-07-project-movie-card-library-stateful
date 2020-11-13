@@ -24,6 +24,21 @@ export default class SearchBar extends React.Component {
           onChange={(e) => prop.onBookmarkedChange(e.target.value)}
           data-testid="checkbox-input"
         />
+        <label htmlFor="select-input" data-testid="select-input-label" >
+          Filtrar por gênero
+        </label>
+        <select
+          id="select-input"
+          value={prop.selectedGenre}
+          onChange={prop.onSelectedGenreChange}
+          data-testid="select-input"
+        >
+          <option value="" data-testid="select-option" >Todos</option>
+          <option value="action" data-testid="select-option" >Ação</option>
+          <option value="comedy" data-testid="select-option" >Comédia</option>
+          <option value="thriller" data-testid="select-option" >Suspense</option>
+        </select>
+
       </form>
     );
   }
