@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import data from '../data'
+import data from '../data';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -54,13 +54,10 @@ class MovieLibrary extends Component {
   }
 
   handleAddMovie(addMovieState) {
-    const newMovie = addMovieState
-    data.push(newMovie)
-    
-    console.log(data)
-    this.setState(() => ({
-      movies: data,
-    }));
+    const newMovie = addMovieState;
+    data.push(newMovie);
+
+    this.setState(() => ({ movies: data }));
   }
 
   filterByText(parameter) {
@@ -106,8 +103,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
