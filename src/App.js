@@ -10,40 +10,35 @@ class App extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
-      barra: "",
+      barra: '',
       favorito: false,
-      genero: ""
+      genero: '',
     };
   }
   
   onSearchTextChange(event) {
-    this.setState({
-      barra: event.target.value
-    });
+    this.setState({ barra: event.target.value });
   }
 
   onBookmarkedChange(event) {
-    this.setState({
-      favorito: event.target.checked
-    });
+    this.setState({ favorito: event.target.checked });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({
-      genero: event.target.value
-    });
+    this.setState({ genero: event.target.value });
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchBar searchText={this.state.barra}
+        <SearchBar
+        searchText={this.state.barra}
         onSearchTextChange={this.onSearchTextChange}
         bookmarkedOnly={this.state.favorito}
         onBookmarkedChange={this.onBookmarkedChange}
         selectedGenre={this.state.genero}
-        onSelectedGenreChange={this.onSelectedGenreChange}/>
+        onSelectedGenreChange={this.onSelectedGenreChange} />
       </div>
     );
   }
