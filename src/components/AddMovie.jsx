@@ -21,8 +21,10 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  filme() {
-    this.props.onClick(this.state);
+  filme(event) {
+    // this.props.onClick(this.state);
+    event.preventDefault();
+    // funcao que nao deixa a pagina resetar
     this.setState({
       subtitle: '',
       title: '',
