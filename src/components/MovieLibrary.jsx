@@ -26,13 +26,13 @@ class MovieLibrary extends Component {
   filter(allMovies) {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return allMovies.filter(
-      (cadafilme) => (bookmarkedOnly === true ? cadafilme.bookmarked === true : true)
-        && (selectedGenre === '' ? true : cadafilme.genre === selectedGenre)
+      (movie) => (bookmarkedOnly === true ? movie.bookmarked === true : true)
+        && (selectedGenre === '' ? true : movie.genre === selectedGenre)
         && (searchText === ''
           ? true
-          : cadafilme.title.includes(searchText)
-            || cadafilme.subtitle.includes(searchText)
-            || cadafilme.storyline.includes(searchText)),
+          : movie.title.includes(searchText)
+            || movie.subtitle.includes(searchText)
+            || movie.storyline.includes(searchText)),
     );
   }
 
