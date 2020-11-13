@@ -3,12 +3,14 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ({
+    this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-    });
+    };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -16,7 +18,11 @@ class SearchBar extends React.Component {
   }
 
   onBookmarkedChange(event) {
-    console.log(event);
+    const value =
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value;
+    this.setState({ bookmarkedOnly: value });
   }
 
   onSelectedGenreChange(event) {
@@ -26,7 +32,9 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text" data-testid="text-input-label">Inclui o texto:</label>
+        <label htmlFor="text" data-testid="text-input-label">
+          Inclui o texto:
+        </label>
         <input
           id="text"
           data-testid="text-input"
@@ -34,8 +42,16 @@ class SearchBar extends React.Component {
           type="text"
           onChange={this.onSearchTextChange}
         />
-        <input id="filter" type="checkbox" />
-        <label htmlFor="filter">Mostrar somente favoritos</label>
+        <label data-testid="checkbox-input-label" htmlFor="filter">
+          <input
+            id="filter"
+            type="checkbox"
+            data-testid="checkbox-input"
+            checked={this.bookmarkedOnly}
+            onChange={this.onBookmarkedChange}
+          />
+          Mostrar somente favoritos
+        </label>
         <label htmlFor="gender">Filtrar por gênero</label>
         <select id="gender" type="text">
           <option value="todos">Todos</option>
