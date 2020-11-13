@@ -19,8 +19,9 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
-  saveState() {
-    this.props.onClick(this.state);
+  saveState(event) {
+    /* this.props.onClick(this.state); */
+    event.preventDefault();
     this.setState({
       subtitle: '',
       title: '',
@@ -31,7 +32,7 @@ class AddMovie extends Component {
     });
   }
   render() {
-    /* const { onClick } = this.props; */
+    const { onClick } = this.props;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -91,15 +92,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.objectOf({
-    subtitle: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

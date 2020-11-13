@@ -1,4 +1,3 @@
-// código do readm
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,12 +8,41 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.searchHandleState = this.searchHandleState.bind(this);
+    this.checkedMovies = this.checkedMovies.bind(this);
+    this.addMovieClick = this.addMovieClick.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
+      favoritos: '',
     };
+  }
+
+  addMovieClick(newMovie) {
+    const set = this.state.movies.concat(newMovie);
+    this.setState({ movies: set });
+  }
+  checkedMovies(all) {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    return all.filter(
+      (movie) =>
+        (bookmarkedOnly === true ? movie.bookmarked === true : true) &&
+        (selectedGenre === '' ? true : movie.genre === selectedGenre) &&
+        (searchText === ''
+          ? true
+          : movie.title.includes(searchText) ||
+            movie.subtitle.includes(searchText) ||
+            movie.storyline.includes(searchText)),
+    );
+  }
+
+  searchHandleState({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -25,24 +53,27 @@ class MovieLibrary extends Component {
           searchText={this.state.searchText}
           bookmarkedOnly={this.state.bookmarkedOnly}
           selectedGenre={this.state.selectedGenre}
+          onSearchTextChange={this.searchHandleState}
+          onBookmarkedChange={this.searchHandleState}
+          onSelectedGenreChange={this.searchHandleState}
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <MovieList movies={this.checkedMovies(this.props.movies)} />
+        <AddMovie onClick={this.addMovieClick} />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    imagePatch: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
-  })).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      imagePath: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default MovieLibrary;
