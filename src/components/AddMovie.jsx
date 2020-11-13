@@ -40,7 +40,7 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form className="add-movie" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
@@ -49,6 +49,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="title"
             data-testid="title-input"
+            className="input-text-search-bar"
           />
         </label>
 
@@ -60,6 +61,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="subtitle"
             data-testid="subtitle-input"
+            className="input-text-search-bar"
           />
         </label>
 
@@ -71,6 +73,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="imagePath"
             data-testid="image-input"
+            className="input-text-search-bar"
           />
         </label>
 
@@ -81,6 +84,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="storyline"
             data-testid="storyline-input"
+            className="input-text-search-bar"
           />
         </label>
 
@@ -92,6 +96,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="rating"
             data-testid="rating-input"
+            className="input-text-search-bar"
           />
         </label>
 
@@ -102,6 +107,7 @@ class AddMovie extends React.Component {
             onChange={this.eventChange}
             name="genre"
             data-testid="genre-input"
+            className="select-search-bar"
           >
             <option value="action" data-testid="genre-option">
               Ação
@@ -119,6 +125,7 @@ class AddMovie extends React.Component {
           type="button"
           onClick={this.handleClick}
           data-testid="send-button"
+          className="button-add"
         >
           Adicionar filme
         </button>

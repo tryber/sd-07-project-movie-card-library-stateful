@@ -37,8 +37,7 @@ class MovieLibrary extends React.Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
-      <div>
-        <h2> My awesome movie library </h2>
+      <div className="movie-library">
         <SearchBar
           searchText={searchText}
           onSearchTextChange={this.eventChange}
