@@ -35,7 +35,6 @@ const movies = [
   },
 ];
 
-
 describe('Verifica o componente <MovieLibrary />', () => {
   it('Será validado se o componente é renderizado com sucesso', () => {
     render(<MovieLibrary movies={movies} />);
@@ -43,26 +42,24 @@ describe('Verifica o componente <MovieLibrary />', () => {
 });
 
 describe('Verifica o estado inicial do component <MovieLibrary />', () => {
-
-  
   it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const searchText = getByTestId('text-input');
     expect(searchText).toHaveValue('');
   });
-  
+
   it('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const bookmarkedOnly = getByTestId('checkbox-input');
     expect(bookmarkedOnly).not.toBeChecked();
   });
-  
+
   it('Será validado se o `selectedGenre` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const selectInput = getByTestId('select-input');
     expect(selectInput).toHaveValue('');
   });
-  
+
   it('Será validado se o todos os `movies` são renderezidados.', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
@@ -82,10 +79,8 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
     const searchText = getByTestId('text-input');
     event.type(searchText, 'My Search Text');
 
-
     expect(searchText).toHaveValue('My Search Text');
   });
-
 
   it('Será validado que é possivel selecionar a opção de filtrar por favoritos`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
@@ -173,7 +168,6 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-
   it('Será validado que é possivel filtrar por categoria', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const select = getByTestId('select-input');
@@ -207,7 +201,6 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddM
 
     let movieCards = getAllByTestId('movie-card');
 
-
     expect(movieCards).toHaveLength(movies.length);
 
     const titleInput = getByTestId('title-input');
@@ -224,7 +217,6 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddM
     fireEvent.change(storylineInput, { target: { value: newMovie.storyline } });
     event.type(ratingInput, newMovie.rating);
     event.selectOptions(genreInput, newMovie.genre);
-
 
     event.click(sendButton);
 
