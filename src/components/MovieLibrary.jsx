@@ -47,9 +47,8 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     let filterFavMovies = movies;
 
-    if (favorite)
-      filterFavMovies = movies.filter((movie) => movie.bookmarked === favorite);
-    
+    if (favorite) filterFavMovies = movies.filter((movie) => movie.bookmarked === favorite);
+
     this.setState({
       bookmarkedOnly: favorite,
       movies: filterFavMovies,
@@ -69,38 +68,21 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(stateOfAddMovie) {
-    this.setState((previousState) => ({ movies: [...previousState.movies, stateOfAddMovie]}));
+    this.setState((previousState) => ({ movies: [...previousState.movies, stateOfAddMovie] }));
   }
 
   render() {
     return (
       <div>
         <SearchBar
-          searchText = {
-            this.state.searchText
-          }
-          
-          onSearchTextChange = {
-            this.onSearchTextChange
-          }
-          
-          bookmarkedOnly = {
-            this.state.bookmarkedOnly
-          }
-          
-          onBookmarkedChange = {
-            this.onBookmarkedChange
-          }
-          
-          selectedGenre = {
-            this.state.selectedGenre
-          }
-          
-          onSelectedGenreChange = {
-            this.onSelectedGenreChange
-          }
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
@@ -108,10 +90,9 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+};
 
 export default MovieLibrary;
