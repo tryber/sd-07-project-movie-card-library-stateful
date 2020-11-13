@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-
-    const { 
-      searchText, onSearchTextChange,
-      bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
 
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label">
+          <label htmlFor="text-input" data-testid="text-input-label">
             Inclui o texto:
             <input
+              id="text-input"
               data-testid="text-input"
               type="text"
               value={searchText}
@@ -22,19 +22,22 @@ class SearchBar extends Component {
             />
           </label>
 
-          <label data-testid="checkbox-input-label">
-            Mostrar somente favirotos
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
             <input
+              id="checkbox-input"
               type="checkbox"
+              data-testid="checkbox-input"
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
             />
           </label>
 
-          <label data-testid="select-input-label">
+          <label data-testid="select-input-label" htmlFor="select-input">
             Filtrar por gênero
             <select
-              data-test-id="select-input"
+              id="select-input"
+              data-testid="select-input"
               value={selectedGenre}
               onChange={onSelectedGenreChange}
             >
@@ -61,7 +64,7 @@ class SearchBar extends Component {
           </label>
         </form>
       </div>
-    ) 
+    );
   }
 }
 
@@ -72,4 +75,6 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
-}
+};
+
+export default SearchBar;
