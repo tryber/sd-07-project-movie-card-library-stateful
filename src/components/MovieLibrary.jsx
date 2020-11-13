@@ -23,22 +23,6 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterByText(parameter) {
-    const movies = this.props.movies;
-    let filtered = movies;
-    const filterByTitle = movies.filter((movie) => parameter === movie.title);
-    const filterBySubTitle = movies.filter((movie) => parameter === movie.subtitle);
-    const filterByStory = movies.filter((movie) => parameter === movie.storyline);
-
-    if (filterByTitle.length > 0) filtered = filterByTitle;
-
-    if (filterBySubTitle.length > 0) filtered = filterBySubTitle;
-
-    if (filterByStory.length > 0) filtered = filterByStory;
-
-    this.setState(() => ({ movies: filtered }));
-  }
-
   onSearchTextChange(event) {
     const { value } = event.target;
     this.setState(() => ({ searchText: value }));
@@ -56,7 +40,7 @@ class MovieLibrary extends Component {
   }
 
   handleAddMovie(addMovieState) {
-    const arrayMovies = this.props.movies
+    const arrayMovies = this.props.movies;
     arrayMovies.append(addMovieState);
   }
 
@@ -72,7 +56,23 @@ class MovieLibrary extends Component {
       movies: filterByGenre,
     }));
   }
-  
+
+  filterByText(parameter) {
+    const movies = this.props.movies;
+    let filtered = movies;
+    const filterByTitle = movies.filter((movie) => parameter === movie.title);
+    const filterBySubTitle = movies.filter((movie) => parameter === movie.subtitle);
+    const filterByStory = movies.filter((movie) => parameter === movie.storyline);
+
+    if (filterByTitle.length > 0) filtered = filterByTitle;
+
+    if (filterBySubTitle.length > 0) filtered = filterBySubTitle;
+
+    if (filterByStory.length > 0) filtered = filterByStory;
+
+    this.setState(() => ({ movies: filtered }));
+  }
+
   filterMovies(parameter) {
     const { movies } = this.state;
     let filtered = this.props.movies;
