@@ -14,8 +14,8 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
-  };
+    };
+  }
 
   render() {
     return (
@@ -33,6 +33,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.object.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
 
 export default MovieLibrary;
