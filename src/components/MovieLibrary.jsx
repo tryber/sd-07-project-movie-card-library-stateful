@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.handleState = this.handleState.bind(this);
+    this.searchUpdateState = this.searchUpdateState.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleState({ target }) {
+  searchUpdateState({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSearchTextChange={this.handleState}
+          onSearchTextChange={this.searchUpdateState}
         />
         <MovieList movies={movies} />
         <AddMovie />
