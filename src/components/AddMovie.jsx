@@ -40,7 +40,7 @@ class AddMovie extends React.Component {
           value={this.subtitle}
           type="text"
           onChange={this.onClick}
-        />        
+        />
       </form>
     );
   }
