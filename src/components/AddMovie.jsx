@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Addmovie extends React.Component {
   constructor() {
@@ -13,11 +14,17 @@ class Addmovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    console.log(this.props.onClick);
   }
 
   render() {
@@ -92,13 +99,14 @@ class Addmovie extends React.Component {
           </select>
         </label><br />
         <button
-          onClick={this.clearForm}
-          type="submit" data-testid="send-button"
-          value=""
+          data-testid="send-button"
+          onClick={this.handleClick}
         >Adicionar filme</button>
       </form>
     );
   }
 }
+
+Addmovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default Addmovie;
