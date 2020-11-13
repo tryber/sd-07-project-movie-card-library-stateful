@@ -5,6 +5,9 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
+    this.changeInput = this.changeInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -15,11 +18,11 @@ class AddMovie extends React.Component {
     };
   }
 
-  changeInput = event => {
+  changeInput(event) {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  handleClick = () => {
+  handleClick() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(() => ({
