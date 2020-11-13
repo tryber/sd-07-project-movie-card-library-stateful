@@ -34,7 +34,7 @@ class MovieLibrary extends Component {
           ? true
           : cadafilme.title.includes(searchText) ||
             cadafilme.subtitle.includes(searchText) ||
-            cadafilme.storyline.includes(searchText))
+            cadafilme.storyline.includes(searchText)),
     );
   }
 
@@ -74,7 +74,7 @@ MovieLibrary.propTypes = {
       rating: PropTypes.number.isRequired,
       imagePath: PropTypes.string.isRequired,
     })
-  )
+  ).isRequired
 };
 
 export default MovieLibrary;
