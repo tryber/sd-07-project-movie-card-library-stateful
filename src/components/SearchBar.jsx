@@ -13,10 +13,12 @@ class SearchBar extends React.Component {
 
         <fieldset>
           <label
-            htmlFor="text" data-testid="text-input-label"
+            htmlFor="textInput" data-testid="text-input-label"
           >Inclui o texto:</label>
           <input
             type="text"
+            id="textInput"
+            name="searchText"
             data-testid="text-input"
             value={searchText}
             onChange={onSearchTextChange}
@@ -25,10 +27,12 @@ class SearchBar extends React.Component {
 
         <fieldset>
           <label
-            htmlFor="checkbox" data-testid="checkbox-input-label"
+            htmlFor="checkboxInput" data-testid="checkbox-input-label"
           >Mostrar somente favoritos</label>
           <input
             type="checkbox"
+            id="checkboxInput"
+            name="bookmarkedOnly"
             data-testid="checkbox-input"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
@@ -37,10 +41,12 @@ class SearchBar extends React.Component {
 
         <fieldset>
           <label
-            htmlFor="select" data-testid="select-input-label"
+            htmlFor="selectInput" data-testid="select-input-label"
           >Filtrar por gênero</label>
           <select
             type="select"
+            id="selectInput"
+            name="selectedGenre"
             data-testid="select-input"
             value={selectedGenre}
             onChange={onSelectedGenreChange}
@@ -57,14 +63,13 @@ class SearchBar extends React.Component {
   }
 }
 
-// https://medium.com/@henrique.weiand/react-defaultprops-proptypes-plano-de-aula-vi-2ac0f990cdd9
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-};
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}.isRequired;
 
 export default SearchBar;
