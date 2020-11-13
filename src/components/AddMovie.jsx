@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,8 +15,9 @@ class AddMovie extends Component {
     };
   }
 
-  handleTitleChange(event) {
-    this.setState({ title: event.target.value });
+  handleChange( {target} ) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -28,15 +29,29 @@ class AddMovie extends Component {
           <label htmlFor="title-input" data-testid="title-input-label">Título</label>
           <input
             data-testid="title-input"
-            onChange={this.handleTitleChange}
+            onChange={this.handleChange}
             value={this.state.title}
           >
           </input>
-          <label htmlFor="title-input" data-testid="subtitle-input-label">Subtítulo</label>
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo</label>
           <input
-            data-testid="title-input"
-            onChange={this.handleTitleChange}
-            value={this.state.title}
+            data-testid="subtitle-input"
+            onChange={this.handleChange}
+            value={this.state.subtitle}
+          >
+          </input>
+          <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
+          <input
+            data-testid="image-input"
+            onChange={this.handleChange}
+            value={this.state.imagePath}
+          >
+          </input>
+          <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
+          <input
+            data-testid="storyline-input"
+            onChange={this.handleChange}
+            value={this.state.storyline}
           >
           </input>
         </form>
