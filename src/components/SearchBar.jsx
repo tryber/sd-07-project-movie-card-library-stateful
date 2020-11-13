@@ -8,10 +8,11 @@ class SearchBar extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
     });
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
   onSearchTextChange(event) {
-    console.log(event);
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange(event) {
@@ -24,18 +25,17 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form>
-        <label htmlFor="text" data-testid="text-input-label">Inclui o texto</label>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text" data-testid="text-input-label">Inclui o texto:</label>
         <input
           id="text"
           data-testid="text-input"
-          value="searchText"
+          value={this.searchText}
           type="text"
           onChange={this.onSearchTextChange}
         />
-        <label htmlFor="filter"> I have a car</label>
         <input id="filter" type="checkbox" />
-
+        <label htmlFor="filter">Mostrar somente favoritos</label>
         <label htmlFor="gender">Filtrar por gênero</label>
         <select id="gender" type="text">
           <option value="todos">Todos</option>
