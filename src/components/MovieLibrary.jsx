@@ -18,8 +18,8 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick(novoFilme) {
-    const joined = this.state.movies.concat(novoFilme);
+  onClick(newMovie) {
+    const joined = this.state.movies.concat(newMovie);
     this.setState({ movies: joined });
   }
 
