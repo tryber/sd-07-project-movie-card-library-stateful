@@ -39,6 +39,11 @@ class MovieLibrary extends Component {
     return this.setState({ bookmarkedOnly: true });
   }
 
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({ selectedGenre: value });
+  }
+
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     if (bookmarkedOnly === true) {
@@ -53,11 +58,6 @@ class MovieLibrary extends Component {
         movie.storyline.indexOf(searchText) >= 0);
     }
     return movies;
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { value } = target;
-    this.setState({ selectedGenre: value });
   }
 
   render() {
