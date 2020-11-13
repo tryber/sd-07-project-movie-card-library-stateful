@@ -12,7 +12,7 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     // essa destruction vem de uma props passada
-    // de outra classe , os estados iniciais serao o 
+    // de outra classe , os estados iniciais serao o
     // argumento dessa outra classe
     // é como se fosse this.props.searchText
     return (
