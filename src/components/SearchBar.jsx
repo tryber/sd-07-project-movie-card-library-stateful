@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
     });
   }
 
-  onSearchTextChange = event => {
+  onSearchTextChange(event) {
     console.log(event)
   }
 
