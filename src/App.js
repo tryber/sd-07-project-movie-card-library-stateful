@@ -11,7 +11,7 @@ class App extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       barra: '',
-      fav: false,
+      f: false,
       genero: '',
     };
   }
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   onBookmarkedChange(event) {
-    this.setState({ fav: event.target.checked });
+    this.setState({ f: event.target.checked });
   }
 
   onSelectedGenreChange(event) {
