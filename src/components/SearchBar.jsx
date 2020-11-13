@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   }
 
   onSelectedGenreChange(event) {
-    console.log(event);
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -52,12 +52,20 @@ class SearchBar extends React.Component {
           />
           Mostrar somente favoritos
         </label>
-        <label htmlFor="gender">Filtrar por gênero</label>
-        <select id="gender" type="text">
-          <option value="todos">Todos</option>
-          <option value="acao">Ação</option>
-          <option value="comedia">Comédia</option>
-          <option value="suspense">Suspense</option>
+        <label data-testid="select-input-label" htmlFor="gender">
+          Filtrar por gênero
+        </label>
+        <select
+          value={this.selectedGenre}
+          data-testid="select-input"
+          id="gender"
+          type="text"
+          onChange={this.onSelectedGenreChange}
+        >
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
         </select>
       </form>
     );
