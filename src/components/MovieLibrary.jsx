@@ -30,7 +30,6 @@ class MovieLibrary extends React.Component {
       this.setState({ movies: cards });
     }
   }
-
   render() {
     return (
       <div>
