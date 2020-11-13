@@ -50,6 +50,8 @@ class MovieLibrary extends React.Component {
         movie.storyline.includes(this.state.searchText));
   }
 
+  // addMovie() {}
+
   render() {
     return (
       <div>
