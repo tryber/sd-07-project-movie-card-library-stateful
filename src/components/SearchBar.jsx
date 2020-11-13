@@ -13,6 +13,9 @@ constructor(props) {
     };
 };
 
+Filter = (event) => {
+    console.log(event.target.value);
+}
 
 render(){
 return (
