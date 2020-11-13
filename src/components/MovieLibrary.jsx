@@ -24,7 +24,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly={this.state.bookmarkedOnly}
           selectedGenre={this.state.selectedGenre}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.state.movies} />
         <AddMovie />
       </div>
     );
