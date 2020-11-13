@@ -10,10 +10,9 @@ class MovieLibrary extends React.Component {
             selectedGenre: '',
         }
     }
-    onSearchTextChange = (event) => {
+    onSearchTextChange = event => {
        const {value} = event.target;
-        this.setState({
-            searchText:value})
+       return this.setState({searchText:value});
     };
     onBookmarkedChange = (event) => {
         const {checked} = event.target;
