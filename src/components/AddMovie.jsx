@@ -6,7 +6,6 @@ class AddMovie extends React.Component {
 
     this.changeHandler = this.changeHandler.bind(this);
 
-
     this.state = {
       subtitle: '',
       title: '',
@@ -19,7 +18,7 @@ class AddMovie extends React.Component {
 
   changeHandler({ target }) {
     const { name } = target;
-    const value = target.value;
+    const value = target.type === 'option' ? target.checked : target.value;
 
     this.setState({ [name]: value });
   }
@@ -105,12 +104,14 @@ class AddMovie extends React.Component {
         <label data-testid="genre-input-label" htmlFor="select-genre-input">
           Gênero
           <select
-            id="select-genre-input" data-testid="genre-input" className="inputs"
+            id="select-genre-input" data-testid="genre-input"
+            className="inputs" name="genre"
             value={this.state.genre} onChange={this.changeHandler}
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
+
           </select>
         </label>
 
@@ -119,7 +120,17 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={() => this.props.addMovie(this.state)}
+          onClick={() => {
+            this.props.addMovie(this.state)
+            this.setState(() => ({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            }));
+          }}
         >Adicionar filme</button>
       </form>
     );

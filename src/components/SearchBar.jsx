@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
           />
         </label>
 
-        <div />
+        <br/>
 
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
           />
         </label>
 
-        <div />
+        <br/>
 
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero
