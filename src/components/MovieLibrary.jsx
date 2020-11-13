@@ -9,7 +9,8 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props)
     this.filterMovies = this.filterMovies.bind(this);
-    this.filterByText = this.filterByText.bind(this)
+    this.filterByText = this.filterByText.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
       searchText:"",
       bookmarkedOnly: false,
@@ -48,7 +49,7 @@ class MovieLibrary extends Component {
 
   }
 
-  onSearchTextChange = (event) => {
+  onSearchTextChange(event) {
     const { value } = event.target;
     this.setState(() => ({
       searchText: value
