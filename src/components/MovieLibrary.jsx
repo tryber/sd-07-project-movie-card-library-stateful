@@ -21,7 +21,8 @@ class MovieLibrary extends Component {
   // filter e onClick
   // https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/88/commits/77d55ca3faadadb6a8bdb058f4c5366201e68150
   onClick(newMovie) {
-    const joined = this.state.movies.concat(newMovie);
+    const { movies } = this.state;
+    const joined = movies.concat(newMovie);
     this.setState({ movies: joined });
   }
 
