@@ -34,7 +34,7 @@ class MovieLibrary extends Component {
           ? true
           : cadafilme.title.includes(searchText) ||
             cadafilme.subtitle.includes(searchText) ||
-            cadafilme.storyline.includes(searchText)),
+            cadafilme.storyline.includes(searchText))
     );
   }
 
@@ -45,8 +45,8 @@ class MovieLibrary extends Component {
     // a classe do serachbar que vai receber essa fucao pelo
     // parametro onChange
   }
-  render() {
 
+  render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -59,7 +59,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.atualizarEstadoSearchBar}
         />
         <MovieList movies={this.filtrar(this.state.movies)} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
@@ -73,7 +73,7 @@ MovieLibrary.propTypes = {
       storyline: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
       imagePath: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
 };
 
