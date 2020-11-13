@@ -21,9 +21,9 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  saveMovie() {
-    const { onClick } = this.props;
-    onClick(this.state);
+  saveMovie(event) {
+    event.preventDefault();
+    // this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -35,7 +35,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">

@@ -24,22 +24,22 @@ class SearchBar extends Component {
               onChange={onSearchTextChange}
             />
           </label>
-          <label data-testid="checkbox-input-label" htmlFor="searchCheckBox">
+          <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
             Mostrar somente favoritos
             <input
               type="checkbox"
-              name="searchCheckBox"
+              name="bookmarkedOnly"
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
               data-testid="checkbox-input"
             />
           </label>
-          <label data-testid="select-input-label" htmlFor="selectInput">
+          <label data-testid="select-input-label" htmlFor="selectedGenre">
             Filtrar por gênero
             <select
               value={selectedGenre}
               onChange={onSelectedGenreChange}
-              name="selectInput"
+              name="selectedGenre"
               data-testid="select-input"
             >
               <option value="" data-testid="select-option">
