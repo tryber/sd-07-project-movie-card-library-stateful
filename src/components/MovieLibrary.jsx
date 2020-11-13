@@ -34,7 +34,7 @@ class MovieLibrary extends Component {
           ? true
           : cadafilme.title.includes(searchText) ||
             cadafilme.subtitle.includes(searchText) ||
-            cadafilme.storyline.includes(searchText));
+            cadafilme.storyline.includes(searchText))
     );
   }
 
