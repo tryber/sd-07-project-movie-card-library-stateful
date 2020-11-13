@@ -10,15 +10,15 @@ class SearchBar extends React.Component {
     }
   }
 
-  onSearchTextChange = () => {
+  onSearchTextChange = event => {
     return 'teste'
   }
 
-   onBookmarkedChange = () => {
+   onBookmarkedChange = event => {
     return 'teste'
   }
 
-   onSelectedGenreChange = () => {
+   onSelectedGenreChange = event => {
     return 'teste'
   }
 
