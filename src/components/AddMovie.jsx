@@ -18,9 +18,7 @@ class AddMovie extends Component {
 
   handleState({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   filme() {
