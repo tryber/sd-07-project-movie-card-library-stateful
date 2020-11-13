@@ -19,6 +19,19 @@ class AddMovie extends React.Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }))
+  }
+
   render() {
     return (
       <div>
@@ -85,6 +98,12 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
+
+          <button
+            data-testid="send-button"
+            id="send-button"
+            type="button"
+            onClick={this.handleClick}>Adicionar filme</button>
 
         </form>
       </div>
