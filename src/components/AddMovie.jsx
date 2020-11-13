@@ -19,6 +19,7 @@ class Addmovie extends React.Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
+
   render() {
     return (
       <form data-testid="add-movie-form" >
@@ -90,7 +91,11 @@ class Addmovie extends React.Component {
             <option value="thriller" data-testid="genre-option" >Suspense</option>
           </select>
         </label><br />
-        <button type="submit" data-testid="send-button" value="">Adicionar filme</button>
+        <button
+          onClick={this.clearForm}
+          type="submit" data-testid="send-button"
+          value=""
+        >Adicionar filme</button>
       </form>
     );
   }
