@@ -116,27 +116,27 @@ describe('Verifica se o componente <SearchBar /> renderiza um select de gênero'
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado que um select é renderizado dentro do form', () => {
+  it('Será validado que um select é renderizado dentro do form', () => {
     const { getAllByTestId } = searchBar();
     const selectInput = getAllByTestId('select-input');
     expect(selectInput).toHaveLength(1);
   });
 
-  it.skip('Será validado se o componente tem uma label com o texto "Filtrar por gênero"', () => {
+  it('Será validado se o componente tem uma label com o texto "Filtrar por gênero"', () => {
     const { getAllByTestId } = searchBar();
     const selectInputLabel = getAllByTestId('select-input-label');
     expect(selectInputLabel).toHaveLength(1);
     expect(selectInputLabel[0]).toHaveTextContent('Filtrar por gênero');
   });
 
-  it.skip('Será validado se a prop `selectedGenre` é passada como valor do select', () => {
+  it('Será validado se a prop `selectedGenre` é passada como valor do select', () => {
     const { getByTestId } = searchBar();
     const selectInput = getByTestId('select-input');
 
     expect(selectInput).toHaveValue(props.selectedGenre);
   });
 
-  it.skip('Será validado se a prop `onSelectedGenreChange` é passada para o atributo `onChange` do select', () => {
+  it('Será validado se a prop `onSelectedGenreChange` é passada para o atributo `onChange` do select', () => {
     const { getByTestId } = searchBar();
     const selectInput = getByTestId('select-input');
     event.selectOptions(selectInput, 'comedy');
@@ -144,7 +144,7 @@ describe('Verifica se o componente <SearchBar /> renderiza um select de gênero'
     expect(props.onSelectedGenreChange).toHaveBeenCalledTimes(1);
   });
 
-  it.skip("Será validado se são renderizadas 4 options dentro do select com os textos e valores, respectivamente: Todos e '', Ação e action, Comédia e comedy, Suspense e thriller", () => {
+  it("Será validado se são renderizadas 4 options dentro do select com os textos e valores, respectivamente: Todos e '', Ação e action, Comédia e comedy, Suspense e thriller", () => {
     const genreOptions = [
       { text: 'Todos', value: '' },
       { text: 'Ação', value: 'action' },
