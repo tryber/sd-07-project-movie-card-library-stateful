@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    // const {
+    //   searchText,
+    //   onSearchTextChange,
+    //   bookmarkedOnly,
+    //   onBookmarkedChange,
+    //   selectedGenre,
+    //   onSelectedGenreChange,
+    // } = this.props;
     return (
       <div className="movie-list">
         <form data-testid="search-bar-form">
@@ -20,8 +20,8 @@ class SearchBar extends React.Component {
               <input
                 name="search-text"
                 data-testid="text-input"
-                value={searchText}
-                onChange={onSearchTextChange}
+                // value={searchText}
+                // onChange={onSearchTextChange}
               />
             </label>
           </div>
@@ -31,8 +31,8 @@ class SearchBar extends React.Component {
                 type="checkbox"
                 name="bookmarked-change"
                 data-testid="checkbox-input"
-                checked={bookmarkedOnly}
-                onChange={onBookmarkedChange}
+                // checked={bookmarkedOnly}
+                // onChange={onBookmarkedChange}
                 data-key="bookmarkedOnly"
               />
             Mostrar somente favoritos
@@ -42,8 +42,8 @@ class SearchBar extends React.Component {
             <label htmlFor="select-input" data-testid="select-input-label">
               Filtrar por gênero
               <select
-                value={selectedGenre}
-                onChange={onSelectedGenreChange}
+                // value={selectedGenre}
+                // onChange={onSelectedGenreChange}
                 data-testid="select-input"
                 name="selected-genre"
                 data-key="selectedGenre"
@@ -69,13 +69,13 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-};
+// SearchBar.propTypes = {
+//   searchText: PropTypes.string.isRequired,
+//   onSearchTextChange: PropTypes.func.isRequired,
+//   bookmarkedOnly: PropTypes.bool.isRequired,
+//   onBookmarkedChange: PropTypes.func.isRequired,
+//   selectedGenre: PropTypes.string.isRequired,
+//   onSelectedGenreChange: PropTypes.func.isRequired,
+// };
 
 export default SearchBar;

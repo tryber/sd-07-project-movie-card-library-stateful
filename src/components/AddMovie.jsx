@@ -1,22 +1,22 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyline: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   };
+  // }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    // const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
+      <div className="movie-list">
         <form>
           <div>
             <label htmlFor="title-text" data-testid="title-input-label">
@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
               <input
                 name="title-text"
                 data-testid="title-input"
-                value={title}
+                // value={title}
               />
             </label>
           </div>
@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
               <input
                 name="subtitle-text"
                 data-testid="subtitle-input"
-                value={subtitle}
+                // value={subtitle}
               />
             </label>
           </div>
@@ -44,7 +44,7 @@ class AddMovie extends React.Component {
               <input
                 name="image-url"
                 data-testid="image-input"
-                value={imagePath}
+                // value={imagePath}
               />
             </label>
           </div>
@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
               <textarea
                 name="storyline-text"
                 data-testid="storyline-input"
-                value={storyline}
+                // value={storyline}
               />
             </label>
           </div>
@@ -66,7 +66,7 @@ class AddMovie extends React.Component {
                 data-testid="rating-input"
                 type="number"
                 step="0.1"
-                value={rating}
+                // value={rating}
               />
             </label>
           </div>
@@ -76,7 +76,7 @@ class AddMovie extends React.Component {
               <select
                 name="genre-select"
                 data-testid="genre-input"
-                value={genre}
+                // value={genre}
               >
                 <option value="action" data-testid="genre-option">
                     Ação
