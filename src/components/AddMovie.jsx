@@ -17,7 +17,9 @@ class AddMovie extends React.Component {
   change(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  button() {
+  button(e) {
+    e.preventDefault();
+    console.log('O link foi clicado.');
     const p = this.props;
     p.onClick(this.state);
     this.setState({

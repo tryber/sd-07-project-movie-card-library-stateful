@@ -2,10 +2,10 @@ import React from 'react';
 
 class Rating extends React.Component {
   render() {
-    const { rating } = this.props;
+    const p = this.props;
     return (
       <div className="movie-card-rating" data-testid="rating">
-        <span className="rating">{rating}</span>
+        <span className="rating">{p.rating}</span>
       </div>
     );
   }
