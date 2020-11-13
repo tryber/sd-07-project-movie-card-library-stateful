@@ -37,13 +37,17 @@ class MovieLibrary extends React.Component {
     this.setState({ [event.target.name]: event.target.checked });
   }
 
-  onSelectedGenreChange() {
-    //
+  onSelectedGenreChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleAddClick(newMovieObj) {
-    const newMoviesArray = this.props.movies.push(newMovieObj);
-    this.setState({ movies: newMoviesArray });
+    const newMoviesArray = this.props.movies.concat(newMovieObj);
+    console.log(newMoviesArray);
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMoviesArray],
+      filteredMovies: [...prevState.movies, newMoviesArray],
+    }));
   }
 
   render() {
