@@ -40,9 +40,10 @@ class MovieLibrary extends React.Component {
     const checkGender = (element) => selectedGenre === '' || element === selectedGenre;
 
     const bookMarkedFilter = movies.filter((movie) => {
-      if (bookmarkedOnly) return movie.bookmarkedOnly;
+      if (bookmarkedOnly) return movie.bookmarked;
       return movie;
     });
+
     const genreFilter = bookMarkedFilter.filter(({ genre }) => checkGender(genre));
     return genreFilter.filter(({ title, subtitle, storyline }) => {
       const movieInfo = `${title} - ${subtitle} - ${storyline}`;
