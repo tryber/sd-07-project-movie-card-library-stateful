@@ -23,7 +23,14 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    const key = event.target.name;
+    const text = event.target.value;
+    const previousList = this.state.filteredMovies;
+    const newFiltered = previousList.filter((movie) => {
+      if (movie.title.includes(text) || movie.subtitle.includes(text)) return true;
+      return false;
+    });
+    this.setState({ [key]: text, filteredMovies: newFiltered });
   }
 
   onBookmarkedChange(event) {
