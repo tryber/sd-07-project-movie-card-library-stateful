@@ -22,6 +22,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -99,6 +100,14 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
+
+        <button
+          type="button"
+          onClick={() => onClick(this.state)}
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

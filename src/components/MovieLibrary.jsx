@@ -12,7 +12,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.eventHandle = this.eventHandle.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -36,7 +36,16 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  eventHandle() {}
+  onClick(state) {
+    let { subtitle, title, imagePath, storyline, rating, genre } = state;
+
+    subtitle = '';
+    title = '';
+    imagePath = '';
+    storyline = '';
+    rating = 0;
+    genre = 'action';
+  }
 
   render() {
     const { movies } = this.props;
@@ -62,7 +71,7 @@ class MovieLibrary extends React.Component {
           )}
         />
 
-        <AddMovie />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
