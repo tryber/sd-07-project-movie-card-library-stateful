@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="addMovie-field">
 
         <label data-testid="title-input-label" htmlFor="title">
                 Título
@@ -47,6 +47,7 @@ class AddMovie extends React.Component {
             name="title"
             type="text" value={title}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           />
         </label>
 
@@ -57,6 +58,7 @@ class AddMovie extends React.Component {
             name="subtitle"
             type="text" value={subtitle}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           />
         </label>
 
@@ -67,6 +69,7 @@ class AddMovie extends React.Component {
             name="imagePath" type="text"
             value={imagePath}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           />
         </label>
 
@@ -78,6 +81,7 @@ class AddMovie extends React.Component {
             type="text"
             value={storyline}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           />
         </label>
 
@@ -89,6 +93,7 @@ class AddMovie extends React.Component {
             type="number"
             value={rating}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           />
         </label>
 
@@ -99,6 +104,7 @@ class AddMovie extends React.Component {
             name="genre"
             value={genre}
             onChange={this.handlerEvent}
+            className="addMovie-item"
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -109,6 +115,7 @@ class AddMovie extends React.Component {
           data-testid="send-button"
           type="submit"
           onClick={this.addMovie}
+          className="addMovie-button"
         >
           Adicionar filme
         </button>
