@@ -172,7 +172,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     { value: 'thriller', text: 'Suspense' },
   ];
 
-
   it('Será validado se o componente renderiza um select com 3 opções de genero de filme', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
@@ -202,8 +201,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-  
-  
+    
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
