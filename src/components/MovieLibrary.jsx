@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieList from './MovieList'
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -21,13 +21,13 @@ class MovieLibrary extends React.Component {
   onSearchTextChange(event) {
     const p = this.props;
     this.setState({ searchText: event.target.value });
-    this.state.movies = p.movies.filter(movie => movie.title.includes(event.target.value));
+    this.state.movies = p.movies.filter((movie) => movie.title.includes(event.target.value));
   }
 
   onBookmarkedChange(event) {
     const p = this.props;
     this.setState({ bookmarkedOnly: event.target.checked });
-    this.state.movies = p.movies.filter(movie => movie.bookmarked === true);
+    this.state.movies = p.movies.filter(movie => (movie.bookmarked === true));
   }
 
   onSelectedGenreChange(event) {
@@ -39,7 +39,7 @@ class MovieLibrary extends React.Component {
   onClick(obj) {
     const p = this.props;
     if (obj.title !== '' && obj.subtitle !== '' && obj.storyline !== '' && obj.imagePath !== '') {
-      p.movies.push(obj)
+      p.movies.push(obj);
     }
   }
 
@@ -54,7 +54,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
