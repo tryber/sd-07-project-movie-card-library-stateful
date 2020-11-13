@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class AddMovie extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.handleEvent = this.handleEvent.bind(this);
     this.handleClickEvent = this.handleClickEvent.bind(this);
-  
     this.state = {
       subtitle: '',
       title: '',
@@ -16,7 +15,7 @@ export class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     }
-  }
+  };
 
   resetAddMovieState() {
     this.setState({
@@ -35,11 +34,9 @@ export class AddMovie extends Component {
     this.resetAddMovieState();
   }
 
-  handleEvent( {target} ) {
-    const { name, value} = target;
-    this.setState({
-      [name]: value,
-    });
+  handleEvent({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -74,8 +71,7 @@ export class AddMovie extends Component {
             <textarea
               name="storyline" data-testid="storyline-input"
               value={storyline} onChange={handleEvent}
-            >
-            </textarea>
+            />
           </label>
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
@@ -86,7 +82,8 @@ export class AddMovie extends Component {
           </label>
           <label htmlFor="genre" data-testid="genre-input-label">
             Gênero
-            <select name="genre" data-testid="genre-input"
+            <select
+              name="genre" data-testid="genre-input"
               value={genre} onChange={handleEvent}
             >
               <option value="action" data-testid="genre-option">Ação</option>
@@ -101,8 +98,6 @@ export class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
