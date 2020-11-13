@@ -1,9 +1,22 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div className="movie-list">
+      <div>
         <form>
           <div>
             <label htmlFor="title-text" data-testid="title-input-label">
@@ -11,6 +24,7 @@ class AddMovie extends React.Component {
               <input
                 name="title-text"
                 data-testid="title-input"
+                value={title}
               />
             </label>
           </div>
@@ -20,6 +34,7 @@ class AddMovie extends React.Component {
               <input
                 name="subtitle-text"
                 data-testid="subtitle-input"
+                value={subtitle}
               />
             </label>
           </div>
@@ -29,6 +44,7 @@ class AddMovie extends React.Component {
               <input
                 name="image-url"
                 data-testid="image-input"
+                value={imagePath}
               />
             </label>
           </div>
@@ -38,6 +54,7 @@ class AddMovie extends React.Component {
               <textarea
                 name="storyline-text"
                 data-testid="storyline-input"
+                value={storyline}
               />
             </label>
           </div>
@@ -49,6 +66,7 @@ class AddMovie extends React.Component {
                 data-testid="rating-input"
                 type="number"
                 step="0.1"
+                value={rating}
               />
             </label>
           </div>
@@ -58,6 +76,7 @@ class AddMovie extends React.Component {
               <select
                 name="genre-select"
                 data-testid="genre-input"
+                value={genre}
               >
                 <option value="action" data-testid="genre-option">
                     Ação
@@ -72,7 +91,11 @@ class AddMovie extends React.Component {
             </label>
           </div>
           <div>
-            <button type="submit" name="sendButton" data-testid="send-button">
+            <button
+              type="submit"
+              name="sendButton"
+              data-testid="send-button"
+            >
               Adicionar filme
             </button>
           </div>
