@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
   render() {
@@ -10,5 +11,9 @@ class Rating extends React.Component {
     );
   }
 }
+
+// https://github.com/tryber/sd-07-project-movie-cards-library/pull/16/files
+Rating.propTypes = { rating: PropTypes.number };
+Rating.defaultProps = { rating: 0 };
 
 export default Rating;

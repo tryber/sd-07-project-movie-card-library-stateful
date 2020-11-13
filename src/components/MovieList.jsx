@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -13,5 +13,9 @@ class MovieList extends React.Component {
     );
   }
 }
+
+// https://github.com/tryber/sd-07-project-movie-cards-library/pull/16/files
+const aux = PropTypes.shape({ title: PropTypes.string });
+MovieList.propTypes = { movies: PropTypes.arrayOf(aux).isRequired };
 
 export default MovieList;
