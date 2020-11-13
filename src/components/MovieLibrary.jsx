@@ -1,11 +1,10 @@
 // código do readm
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import PropTypes from 'prop-types';
-
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: this.props.movies,
     }
-  }
+  };
 
   render() {
     return (
@@ -34,6 +33,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {movies: PropTypes.object};
+MovieLibrary.propTypes = { movies: PropTypes.object.isRequired };
 
 export default MovieLibrary;
