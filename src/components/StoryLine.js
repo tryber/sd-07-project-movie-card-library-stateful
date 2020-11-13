@@ -8,7 +8,6 @@ class StoryLine extends Component {
         Sinopse
         <textarea
           name="storyline"
-          type
           value={ value }
           data-testid="storyline-input"
           onChange={ handleChange }
