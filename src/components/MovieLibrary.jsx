@@ -74,7 +74,7 @@ MovieLibrary.propTypes = {
       rating: PropTypes.number.isRequired,
       imagePath: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  )
 };
 
 export default MovieLibrary;
