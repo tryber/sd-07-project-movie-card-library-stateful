@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import MovieCard from './MovieCard';
+import PropTypes from 'prop-types';
 import '@testing-library/jest-dom';
 
 describe('Verifica o componente <MovieCard />', () => {

@@ -2,49 +2,75 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchText: '',
-            onSearchTextChange: '',
-            bookmarkedOnly: '',
-            onBookmarkedChange: '',
-            selectedGenre: '',
-            onSelectedGenreChange: '',
-        };
-    };
+  render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
 
-    render(){
-        return (
-            <div>
-                <form data-testid="search-bar-form" >
-                    <label data-testid="text-input-label">Inclui o texto:
-                        <input data-testid="text-input" value={this.props.searchText} onChange={this.props.onSearchTextChange} type="text"></input>
-                    </label>
-                    <label data-testid="checkbox-input-label">Mostrar somente favoritos:
-                        <input data-testid="checkbox-input" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} type="checkbox"></input>
-                    </label>
-                    <label data-testid="select-input-label">Filtrar por gênero
-                        <select data-testid="select-input" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange} type="checkbox">
-                            <option data-testid="select-option" value="">Todos</option>
-                            <option data-testid="select-option" value="action">Ação</option>
-                            <option data-testid="select-option" value="comedy">Comédia</option>
-                            <option data-testid="select-option" value="thriller">Suspense</option>
-                        </select>
-                    </label>
-                </form>
-            </div>
-        );
-    };
-};
+    return (
+      <div>
+        <form data-testid="search-bar-form">
+          <label htmlFor="text-input" data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              id="text-input"
+              data-testid="text-input"
+              value={searchText}
+              onChange={onSearchTextChange}
+              type="text"
+            />
+          </label>
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+            Mostrar somente favoritos:
+            <input
+              id="checkbox-input"
+              data-testid="checkbox-input"
+              checked={bookmarkedOnly}
+              onChange={onBookmarkedChange}
+              type="checkbox"
+            />
+          </label>
+          <label htmlFor="select-input" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              id="select-input"
+              data-testid="select-input"
+              value={selectedGenre}
+              onChange={onSelectedGenreChange}
+              type="checkbox"
+            >
+              <option data-testid="select-option" value="">
+                Todos
+              </option>
+              <option data-testid="select-option" value="action">
+                Ação
+              </option>
+              <option data-testid="select-option" value="comedy">
+                Comédia
+              </option>
+              <option data-testid="select-option" value="thriller">
+                Suspense
+              </option>
+            </select>
+          </label>
+        </form>
+      </div>
+    );
+  }
+}
 
 SearchBar.propTypes = {
-    searchText: PropTypes.string.isRequired,
-    onSearchTextChange: PropTypes.func.isRequired,
-    bookmarkedOnly: PropTypes.bool.isRequired,
-    onBookmarkedChange: PropTypes.func.isRequired,
-    selectedGenre: PropTypes.string.isRequired,
-    onSelectedGenreChange: PropTypes.func.isRequired
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
