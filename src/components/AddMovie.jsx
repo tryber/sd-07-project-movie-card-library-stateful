@@ -41,6 +41,7 @@ class AddMovie extends Component {
           <input
             type="text"
             data-testid="title-input"
+            name="title"
             onChange={this.handleChange}
             value={this.state.title}
           />
@@ -48,6 +49,7 @@ class AddMovie extends Component {
           <input
             type="text"
             data-testid="subtitle-input"
+            name="subtitle"
             onChange={this.handleChange}
             value={this.state.subtitle}
           />
@@ -55,12 +57,14 @@ class AddMovie extends Component {
           <input
             type="text"
             data-testid="image-input"
+            name="imagePath"
             onChange={this.handleChange}
             value={this.state.imagePath}
           />
           <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
           <textarea
             data-testid="storyline-input"
+            name="storyline"
             onChange={this.handleChange}
             value={this.state.storyline}
           />
@@ -68,12 +72,14 @@ class AddMovie extends Component {
           <input
             type="number"
             data-testid="rating-input"
+            name="rating"
             onChange={this.handleChange}
             value={this.state.rating}
           />
           <label htmlFor="genre-input" data-testid="genre-input-label">Gênero</label>
           <select
             data-testid="genre-input"
+            name="genre"
             onChange={this.handleChange}
             value={this.state.genre}
           >
