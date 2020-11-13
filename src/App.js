@@ -37,7 +37,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar searchText={b} onSearchTextChange={t} bookmarkedOnly={f} onBookmarkedChange={k} selectedGenre={n} onSelectedGenreChange={g} />
+        <SearchBar sea={b} onT={t} b={f} onk={k} sel={n} onG={g} />
       </div>
     );
   }
