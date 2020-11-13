@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
   }
 
   fncClick(callBack) {
-    callBack(this.state); // checar se isso é isso mesmo!!!
+    callBack(this.state);
     this.setState({
       subtitle: '',
       title: '',

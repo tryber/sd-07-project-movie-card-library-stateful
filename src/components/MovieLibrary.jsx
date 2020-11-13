@@ -10,13 +10,14 @@ class MovieLibrary extends React.Component {
     super();
 
     this.handleChanges = this.handleChanges.bind(this);
-    // this.handleBookMarked = this.handleBookMarked.bind(this);
+    this.newMovie = this.newMovie.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: data,
+      newMovie: {},
     };
   }
 
@@ -26,8 +27,15 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
+  async newMovie(objNewMovie) {
+    this.setState({ newMovie: objNewMovie });
+    this.setState((estadoAnterior) => (
+      { movies: estadoAnterior.movies.concat(estadoAnterior.newMovie) }
+    ));
+  }
+
   render() {
-    let filteredMovies = data;
+    let filteredMovies = this.state.movies;
 
     if (this.state.bookmarkedOnly === true) {
       filteredMovies = data.filter((movie) => movie.bookmarked === true);
@@ -54,8 +62,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.handleChanges}
         />
-        <MovieList movies={filteredMovies} handleBookMarked={this.handleBookMarked} />
-        <AddMovie />
+        <MovieList movies={filteredMovies} />
+        <AddMovie onClick={this.newMovie} />
       </div>
     );
   }
