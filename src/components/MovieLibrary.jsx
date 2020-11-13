@@ -7,15 +7,15 @@ import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies: this.props.movies,
     };
   }
 
@@ -25,11 +25,11 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleAddMovie() {
-    console.log(this.state.movies);
+  handleAddMovie(addMovie) {
+    this.setState((oldState) => ({ movies: [...oldState.movies, addMovie] }));
   }
   render() {
-    const { movies } = this.props;
+    // const { movies } = this.props;
     return (
       <div className="movie-list">
         <SearchBar
@@ -40,7 +40,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.handleChange}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.handleAddMovie} />
       </div>
     );

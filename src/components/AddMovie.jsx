@@ -20,11 +20,19 @@ class Addmovie extends React.Component {
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    event.preventDefault();
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    console.log(this.props.onClick);
+  handleClick(propState, onClick) {
+    onClick(propState);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -100,7 +108,7 @@ class Addmovie extends React.Component {
         </label><br />
         <button
           data-testid="send-button"
-          onClick={this.handleClick}
+          onClick={() => this.handleClick(this.state, this.props.onClick)}
         >Adicionar filme</button>
       </form>
     );
