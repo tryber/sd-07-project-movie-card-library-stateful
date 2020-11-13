@@ -27,9 +27,9 @@ class MovieLibrary extends React.Component {
       if (this.state.searchText !== '') {
         const filteredTextMovies = this.props.movies.filter(
           (movie) =>
-            movie.title.split(' ').includes(this.state.searchText) ||
-            movie.subtitle.split(' ').includes(this.state.searchText) ||
-            movie.storyline.split(' ').includes(this.state.searchText)
+            movie.title.includes(this.state.searchText) ||
+            movie.subtitle.includes(this.state.searchText) ||
+            movie.storyline.includes(this.state.searchText),
         );
         this.setState({ movies: filteredTextMovies });
       } else {
@@ -42,7 +42,7 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: target.checked }, () => {
       if (this.state.bookmarkedOnly) {
         const filteredBookmarkedMovies = this.props.movies.filter(
-          (movie) => movie.bookmarked === this.state.bookmarkedOnly
+          (movie) => movie.bookmarked === this.state.bookmarkedOnly,
         );
         this.setState({ movies: filteredBookmarkedMovies });
       } else {
@@ -55,7 +55,7 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: target.value }, () => {
       if (target.value !== '') {
         const filteredGenreMovies = this.props.movies.filter(
-          (movie) => movie.genre === target.value
+          (movie) => movie.genre === target.value,
         );
         this.setState({ movies: filteredGenreMovies });
       } else {
@@ -64,10 +64,9 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClick(state) {
-    this.setState((prevState, _props) => ({
-      movies: prevState.movies.concat([state])
-    }))
+  onClick(movie) {
+    console.log(movie);
+    this.setState((prevState) => ({ movies: [...prevState.movies, movie] }));
   }
 
   render() {
@@ -84,7 +83,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
@@ -92,6 +91,4 @@ class MovieLibrary extends React.Component {
 
 export default MovieLibrary;
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };

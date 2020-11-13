@@ -29,7 +29,8 @@ class AddMovie extends React.Component {
     }
   }
 
-  addMovieForm() {
+  addMovieForm(e) {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
 
@@ -45,7 +46,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" method="get">
         <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           id="title"
@@ -105,7 +106,7 @@ class AddMovie extends React.Component {
             Suspense
           </option>
         </select>
-        <button onClick={this.addMovieForm} data-testid="send-button">
+        <button onClick={(e) => this.addMovieForm(e)} data-testid="send-button">
           Adicionar filme
         </button>
       </form>
