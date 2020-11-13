@@ -99,7 +99,7 @@ AddMovie.propTypes = {
     storyline: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired,
-  }).isRequired 
+  }).isRequired,
 };
 
 export default AddMovie;

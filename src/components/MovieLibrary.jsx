@@ -42,7 +42,7 @@ MovieLibrary.propTypes = {
     imagePatch: PropTypes.string.isRequired,
     bookmarked: PropTypes.bool.isRequired,
     genre: PropTypes.string.isRequired,
-  })).isRequired
+  })).isRequired,
 };
 
 export default MovieLibrary;
