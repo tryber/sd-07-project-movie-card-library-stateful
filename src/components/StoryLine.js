@@ -1,0 +1,22 @@
+import React, { Component } from "react";
+
+class StoryLine extends Component {
+  render() {
+      const { value, handleChange } = this.props;
+    return (
+      <label data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          name="storyline"
+          type
+          value={ value }
+          data-testid="storyline-input"
+          onChange={ handleChange }
+        >
+        </textarea>
+      </label>
+    );
+  }
+}
+
+export default StoryLine;
