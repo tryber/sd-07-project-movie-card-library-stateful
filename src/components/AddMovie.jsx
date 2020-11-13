@@ -34,7 +34,7 @@ export default class AddMovie extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="add-movie-form">
         <form data-testid="add-movie-form">
           <label htmlFor="title-input" data-testid="title-input-label"> Título
             <input
@@ -105,6 +105,7 @@ export default class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           onClick={this.addingMovie}
+          className="button-add-film"
         >Adicionar filme</button>
       </div>
     );

@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div>
+      <div className="search-bar-form">
         <form data-testid="search-bar-form">
           <label htmlFor="text-input" data-testid="text-input-label">
             Inclui o texto
@@ -30,6 +30,7 @@ export default class SearchBar extends React.Component {
             <input
               id="checkbox-input"
               type="checkbox"
+              name="checkbox-input"
               data-testid="checkbox-input"
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
@@ -39,6 +40,7 @@ export default class SearchBar extends React.Component {
             Filtrar por gênero
             <select
               value={selectedGenre}
+              name="select-input"
               onChange={onSelectedGenreChange}
               data-testid="select-input"
             >
