@@ -6,20 +6,20 @@ class SearchBar extends React.Component {
     this.state = ({
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: ''
+      selectedGenre: '',
     });
   }
 
   onSearchTextChange(event) {
-    console.log(event)
+    console.log(event);
   }
 
-   onBookmarkedChange(event) {
-    console.log(event)
+  onBookmarkedChange(event) {
+    console.log(event);
   }
 
-   onSelectedGenreChange(event) {
-    console.log(event)
+  onSelectedGenreChange(event) {
+    console.log(event);
   }
 
   render() {
@@ -29,13 +29,13 @@ class SearchBar extends React.Component {
           Inclui o texto
         </label>
         <input data-testid="text-input" 
-          value="searchText" 
-          type="text" 
+          value="searchText"
+          type="text"
           onChange={this.onSearchTextChange}
           />
         <input type="text" />
         <label>Filtrar por gênero</label>
-        <input type="text" / >
+        <input type="text" />
       </form>
     );
   }
