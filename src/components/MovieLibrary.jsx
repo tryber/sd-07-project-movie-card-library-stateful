@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: '',
     };
   }
 
@@ -55,12 +56,15 @@ class MovieLibrary extends React.Component {
         />
 
         <MovieList
-          movies={movies.filter(
-            (element) =>
-              element.title.includes(searchText) ||
-              element.subtitle.includes(searchText) ||
-              element.storyline.includes(searchText),
-          )}
+          movies={movies
+            .filter(
+              (element) =>
+                element.title.includes(searchText) ||
+                element.subtitle.includes(searchText) ||
+                element.storyline.includes(searchText),
+            )
+            .filter((element) => (bookmarkedOnly ? element.bookmarked : true))
+            .filter((element) => element.genre.includes(selectedGenre))}
         />
 
         <AddMovie onClick={this.onClick} />
