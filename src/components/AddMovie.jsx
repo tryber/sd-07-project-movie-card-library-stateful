@@ -4,7 +4,7 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // subtitle: "",
+      subtitle: '',
       title: '',
       // imagePath: "",
       // storyline: "",
