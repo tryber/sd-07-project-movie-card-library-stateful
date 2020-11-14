@@ -15,30 +15,25 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies,
       filteredMovies: this.props.movies,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterList = this.filterList.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
     this.handleAddClick = this.handleAddClick.bind(this);
   }
 
-  onSearchTextChange(event) {
-    const key = event.target.name;
-    const text = event.target.value;
-    const previousList = this.state.filteredMovies;
-    const newFiltered = previousList.filter((movie) => {
-      if (movie.title.includes(text) || movie.subtitle.includes(text)) return true;
-      return false;
-    });
-    this.setState({ [key]: text, filteredMovies: newFiltered });
+  onSearchChange({ target }) {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [target.name]: value });
+    this.filterList();
   }
 
-  onBookmarkedChange(event) {
-    this.setState({ [event.target.name]: event.target.checked });
-  }
-
-  onSelectedGenreChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  filterList() {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const filteredList = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText)
+      && (bookmarkedOnly ? movie.bookmarked === true : true)
+      && (selectedGenre ? movie.genre === selectedGenre : true));
+    this.setState({ filteredMovies: filteredList });
   }
 
   handleAddClick(newMovieObj) {
@@ -56,11 +51,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.onSearchTextChange}
+          onSearchTextChange={this.onSearchChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange}
+          onBookmarkedChange={this.onSearchChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          onSelectedGenreChange={this.onSearchChange}
         />
         <MovieList movies={filteredMovies} />
         <AddMovie onClick={this.handleAddClick} />
