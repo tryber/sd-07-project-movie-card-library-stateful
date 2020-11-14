@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "acorn": ">=7.1.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "minimist": ">=1.2.3",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0",
-    "acorn": ">=7.1.1",
-    "minimist": ">=1.2.3"
+    "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --verbose=true",
+    "test": "react-scripts test --verbose=true --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,6 +36,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.5",
+    "@types/prop-types": "^15.7.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",

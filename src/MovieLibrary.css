@@ -1,0 +1,23 @@
+form {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
+}
+
+input , select , textarea {
+  margin: 5px;
+  width: 100%;
+}
+
+.checkbox {
+  width: auto;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 100%;
+}

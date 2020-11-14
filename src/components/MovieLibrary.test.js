@@ -1,3 +1,5 @@
+/* eslint-disable padded-blocks */
+/* eslint-disable no-trailing-spaces */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
