@@ -22,9 +22,7 @@ class MovieLibrary extends React.Component {
   }
 
   newMovie(movie) {
-    this.setState((previousElement) => ({
-      movies: [...previousElement.movies, movie],
-    }));
+    this.setState((previousElement) => ({ movies: [...previousElement.movies, movie] }));
   }
 
   handleFilteredMovies() {
