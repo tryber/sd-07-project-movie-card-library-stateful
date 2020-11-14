@@ -19,6 +19,8 @@ class MovieLibrary extends React.Component {
         this.updateMoviesByCheckbox = this.updateMoviesByCheckbox.bind(this);
         this.selectedGenre = this.selectedGenre.bind(this);
         this.updateMoviesByGenre = this.updateMoviesByGenre.bind(this);
+        this.addNewMovie = this.addNewMovie.bind(this);
+        
     }
     searchText = (event) => {
         const {target} = event
@@ -62,6 +64,11 @@ class MovieLibrary extends React.Component {
             })
         }
     }
+    addNewMovie = (movie) => {
+        this.setState((previousState, _props) => ({
+            movies: [...previousState.movies, movie]
+        }))
+    }
 
     updateMoviesByCheckbox = () => {
         if (this.state.bookmarkedOnly === true) {
@@ -81,7 +88,7 @@ class MovieLibrary extends React.Component {
         <div>
             <SearchBar searchText={this.searchText} bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre} />
             <MovieList movies={this.state.movies} />
-            <AddMovie />
+            <AddMovie addNewMovie={this.addNewMovie}/>
         </div>
     );
   }
