@@ -61,6 +61,7 @@ class AddMovie extends React.Component {
               value={subtitle}
               onChange={this.handleChange}
             />
+            Subtítulo
           </label>
         </div>
         <div>

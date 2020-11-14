@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -18,6 +18,34 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+  }
+
+  onClick(result) {
+    this.setState((estadoAnterior) => ({ movies: [...estadoAnterior.movies, result] }));
+  }
+
+  onSearchTextChange({ target }) {
+    this.setState({ searchText: target.value });
+  }
+
+  onBookmarkedChange({ target }) {
+    this.setState({ bookmarkedOnly: target.checked });
+  }
+
+  onSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value });
+  }
+
+  movieFilter() {
+    const movieFiltered = this.state.movies;
+    movieFiltered.filter(movie => (movie.title.includes(this.state.searchText) 
+    || movie.subtitle.includes(this.state.searchText) 
+    || movie.storyline.includes(this.state.searchText)
+    ))
+    .filter(movie => (movie.genre.includes(this.state.selectedGenre)))
+    .map((movies => movies))
+    );
+    return movieFiltered;
   }
 
   render() {
