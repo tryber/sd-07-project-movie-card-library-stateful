@@ -47,7 +47,7 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies } = this.state;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -65,10 +65,6 @@ class MovieLibrary extends Component {
     );
   }
 }
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(Object).isRequired,
-  searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(Object).isRequired };
+
 export default MovieLibrary;
