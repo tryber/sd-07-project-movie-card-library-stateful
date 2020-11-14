@@ -15,8 +15,8 @@ class SearchBar extends React.Component {
     const { searchText, onSearchTextChange } = this.props;
 
     return (
-      <label data-testid="checkbox-input-label" htmlFor="textInput">
-        Inclui o texto:
+      <label data-testid="text-input-label" htmlFor="textInput">
+        Inclui o texto
         <input
           type="text"
           name="textInput"
