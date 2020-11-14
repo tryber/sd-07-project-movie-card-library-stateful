@@ -10,11 +10,11 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.filterByText = this.filterByText.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.handleAddMovie = this.handleAddMovie.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
