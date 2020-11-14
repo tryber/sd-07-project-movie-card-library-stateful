@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import React from "react";
+import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -10,12 +10,12 @@ class AddMovie extends React.Component {
     this.resetState = this.resetState.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action"
+      genre: 'action',
     };
   }
 
@@ -26,12 +26,12 @@ class AddMovie extends React.Component {
 
   resetState() {
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action"
+      genre: 'action',
     });
   }
 

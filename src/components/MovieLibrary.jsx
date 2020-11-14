@@ -1,8 +1,8 @@
 // implement MovieLibrary component here
-import React from "react";
-import SearchBar from "./SearchBar";
-import MovieList from "./MovieList";
-import AddMovie from "./AddMovie";
+import React from 'react';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -13,15 +13,17 @@ class MovieLibrary extends React.Component {
 
     const { movies } = this.props;
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
-      movies
+      selectedGenre: '',
+      movies,
     };
   }
 
   newMovie(movie) {
-    this.setState((previousElement) => ({ movies: [...previousElement.movies, movie] }));
+    this.setState((previousElement) => ({
+      movies: [...previousElement.movies, movie],
+    }));
   }
 
   handleFilteredMovies() {
@@ -31,15 +33,17 @@ class MovieLibrary extends React.Component {
       (movie) =>
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText)
+        movie.storyline.includes(searchText),
     );
 
     if (bookmarkedOnly) {
-      (arrayFilter) = arrayFilter.filter(movie => movie.bookmarked === true);
+      arrayFilter = arrayFilter.filter((movie) => movie.bookmarked === true);
     }
 
-    if (selectedGenre !== "") {
-      arrayFilter = arrayFilter.filter( (movie) => movie.genre === selectedGenre );
+    if (selectedGenre !== '') {
+      arrayFilter = arrayFilter.filter(
+        (movie) => movie.genre === selectedGenre,
+      );
     }
 
     return arrayFilter;
@@ -48,7 +52,7 @@ class MovieLibrary extends React.Component {
   handleStates({ target }) {
     const { type, name, value, checked } = target;
     let newValue = value;
-    if (type === "checkbox") newValue = checked;
+    if (type === 'checkbox') newValue = checked;
 
     this.setState({ [name]: newValue });
   }
