@@ -1,6 +1,6 @@
 // implement SearchBar component here
-import React from "react";
-import PropTrybes from "prop-types";
+import React from 'react';
+import PropTrybes from 'prop-types';
 
 class SearchBar extends React.Component {
   imputSearch() {
@@ -84,14 +84,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-    searchText: PropTypes.string.isRequired,
-    onSearchTextChange: PropTypes.func.isRequired,
-    bookmarkedOnly: PropTypes.bool.isRequired,
-    onBookmarkedChange: PropTypes.func.isRequired,
-    selectedGenre: PropTypes.string.isRequired,
-    onSelectedGenreChange: PropTypes.func.isRequired,
-  };
-
-
+  searchText: PropTrybes.string.isRequired,
+  onSearchTextChange: PropTrybes.func.isRequired,
+  bookmarkedOnly: PropTrybes.bool.isRequired,
+  onBookmarkedChange: PropTrybes.func.isRequired,
+  selectedGenre: PropTrybes.string.isRequired,
+  onSelectedGenreChange: PropTrybes.func.isRequired,
+};
 
 export default SearchBar;
