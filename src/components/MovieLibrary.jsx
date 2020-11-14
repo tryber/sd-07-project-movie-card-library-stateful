@@ -38,7 +38,7 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value }, () => this.filterFilms());
   }
 
-  addMovie(movie) {
+  onClick(movie) {
     this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
   }
 
@@ -83,7 +83,7 @@ class MovieLibrary extends React.Component {
           movies={movies}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie addMovie={this.addMovie} />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }

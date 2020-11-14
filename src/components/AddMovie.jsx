@@ -122,7 +122,7 @@ class AddMovie extends React.Component {
           type="button"
           data-testid="send-button"
           onClick={() => {
-            this.props.addMovie(this.state);
+            this.props.onClick(this.state);
             this.setState(() => ({
               subtitle: '',
               title: '',
@@ -138,6 +138,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { addMovie: Proptypes.func.isRequired };
+AddMovie.propTypes = { onClick: Proptypes.func.isRequired };
 
 export default AddMovie;
