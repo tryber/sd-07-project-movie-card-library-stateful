@@ -8,10 +8,10 @@ class MovieLibrary extends Component {
     super(props);
     // Retirar prop
     const prop = this.props;
+    this.onClick = this.onClick.bind(this);
     this.SearchTextChange = this.SearchTextChange.bind(this);
     this.BookmarkedChange = this.BookmarkedChange.bind(this);
     this.SelectedGenreChange = this.SelectedGenreChange.bind(this);
-    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -19,21 +19,38 @@ class MovieLibrary extends Component {
       movies: prop.movies,
     };
   }
+
+  onClick(e) {
+    const prop = this.props;
+    this.setState({ movies: [...prop.movies, e] });
+  }
   // Poderia ser só um método... Vamos ver se o CC deixa
-  onClick() {
-    return '';
+  SearchTextChange(value) {
+    const filterMovies = this.state.movies.filter((element) =>
+      element.title.includes(value) ||
+      element.subtitle.includes(value) ||
+      element.storyline.includes(value),
+    );
+    this.setState({
+      searchText: value,
+      movies: filterMovies,
+    });
   }
-
-  SearchTextChange(valeu) {
-    this.setState({ searchText: valeu });
+ // Poderia ser só um método... Vamos ver se o CC deixa
+  BookmarkedChange(value) {
+    this.setState({
+      bookmarkedOnly: value,
+      movies: this.state.movies.filter((e) => e.bookmarked),
+    });
   }
-
-  BookmarkedChange(valeu) {
-    this.setState({ bookmarkedOnly: valeu });
-  }
-
-  SelectedGenreChange(valeu) {
-    this.setState({ selectedGenre: valeu });
+ // Poderia ser só um método... Vamos ver se o CC deixa
+  SelectedGenreChange(value) {
+    this.setState({
+      selectedGenre: value,
+      movies: this.state.movies.filter(
+        (element) => element.genre.includes(value),
+      ),
+    });
   }
 
   render() {
