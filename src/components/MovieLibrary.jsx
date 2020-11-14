@@ -8,22 +8,51 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: ',',
+      selectedGenre: '',
       movies: this.props.movies,
     };
+    this.setChange = this.setChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+  }
+
+  setChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  // Trecho de código retirado do projeto de Gabriel Deori
+  filteredMovies() {
+    let filteredMovies = this.state.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+      movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+      movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
+      .filter((movie) => movie.genre.includes(this.state.selectedGenre));
+    if (this.state.bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked);
+    }
+    return filteredMovies;
+  }
+
+  addMovie(newMovie) {
+    this.setState((state) => ({ movies: state.movies.concat(newMovie) }));
   }
 
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.setChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.setChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.setChange}
+        />
+        <MovieList movies={this.filteredMovies()} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
@@ -31,4 +60,4 @@ class MovieLibrary extends Component {
 
 export default MovieLibrary;
 
-MovieLibrary.propTypes = { movies: PropTypes.string.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
