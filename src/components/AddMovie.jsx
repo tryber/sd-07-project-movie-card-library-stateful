@@ -8,13 +8,14 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
     this.handleChangeImagePath = this.handleChangeImagePath.bind(this);
     this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
+    this.handleChangeRating = this.handleChangeRating.bind(this);
   }
 
   handleChangeTitle(event) {
@@ -45,9 +46,16 @@ class AddMovie extends Component {
     this.setState(state);
   }
 
+  handleChangeRating(event) {
+    // eslint-disable-next-line prefer-destructuring
+    const state = this.state;
+    state.rating = event.target.value;
+    this.setState(state);
+  }
+
   render() {
-    /** { , rating, genre }  */
-    const { subtitle, title, imagePath, storyline } = this.state;
+    /** { , genre }  */
+    const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form>
@@ -97,6 +105,19 @@ class AddMovie extends Component {
               value={storyline}
               data-testid="storyline-input"
               onChange={this.handleChangeStoryline}
+            />
+          </label>
+          <label
+            htmlFor="rating-input"
+            data-testid="rating-input-label"
+          >
+          Avaliação
+            <input
+              id="rating-input"
+              value={rating}
+              data-testid="rating-input"
+              type="number"
+              onChange={this.handleChangeRating}
             />
           </label>
         </form>
