@@ -46,7 +46,10 @@ class MovieLibrary extends Component {
   }
 
   addMovie(newMovie) {
-    this.setState((previousState) => ({ movies: [...previousState.movies, newMovie] }));
+    this.setState(
+      (previousState) => ({ movies: [...previousState.movies, newMovie] }),
+      this.nemSeiMais,
+    );
   }
 
   render() {
