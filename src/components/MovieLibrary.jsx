@@ -9,7 +9,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props); /* Chama o construtor do React.Component */
     this.handleChange = this.handleChange.bind(this);
-    this.addNewMovie = this.addNewMovie.bind(this);
+/*     this.addNewMovie = this.addNewMovie.bind(this); */
     this.filterMovies = this.filterMovies.bind(this);
     this.filteredGenreFuncion = this.filteredGenreFuncion.bind(this);
     this.filteredBookMarkedFunction = this.filteredBookMarkedFunction.bind(this);
