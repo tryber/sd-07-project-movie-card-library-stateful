@@ -35,71 +35,43 @@ class AddMovie extends React.Component {
         <div>
           <label htmlFor="title" data-testid="title-input-label">Título</label>
           <input
-            type="text"
-            id="title"
-            name="title"
-            data-testid="title-input"
-            value={this.state.title}
-            onChange={this.handleChange}
+            type="text" id="title" name="title" data-testid="title-input"
+            value={this.state.title} onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
           <input
-            id="subtitle"
-            name="subtitle"
-            type="text"
-            data-testid="subtitle-input"
-            value={this.state.subtitle}
-            onChange={this.handleChange}
+            id="subtitle" name="subtitle" type="text" data-testid="subtitle-input"
+            value={this.state.subtitle} onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="image" data-testid="image-input-label">Imagem</label>
           <input
-            htmlFor="image"
-            type="text"
-            id="image"
-            data-testid="image-input"
-            name="imagePath"
-            value={this.state.imagePath}
-            onChange={this.handleChange}
+            htmlFor="image" type="text" id="image" data-testid="image-input"
+            name="imagePath" value={this.state.imagePath} onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="abstract" data-testid="storyline-input-label">Sinopse</label>
           <textarea
-            id="abstract"
-            data-testid="storyline-input"
-            name="storyline"
-            value={this.state.storyline}
-            onChange={this.handleChange}
+            id="abstract" data-testid="storyline-input" name="storyline"
+            value={this.state.storyline} onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
           <input
-            type="number"
-            id="avaliacao"
-            data-testid="rating-input"
-            name="rating"
-            value={this.state.rating}
-            onChange={this.handleChange}
+            type="number" id="avaliacao" data-testid="rating-input" name="rating"
+            value={this.state.rating} onChange={this.handleChange}
           />
         </div>
-
         <div>
           <label htmlFor="select" data-testid="genre-input-label">Gênero</label>
           <select
-            id="genero"
-            data-testid="genre-input"
-            name="genre"
-            value={this.state.genre}
-            onChange={this.handleChange}
+            id="genero" data-testid="genre-input" name="genre"
+            value={this.state.genre} onChange={this.handleChange}
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>

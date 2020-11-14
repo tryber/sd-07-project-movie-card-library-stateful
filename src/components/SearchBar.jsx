@@ -15,12 +15,8 @@ class SearchBar extends React.Component {
       <div>
         <label htmlFor="searchText" data-testid="text-input-label">Inclui o texto:</label>
         <input
-          type="text"
-          id="searchText"
-          name="searchText"
-          value={searchText}
-          onChange={onSearchTextChange}
-          data-testid="text-input"
+          type="text" id="searchText" name="searchText"
+          value={searchText} onChange={onSearchTextChange} data-testid="text-input"
         />
       </div>
       <div>
@@ -28,23 +24,15 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
         </label>
         <input
-          htmlFor="bookmarkedOnly"
-          name="bookmarkedOnly"
-          type="checkbox"
-          id="bookmarkedOnly"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
-          data-testid="checkbox-input"
+          htmlFor="bookmarkedOnly" name="bookmarkedOnly" type="checkbox" id="bookmarkedOnly"
+          checked={bookmarkedOnly} onChange={onBookmarkedChange} data-testid="checkbox-input"
         />
       </div>
       <div>
         <label htmlFor="selectedGenre" data-testid="select-input-label">Filtrar por gênero</label>
         <select
-          htmlFor="selectedGenre"
-          name="selectedGenre"
-          data-testid="select-input"
-          onChange={onSelectedGenreChange}
-          value={selectedGenre}
+          htmlFor="selectedGenre" name="selectedGenre" data-testid="select-input"
+          onChange={onSelectedGenreChange} value={selectedGenre}
         >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>

@@ -66,11 +66,11 @@ class MovieLibrary extends React.Component {
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
         subtitle: PropTypes.string.isRequired,
         storyline: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
         imagePath: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
       }),
     ).isRequired,
 };
