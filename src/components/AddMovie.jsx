@@ -103,5 +103,14 @@ class AddMovie extends Component {
   }
 }
 
+AddMovie.propTypes = {
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genre: PropTypes.func.isRequired,
+};
+
 export default AddMovie;
 
