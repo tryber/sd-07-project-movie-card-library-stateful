@@ -15,15 +15,13 @@ class AddMovie extends React.Component {
       imagePath: "",
       storyline: "",
       rating: 0,
-      genre: "action",
+      genre: "action"
     };
   }
 
   handleStates({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value
-    });
+    this.setState({[name]: value});
   }
 
   resetState() {
@@ -33,7 +31,7 @@ class AddMovie extends React.Component {
       imagePath: "",
       storyline: "",
       rating: 0,
-      genre: "action",
+      genre: "action"
     });
   }
 
