@@ -9,13 +9,14 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
     this.handleChangeImagePath = this.handleChangeImagePath.bind(this);
     this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
     this.handleChangeRating = this.handleChangeRating.bind(this);
+    this.handleChangeSelected = this.handleChangeSelected.bind(this);
   }
 
   handleChangeTitle(event) {
@@ -53,9 +54,15 @@ class AddMovie extends Component {
     this.setState(state);
   }
 
+  handleChangeSelected(event) {
+    // eslint-disable-next-line prefer-destructuring
+    const state = this.state;
+    state.genre = event.target.value;
+    this.setState(state);
+  }
+
   render() {
-    /** { , genre }  */
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
@@ -119,6 +126,22 @@ class AddMovie extends Component {
               type="number"
               onChange={this.handleChangeRating}
             />
+          </label>
+          <label
+            htmlFor="genre-input"
+            data-testid="genre-input-label"
+          >
+            Gênero
+            <select
+              id="genre-input"
+              data-testid="genre-input"
+              value={genre}
+              onChange={this.handleChangeSelected}
+            >
+              <option value="action" data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="Suspense" data-testid="genre-option">Suspense</option>
+            </select>
           </label>
         </form>
       </div>
