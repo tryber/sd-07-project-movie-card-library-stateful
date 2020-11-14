@@ -42,7 +42,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly={this.bookmarkedOnly}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList searchText={this.state.searchText} movies={this.state.movies} />
         <AddMovie />
       </div>
     );
