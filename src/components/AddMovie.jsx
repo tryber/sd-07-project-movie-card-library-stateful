@@ -4,7 +4,7 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // subtitle: "",
+      subtitle: '',
       title: '',
       // imagePath: "",
       // storyline: "",
@@ -13,20 +13,21 @@ class AddMovie extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  /** let { subtitle, title, imagePath, storyline, rating, genre }  */
+  /** { imagePath, storyline, rating, genre }  */
 
-  handleChange(event) {
-    const state = this.state;
-    state.title = event.target.value;
-    this.setState(state);
+  handleChange({ target }) {
+    const { name } = target;
+    // eslint-disable-next-line prefer-destructuring
+    const value = target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { title } = this.state;
+    const { subtitle, title } = this.state;
     return (
       <div>
-        <form data-testid="title-input-label">
-          <label htmlFor="title-input">
+        <form>
+          <label htmlFor="title-input" data-testid="title-input-label">
                 Título
             <input
               value={title}
@@ -34,6 +35,19 @@ class AddMovie extends Component {
               id="title-input"
               onChange={this.handleChange}
               type="text"
+            />
+          </label>
+          <label
+            htmlFor="subtitle-input"
+            data-testid="subtitle-input-label"
+          >
+          Subtítulo
+            <input
+              id="subtitle-input"
+              value={subtitle}
+              data-testid="subtitle-input"
+              type="text"
+              onChange={this.handleChange}
             />
           </label>
         </form>
