@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import Movies from '../data.js';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
@@ -15,34 +14,47 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies,
     };
     this.handlerInputMovieLibrary = this.handlerInputMovieLibrary.bind(this);
-    this.Check = this.Check.bind(this);
-  }
-  Check(checkText) {
-    if (checkText === 'searchText') {
-      this.setState({
-        movies: Movies.filter((item) =>
-          item.title.includes(this.state.searchText),
-        ),
-      });
-    }
-    if (checkText === 'bookmarkedOnly' && this.state.bookmarkedOnly === true) {
-      this.setState({ movies: Movies.filter((item) => item.bookmarked === true) });
-    }
-    if (checkText === 'selectedGenre') {
-      this.setState({ movies: Movies.filter((item) => item.genre === this.state.selectedGenre) });
-    }
+    this.check = this.check.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+    this.checkFavorite = this.checkFavorite.bind(this);
   }
 
+  checkFavorite() {
+    const { movies } = this.props;
+    if (this.state.bookmarkedOnly === true) {
+      return movies.filter((item) => item.bookmarked === true);
+    }
+    return movies;
+  }
+  check() {
+    this.setState({
+      movies: this.checkFavorite()
+        .filter(
+          (item) =>
+            item.title
+              .toLowerCase()
+              .includes(this.state.searchText.toLowerCase()) ||
+            item.subtitle
+              .toLowerCase()
+              .includes(this.state.searchText.toLowerCase()) ||
+            item.storyline
+              .toLowerCase()
+              .includes(this.state.searchText.toLowerCase()),
+        )
+        .filter((item2) => item2.genre.includes(this.state.selectedGenre)),
+    });
+  }
+
+  addMovie(movie) {
+    this.setState((allMovies) => ({ movies: [...allMovies.movies, movie] }));
+  }
   handlerInputMovieLibrary({ target }) {
     const { name } = target;
-
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-    this.Check(name);
+    this.setState({ [name]: value }, () => this.check());
   }
 
   render() {
-    console.log(Movies);
     return (
       <div>
         <SearchBar
@@ -54,7 +66,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.handlerInputMovieLibrary}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
@@ -63,11 +75,13 @@ class MovieLibrary extends React.Component {
 export default MovieLibrary;
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    imagePath: PropTypes.string,
-  }).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      imagePath: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
