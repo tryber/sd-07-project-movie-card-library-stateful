@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
   }
 
   handleAddClick(newMovieObj) {
-    const newMoviesArray = this.props.movies.concat(newMovieObj);
+    const newMoviesArray = this.state.movies.concat(newMovieObj);
     this.setState((prevState) => ({
       ...prevState,
       movies: newMoviesArray,
