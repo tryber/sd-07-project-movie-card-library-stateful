@@ -55,7 +55,7 @@ class MovieLibrary extends Component {
 
   handleAddMovie(addMovieState) {
     const newMovie = addMovieState;
-    const upDate = this.props.movies
+    const upDate = this.props.movies;
     upDate.push(newMovie);
 
     this.setState(() => ({ movies: upDate }));
