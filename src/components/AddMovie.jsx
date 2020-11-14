@@ -20,14 +20,14 @@ class AddMovie extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({ [name] : value });
+    this.setState({ [name]: value});
   }
 
   render() {
     return (
       <div>
         <form>
-        <label data-testid="title-input-label" htmlFor="text-input">
+          <label data-testid="title-input-label" htmlFor="text-input">
             Título
             <input
               data-testid="title-input"
@@ -97,7 +97,7 @@ class AddMovie extends Component {
 
         </form>
       </div>
-    )
+    );
   }
 }
 
