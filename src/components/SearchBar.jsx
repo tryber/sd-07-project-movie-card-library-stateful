@@ -22,6 +22,7 @@ class SearchBar extends Component {
             onChange={onSearchTextChange}
             data-testid="text-input"
             id="f"
+            name="searchText"
           />
         </label>
 
@@ -33,6 +34,7 @@ class SearchBar extends Component {
             onChange={onBookmarkedChange}
             data-testid="checkbox-input"
             id="a"
+            name="bookmarkedOnly"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="b">
@@ -42,6 +44,7 @@ class SearchBar extends Component {
             value={selectedGenre}
             onChange={onSelectedGenreChange}
             id="b"
+            name="selectedGenre"
           >
             <option value="" data-testid="select-option">
               Todos
@@ -61,7 +64,6 @@ class SearchBar extends Component {
     );
   }
 }
-// .isrequired
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
