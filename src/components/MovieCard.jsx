@@ -20,6 +20,9 @@ class MovieCard extends React.Component {
   }
 }
 
-MovieCard.propTypes = { movies: PropTypes.array }.isRequired;
+MovieCard.propTypes = {
+  movies: PropTypes.array,
+  movie: PropTypes.array,
+}.isRequired;
 
 export default MovieCard;
