@@ -12,11 +12,10 @@ describe('Verifica o componente <MovieCard />', () => {
     imagePath: 'images/movie_1',
   };
 
-
   it('Será validadado se o componente é renderizado com sucesso', () => {
     render(<MovieCard movie={movie} />);
   });
-  
+
   it('Será validado se o a imagem do filme é renderizada dentro de uma tag "img"', () => {
     const { getByRole } = render(<MovieCard movie={movie} />);
     const image = getByRole('img');
@@ -37,7 +36,6 @@ describe('Verifica o componente <MovieCard />', () => {
     const subtitle = getByText('Movie Subtitle 1');
     expect(subtitle).toBeInTheDocument();
   });
-
 
   it('Será validado se a sinopse do filme é renderizada com sucesso', () => {
     const { getByText } = render(<MovieCard movie={movie} />);

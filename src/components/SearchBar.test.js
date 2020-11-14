@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import SearchBar from './SearchBar';
 
 let props;
-const searchBar = () => (
+const searchBar = () =>
   render(
     <SearchBar
       searchText={props.searchText}
@@ -16,8 +16,7 @@ const searchBar = () => (
       selectedGenre={props.selectedGenre}
       onSelectedGenreChange={props.onSelectedGenreChange}
     />,
-  )
-);
+  );
 
 const beforeEachUnitTest = () => {
   props = {
@@ -41,7 +40,6 @@ describe('Verifica o componente <SearchBar />', () => {
 describe('Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-
   it('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
@@ -51,7 +49,6 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
 
 describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
-
 
   it('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
     const { getAllByTestId } = searchBar();
@@ -83,7 +80,6 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
 describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
   beforeEach(() => beforeEachUnitTest());
 
-
   it('Será validado se uma checkbox é renderizada dentro do form', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInput = getAllByTestId('checkbox-input');
@@ -94,7 +90,9 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
     const { getAllByTestId } = searchBar();
     const checkboxInputLabel = getAllByTestId('checkbox-input-label');
     expect(checkboxInputLabel).toHaveLength(1);
-    expect(checkboxInputLabel[0]).toHaveTextContent('Mostrar somente favoritos');
+    expect(checkboxInputLabel[0]).toHaveTextContent(
+      'Mostrar somente favoritos',
+    );
   });
 
   it('Será validado que a prop `bookmarkedOnly` é passada para o atributo `checked` do input', () => {
@@ -103,7 +101,7 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
 
     expect(checkboxInput).toBeChecked();
   });
-  
+
   it('Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId('checkbox-input');
@@ -114,7 +112,6 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
 
 describe('Verifica se o componente <SearchBar /> renderiza um select de gênero', () => {
   beforeEach(() => beforeEachUnitTest());
-
 
   it('Será validado que um select é renderizado dentro do form', () => {
     const { getAllByTestId } = searchBar();

@@ -35,7 +35,6 @@ const movies = [
   },
 ];
 
-
 describe('Verifica o componente <MovieLibrary />', () => {
   it('Será validado se o componente é renderizado com sucesso', () => {
     render(<MovieLibrary movies={movies} />);
@@ -43,26 +42,24 @@ describe('Verifica o componente <MovieLibrary />', () => {
 });
 
 describe('Verifica o estado inicial do component <MovieLibrary />', () => {
-
-  
   it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const searchText = getByTestId('text-input');
     expect(searchText).toHaveValue('');
   });
-  
+
   it('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const bookmarkedOnly = getByTestId('checkbox-input');
     expect(bookmarkedOnly).not.toBeChecked();
   });
-  
+
   it('Será validado se o `selectedGenre` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const selectInput = getByTestId('select-input');
     expect(selectInput).toHaveValue('');
   });
-  
+
   it('Será validado se o todos os `movies` são renderezidados.', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
@@ -82,10 +79,8 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
     const searchText = getByTestId('text-input');
     event.type(searchText, 'My Search Text');
 
-
     expect(searchText).toHaveValue('My Search Text');
   });
-
 
   it('Será validado que é possivel selecionar a opção de filtrar por favoritos`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
@@ -113,7 +108,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
   it('Será validado se a barra de buscas filtra os filmes por titulo', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const textInput = getByTestId('text-input');
 
     event.type(textInput, 'awesome');
@@ -126,7 +123,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
   it('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const textInput = getByTestId('text-input');
 
     event.type(textInput, 'incredible');
@@ -139,7 +138,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
   it('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const textInput = getByTestId('text-input');
 
     event.type(textInput, 'great');
@@ -152,7 +153,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
   it('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const textInput = getByTestId('text-input');
 
     event.type(textInput, '');
@@ -162,7 +165,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
   it('Será validado que é possivel filtrar por favoritos', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const bookmarkedOnly = getByTestId('checkbox-input');
 
     event.click(bookmarkedOnly);
@@ -173,9 +178,10 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-
   it('Será validado que é possivel filtrar por categoria', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
     const select = getByTestId('select-input');
 
     event.selectOptions(select, 'comedy');
@@ -195,7 +201,9 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddM
   });
 
   it('Será validado se é possível adicionar um novo filme a lista de filmes', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const { getByTestId, getAllByTestId } = render(
+      <MovieLibrary movies={movies} />,
+    );
 
     const newMovie = {
       subtitle: 'Harry Potter magical subtitle',
@@ -206,7 +214,6 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddM
     };
 
     let movieCards = getAllByTestId('movie-card');
-
 
     expect(movieCards).toHaveLength(movies.length);
 
@@ -225,13 +232,14 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddM
     event.type(ratingInput, newMovie.rating);
     event.selectOptions(genreInput, newMovie.genre);
 
-
     event.click(sendButton);
 
     movieCards = getAllByTestId('movie-card');
 
     expect(movieCards).toHaveLength(movies.length + 1);
     const newMovieTitle = getAllByTestId('movie-card-title');
-    expect(newMovieTitle[movieCards.length - 1]).toHaveTextContent(newMovie.title);
+    expect(newMovieTitle[movieCards.length - 1]).toHaveTextContent(
+      newMovie.title,
+    );
   });
 });
