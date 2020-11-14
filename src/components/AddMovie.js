@@ -21,13 +21,13 @@ class AddMovie extends Component {
     }
   }
   
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
   
-  onClick = event => {
+  onClick = (event) => {
     this.setState({
       subtitle: '',
       title: '',

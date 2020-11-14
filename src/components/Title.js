@@ -5,7 +5,7 @@ class Title extends Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label htmlFor={"title-input"} data-testid="title-input-label">
+      <label htmlFor={'title-input'} data-testid="title-input-label">
         Título
         <input
           name="title"
@@ -18,9 +18,12 @@ class Title extends Component {
     );
   }
 }
+Title.defaultProps = {
+  value: ''
+};
+
 Title.propTypes = {
-  value: PropTypes.string,
-  handleChange: PropTypes.func  
-}
+  handleChange: PropTypes.func.isRequired  
+};
 
 export default Title;
