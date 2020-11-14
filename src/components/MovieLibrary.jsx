@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  // filter e onClick foram feitos pelo Vinicius Muniz, tirados do PR seguinte PR:
+  // filter e onClick foram feitos pelo Vinicius Muniz, tirados do seguinte PR:
   // https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/88/commits/77d55ca3faadadb6a8bdb058f4c5366201e68150
   onClick(newMovie) {
     const { movies } = this.state;
