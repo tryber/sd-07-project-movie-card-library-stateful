@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 class Genre extends Component {
   render() {
-      const { value, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
-      <label data-testid="genre-input-label">
+      <label htmlFor={"genre-input"} data-testid="genre-input-label">
         Gênero
         <select
           name="genre"
-          value={ value }
+          value={value}
           data-testid="genre-input"
-          onChange={ handleChange }
+          onChange={handleChange}
         >
           <option data-testid="genre-option" value="action">
             Ação
@@ -25,6 +25,10 @@ class Genre extends Component {
       </label>
     );
   }
+}
+Genre.propTypes = {
+  value: PropTypes.string,
+  handleChange: PropTypes.func    
 }
 
 export default Genre;
