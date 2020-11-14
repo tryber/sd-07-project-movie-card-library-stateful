@@ -22,18 +22,30 @@ class MovieLibrary extends React.Component {
 
   onSearchChange({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [target.name]: value });
+    this.setState((previousState) => ({
+      ...previousState,
+      [target.name]: value,
+    }));
     this.filterList();
   }
 
   filterList() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const filteredList = movies.filter((movie) => movie.title.includes(searchText)
+    const textFilteredList = movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)
-      && (bookmarkedOnly ? movie.bookmarked === true : true)
+      || movie.storyline.includes(searchText));
+    const filteredList = this.filterByChecks(textFilteredList, bookmarkedOnly, selectedGenre);
+    
+    this.setState((previousState) => ({
+      ...previousState,
+      filteredMovies: filteredList,
+    }));
+  }
+
+  filterByChecks(textFilteredList, bookmarkedOnly, selectedGenre) {
+    return textFilteredList
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked === true : true)
       && (selectedGenre ? movie.genre === selectedGenre : true));
-    this.setState({ filteredMovies: filteredList });
   }
 
   handleAddClick(newMovieObj) {
@@ -65,10 +77,6 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  // searchText: PropTypes.string.isRequired,
-  // bookmarkedOnly: PropTypes.bool.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // filteredMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
