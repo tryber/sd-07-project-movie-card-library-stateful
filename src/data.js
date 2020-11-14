@@ -48,7 +48,7 @@ const movies = [
     imagePath: "images/Resident_Evil_Vendetta.jpg",
     bookmarked: true,
     genre: "fantasy",
-  },
+  }
 ];
 
 export default movies;

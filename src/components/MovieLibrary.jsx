@@ -21,27 +21,25 @@ class MovieLibrary extends React.Component {
   }
 
   newMovie(movie) {
-    this.setState((previousElement) => ({movies: [...previousElement.movies, movie]}));
+    this.setState((previousElement) => ({ movies: [...previousElement.movies, movie] }));
   }
 
   handleFilteredMovies() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     let arrayFilter = movies.filter(
-      movie =>
+      (movie) =>
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
         movie.storyline.includes(searchText)
     );
 
     if (bookmarkedOnly) {
-      arrayFilter = arrayFilter.filter(movie => movie.bookmarked === true);
+      (arrayFilter) = arrayFilter.filter(movie => movie.bookmarked === true);
     }
 
     if (selectedGenre !== "") {
-      arrayFilter = arrayFilter.filter(
-        (movie) => movie.genre === selectedGenre
-      );
+      arrayFilter = arrayFilter.filter( (movie) => movie.genre === selectedGenre );
     }
 
     return arrayFilter;
@@ -52,7 +50,7 @@ class MovieLibrary extends React.Component {
     let newValue = value;
     if (type === "checkbox") newValue = checked;
 
-    this.setState({[name]: newValue});
+    this.setState({ [name]: newValue });
   }
 
   render() {
