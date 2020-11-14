@@ -7,8 +7,8 @@ class SearchBar extends Component {
   render() {
     const {
       searchText,
-      /* onSearchTextChange,
-      bookmarkedOnly,
+      onSearchTextChange,
+      /*       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange */ } = this.props;
@@ -20,7 +20,7 @@ class SearchBar extends Component {
             <input
               type="text"
               value={searchText}
-              onChange="onSearchTextChange"
+              onChange={onSearchTextChange}
               data-testid="text-input"
               id="text-input"
             />
@@ -31,10 +31,12 @@ class SearchBar extends Component {
   }
 }
 
-SearchBar.propTypes = { searchText: PropTypes.string.isRequired };
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
-/* onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
+/* bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func, */
