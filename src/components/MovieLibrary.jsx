@@ -9,7 +9,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props); /* Chama o construtor do React.Component */
     this.handleChange = this.handleChange.bind(this);
-/*     this.addNewMovie = this.addNewMovie.bind(this); */
+    this.addNewMovie = this.addNewMovie.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.filteredGenreFuncion = this.filteredGenreFuncion.bind(this);
     this.filteredBookMarkedFunction = this.filteredBookMarkedFunction.bind(this);
@@ -20,11 +20,6 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-  }
-
-  handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
   }
 
   filteredGenreFuncion(chosenGenre, moviesArray) {
@@ -51,6 +46,12 @@ class MovieLibrary extends React.Component {
     return filteredBookMarked;
   }
 
+  handleChange({ target }) {
+    const { name, type, checked, value } = target;
+    const valueType = type === 'checkbox' ? checked : value;
+    this.setState({ [name]: valueType }, () => this.filterMovies());
+  }
+
   filterMovies() {
     const moviesArray = this.state.movies;
     const chosenGenre = this.state.selectedGenre;
@@ -60,12 +61,11 @@ class MovieLibrary extends React.Component {
     const filteredBookMarked = this.filteredBookMarkedFunction(filteredGenre, isBookMarked);
     const filteredText = this.filteredTextFunction(filteredBookMarked, chosenText);
 
-    console.log(filteredText);
     return filteredText;
     /* Colocar novo estado */
   }
 
-/*   addNewMovie(newObject) {
+  addNewMovie(newObject) {
     const newMovie = {
       title: newObject.title,
       subtitle: newObject.subtitle,
@@ -75,9 +75,9 @@ class MovieLibrary extends React.Component {
       genre: newObject.genre,
     };
 
-    const moviesOldState = this.state.movies;
-    this.setState((oldestArray) => ({ moviesOldState: [...oldestArray.movies, newObject] }));
-  } */
+    const movies = this.state.movies;
+    this.setState({ movies: [...movies, newMovie] });
+  }
 
   render() {
     return (

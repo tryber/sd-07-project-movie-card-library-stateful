@@ -23,7 +23,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  addNewMovie() {
+  addNewMovie(event) {
+    event.preventDefault();/* Teste */
     const newMovie = this.state;
     const onClick = this.props.onClick;
     onClick(newMovie);
@@ -103,7 +104,7 @@ class AddMovie extends React.Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button data-testid="send-button" onClick={() => this.addNewMovie()}>
+          <button data-testid="send-button" onClick={/* () =>  */this.addNewMovie/* () */}>
             Adicionar filme
           </button>
         </form>
