@@ -80,6 +80,7 @@ class AddMovie extends Component {
           Avaliação
           <input
             type="number"
+            step="0.1"
             value={rating}
             data-testid="rating-input"
             onChange={this.handleChange}
@@ -88,12 +89,7 @@ class AddMovie extends Component {
         </label>
         <label data-testid="genre-input-label" htmlFor="f">
           Gênero
-          <select
-            value={genre}
-            data-testid="genre-input"
-            onChange={this.handleChange}
-            name="genre"
-          >
+          <select value={genre} data-testid="genre-input" onChange={this.handleChange} name="genre">
             <option value="action" data-testid="genre-option">
               Ação
             </option>
@@ -105,11 +101,7 @@ class AddMovie extends Component {
             </option>
           </select>
         </label>
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={this.sendNewMovie}
-        >
+        <button type="button" data-testid="send-button" onClick={this.sendNewMovie}>
           Adicionar filme
         </button>
       </form>

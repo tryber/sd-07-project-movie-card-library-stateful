@@ -26,6 +26,8 @@ class SearchBar extends Component {
           />
         </label>
 
+        <br />
+
         <label data-testid="checkbox-input-label" htmlFor="a">
           Mostrar somente favoritos
           <input
@@ -37,6 +39,9 @@ class SearchBar extends Component {
             name="bookmarkedOnly"
           />
         </label>
+
+        <br />
+
         <label data-testid="select-input-label" htmlFor="b">
           Filtrar por gênero
           <select

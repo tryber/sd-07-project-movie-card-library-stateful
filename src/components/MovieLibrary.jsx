@@ -36,7 +36,9 @@ class MovieLibrary extends Component {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     this.setState({
       filteredMovies: movies.filter(({ title, subtitle, storyline, bookmarked, genre }) => {
-        const containText = (title + subtitle + storyline).includes(searchText);
+        const containText = (title + subtitle + storyline)
+          .toUpperCase()
+          .includes(searchText.toUpperCase());
         const filterGenre = genre.includes(selectedGenre);
         const filterBookMark = bookmarkedOnly ? bookmarked : true;
         console.log(containText, filterGenre, filterBookMark);
@@ -55,7 +57,7 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
     return (
-      <div>
+      <div className="wrapper">
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
