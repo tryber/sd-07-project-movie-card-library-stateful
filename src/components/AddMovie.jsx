@@ -16,9 +16,7 @@ class AddMovie extends React.Component {
   }
 
   updateStatus(event) {
-    this.setState({
-      title: event.target.value,
-    })
+    this.setState({ title: event.target.value });
   }
 
   render() {
