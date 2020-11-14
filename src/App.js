@@ -1,5 +1,5 @@
 import React from 'react';
-// import './libs/bulma.min.css'
+import './libs/bulma.min.css'
 import './App.css';
 // import data from './data';
 import Header from './components/Header';
