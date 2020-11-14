@@ -13,13 +13,35 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: [],
     };
+    this.searchTextChanged = this.searchTextChanged.bind(this);
+    this.bookmarkedChanged = this.bookmarkedChanged.bind(this);
+    this.selectedGenreChanged = this.selectedGenreChanged.bind(this);
+  }
+
+  searchTextChanged({ target }) {
+    this.setState({ searchText: target.value, })
+  }
+
+  bookmarkedChanged({target}) {
+    this.setState({ bookmarkedOnly: target.checked, })
+  }
+
+  selectedGenreChanged({ target }) {
+    this.setState({ selectedGenre: target.value, })
   }
   render() {
     const { movies } = this.props;
 
     return (
       <section>
-        <SearchBar />
+        <SearchBar
+        searchText={this.state.searchText}
+        onSearchTextChange={this.searchTextChanged}
+        bookmarkedOnly={this.state.bookmarkedOnly}
+        onBookmarkedChange={this.bookmarkedChanged}
+        selectedGenre={this.selectedGenre}
+        onSelectedGenreChange={this.selectedGenreChanged}
+        />
         <MovieList movies={movies} />
         <AddMovie />
       </section>
@@ -27,6 +49,11 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
+MovieLibrary.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default MovieLibrary;
