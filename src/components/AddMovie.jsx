@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: "action",
     };
+    this.updateState = this.updateState.bind(this);
   }
   updateState = (event) => {
       const {target} = event
