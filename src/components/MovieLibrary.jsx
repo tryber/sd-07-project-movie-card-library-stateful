@@ -10,20 +10,32 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.handleMarkedChange = this.handleMarkedChange.bind(this);
     this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
+    this.updateList = this.updateList.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      AllMovies: this.props.movies,
     };
   }
 
   onSearchTextChange({ target }) {
     const { name } = target;
     const value = target.type === 'checked' ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState(({ [name]: value }), this.updateList);
   }
+
+  updateList() {
+    const { searchText } = this.state;
+    const movies = this.props.movies;
+    const filterMovie = movies.filter(({ title, subtitle, storyline }) =>
+    title.toLowerCase().includes(searchText.toLowerCase()) ||
+    subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+    storyline.toLowerCase().includes(searchText.toLowerCase()));
+    this.setState(({ AllMovies: filterMovie }));
+  }
+
   handleMarkedChange() {
   }
 
@@ -45,7 +57,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.handleSelectedGenre}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.state.AllMovies} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );

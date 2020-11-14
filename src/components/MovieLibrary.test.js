@@ -106,13 +106,13 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
-  it.skip('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
+  it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por titulo', () => {
+  it('Será validado se a barra de buscas filtra os filmes por titulo', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -125,7 +125,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
+  it('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -138,7 +138,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[1].title);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
+  it('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -151,7 +151,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[2].title);
   });
 
-  it.skip('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
+  it('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
