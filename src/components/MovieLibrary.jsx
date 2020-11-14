@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSetChange = this.handleSetChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
 
     this.state = {
@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleChange({ target }) {
+  handleSetChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
