@@ -5,8 +5,16 @@ class Form extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label for="text-input" data-testid="text-input-label">Inclui o texto:</label>
-          <input type="text" value="searchText" onChange="onSearchTextChange" data-testid="text-input" />
+          <label htmlFor="text-input" data-testid="text-input-label">
+              Inclui o texto:
+            <input
+              type="text"
+              value="searchText"
+              onChange="onSearchTextChange"
+              data-testid="text-input"
+              id="text-input"
+            />
+          </label>
         </form>
       </div>
     );
