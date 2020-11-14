@@ -1,20 +1,26 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Title extends Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label data-testid="title-input-label">
+      <label htmlFor={"title-input"} data-testid="title-input-label">
         Título
         <input
           name="title"
           type="text"
-          value={ value }
+          value={value}
           data-testid="title-input"
-          onChange={ handleChange }
+          onChange={handleChange}
         />
       </label>
     );
   }
 }
+Title.propTypes = {
+  value: PropTypes.string,
+  handleChange: PropTypes.func  
+}
+
 export default Title;
