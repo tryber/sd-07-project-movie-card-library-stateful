@@ -66,16 +66,16 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
     expect(titleInput).toBeInTheDocument();
   });
 
-  it.skip('Será validado se o componente renderiza a label "Título" para o input de titulo', () => {
+  it('Será validado se o componente renderiza a label "Título" para o input de titulo', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
 
-  it.skip('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
+  it('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
 
-  it.skip('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
