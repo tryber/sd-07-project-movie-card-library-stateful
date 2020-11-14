@@ -1,5 +1,5 @@
 import React from 'react';
-import './libs/bulma.min.css'
+import './libs/bulma.min.css';
 import './App.css';
 // import data from './data';
 import Header from './components/Header';
@@ -8,27 +8,21 @@ import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       searchText: '',
       onSearchTextChange: (event) => {
-        this.setState({
-            searchText: event.target.value
-        })
+        this.setState({ searchText: event.target.value });
       },
       bookmarkedOnly: true,
       onBookmarkedChange: (event) => {
-        this.setState({
-          bookmarkedOnly: event.target.value
-        })
-        console.log(event.target)
+        this.setState({ bookmarkedOnly: event.target.value });
+        // console.log(event.target)
       },
       selectedGenre: '',
       onSelectedGenreChange: (event) => {
-        this.setState({
-          selectedGenre: event.target.value
-        })
-        console.log(event.target.value)
+        this.setState({ selectedGenre: event.target.value });
+        // console.log(event.target.value)
       },
     }
   }
@@ -38,12 +32,12 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <SearchBar
-          searchText={this.state.searchText} 
+          searchText={this.state.searchText}
           onSearchTextChange={this.state.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.state.onBookmarkedChange}
-          />
-          <MovieLibrary />
+        />
+        <MovieLibrary />
       </div>
     );
   }

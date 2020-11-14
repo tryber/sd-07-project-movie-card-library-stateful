@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
             <label className="label"
               data-testid="text-input-label">
               Inclui o texto:
-                        </label>
+            </label>
             <input
               className="input is-primary"
               data-testid="text-input"
@@ -32,15 +32,16 @@ class SearchBar extends React.Component {
                 onChange={this.props.onBookmarkedChange}
               />
                         Mostrar somente favoritos
-                    </label>
+            </label>
           </div>
         </div>
         <div className="field">
           <div className="control">
-            <label className="label"
+            <label 
+              className="label"
               data-testid="select-input-label">
               Filtrar por gênero:
-                        </label>
+            </label>
             <div className="select is-primary">
               <select
                 data-testid="select-input"
@@ -57,8 +58,8 @@ class SearchBar extends React.Component {
           </div>
         </div>
       </form>
-        )
-    }  
+    )
+  }
 }
 
 export default SearchBar;
