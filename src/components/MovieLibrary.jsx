@@ -25,8 +25,8 @@ class MovieLibrary extends React.Component {
     this.setState((previousState) => ({
       ...previousState,
       [target.name]: value,
-    }));
-    this.filterList();
+    }),
+    this.filterList);
   }
 
   filterList() {
@@ -35,7 +35,6 @@ class MovieLibrary extends React.Component {
       || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText));
     const filteredList = this.filterByChecks(textFilteredList, bookmarkedOnly, selectedGenre);
-    
     this.setState((previousState) => ({
       ...previousState,
       filteredMovies: filteredList,
@@ -76,8 +75,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
