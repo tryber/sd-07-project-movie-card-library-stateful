@@ -52,7 +52,6 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
 describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-
   it('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
     const { getAllByTestId } = searchBar();
     const textInput = getAllByTestId('text-input');
@@ -82,7 +81,6 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
 
 describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () => {
   beforeEach(() => beforeEachUnitTest());
-
 
   it('Será validado se uma checkbox é renderizada dentro do form', () => {
     const { getAllByTestId } = searchBar();
