@@ -4,36 +4,36 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
+      // subtitle: "",
       title: '',
       // imagePath: "",
       // storyline: "",
       // rating: 0,
       // genre: 'action',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
   }
   /** { imagePath, storyline, rating, genre }  */
 
-  handleChange({ target }) {
-    const { name } = target;
+  handleChangeTitle(event) {
     // eslint-disable-next-line prefer-destructuring
-    const value = target.value;
-    this.setState({ [name]: value });
+    const state = this.state;
+    state.title = event.target.value;
+    this.setState(state);
   }
 
   render() {
     const { subtitle, title } = this.state;
     return (
       <div>
-        <form>
-          <label htmlFor="title-input" data-testid="title-input-label">
+        <form data-testid="title-input-label">
+          <label htmlFor="title-input">
                 Título
             <input
               value={title}
               data-testid="title-input"
               id="title-input"
-              onChange={this.handleChange}
+              onChange={this.handleChangeTitle}
               type="text"
             />
           </label>
