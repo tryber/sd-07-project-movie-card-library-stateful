@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
@@ -37,14 +38,15 @@ class MovieLibrary extends React.Component {
   }
 
   movieFilter() {
+    // eslint-disable-next-line react/destructuring-assignment
     const movieFiltered = this.state.movies;
-    movieFiltered.filter(movie => (movie.title.includes(this.state.searchText) 
-    || movie.subtitle.includes(this.state.searchText) 
+    movieFiltered.filter((movie) => (
+      movie.title.includes(this.state.searchText)
+    || movie.subtitle.includes(this.state.searchText)
     || movie.storyline.includes(this.state.searchText)
     ))
-    .filter(movie => (movie.genre.includes(this.state.selectedGenre)))
-    .map((movies => movies))
-    );
+      .filter((movie) => (movie.genre.includes(this.state.selectedGenre)))
+      .map((movie) => movie);
     return movieFiltered;
   }
 
