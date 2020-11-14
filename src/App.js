@@ -24,7 +24,7 @@ class App extends React.Component {
         this.setState({ selectedGenre: event.target.value });
         // console.log(event.target.value)
       },
-    }
+    };
   }
 
   render() {
