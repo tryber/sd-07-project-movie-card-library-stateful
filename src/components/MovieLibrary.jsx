@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import data from '../data';
+
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -55,10 +55,10 @@ class MovieLibrary extends Component {
 
   handleAddMovie(addMovieState) {
     const newMovie = addMovieState;
-    const { movies } = this.props 
-    movies.push(newMovie);
+    const upDate = this.props.movies
+    upDate.push(upDate);
 
-    this.setState(() => ({ movies: movies }));
+    this.setState(() => ({ movies: upDate }));
   }
 
   filterByText(parameter) {
