@@ -12,6 +12,7 @@ class AddMovie extends Component {
       // genre: 'action',
     };
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
+    this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
   }
   /** { imagePath, storyline, rating, genre }  */
 
@@ -19,6 +20,13 @@ class AddMovie extends Component {
     // eslint-disable-next-line prefer-destructuring
     const state = this.state;
     state.title = event.target.value;
+    this.setState(state);
+  }
+
+  handleChangeSubtitle(event) {
+    // eslint-disable-next-line prefer-destructuring
+    const state = this.state;
+    state.subtitle = event.target.value;
     this.setState(state);
   }
 
@@ -47,7 +55,7 @@ class AddMovie extends Component {
               value={subtitle}
               data-testid="subtitle-input"
               type="text"
-              onChange={this.handleChange}
+              onChange={this.handleChangeSubtitle}
             />
           </label>
         </form>
