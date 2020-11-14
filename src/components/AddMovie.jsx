@@ -40,15 +40,13 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value, });
   }
 
   render() {
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
+        <label htmlFor="add-movie-form" data-testid="title-input-label">
           Título
           <input
             data-testid="title-input"
@@ -58,7 +56,7 @@ class AddMovie extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <label data-testid="subtitle-input-label">
+        <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
           Subtítulo
           <input
             data-testid="subtitle-input"
@@ -68,7 +66,7 @@ class AddMovie extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <label data-testid="image-input-label">
+        <label htmlFor="image-input-label" data-testid="image-input-label">
           Imagem
           <input
             data-testid="image-input"
@@ -78,7 +76,7 @@ class AddMovie extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <label data-testid="storyline-input-label">
+        <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
           Sinopse
           <textarea
             data-testid="storyline-input"
@@ -88,7 +86,7 @@ class AddMovie extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <label data-testid="rating-input-label">
+        <label htmlFor="rating-input-label" data-testid="rating-input-label">
           Avaliação
           <input
             data-testid="rating-input"
@@ -98,7 +96,7 @@ class AddMovie extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        <label data-testid="genre-input-label">
+        <label htmlFor="genre-input-label" data-testid="genre-input-label">
           Gênero
           <select
             data-testid="genre-input"

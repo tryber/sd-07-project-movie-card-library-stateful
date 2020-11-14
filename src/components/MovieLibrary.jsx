@@ -24,9 +24,7 @@ class MovieLibrary extends React.Component {
   }
 
   search({ target }) {
-    this.setState({
-      [target.name]: target.value,
-    });
+    this.setState({ [target.name]: target.value, });
   }
 
   addMovie(movie) {
