@@ -1,114 +1,120 @@
 // implement AddMovie component here
-import React from "react";
-
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.onClick = this.onClick.bind(this);
+    this.buttonClick = this.buttonClick.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
-  onTitleTextChange = (event) => {
-    this.setState({ title: event.target.value })
-  };
+  onTitleTextChange(event) {
+    this.setState({ title: event.target.value });
+  }
 
-  onSubtitleTextChange = (event) => {
+  onSubtitleTextChange(event) {
     // console.log(event.target.value);
     this.setState({ subtitle: event.target.value });
-  };
+  }
 
-  onImageChange = (event) => {
+  onImageChange(event) {
     // console.log(event.target.value);
     this.setState({ imagePath: event.target.value });
-  };
+  }
 
-  onStoryLineChange = (event) => {
+  onStoryLineChange(event) {
     // console.log(event.target.value);
     this.setState({ storyline: event.target.value });
-  };
+  }
 
-  onRatingChange = (event) => {
+  onRatingChange(event) {
     // console.log(event.target.value);
     this.setState({ rating: event.target.value });
-  };
+  }
 
-  onGenreChange = (event) => {
+  onGenreChange(event) {
     // console.log(event.target.value);
     this.setState({ genre: event.target.value });
-  };
+  }
 
-  buttonClick = () => {
+  buttonClick() {
     console.log('xablau');
     this.props.onClick();
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     });
-  };
+  }
 
   render() {
     // const chegada = this.props.onClick;
     // console.log(`Chegada da data no AddMovie = ${chegada}`);
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título</label>
+        <label htmlFor="inputTitle" data-testid="title-input-label">Título</label>
         <input
+          id="inputTitle"
           data-testid="title-input"
           type="text"
           placeholder="Title"
           value={this.state.title}
           onChange={this.onTitleTextChange}
-        ></input>
-        <br></br>
-        <label data-testid="subtitle-input-label">Subtítulo</label>
+        />
+        <br />
+        <label htmlFor="inputSubTitle" data-testid="subtitle-input-label">Subtítulo</label>
         <input
+          id="inputSubTitle"
           data-testid="subtitle-input"
           type="text"
           placeholder="Subtitle"
           value={this.state.subtitle}
           onChange={this.onSubtitleTextChange}
-        ></input>
-        <br></br>
-        <label data-testid="image-input-label">Imagem</label>
+        />
+        <br />
+        <label htmlFor="inputSubTitle" data-testid="image-input-label">Imagem</label>
         <input
+          id="inputSubTitle"
           data-testid="image-input"
           type="text"
           value={this.state.imagePath}
           onChange={this.onImageChange}
-        ></input>
-        <br></br>
-        <label data-testid="storyline-input-label">Sinopse</label>
+        />
+        <br />
+        <label htmlFor="inputStoryline" data-testid="storyline-input-label">Sinopse</label>
         <textarea
+          id="inputStoryline"
           data-testid="storyline-input"
           type="textarea"
           value={this.state.storyline}
           onChange={this.onStoryLineChange}
-        ></textarea>
-        <br></br>
-        <label data-testid="rating-input-label">Avaliação</label>
+        />
+        <br />
+        <label htmlFor="inputRating" data-testid="rating-input-label">Avaliação</label>
         <input
+          id="inputRating"
           data-testid="rating-input"
           type="number"
           value={this.state.rating}
           onChange={this.onRatingChange}
-        ></input>
-        <br></br>
-        <label data-testid="genre-input-label">Gênero</label>
+        />
+        <br />
+        <label htmlFor="inputSelect" data-testid="genre-input-label">Gênero</label>
         <select
+          id="inputSelect"
           data-testid="genre-input"
           // pq value={this.props.genre} funcionava no botão mas não no avaliador?
           value={this.state.genre}
@@ -131,5 +137,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.string.isRequired };
 
 export default AddMovie;
