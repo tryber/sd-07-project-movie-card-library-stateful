@@ -20,10 +20,8 @@ export class MovieLibrary extends Component {
   }
 
   addMovie(movie) {
-    this.setState((previousState, _props) => ({
-      movies: previousState.movies.concat(movie),
-    }));
-  };
+    this.setState((previousState) => ({ movies: previousState.movies.concat(movie) }));
+  }
 
   filterBySearchText(movie) {
     const { searchText } = this.state;
@@ -36,10 +34,10 @@ export class MovieLibrary extends Component {
   }
 
   filterMovie() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = movies;
     if (bookmarkedOnly) {
-      filteredMovies = movies.filter(movie => movie.bookmarked === true);
+      filteredMovies = movies.filter((movie) => movie.bookmarked === true);
     }
     return filteredMovies
       .filter((movie) => movie.genre.includes(selectedGenre))
@@ -50,10 +48,10 @@ export class MovieLibrary extends Component {
     const { name } = target;
     const value = (name === 'bookmarkedOnly') ? target.checked : target.value;
     this.setState({ [name]: value });
-  };
-  
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { handleEvent, addMovie, filterMovie } = this;
     return (
       <div>
@@ -69,6 +67,6 @@ export class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf([]).isRequired };
 
 export default MovieLibrary;
