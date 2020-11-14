@@ -23,8 +23,10 @@ class Addmovie extends React.Component {
     event.preventDefault();
   }
 
-  handleClick(propState, onClick) {
-    onClick(propState);
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -108,7 +110,7 @@ class Addmovie extends React.Component {
         </label><br />
         <button
           data-testid="send-button"
-          onClick={() => this.handleClick(this.state, this.props.onClick)}
+          onClick={this.handleClick}
         >Adicionar filme</button>
       </form>
     );

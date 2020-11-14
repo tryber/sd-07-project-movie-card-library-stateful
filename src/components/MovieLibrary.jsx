@@ -11,25 +11,47 @@ class MovieLibrary extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.handleFilterMovie = this.handleFilterMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: props.movies,
     };
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => { this.handleFilterMovie() });
   }
 
   handleAddMovie(addMovie) {
     this.setState((oldState) => ({ movies: [...oldState.movies, addMovie] }));
   }
+
+
+  // Solução de filtro da Rebeca Santos T06
+  handleFilterMovie() {
+    let myMovies = this.props.movies
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    if(bookmarkedOnly) {
+      myMovies =  myMovies.filter(movie => movie.bookmarked === true );
+    }
+    if(selectedGenre !== '') {
+      myMovies =  myMovies.filter(movie => movie.genre === selectedGenre);
+    }
+    if(searchText !== '') {
+      myMovies =  myMovies.filter((movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText)
+      );
+    }
+    console.log(myMovies);
+    this.setState({ movies: myMovies })
+  }
   render() {
-    // const { movies } = this.props;
     return (
       <div className="movie-list">
         <SearchBar
