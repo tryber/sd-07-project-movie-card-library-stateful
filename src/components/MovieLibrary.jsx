@@ -17,23 +17,41 @@ class MovieLibrary extends Component {
       movies,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
-  onClick(state) {
-    console.log(state);
+  addMovie(movie) {
+    this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
   }
 
   handleChange({ target }) {
-    const { type, name, value, checked } = target;
-    this.setState(() => {
-      if (type === 'checkbox') return { [name]: checked };
-      return { [name]: value };
-    });
+    const { type, name, checked } = target;
+    const value = type === 'checkbox' ? checked : target.value;
+    this.setState({ [name]: value });
+  }
+
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const searchUpperCased = searchText.toUpperCase();
+    return (
+      movies
+        .filter((movie) => !bookmarkedOnly || movie.bookmarked)
+        .filter((movie) => {
+          const { title, subtitle, storyline } = movie;
+          return (
+            searchUpperCased === ''
+        || title.toUpperCase().includes(searchUpperCased)
+        || subtitle.toUpperCase().includes(searchUpperCased)
+        || storyline.toUpperCase().includes(searchUpperCased)
+          );
+        })
+        .filter((movie) => selectedGenre === '' || movie.genre === selectedGenre)
+    );
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -44,8 +62,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.handleChange}
         />
-        <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
+        <MovieList movies={this.filterMovies()} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
