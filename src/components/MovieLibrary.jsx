@@ -7,8 +7,16 @@ import { movieShape } from './MovieCard';
 import '../MovieLibrary.css';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
@@ -16,11 +24,26 @@ class MovieLibrary extends Component {
     console.log(state);
   }
 
+  handleChange({ target }) {
+    const { type, name, value, checked } = target;
+    this.setState(() => {
+      if (type === 'checkbox') return { [name]: checked };
+      return { [name]: value };
+    });
+  }
+
   render() {
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={searchText}
+          onSearchTextChange={this.handleChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.handleChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+        />
         <MovieList movies={movies} />
         <AddMovie onClick={this.onClick} />
       </div>
