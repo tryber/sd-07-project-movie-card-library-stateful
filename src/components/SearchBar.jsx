@@ -42,7 +42,8 @@ class SearchBar extends Component {
               value={selectedGenre}
               id="select-input"
               data-testid="select-input"
-              onChange={onSelectedGenreChange}>
+              onChange={onSelectedGenreChange}
+            >
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
