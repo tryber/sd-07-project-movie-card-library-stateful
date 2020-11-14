@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Rating from './Rating';
-
+// Let's go
 class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
