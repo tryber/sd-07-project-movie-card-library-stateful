@@ -91,7 +91,7 @@ export class AddMovie extends Component {
               <option value="thriller" data-testid="genre-option">Suspense</option>
             </select>
           </label>
-          <button data-testid="send-button" onClick={handleClickEvent}>Adicionar filme</button>
+          <button type="button" data-testid="send-button" onClick={handleClickEvent}>Adicionar filme</button>
         </form>
       </div>
     );
