@@ -16,9 +16,13 @@ class AddMovie extends React.Component {
     };
   }
 
-  changingInputsState = (event) => {
+  changingInputsState(event) {
     const { name, valeu } = event.target;
     this.setState({ [name]: valeu });
+  };
+
+  buttonOnclick() {
+    this.changingInputsState();
   };
 
   render() {
@@ -63,6 +67,50 @@ class AddMovie extends React.Component {
             onChange={this.changingInputsState}
           />
         </label>
+        <label htmlFor="grade" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="grade"
+            value={this.rating}
+            data-testid="rating-input"
+            onChange={this.changingInputsState}
+          />
+        </label>
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+          name="genre"
+          value={this.genre}
+          onChange={this.handleChange}
+          data-testid="genre-input"
+          >
+            <option
+              data-testid="genre-option"
+              value="action"
+            >
+              Ação
+            </option>
+            <option
+              data-testid="genre-option"
+              value="comedy"
+            >
+              Comédia
+            </option>
+            <option
+              data-testid="genre-option"
+              value="thriller"
+            >
+              Suspense
+            </option>
+          </select>
+        </label>
+        <button
+        data-testid="send-button"
+        onClick={this.buttonOnclick}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
