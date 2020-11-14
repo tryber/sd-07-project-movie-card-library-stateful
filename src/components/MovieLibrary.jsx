@@ -13,17 +13,15 @@ class MovieLibrary extends React.Component {
 
     const { movies } = this.props;
     this.state = {
-      searchText: '',
+      searchText: "",
       bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: movies,
+      selectedGenre: "",
+      movies
     };
   }
 
   newMovie(movie) {
-    this.setState((previousElement) => ({
-      movies: [...previousElement.movies, movie],
-    }));
+    this.setState(previousElement => ({movies: [...previousElement.movies, movie]}));
   }
 
   handleFilteredMovies() {
@@ -40,9 +38,9 @@ class MovieLibrary extends React.Component {
       arrayFilter = arrayFilter.filter((movie) => movie.bookmarked === true);
     }
 
-    if (selectedGenre !== '') {
+    if (selectedGenre !== "") {
       arrayFilter = arrayFilter.filter(
-        (movie) => movie.genre === selectedGenre,
+        movie => movie.genre === selectedGenre,
       );
     }
 

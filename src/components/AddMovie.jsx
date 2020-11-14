@@ -10,31 +10,30 @@ class AddMovie extends React.Component {
     this.resetState = this.resetState.bind(this);
 
     this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action',
+      genre: "action",
     };
   }
 
   handleStates({ target }) {
     const { name, value } = target;
-
     this.setState({
-      [name]: value,
+      [name]: value
     });
   }
 
   resetState() {
     this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action',
+      genre: "action",
     });
   }
 
@@ -98,7 +97,7 @@ class AddMovie extends React.Component {
               value={this.state.storyline}
               onChange={this.handleStates}
               data-testid="storyline-input"
-            ></textarea>
+            />
           </label>
         </div>
         <div>
