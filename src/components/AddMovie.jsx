@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -121,7 +122,7 @@ class AddMovie extends React.Component {
           type="button"
           data-testid="send-button"
           onClick={() => {
-            this.props.addMovie(this.state)
+            this.props.addMovie(this.state);
             this.setState(() => ({
               subtitle: '',
               title: '',
@@ -136,5 +137,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { addMovie: Proptypes.func.isRequired };
 
 export default AddMovie;
