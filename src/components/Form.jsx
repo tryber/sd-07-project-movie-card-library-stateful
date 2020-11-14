@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
+    const { searchText } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -9,7 +11,7 @@ class Form extends Component {
               Inclui o texto:
             <input
               type="text"
-              value="searchText"
+              value={searchText}
               onChange="onSearchTextChange"
               data-testid="text-input"
               id="text-input"
@@ -20,4 +22,7 @@ class Form extends Component {
     );
   }
 }
+
+Form.protoType = { searchText: PropTypes.string };
+
 export default Form;
