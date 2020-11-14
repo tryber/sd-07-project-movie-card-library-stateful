@@ -8,8 +8,10 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form" className="form-search">
         <div className="field">
           <div className="control">
-            <label className="label"
-              data-testid="text-input-label">
+            <label
+              className="label"
+              data-testid="text-input-label"
+            >
               Inclui o texto:
             </label>
             <input
@@ -23,7 +25,10 @@ class SearchBar extends React.Component {
         </div>
         <div className="field">
           <div className="control">
-            <label className="checkbox" data-testid="checkbox-input-label">
+            <label
+              className="checkbox"
+              data-testid="checkbox-input-label"
+            >
               <input
                 type="checkbox"
                 className="checkbox"
@@ -40,7 +45,8 @@ class SearchBar extends React.Component {
           <div className="control">
             <label 
               className="label"
-              data-testid="select-input-label">
+              data-testid="select-input-label"
+            >
               Filtrar por gênero:
             </label>
             <div className="select is-primary">
@@ -74,7 +80,7 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func,
 };
 
-SearchBar.defaultProps = { 
+SearchBar.defaultProps = {
   searchText: '',
   onSearchTextChange: () => {},
   bookmarkedOnly: true,
