@@ -58,3 +58,5 @@ class MovieLibrary extends React.Component {
 }
 
 export default MovieLibrary;
+
+MovieLibrary.propTypes = { onClick: PropTypes.object };
