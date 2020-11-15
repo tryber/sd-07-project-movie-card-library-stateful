@@ -11,7 +11,6 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.movieFilter = this.movieFilter.bind(this);
     this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
@@ -21,33 +20,43 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onClick(result) {
-    this.setState((estadoAnterior) => ({ movies: [...estadoAnterior.movies, result] }));
+  onClick(newCard) {
+    this.setState((estadoAnterior) => ({ movies: [...estadoAnterior.movies, newCard] }));
   }
 
   onSearchTextChange({ target }) {
-    this.setState({ searchText: target.value });
+    const { value } = target;
+    const { movies } = this.state;
+    const movieFilter = (value.length) ? movies.filter((movie) => {
+      const card = movie.title.includes(value)
+      || movie.subtitle.includes(value)
+      || movie.storyline.includes(value);
+      return card;
+    }) : movies;
+    this.setState({
+      searchText: value,
+      movies: movieFilter,
+    });
   }
 
   onBookmarkedChange({ target }) {
-    this.setState({ bookmarkedOnly: target.checked });
+    const { cheked } = target;
+    const { movies } = this.state;
+    const movieFilter = (cheked) ? movies.filter((movie) => movie.bookmarked) : movies;
+    this.setState({
+      bookmarkedOnly: target.checked,
+      movies: movieFilter,
+    });
   }
 
   onSelectedGenreChange({ target }) {
-    this.setState({ selectedGenre: target.value });
-  }
-
-  movieFilter() {
-    // eslint-disable-next-line react/destructuring-assignment
-    const movieFiltered = this.state.movies;
-    movieFiltered.filter((movie) => (
-      movie.title.includes(this.state.searchText)
-    || movie.subtitle.includes(this.state.searchText)
-    || movie.storyline.includes(this.state.searchText)
-    ))
-      .filter((movie) => (movie.genre.includes(this.state.selectedGenre)))
-      .map((movie) => movie);
-    return movieFiltered;
+    const { value } = target;
+    const { movies } = this.state;
+    const movieFilter = (value) ? movies.filter((movie) => movie.genre === value) : movies;
+    this.setState({
+      selectedGenre: value,
+      movies: movieFilter,
+    });
   }
 
   render() {
