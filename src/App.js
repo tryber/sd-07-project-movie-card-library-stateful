@@ -26,16 +26,16 @@ class App extends React.Component {
         this.setState({ selectedGenre: event.target.value });
         // console.log(event.target.value)
       },
-      onChange: (event) => {
-        this.setState({ [event.target.name]: event.target.value });
-        console.log(event.target.value);
-      },
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
+      onChange: (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+        console.log(event.target.name);
+      },
     };
   }
 
@@ -52,13 +52,13 @@ class App extends React.Component {
         <MovieLibrary />
         <MovieList movies={movies} />
         <AddMovie
-          onChange={this.state.onChange}
           subtitle={this.state.subtitle}
           title={this.state.title}
           imagePath={this.state.imagePath}
           storyline={this.state.storyline}
           rating={this.state.rating}
           genre={this.state.genre}
+          onChange={this.state.onChange}
         />
       </div>
     );

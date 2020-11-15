@@ -7,11 +7,17 @@ class AddMovie extends React.Component {
     return (
       <form className="form">
         <div className="field">
-          <label className="label" htmlFor="input-title" data-testid="title-input-label">Título</label>
+          <label
+            className="label"
+            htmlFor="input-title"
+            data-testid="title-input-label"
+          >
+            Título
+          </label>
           <div className="control">
             <input
               className="input"
-              name='title'
+              name="title"
               id="input-title"
               type="text"
               placeholder="Insira o título do filme"
@@ -22,11 +28,17 @@ class AddMovie extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" htmlFor="input-subtitle" data-testid="subtitle-input-label">Subtítulo</label>
+          <label
+            className="label"
+            htmlFor="input-subtitle"
+            data-testid="subtitle-input-label"
+          >
+            Subtítulo
+          </label>
           <div className="control">
             <input
               className="input"
-              name='subtitle'
+              name="subtitle"
               id="input-subtitle"
               type="text"
               placeholder="Insira o subtítulo do filme"
@@ -37,11 +49,17 @@ class AddMovie extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" htmlFor="input-image" data-testid="image-input-label">Imagem</label>
+          <label
+            className="label"
+            htmlFor="input-image"
+            data-testid="image-input-label"
+          >
+            Imagem
+          </label>
           <div className="control">
             <input
               className="input"
-              name='imagePath'
+              name="imagePath"
               id="input-Imagem"
               type="text"
               placeholder="Insira o caminho para imagem do novo filme"
@@ -52,11 +70,17 @@ class AddMovie extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" htmlFor="input-storyline" data-testid="storyline-input-label">Sinopse</label>
+          <label
+            className="label"
+            htmlFor="input-storyline"
+            data-testid="storyline-input-label"
+          >
+            Sinopse
+          </label>
           <div className="control">
             <input
               className="input"
-              name='storyline'
+              name="storyline"
               id="input-storyline"
               type="textarea"
               placeholder="Insira o caminho para imagem do novo filme"
@@ -67,11 +91,17 @@ class AddMovie extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" htmlFor="input-rating" data-testid="rating-input-label">Avaliação</label>
+          <label
+            className="label"
+            htmlFor="input-rating"
+            data-testid="rating-input-label"
+          >
+            Avaliação
+          </label>
           <div className="control">
             <input
               className="input"
-              name='rating'
+              name="rating"
               id="input-rating"
               type="number"
               data-testid="rating-input"
@@ -110,6 +140,7 @@ class AddMovie extends React.Component {
               <button
                 className="button is-primary"
                 data-testid="send-button"
+                type="submit"
               >
                 Adicionar filme
               </button>
