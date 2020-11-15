@@ -1,30 +1,80 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
+import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.searchMovies = this.searchMovies.bind(this);
+  }
+
+  onSearchTextChange({ target: { value } }) {
+    this.setState({ searchText: value });
+  }
+
+  onBookmarkedChange({ target: { checked } }) {
+    this.setState({ bookmarkedOnly: checked });
+  }
+
+  onSelectedGenreChange({ target: { value } }) {
+    this.setState({ selectedGenre: value });
+  }
+
+  searchMovies() {
+    const { movies, searchText, selectedGenre, bookmarkedOnly } = this.state;
+    let searchedMovies = movies.filter(({ title, subtitle, storyline }) => title.toLowerCase()
+      .includes(searchText.toLowerCase())
+      || subtitle.toLowerCase()
+        .includes(searchText.toLowerCase())
+      || storyline.toLowerCase()
+        .includes(searchText.toLowerCase()))
+      .filter(({ genre }) => genre.includes(selectedGenre));
+    if (bookmarkedOnly) {
+      searchedMovies = searchedMovies.filter(({ bookmarked }) => bookmarked);
+    }
+    return searchedMovies;
+  }
 
   render() {
-    const { movies } = this.props;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+    } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={movies} />
-        <AddMovie />
+        <SearchBar
+          searchText={searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+        />
+        <MovieList movies={this.searchMovies()} />
+        {/* <AddMovie /> */}
       </div>
     );
   }
 }
 
-MovieList.propTypes = {
+MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    MovieLibrary.propTypes,
+    MovieCard.propTypes.movie,
   ).isRequired,
 };
 
