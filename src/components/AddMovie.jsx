@@ -57,15 +57,15 @@ class AddMovie extends React.Component {
           data-testid="storyline-input-label"
         > Sinopse
         </label>
-          <input
-            className="input"
-            name="storyline"
-            type="textarea"
-            placeholder="Insira o caminho para imagem do novo filme"
-            data-testid="storyline-input"
-            value={this.props.storyline}
-            onChange={this.props.onChange}
-          />
+        <input
+          className="input"
+          name="storyline"
+          type="textarea"
+          placeholder="Insira o caminho para imagem do novo filme"
+          data-testid="storyline-input"
+          value={this.props.storyline}
+          onChange={this.props.onChange}
+        />
         <label
           className="label"
           htmlFor="rating"
@@ -99,11 +99,8 @@ class AddMovie extends React.Component {
           </select>
         </div>
         <div className="buttons">
-          <button
-            className="button is-primary"
-            data-testid="send-button"
-            type="submit"
-          > Adicionar filme
+          <button className="button is-primary" data-testid="send-button" type="submit">
+            Adicionar filme
           </button>
         </div>
       </form>
