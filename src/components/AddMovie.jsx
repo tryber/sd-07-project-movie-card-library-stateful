@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.updateStatus = this.updateStatus.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -18,6 +19,18 @@ class AddMovie extends React.Component {
   updateStatus({ target }) {
     const { id, value } = target;
     this.setState({ [id]: value });
+  }
+
+  addNewMovie() {
+    this.props.onClick(this.estate);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
   }
 
   render() {
@@ -85,6 +98,9 @@ class AddMovie extends React.Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
+        <button data-testid="send-button" onClick={this.addNewMovie}>
+          Adicionar filme
+        </button>
       </form>
     );
   }

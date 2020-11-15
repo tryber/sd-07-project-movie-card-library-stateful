@@ -204,11 +204,11 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
 
 
-  it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
-  it.skip('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
+  it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, 'Harry Potter I');
     event.type(subtitleInput, 'Magical subtitle');
     fireEvent.change(storylineInput, { target: { value: 'The boy who lived.' } });
@@ -220,7 +220,7 @@ describe('Verifica botão de criar filme do componente <AddMovie />', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
-  it.skip('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
+  it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
     event.type(titleInput, 'Harry Potter I');
     event.type(subtitleInput, 'Magical subtitle');
     fireEvent.change(storylineInput, { target: { value: 'The boy who lived.' } });
