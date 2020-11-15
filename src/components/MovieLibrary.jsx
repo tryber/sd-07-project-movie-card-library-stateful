@@ -67,7 +67,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(movie) {
-    this.setState((prevState) => ({ movies: [...prevState.movies, movie], }));
+    this.setState((prevState) => ({ movies: [...prevState.movies, movie] }));
   }
 
   render() {
