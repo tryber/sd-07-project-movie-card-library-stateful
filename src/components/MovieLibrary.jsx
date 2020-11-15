@@ -30,7 +30,7 @@ class MovieLibrary extends React.Component {
       },
       this.updateMoviesByText
     );
-  };
+  }
   bookmarkedOnly(event) {
     const { target } = event;
     this.setState(
@@ -39,9 +39,9 @@ class MovieLibrary extends React.Component {
       },
       this.updateMoviesByCheckbox
     );
-  };
+  }
   updateMoviesByText() {
-    let newList = this.state.movies.filter((movie) =>
+    const newList = this.state.movies.filter((movie) =>
       movie.title.toLowerCase().includes(this.state.searchText.toLowerCase())
     );
     this.setState({
@@ -52,7 +52,7 @@ class MovieLibrary extends React.Component {
         movies: this.props.movies,
       });
     }
-  };
+  }
 
   selectedGenre(event) {
     const { target } = event;
@@ -62,10 +62,10 @@ class MovieLibrary extends React.Component {
       },
       this.updateMoviesByGenre
     );
-  };
+  }
 
   updateMoviesByGenre() {
-    let newList = this.state.movies.filter(
+    const newList = this.state.movies.filter(
       (movie) => movie.genre === this.selectedGenre
     );
     this.setState({
@@ -76,16 +76,16 @@ class MovieLibrary extends React.Component {
         movies: this.props.movies,
       });
     }
-  };
+  }
   addNewMovie(movie) {
     this.setState((previousState, _props) => ({
       movies: [...previousState.movies, movie],
     }));
-  };
+  }
 
   updateMoviesByCheckbox() {
     if (this.state.bookmarkedOnly === true) {
-      let newList = this.state.movies.filter(
+      const newList = this.state.movies.filter(
         (movie) => movie.bookmarked === true
       );
       this.setState({
@@ -96,7 +96,7 @@ class MovieLibrary extends React.Component {
         movies: this.props.movies,
       });
     }
-  };
+  }
   render() {
     return (
       <div>
