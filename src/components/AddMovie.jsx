@@ -7,6 +7,12 @@ class AddMovie extends React.Component {
     super(props);
 
     this.buttonClick = this.buttonClick.bind(this);
+    this.onTitleTextChange = this.onTitleTextChange.bind(this);
+    this.onSubtitleTextChange = this.onSubtitleTextChange.bind(this);
+    this.onImageChange = this.onImageChange.bind(this);
+    this.onStoryLineChange = this.onStoryLineChange.bind(this);
+    this.onRatingChange = this.onRatingChange.bind(this);
+    this.onGenreChange = this.onGenreChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -48,8 +54,11 @@ class AddMovie extends React.Component {
   }
 
   buttonClick() {
-    console.log('xablau');
-    this.props.onClick();
+    // console.log('xablau');
+    // Aqui precisa juntar todas informações em um Objeto, tem aquele (...) que faz isso
+    const newMovie = this.state;
+    this.props.onClick(newMovie);
+    // this.props.onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -138,6 +147,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.string.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
