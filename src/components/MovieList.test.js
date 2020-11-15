@@ -35,11 +35,11 @@ describe('Verifica o componente <MovieList />', () => {
     },
   ];
 
-  it.skip('Será validado se o componente `MovieList` é renderizado com sucesso', () => {
+  it('Será validado se o componente `MovieList` é renderizado com sucesso', () => {
     render(<MovieList movies={movies} />);
   });
 
-  it.skip('Será validado que um componente `MovieCard` é renderizado para cada filme passado como `props`', () => {
+  it('Será validado que um componente `MovieCard` é renderizado para cada filme passado como `props`', () => {
     const { getAllByTestId } = render(<MovieList movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
 
