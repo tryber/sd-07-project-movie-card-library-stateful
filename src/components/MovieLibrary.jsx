@@ -67,9 +67,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(movie) {
-    this.setState((prevState) => ({
-      movies: [...prevState.movies, movie]
-    }));
+    this.setState((prevState) => ({ movies: [...prevState.movies, movie], }));
   }
 
   render() {
@@ -86,7 +84,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
