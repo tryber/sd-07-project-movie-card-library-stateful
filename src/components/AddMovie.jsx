@@ -42,7 +42,7 @@ class AddMovie extends Component {
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título</label>
+        <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           name="title"
           data-testid="title-input"
@@ -50,7 +50,7 @@ class AddMovie extends Component {
           value={this.state.title}
         />
 
-        <label data-testid="subtitle-input-label">Subtítulo</label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
         <input
           name="subtitle"
           data-testid="subtitle-input"
@@ -58,7 +58,7 @@ class AddMovie extends Component {
           onChange={this.changeStateValue}
         />
 
-        <label data-testid="image-input-label">Imagem</label>
+        <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
         <input
           name="imagePath"
           data-testid="image-input"
@@ -66,7 +66,7 @@ class AddMovie extends Component {
           value={this.state.imagePath}
         />
 
-        <label data-testid="storyline-input-label">Sinopse</label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
         <textarea
           name="storyline"
           data-testid="storyline-input"
@@ -75,30 +75,30 @@ class AddMovie extends Component {
         />
 
 
-        <label data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
         <input
-          name='rating'
+          name="rating"
           value={this.state.rating}
           data-testid="rating-input"
           onChange={this.changeStateValue}
           type="number"
         />
 
-        <label data-testid="genre-input-label">Gênero</label>
+        <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
         <select
-          name='genre'
+          name="genre"
           value={this.state.genre}
           data-testid="genre-input"
           onChange={this.changeStateValue}
         >
-          <option data-testid="genre-option" value='action'>Ação</option>
-          <option data-testid="genre-option" value='comedy'>Comédia</option>
-          <option data-testid="genre-option" value='thriller'>Suspense</option>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
 
         <button data-testid="send-button" onClick={this.addMovieForm} >Adicionar filme</button>
       </form>
-    )
+    );
   }
 }
 
