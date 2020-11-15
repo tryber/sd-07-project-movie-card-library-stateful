@@ -38,7 +38,7 @@ class MovieLibrary extends React.Component {
   }
   updateMoviesByText() {
     const newList = this.state.movies.filter((movie) =>
-      movie.title.toLowerCase().includes(this.state.searchText.toLowerCase())
+      movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()),
     );
     this.setState({ movies: newList });
     if (this.state.searchText === '') {
@@ -56,7 +56,7 @@ class MovieLibrary extends React.Component {
 
   updateMoviesByGenre() {
     const newList = this.state.movies.filter(
-      (movie) => movie.genre === this.selectedGenre
+      (movie) => movie.genre === this.selectedGenre,
     );
     this.setState({ movies: newList });
     if (this.state.searchText === '') {
@@ -64,10 +64,8 @@ class MovieLibrary extends React.Component {
     }
   }
   addNewMovie(movie) {
-    this.setState((previousState, _props) => ({
-      movies: [...previousState.movies, movie],
-    }));
-  }
+    this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
+}
 
   updateMoviesByCheckbox() {
     if (this.state.bookmarkedOnly === true) {
