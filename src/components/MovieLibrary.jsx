@@ -65,7 +65,7 @@ class MovieLibrary extends React.Component {
   }
   addNewMovie(movie) {
     this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
-}
+  }
 
   updateMoviesByCheckbox() {
     if (this.state.bookmarkedOnly === true) {
