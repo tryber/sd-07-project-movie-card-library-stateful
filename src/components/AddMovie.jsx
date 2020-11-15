@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
-    super()
+    super();
     this.changeStateValue = this.changeStateValue.bind(this);
     this.addMovieForm = this.addMovieForm.bind(this);
 
@@ -15,15 +15,13 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    };
   }
 
-  changeStateValue (target) {
+  changeStateValue(target) {
     const { name, value } = target;
-    this.setState({
-      [name]: value
-    })
+    this.setState({[name]: value});
   }
 
   addMovieForm() {
@@ -36,13 +34,13 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    })
+      genre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props;
-    return(
+    //const { onClick } = this.props;
+    return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título</label>
         <input name="title" data-testid="title-input" onChange={this.changeStateValue} value={this.state.title} />
