@@ -26,7 +26,7 @@ class AddMovie extends Component {
     })
   }
 
-  addMovieForm = () => {
+  addMovieForm() {
     const { onClick } = this.props;
     onClick(this.state);
 
