@@ -37,6 +37,10 @@ class AddMovie extends Component {
 
         <label data-testid="storyline-input-label">Sinopse</label>
         <textarea name="storyline" data-testid="storyline-input" onChange={this.changeStateValue} value={this.state.storyline} />
+
+
+        <label data-testid="rating-input-label">Avaliação</label>
+        <input name='rating' value={this.state.rating} data-testid="rating-input" onChange={this.changeStateValue} type="number" />
       </form>
     )
   }
