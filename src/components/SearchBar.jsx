@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
   render() {
     return (
-      <form data-testid="search-bar-form" className="form-search">
+      <form data-testid="search-bar-form" className="form">
         <div className="field">
           <div className="control">
             <label
@@ -41,7 +41,7 @@ class SearchBar extends React.Component {
                 checked={this.props.bookmarkedOnly}
                 onChange={this.props.onBookmarkedChange}
               />
-                        Mostrar somente favoritos
+              Mostrar somente favoritos
             </label>
           </div>
         </div>
@@ -94,4 +94,3 @@ SearchBar.defaultProps = {
   selectedGenre: '',
   onSelectedGenreChange: () => {},
 };
-
