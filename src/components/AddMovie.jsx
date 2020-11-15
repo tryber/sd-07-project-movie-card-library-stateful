@@ -3,9 +3,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onHandlerChange = this.onHandlerChange.bind(this);
+    this.addMoreMovie = this.addMoreMovie.bind(this);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }
+  }
+
+  onHandlerChange(event) {
+    /* New teste*/
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    this.setState({ [event.target.name]: value });
+  }
+
+  /* New teste*/
+  addMoreMovie(event) {
+    event.preventDefault();
+    const newMovie = this.state;
+    const onClick = this.props.onClick;
+    onClick(newMovie);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+
   render() {
     return (
-      <form className="form">
+      <form data-testid="add-movie-form" className="form">
         <label
           className="label"
           htmlFor="title"
@@ -18,8 +56,8 @@ class AddMovie extends React.Component {
           type="text"
           placeholder="Insira o título do filme"
           data-testid="title-input"
-          value={this.props.title}
-          onChange={this.props.onChange}
+          value={this.state.title}
+          onChange={this.onHandlerChange}
         />
         <label
           className="label"
@@ -33,8 +71,8 @@ class AddMovie extends React.Component {
           type="text"
           placeholder="Insira o subtítulo do filme"
           data-testid="subtitle-input"
-          value={this.props.subtitle}
-          onChange={this.props.onChange}
+          value={this.state.subtitle}
+          onChange={this.onHandlerChange}
         />
         <label
           className="label"
@@ -48,8 +86,8 @@ class AddMovie extends React.Component {
           type="text"
           placeholder="Insira o caminho para imagem do novo filme"
           data-testid="image-input"
-          value={this.props.imagePath}
-          onChange={this.props.onChange}
+          value={this.state.imagePath}
+          onChange={this.onHandlerChange}
         />
         <label
           className="label"
@@ -63,8 +101,8 @@ class AddMovie extends React.Component {
           type="textarea"
           placeholder="Insira o caminho para imagem do novo filme"
           data-testid="storyline-input"
-          value={this.props.storyline}
-          onChange={this.props.onChange}
+          value={this.state.storyline}
+          onChange={this.onHandlerChange}
         />
         <label className="label" htmlFor="rating" data-testid="rating-input-label">
           Avaliação
@@ -74,8 +112,8 @@ class AddMovie extends React.Component {
           name="rating"
           type="number"
           data-testid="rating-input"
-          value={this.props.rating}
-          onChange={this.props.onChange}
+          value={this.state.rating}
+          onChange={this.onHandlerChange}
         />
         <label
           className="label"
@@ -87,8 +125,8 @@ class AddMovie extends React.Component {
           <select
             data-testid="genre-input"
             name="genre"
-            value={this.props.genre}
-            onChange={this.props.onChange}
+            value={this.state.genre}
+            onChange={this.onHandlerChange}
           >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -96,7 +134,7 @@ class AddMovie extends React.Component {
           </select>
         </div>
         <div className="buttons">
-          <button className="button is-primary" data-testid="send-button" type="submit">
+          <button className="button is-primary" data-testid="send-button" type="button" onClick={this.addMoreMovie}>
             Adicionar filme
           </button>
         </div>
@@ -108,7 +146,7 @@ class AddMovie extends React.Component {
 export default AddMovie;
 
 AddMovie.propTypes = {
-  onChange: PropTypes.func,
+  onHandlerChange: PropTypes.func,
   subtitle: PropTypes.string,
   title: PropTypes.string,
   imagePath: PropTypes.string,
@@ -118,7 +156,7 @@ AddMovie.propTypes = {
 };
 
 AddMovie.defaultProps = {
-  onChange: () => {},
+  onHandlerChange: () => {},
   subtitle: '',
   title: '',
   imagePath: '',
