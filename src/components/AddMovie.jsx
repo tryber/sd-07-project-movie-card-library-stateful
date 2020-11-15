@@ -1,9 +1,9 @@
 // implement AddMovie component here
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class AddMovie extends Component {
+class AddMovie extends React.Component {
   constructor() {
     super();
     this.changeStateValue = this.changeStateValue.bind(this);
@@ -19,7 +19,7 @@ class AddMovie extends Component {
     };
   }
 
-  changeStateValue(target) {
+  changeStateValue({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
