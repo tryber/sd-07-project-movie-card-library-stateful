@@ -17,7 +17,7 @@ class AddMovie extends React.Component {
 
   updateStatus({ target }) {
     const { id, value } = target;
-    this.setState({ [id]: value, });
+    this.setState({ [id]: value });
   }
 
   render() {
@@ -41,6 +41,16 @@ class AddMovie extends React.Component {
           id="subtitle"
           value={this.state.subtitle}
           data-testid="subtitle-input"
+          onChange={this.updateStatus}
+        />
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+        </label>
+        <input
+          type="text"
+          id="imagePath"
+          value={this.state.imagePath}
+          data-testid="image-input"
           onChange={this.updateStatus}
         />
       </form>
