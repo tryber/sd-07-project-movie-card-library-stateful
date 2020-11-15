@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
+    const initialState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -12,8 +11,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    super(props);
+    this.state = initialState;
 
     this.changeHandler = this.changeHandler.bind(this);
+    this.submitNewMovie = this.submitNewMovie.bind(this);
   }
 
   changeHandler({ target }) {
@@ -26,8 +28,13 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  submitNewMovie() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this.initialState);
+  }
+
+  render() {
     const {
       subtitle,
       title,
@@ -115,7 +122,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={onClick}
+          onClick={this.submitNewMovie}
         >
         Adicionar filme
         </button>

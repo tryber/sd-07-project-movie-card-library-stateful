@@ -56,7 +56,7 @@ class MovieLibrary extends Component {
     } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        <h2>My awesome movie library</h2>
         <SearchBar
           searchText={searchText}
           onSearchTextChange={this.onSearchTextChange}
