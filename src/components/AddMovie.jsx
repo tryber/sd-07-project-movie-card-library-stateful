@@ -19,7 +19,16 @@ class AddMovie extends React.Component {
   }
 
   handleChanges({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    let value;
+    if (target.name === 'rating' && target.value === '') {
+      value = 0;
+    } else if (target.name === 'rating' && target.value !== '') {
+      value = parseFloat(target.value);
+    } else {
+      value = target.value;
+    }
+
     this.setState({ [name]: value });
   }
 
@@ -37,10 +46,10 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-
+    // if (isNaN(this.state.rating)) console.log(this.state)
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <label htmlFor="title" data-testid="title-input-label">Título
             <input
               name="title"
@@ -85,7 +94,7 @@ class AddMovie extends React.Component {
               type="number"
               name="rating"
               value={this.state.rating}
-              ata-testid="rating-input"
+              data-testid="rating-input"
               onChange={this.handleChanges}
             />
           </label>
@@ -97,9 +106,9 @@ class AddMovie extends React.Component {
             data-testid="genre-input"
             onChange={this.handleChanges}
           >
-            <option ata-testid="genre-option" value="action">Ação</option>
-            <option ata-testid="genre-option" value="comedy">Comédia</option>
-            <option ata-testid="genre-option" value="thriller">Suspense</option>
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </form>
 

@@ -1,13 +1,13 @@
 // implement MovieLibrary component here
 import React from 'react';
-import data from '../data';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChanges = this.handleChanges.bind(this);
     this.newMovie = this.newMovie.bind(this);
@@ -16,7 +16,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: data,
+      movies: this.props.movies,
       newMovie: {},
     };
   }
@@ -38,7 +38,7 @@ class MovieLibrary extends React.Component {
     let filteredMovies = this.state.movies;
 
     if (this.state.bookmarkedOnly === true) {
-      filteredMovies = data.filter((movie) => movie.bookmarked === true);
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
 
     if (this.state.selectedGenre !== '') {
@@ -68,5 +68,11 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object) };
+
+// CHECAR CC E ARRUMAR AS PROPS QUE O NAVEGADOR TA RECLAMANDO
+
+MovieLibrary.defaultProps = { movies: [] };
 
 export default MovieLibrary;
