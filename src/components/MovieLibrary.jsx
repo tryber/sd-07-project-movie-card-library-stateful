@@ -4,11 +4,7 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import PropTypes from 'prop-types'
 
-MovieLibrary.PropTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired
-};
-
-export default class MovieLibrary extends React.Component {
+class MovieLibrary extends React.Component {
   constructor() {
     super();
 
@@ -35,3 +31,8 @@ export default class MovieLibrary extends React.Component {
   }
 }
 
+MovieLibrary.PropTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+export default MovieLibrary;
