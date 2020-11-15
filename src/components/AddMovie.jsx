@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   onHandlerChange(event) {
@@ -134,7 +134,12 @@ class AddMovie extends React.Component {
           </select>
         </div>
         <div className="buttons">
-          <button className="button is-primary" data-testid="send-button" type="button" onClick={this.addMoreMovie}>
+          <button
+            className="button is-primary"
+            data-testid="send-button"
+            type="button"
+            onClick={this.addMoreMovie}
+          >
             Adicionar filme
           </button>
         </div>
@@ -146,21 +151,9 @@ class AddMovie extends React.Component {
 export default AddMovie;
 
 AddMovie.propTypes = {
-  onHandlerChange: PropTypes.func,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
-  imagePath: PropTypes.string,
-  storyline: PropTypes.string,
-  rating: PropTypes.number,
-  genre: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 AddMovie.defaultProps = {
-  onHandlerChange: () => {},
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: '',
+  onClick: () => {},
 };

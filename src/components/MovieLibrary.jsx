@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
         this.setState({ selectedGenre: event.target.value });
       },
       movies: props.movies,
-    }
+    };
   }
 
   addMoreMovie(data) {
@@ -51,7 +51,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.state.onBookmarkedChange}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.addMoreMovie}/>
+        <AddMovie onClick={this.addMoreMovie} />
       </div>
     );
   }
