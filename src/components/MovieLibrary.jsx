@@ -4,7 +4,7 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import PropTypes from 'prop-types'
 
-SearchBar.PropTypes = {
+MovieLibrary.PropTypes = {
   searchText: PropTypes.string,
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
