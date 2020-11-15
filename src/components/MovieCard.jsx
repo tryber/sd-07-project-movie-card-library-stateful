@@ -29,7 +29,7 @@ MovieCard.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default MovieCard;
