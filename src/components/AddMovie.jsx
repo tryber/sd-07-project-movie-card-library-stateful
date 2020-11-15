@@ -42,7 +42,7 @@ class AddMovie extends React.Component {
             name="title"
             data-testid="title-input"
             type="text"
-            value={this.title}
+            value={this.state.title}
             onChange={this.handleChange}
           />
         </label>
@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             name="subtitle"
             data-testid="subtitle-input"
             type="text"
-            value={this.subtitle}
+            value={this.state.subtitle}
             onChange={this.handleChange}
           />
         </label>
@@ -70,7 +70,7 @@ class AddMovie extends React.Component {
             name="imagePath"
             data-testid="image-input"
             type="text"
-            value={this.imagePath}
+            value={this.state.imagePath}
             onChange={this.handleChange}
           />
         </label>
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
             name="storyline"
             data-testid="storyline-input"
             type="text"
-            value={this.storyline}
+            value={this.state.storyline}
             onChange={this.handleChange}
           />
         </label>
@@ -97,8 +97,8 @@ class AddMovie extends React.Component {
             id="rating-input"
             name="rating"
             data-testid="rating-input"
-            type="text"
-            value={this.rating}
+            type="number"
+            value={this.state.rating}
             onChange={this.handleChange}
           />
         </label>
@@ -111,8 +111,8 @@ class AddMovie extends React.Component {
             id="genre-input"
             htmlFor="genre-input"
             name="genre"
-            data-testid="genre-input-label"
-            value={this.genre}
+            data-testid="genre-input"
+            value={this.state.genre}
             onChange={this.handleChange}
           >
             <option data-testid="genre-option" value="action">Ação</option>
