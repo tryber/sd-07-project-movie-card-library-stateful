@@ -14,22 +14,22 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.searchText = this.searchText.bind(this);
+    this.searchTextInput = this.searchTextInput.bind(this);
     this.updateMoviesByText = this.updateMoviesByText.bind(this);
-    this.bookmarkedOnly = this.bookmarkedOnly.bind(this);
+    this.bookmarkedOnlyInput = this.bookmarkedOnlyInput.bind(this);
     this.updateMoviesByCheckbox = this.updateMoviesByCheckbox.bind(this);
-    this.selectedGenre = this.selectedGenre.bind(this);
+    this.selectedGenreInput = this.selectedGenreInput.bind(this);
     this.updateMoviesByGenre = this.updateMoviesByGenre.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
   }
-  searchText(event) {
+  searchTextInput(event) {
     const { target } = event;
     this.setState(
       { [target.name]: target.value },
       this.updateMoviesByText,
     );
   }
-  bookmarkedOnly(event) {
+  bookmarkedOnlyInput(event) {
     const { target } = event;
     this.setState(
       { [target.name]: target.checked },
@@ -46,7 +46,7 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  selectedGenre(event) {
+  selectedGenreInput(event) {
     const { target } = event;
     this.setState(
       { [target.name]: target.value },
@@ -80,8 +80,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={this.searchText}
+          onSearchTextChange={this.searchTextInput}
           bookmarkedOnly={this.bookmarkedOnly}
+          onBookmarkedChange={this.bookmarkedOnlyInput}
           selectedGenre={this.selectedGenre}
+          onSelectedGenreChange={this.selectedGenreInput}
         />
         <MovieList movies={this.state.movies} />
         <AddMovie addNewMovie={this.addNewMovie} />
