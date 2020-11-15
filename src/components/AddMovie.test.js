@@ -145,11 +145,11 @@ describe('Verifica o input de sinopse do componente <AddMovie />', () => {
 });
 
 describe('Verifica o input de avaliação do componente <AddMovie />', () => {
-  it.skip('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
+  it('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
 
-  it.skip('Será validado se o componente renderiza a label "Avaliação" para o input de avaliação', () => {
+  it('Será validado se o componente renderiza a label "Avaliação" para o input de avaliação', () => {
     expect(ratingInputLabel).toBeInTheDocument();
     expect(ratingInputLabel).toHaveTextContent('Avaliação');
   });
@@ -158,7 +158,7 @@ describe('Verifica o input de avaliação do componente <AddMovie />', () => {
     expect(ratingInput).toHaveValue(initialState.rating);
   });
 
-  it.skip('Será validado se o valor do input de avaliação muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de avaliação muda quando algo é digitado por quem usa', () => {
     event.type(ratingInput, '1.5');
 
     expect(ratingInput).toHaveValue(1.5);
