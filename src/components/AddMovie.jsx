@@ -44,11 +44,8 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form data-testid="add-movie-form" className="form">
-        <label
-          className="label"
-          htmlFor="title"
-          data-testid="title-input-label"
-        > Título
+        <label htmlFor="title" data-testid="title-input-label" >
+          Título
         </label>
         <input
           className="input"
@@ -59,11 +56,8 @@ class AddMovie extends React.Component {
           value={this.state.title}
           onChange={this.onHandlerChange}
         />
-        <label
-          className="label"
-          htmlFor="subtitle"
-          data-testid="subtitle-input-label"
-        > Subtítulo
+        <label className="label" htmlFor="subtitle" data-testid="subtitle-input-label" >
+          Subtítulo
         </label>
         <input
           className="input"
@@ -150,4 +144,4 @@ class AddMovie extends React.Component {
 
 export default AddMovie;
 
-AddMovie.propTypes = { onClick: PropTypes.func };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
