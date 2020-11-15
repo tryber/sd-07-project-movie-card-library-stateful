@@ -9,7 +9,7 @@ MovieLibrary.PropTypes = {
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
   movies: PropTypes.array
-}.isRequired;
+}.isRequired();
 
 export default class MovieLibrary extends React.Component {
   constructor() {
