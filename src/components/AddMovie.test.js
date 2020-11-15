@@ -82,7 +82,7 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica o input de subtítulo do componente <AddMovie />', () => {
+describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
   it('Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
@@ -103,7 +103,7 @@ describe.skip('Verifica o input de subtítulo do componente <AddMovie />', () =>
   });
 });
 
-describe.skip('Verifica o input de imagem do componente <AddMovie />', () => {
+describe('Verifica o input de imagem do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
@@ -123,7 +123,7 @@ describe.skip('Verifica o input de imagem do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica o input de sinopse do componente <AddMovie />', () => {
+describe('Verifica o input de sinopse do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
@@ -144,7 +144,7 @@ describe.skip('Verifica o input de sinopse do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica o input de avaliação do componente <AddMovie />', () => {
+describe('Verifica o input de avaliação do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
@@ -165,7 +165,7 @@ describe.skip('Verifica o input de avaliação do componente <AddMovie />', () =
   });
 });
 
-describe.skip('Verifica o select de gênero do componente <AddMovie />', () => {
+describe('Verifica o select de gênero do componente <AddMovie />', () => {
   const options = [
     { value: 'action', text: 'Ação' },
     { value: 'comedy', text: 'Comédia' },
@@ -201,7 +201,7 @@ describe.skip('Verifica o select de gênero do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica botão de criar filme do componente <AddMovie />', () => {
+describe('Verifica botão de criar filme do componente <AddMovie />', () => {
   
   
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
