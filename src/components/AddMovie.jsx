@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
   }
 
   onClick(event) {
-    const { name, value} = event.target;
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
   render() {
