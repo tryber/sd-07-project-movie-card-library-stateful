@@ -19,7 +19,7 @@ class AddMovie extends Component {
     }
   }
 
-  changeStateValue = ({target}) => {
+  changeStateValue = (target) => {
     const { name, value } = target;
     this.setState({
       [name]: value
