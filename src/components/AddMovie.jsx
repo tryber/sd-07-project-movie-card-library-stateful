@@ -14,13 +14,13 @@ class AddMovie extends React.Component {
     this.updateState = this.updateState.bind(this);
     this.submit = this.submit.bind(this);
   }
-  updateState = (event) => {
+  updateState(event) {
     const { target } = event;
     this.setState({
       [target.name]: target.value,
     });
   };
-  submit = (event) => {
+  submit(event) {
     event.preventDefault();
     const newMovie = this.state;
     this.props.addNewMovie(newMovie);

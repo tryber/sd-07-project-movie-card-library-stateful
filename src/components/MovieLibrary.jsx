@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
     this.updateMoviesByGenre = this.updateMoviesByGenre.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
   }
-  searchText = (event) => {
+  searchText(event) {
     const { target } = event;
     this.setState(
       {
@@ -31,7 +31,7 @@ class MovieLibrary extends React.Component {
       this.updateMoviesByText
     );
   };
-  bookmarkedOnly = (event) => {
+  bookmarkedOnly(event) {
     const { target } = event;
     this.setState(
       {
@@ -40,7 +40,7 @@ class MovieLibrary extends React.Component {
       this.updateMoviesByCheckbox
     );
   };
-  updateMoviesByText = () => {
+  updateMoviesByText() {
     let newList = this.state.movies.filter((movie) =>
       movie.title.toLowerCase().includes(this.state.searchText.toLowerCase())
     );
@@ -54,7 +54,7 @@ class MovieLibrary extends React.Component {
     }
   };
 
-  selectedGenre = (event) => {
+  selectedGenre(event) {
     const { target } = event;
     this.setState(
       {
@@ -64,7 +64,7 @@ class MovieLibrary extends React.Component {
     );
   };
 
-  updateMoviesByGenre = () => {
+  updateMoviesByGenre() {
     let newList = this.state.movies.filter(
       (movie) => movie.genre === this.selectedGenre
     );
@@ -77,13 +77,13 @@ class MovieLibrary extends React.Component {
       });
     }
   };
-  addNewMovie = (movie) => {
+  addNewMovie(movie) {
     this.setState((previousState, _props) => ({
       movies: [...previousState.movies, movie],
     }));
   };
 
-  updateMoviesByCheckbox = () => {
+  updateMoviesByCheckbox() {
     if (this.state.bookmarkedOnly === true) {
       let newList = this.state.movies.filter(
         (movie) => movie.bookmarked === true
