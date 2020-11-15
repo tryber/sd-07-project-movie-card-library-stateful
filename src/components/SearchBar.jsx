@@ -10,7 +10,7 @@ class SearchBar extends Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -18,28 +18,33 @@ class SearchBar extends Component {
         <form data-testid="search-bar-form">
           <label
             data-testid="text-input-label"
-            htmlFor="search-input">Inclui o texto:
+            htmlFor="search-input"
+          >Inclui o texto:
           </label>
           <input
             data-testid="text-input"
             onChange={onSearchTextChange}
             type="text"
-            id="search-input" value={searchText} />
+            id="search-input" value={searchText}
+          />
 
           <label
             data-testid="checkbox-input-label"
-            htmlFor="favorits-input">Mostrar somente favoritos</label>
+            htmlFor="favorits-input"
+          >Mostrar somente favoritos</label>
           <input
             id="favorits-input"
             data-testid="checkbox-input"
             onChange={ onBookmarkedChange }
             type="checkbox"
-            checked={ bookmarkedOnly } />
+            checked={ bookmarkedOnly }
+          />
 
           <label
             data-testid="select-input-label"
             htmlFor="select-gender"
-            value={ selectedGenre }>Filtrar por gênero
+            value={ selectedGenre }
+          >Filtrar por gênero
           </label>
 
           <select
@@ -49,16 +54,20 @@ class SearchBar extends Component {
             value={ selectedGenre }>
               <option
                 data-testid="select-option"
-                value="">Todos</option>
+                value=""
+              >Todos</option>
               <option
                 data-testid="select-option" 
-                value="action">Ação</option>
+                value="action"
+              >Ação</option>
               <option
                 data-testid="select-option" 
-                value="comedy">Comédia</option>
+                value="comedy"
+              >Comédia</option>
               <option
                 data-testid="select-option" 
-                value="thriller">Suspense</option>
+                value="thriller"
+              >Suspense</option>
           </select>
         </form>
       </div>
