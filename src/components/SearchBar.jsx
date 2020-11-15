@@ -1,4 +1,9 @@
 import React from 'react';
+import '../App.css';
+import SearchText from './SearchText';
+import BookMarkedOnly from './BookMarkedOnly';
+import SelectedGenre from './SelectedGenre';
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -14,59 +19,38 @@ class SearchBar extends React.Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   onBookmarkedChange(event) {
-    const value =
-      event.target.type === 'checkbox'
-        ? event.target.checked
-        : event.target.value;
-    this.setState({ bookmarkedOnly: value });
+    const { checked, type, value, name } = event.target;
+    const checking =
+      type === 'checkbox'
+        ? checked
+        : value;
+    this.setState({ [name]: checking });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
-
   render() {
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="text" data-testid="text-input-label">
-          Inclui o texto:
-        </label>
-        <input
-          id="text"
-          data-testid="text-input"
-          value={this.searchText}
-          type="text"
-          onChange={this.onSearchTextChange}
+      <form className="alinhar" data-testid="search-bar-form" >
+        <SearchText
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
         />
-        <label data-testid="checkbox-input-label" htmlFor="filter">
-          <input
-            id="filter"
-            type="checkbox"
-            data-testid="checkbox-input"
-            checked={this.bookmarkedOnly}
-            onChange={this.onBookmarkedChange}
-          />
-          Mostrar somente favoritos
-        </label>
-        <label data-testid="select-input-label" htmlFor="gender">
-          Filtrar por gênero
-        </label>
-        <select
-          value={this.selectedGenre}
-          data-testid="select-input"
-          id="gender"
-          type="text"
-          onChange={this.onSelectedGenreChange}
-        >
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
-        </select>
+        <BookMarkedOnly
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+        />
+        <SelectedGenre
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+        />
       </form>
     );
   }
