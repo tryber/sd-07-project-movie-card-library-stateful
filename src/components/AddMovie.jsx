@@ -1,10 +1,13 @@
 // implement AddMovie component here
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
     super()
+    this.changeStateValue = this.changeStateValue.bind(this);
+    this.addMovieForm = this.addMovieForm.bind(this);
 
     this.state = {
       subtitle: '',
@@ -71,3 +74,5 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: propTypes.func.isRequired };
