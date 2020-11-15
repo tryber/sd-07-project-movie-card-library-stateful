@@ -52,30 +52,30 @@ beforeEach(() => {
 
 
 describe('Verifica o componente <AddMovie />', () => {
-  it.skip('Será validado se o componente renderiza', () => {
+  it('Será validado se o componente renderiza', () => {
     render(<AddMovie onClick={() => jest.fn()} />);
   });
 
-  it.skip('Será validado se o componente renderiza 1, e apenas 1, form', () => {
+  it('Será validado se o componente renderiza 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });
 
 describe('Verifica o input de título do componente <AddMovie />', () => {
-  it.skip('Será validado se o component renderiza um input de texto para quem usa escrever o titulo do filme', () => {
+  it('Será validado se o component renderiza um input de texto para quem usa escrever o titulo do filme', () => {
     expect(titleInput).toBeInTheDocument();
   });
 
-  it.skip('Será validado se o componente renderiza a label "Título" para o input de titulo', () => {
+  it('Será validado se o componente renderiza a label "Título" para o input de titulo', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
   
-  it.skip('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
+  it('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
   
-  it.skip('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
