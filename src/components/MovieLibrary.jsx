@@ -31,7 +31,7 @@ export default class MovieLibrary extends React.Component {
         bookmarkedOnly={this.state.bookmarkedOnly}
         selectedGenre={this.state.selectedGenre}
       />
-      <MovieList movies={this.state.movies}/>
+      <MovieList movies={movies}/>
       </div>
 
     );
