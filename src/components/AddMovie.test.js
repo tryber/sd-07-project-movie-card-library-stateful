@@ -173,29 +173,29 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
   ];
 
 
-  it.skip('Será validado se o componente renderiza um select com 3 opções de genero de filme', () => {
+  it('Será validado se o componente renderiza um select com 3 opções de genero de filme', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
   });
   
-  it.skip('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
+  it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
 
   
-  it.skip('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
+  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
       expect(option).toHaveValue(options[index].value);
     });
   });
 
-  it.skip('Será validado se o gênero selecionado inicialmente é o "action"', () => {
+  it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
   
-  it.skip('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
+  it('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
   });
