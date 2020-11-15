@@ -1,15 +1,15 @@
 // implement MovieLibrary component here
-import React from "react";
-import SearchBar from "./SearchBar";
+import React from 'react';
+import SearchBar from './SearchBar';
 
 export default class MovieLibrary extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: this.props.movies,
     };
   }
