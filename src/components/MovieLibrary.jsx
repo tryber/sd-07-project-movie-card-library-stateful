@@ -2,6 +2,14 @@
 import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import PropTypes from 'prop-types'
+
+SearchBar.PropTypes = {
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+  movies: PropTypes.array
+}.isRequired;
 
 export default class MovieLibrary extends React.Component {
   constructor() {
