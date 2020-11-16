@@ -51,12 +51,14 @@ class MovieLibrary extends React.Component {
   onChangeAddGenre(event) { this.setState({ genre: event.target.value }); }
 
   onChangeAddButton(event) {
+    event.preventDefault();
     const addmovie = {
       title: event.target.title,
       subtitle: event.target.subtitle,
       imagePath: event.target.imagePath,
       storyline: event.target.storyline,
       rating: event.target.rating,
+      bookmarked: true,
       genre: event.target.genre,
     };
     this.setState({ movies: [...movies, addmovie] });
