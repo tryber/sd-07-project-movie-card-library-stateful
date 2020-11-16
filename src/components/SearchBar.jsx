@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
-import SearchText from './SearchText';
-import BookMarkedOnly from './BookMarkedOnly';
-import SelectedGenre from './SelectedGenre';
+import SearchText from './SearchText.js';
+import BookMarkedOnly from './BookMarkedOnly.js';
+import SelectedGenre from './SelectedGenre.js';
 
 class SearchBar extends React.Component {
   render() {
