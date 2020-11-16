@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
   render() {
     const add = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           id="title"
@@ -38,9 +38,9 @@ class AddMovie extends React.Component {
           value={add.storyline}
           onChange={add.onChangeAddStoryline}
         />
-        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">Avaliação</label>
         <input
-          id="rating"
+          id="rating-input"
           type="number"
           data-testid="rating-input"
           value={add.rating}
@@ -57,6 +57,11 @@ class AddMovie extends React.Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
+        <button
+          id="send-button"
+          data-testid="send-button"
+          onClick={onChangeAddButton}>Adicionar filme
+        </button>
       </form>
     );
   }

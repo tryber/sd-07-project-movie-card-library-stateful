@@ -17,6 +17,7 @@ class MovieLibrary extends React.Component {
     this.onChangeAddStoryline = this.onChangeAddStoryline.bind(this);
     this.onChangeAddRating = this.onChangeAddRating.bind(this);
     this.onChangeAddGenre = this.onChangeAddGenre.bind(this);
+    this.onChangeAddButton = this.onChangeAddButton.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -48,6 +49,18 @@ class MovieLibrary extends React.Component {
   onChangeAddRating(event) { this.setState({ rating: event.target.value }); }
 
   onChangeAddGenre(event) { this.setState({ genre: event.target.value }); }
+
+  onChangeAddButton(event) {
+    const addmovie = {
+      title: event.target.title,
+      subtitle: event.target.subtitle,
+      imagePath: event.target.imagePath,
+      storyline: event.target.storyline,
+      rating: event.target.rating,
+      genre: event.target.genre,
+    };
+    this.setState({ movies: [...movies, addmovie] });
+  }
 
   filterMovie(movie, text, bookmarkedOnly, genre) {
     let filteredMovie = Boolean;
@@ -89,6 +102,7 @@ class MovieLibrary extends React.Component {
           onChangeAddRating={this.onChangeAddRating}
           genre={this.state.genre}
           onChangeAddGenre={this.onChangeAddGenre}
+          onChangeAddButton={this.onChangeAddButton}
         />
       </div>
     );
