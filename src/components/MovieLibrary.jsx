@@ -10,7 +10,7 @@ class MovieLibrary extends React.Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: '',
+      selectedGenre: 'action',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -40,7 +40,7 @@ class MovieLibrary extends React.Component {
         <SearchBar
           searchText={this.state.searchText}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          selectedGenre={this.selectedGenre}
+          selectedGenre={this.state.selectedGenre}
           onSearchTextChange={this.onSearchTextChange}
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
@@ -52,8 +52,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.objectOf).isRequired };
 
 export default MovieLibrary;
