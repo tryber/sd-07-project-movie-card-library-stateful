@@ -7,14 +7,14 @@ class Title extends React.Component {
     return (
       <label htmlFor="title" data-testid="title-input-label">
         Título
-      <input
-        id="title"
-        name="title"
-        data-testid="title-input"
-        value={title}
-        type="text"
-        onChange={onClick}
-      />
+        <input
+          id="title"
+          name="title"
+          data-testid="title-input"
+          value={title}
+          type="text"
+          onChange={onClick}
+        />
       </label>
     );
   }

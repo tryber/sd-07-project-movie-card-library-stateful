@@ -5,16 +5,16 @@ class ImagePath extends React.Component {
   render() {
     const { imagePath, onClick } = this.props;
     return (
-        <label htmlFor="imagePath" data-testid="image-input-label">
+      <label htmlFor="imagePath" data-testid="image-input-label">
         Imagem
-      <input
-        id="imagePath"
-        name="imagePath"
-        data-testid="image-input"
-        value={imagePath}
-        type="text"
-        onChange={onClick}
-      />
+        <input
+          id="imagePath"
+          name="imagePath"
+          data-testid="image-input"
+          value={imagePath}
+          type="text"
+          onChange={onClick}
+        />
       </label>
     );
   }

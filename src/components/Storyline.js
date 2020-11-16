@@ -5,16 +5,16 @@ class Storyline extends React.Component {
   render() {
     const { storyline, onClick } = this.props;
     return (
-     <label htmlFor="storyline" data-testid="storyline-input-label">
+      <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
-      <textarea
-        id="storyline"
-        name="storyline"
-        data-testid="storyline-input"
-        value={storyline}
-        type="textarea"
-        onChange={onClick}
-      />
+        <textarea
+          id="storyline"
+          name="storyline"
+          data-testid="storyline-input"
+          value={storyline}
+          type="textarea"
+          onChange={onClick}
+        />
       </label>
     );
   }
