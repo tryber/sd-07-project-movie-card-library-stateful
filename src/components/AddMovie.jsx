@@ -16,7 +16,7 @@ class AddMovie extends React.Component {
   }
 
   handleCard(event) {
-    console.log(event.target.value);
+    console.log('clicou');
   }
 
   render() {
@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
         <button
           className="btn-sucess"
           type="submit"
-          onClick={this.props.handleCard}
+          onClick={this.handleCard}
         >
           Adcionar
         </button>
