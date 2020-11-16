@@ -4,6 +4,41 @@ body {
   font-size: 16px;
 }
 
+input , select {
+  margin: 10px;
+}
+
+label {
+  align-items: center;
+  display: flex;
+}
+
+.form-search , .form-addMovie {
+  align-items: center;
+  background-color: #6997ac;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.form-addMovie {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.button-addMovie {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 900px;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
@@ -39,6 +74,8 @@ body {
 
 
 .movie-card-image {
+  height: 30%;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -62,6 +99,8 @@ body {
 
 .movie-card-storyline {
   font-size: 14px;
+  height: 100px;
+  overflow: hidden;
   text-align: justify;
 }
 
