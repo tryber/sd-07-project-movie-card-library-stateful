@@ -14,6 +14,7 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies
     };
+    const { movies } = this.state;
   }
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
