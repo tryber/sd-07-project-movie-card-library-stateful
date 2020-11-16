@@ -127,12 +127,14 @@ body {
   border: none;
   margin-bottom: 20px;
   padding: 5px;
+  width: 100%;
 }
 
 .text-area {
   border: none;
   margin-bottom: 20px;
   padding: 5px;
+  width: 100%;
 }
 
 .btn-sucess {

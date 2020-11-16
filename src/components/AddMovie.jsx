@@ -62,7 +62,6 @@ class AddMovie extends React.Component {
         Subtítulo
           <input
             type="text"
-            placeholder="Subtitulo"
             className="input-form"
             id="input-subtitle"
             data-testid="subtitle-input"
@@ -71,6 +70,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <label data-testid="image-input-label" htmlFor="input-image">
+          Imagem
           <input
             type="text"
             className="input-form"
@@ -93,9 +93,9 @@ class AddMovie extends React.Component {
           />
         </label>
         <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
           <input
             type="number"
-            placeholder="Avaliação"
             className="input-form"
             onChange={this.handleRating}
           />
