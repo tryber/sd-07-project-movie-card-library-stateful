@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
     };
   }
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props.movies;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     return (
       <div>
         <SearchBar
@@ -27,6 +27,11 @@ class MovieLibrary extends React.Component {
 
     );
   }
+}
+MovieLibrary.defaultProps = {
+  SearchText: '', 
+  bookmarkedOnly: false,
+  selectedGenre: '' 
 }
 
 MovieLibrary.PropTypes = { searchText: PropTypes.string.isRequired, 
