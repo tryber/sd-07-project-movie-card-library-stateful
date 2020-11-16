@@ -1,3 +1,4 @@
+// Para a realizacao deste projeto consultei o repositorio de colega Ygor Fonseca.
 import React from 'react';
 import './App.css';
 import MovieLibrary from './components/MovieLibrary';
