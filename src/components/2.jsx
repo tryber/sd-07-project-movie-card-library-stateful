@@ -29,6 +29,9 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.PropTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
+MovieLibrary.PropTypes = { searchText: PropTypes.string.isRequired, 
+                           bookmarkedOnly: PropTypes.bool.isRequired,
+                           selectedGenre: PropTypes.string.isRequired 
+                          };
 
 export default MovieLibrary;
