@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: theValue });
   }
 
+  eventAddMovie(object) {
+    console.log(object);
+  }
+
   render() {
     return (
       <div>
@@ -34,9 +39,9 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.genreSelected}
           onSelectedGenreChange={this.eventHandlerChange}
         />
+        <AddMovie onClick={this.eventAddMovie} />
         {/*
         <MovieList movies={this.props.movies} />
-        <AddMovie />
         */}
       </div>
     );
