@@ -19,26 +19,48 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.onClick = this.onClick.bind(this);
+    this.onRecupera = this.onRecupera.bind(this);
+    this.Reset = this.Reset.bind(this);
+    this.handleClick = this.Reset.bind(this);
   }
 
-  onClick(event) {
+  onRecupera(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+  Reset() {
+    this.setState({ title: '' });
+    this.setState({ subtitle: '' });
+    this.setState({ imagePath: '' });
+    this.setState({ storyline: '' });
+    this.setState({ rating: 0 });
+    this.setState({ genre: '' });
+  }
+
+  handleClick(event) {
+    this.Reset();
+    this.onRecupera(event);
   }
 
   render() {
     const { onClick } = this.props;
     return (
-      <form className="alinhar" data-testid="add-movie-form" onSubmit={this.onClick}>
-        <Title title={this.state.title} onClick={this.onClick} />
-        <Subtitle subtitle={this.state.subtitle} onClick={this.onClick} />
-        <ImagePath imagePath={this.state.imagePath} onClick={this.onClick} />
-        <Storyline storyline={this.state.storyline} onClick={this.onClick} />
-        <Rating rating={this.state.rating} onClick={this.onClick} />
-        <Genre genre={this.state.genre} onClick={this.onClick} />
+      <form
+        className="alinhar"
+        data-testid="add-movie-form"
+        onSubmit={this.onRecupera}
+      >
+        <Title title={this.state.title} onClick={this.onRecupera} />
+        <Subtitle subtitle={this.state.subtitle} onClick={this.onRecupera} />
+        <ImagePath imagePath={this.state.imagePath} onClick={this.onRecupera} />
+        <Storyline storyline={this.state.storyline} onClick={this.onRecupera} />
+        <Rating rating={this.state.rating} onClick={this.onRecupera} />
+        <Genre genre={this.state.genre} onClick={this.onRecupera} />
         <button
-          onClick={onClick}
+          onClick={() => {
+            this.handleClick();
+            onClick();
+          }}
           data-testid="send-button"
           type="submit"
           value="Adicionar filme"
