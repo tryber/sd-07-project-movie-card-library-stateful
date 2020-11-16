@@ -2,11 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
   render() {
-    const { movies } = this.props;
-    console.log(movies);
     return (
       <div>
         <SearchBar />
