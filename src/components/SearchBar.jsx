@@ -2,34 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  
   render() {
-    return (
-      <div>
-        <form data-testid="search-bar-form">
-          <label data-testid="text-input-label"> Inclui o texto
-          <input value={this.props.searchText} onChange={this.props.onSearchTextChange} data-testid="text-input"/>
-          </label>
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+//      selectedGenre,
+//      onSelectedGenreChange,
+    } = this.props;
 
-          <label data-testid="checkbox-input-label"> Mostrar somente favoritos
-          <input type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} data-testid="checkbox-input"/>
-          </label>
-        </form>
-      </div>
+    return (
+      <form data-testid="search-bar-form">
+        <label htmlFor="searchText" data-testid="text-input-label">
+          Inclui o texto
+          <input
+            value={searchText}
+            onChange={onSearchTextChange}
+            data-testid="text-input"
+          />
+        </label>
+
+        <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            data-testid="checkbox-input"
+          />
+        </label>
+      </form>
     );
   }
-} 
+}
 
-/* SearchBar.propTypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.function.isRequired,
-  bookmarkedOnly: PropTypes.boolean.isRequired,
-  onBookmarkedChange: PropTypes.function.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.function.isRequired,
-}; */
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+//  selectedGenre: PropTypes.string.isRequired,
+//  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
