@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-    const { movies } = this.props;
+    const { movies } = this.props.movies;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
