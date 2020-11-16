@@ -4,6 +4,7 @@ import React from 'react';
 class AddMovie extends React.Component {
   render() {
     const add = this.props;
+    console.log(add)
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título</label>

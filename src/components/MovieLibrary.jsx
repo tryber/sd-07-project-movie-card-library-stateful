@@ -50,20 +50,6 @@ class MovieLibrary extends React.Component {
 
   onChangeAddGenre(event) { this.setState({ genre: event.target.value }); }
 
-  onChangeAddButton(event) {
-    event.preventDefault();
-    const addmovie = {
-      title: event.target.title,
-      subtitle: event.target.subtitle,
-      imagePath: event.target.imagePath,
-      storyline: event.target.storyline,
-      rating: event.target.rating,
-      bookmarked: true,
-      genre: event.target.genre,
-    };
-    this.setState({ movies: [...movies, addmovie] });
-  }
-
   filterMovie(movie, text, bookmarkedOnly, genre) {
     let filteredMovie = Boolean;
     filteredMovie = movie.title.search(text) > -1
@@ -72,6 +58,28 @@ class MovieLibrary extends React.Component {
     if (bookmarkedOnly) filteredMovie = filteredMovie && movie.bookmarked === true;
     if (genre !== '') filteredMovie = filteredMovie && movie.genre === genre;
     return filteredMovie;
+  }
+
+  onChangeAddButton(event) {
+    event.preventDefault();
+    const addmovie = {
+      title: this.state.title,
+      subtitle: this.state.subtitle,
+      storyline: this.state.storyline,
+      rating: this.state.rating,
+      imagePath: this.state.imagePath,
+      bookmarked: false,
+      genre: this.state.genre,
+    };
+    this.setState({
+      movies: [...this.state.movies, addmovie],
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
