@@ -81,3 +81,14 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.add-movie-form , .search-bar-form {
+  min-height: 100px;
+  padding: 10px;
+}
+
+.button-add-film {
+  background-color: #007bff;
+  border-radius: 5px;
+  color: white;
+}
