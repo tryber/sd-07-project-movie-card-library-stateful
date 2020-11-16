@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './components/AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class MovieLibrary extends React.Component {
     this.handelListMovies = this.handelListMovies.bind(this);
     this.handelListBookmarked = this.handelListBookmarked.bind(this);
     this.handelListGenre = this.handelListGenre.bind(this);
+    this.handelValue = this.handelValue.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -30,6 +32,10 @@ class MovieLibrary extends React.Component {
   onSelectedGenreChange(event) {
     const { value } = event.target;
     return this.setState({ selectedGenre: value }, () => this.handelListGenre());
+  }
+  handelValue(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
   handelListMovies() {
     const { searchText, movies } = this.state;
@@ -69,6 +75,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
+        <AddMovie handelValue={this.handelValue} />
       </div>
     );
   }
