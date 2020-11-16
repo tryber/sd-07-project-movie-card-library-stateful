@@ -37,6 +37,9 @@ class AddMovie extends React.Component {
     });
   }
   render() {
+
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state
+    
     return (
       <form data-testid="add-movie-form">
         <div>
@@ -45,7 +48,7 @@ class AddMovie extends React.Component {
             <input
               name="title"
               type="text"
-              value={this.state.title}
+              value={title}
               onChange={this.handleChange}
               data-testid="title-input"
             />
@@ -57,7 +60,7 @@ class AddMovie extends React.Component {
             <input
               name="subtitle"
               type="text"
-              value={this.state.subtitle}
+              value={subtitle}
               data-testid="subtitle-input"
               onChange={this.handleChange}
             />
@@ -69,7 +72,7 @@ class AddMovie extends React.Component {
             <input
               name="imagePath"
               type="text"
-              value={this.state.imagePath}
+              value={imagePath}
               data-testid="image-input"
               onChange={this.handleChange}
             />
@@ -80,7 +83,7 @@ class AddMovie extends React.Component {
             Sinopse
             <textarea
               name="storyline"
-              value={this.state.storyline}
+              value={storyline}
               data-testid="storyline-input"
               onChange={this.handleChange}
             />
@@ -92,7 +95,7 @@ class AddMovie extends React.Component {
             <input
               type="number"
               name="rating"
-              value={this.state.rating}
+              value={rating}
               data-testid="rating-input"
               onChange={this.handleChange}
             />
@@ -103,7 +106,7 @@ class AddMovie extends React.Component {
             Gênero
             <select
               name="genre"
-              value={this.state.genre}
+              value={genre}
               onChange={this.handleChange}
               data-testid="genre-input"
             >
