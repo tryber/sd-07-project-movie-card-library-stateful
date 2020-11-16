@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './SearchBar.css';
 
 class SearchBar extends Component {
-  // constructor() {
-  //   super();
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.state = {
-  //     textInput: '',
-  //     checkboxInput: false,
-  //     selectedGenre: ''
-  //   }
-  // }
-  // handleChange(event) {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
   render() {
     const {
       searchText,
@@ -29,8 +15,12 @@ class SearchBar extends Component {
 
     return (
       <div>
-        <form data-testid="search-bar-form">
-          <label htmlFor="textInput" data-testid="text-input-label">
+        <form data-testid="search-bar-form" className="form-class">
+          <label
+            htmlFor="textInput"
+            data-testid="text-input-label"
+            className="label-class"
+          >
             Inclui o texto:
           </label>
           <input
@@ -39,20 +29,30 @@ class SearchBar extends Component {
             value={searchText}
             onChange={onSearchTextChange}
             data-testid="text-input"
+            className="text-input"
           />
 
-          <label htmlFor="checkboxInput" data-testid="checkbox-input-label">
-            Mostrar somente favoritos
-          </label>
           <input
             type="checkbox"
             name="bookmarkedOnly"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
             data-testid="checkbox-input"
+            className="checkbox-input"
           />
+          <label
+            htmlFor="checkboxInput"
+            data-testid="checkbox-input-label"
+            className="label-checkbox"
+          >
+            Mostrar somente favoritos
+          </label>
 
-          <label htmlFor="selectInput" data-testid="select-input-label">
+          <label
+            htmlFor="selectInput"
+            data-testid="select-input-label"
+            className="label-class"
+          >
             Filtrar por gênero
           </label>
           <select
@@ -60,6 +60,7 @@ class SearchBar extends Component {
             value={selectedGenre}
             onChange={onSelectedGenreChange}
             data-testid="select-input"
+            className="select-input"
           >
             <option value="" data-testid="select-option">
               Todos
