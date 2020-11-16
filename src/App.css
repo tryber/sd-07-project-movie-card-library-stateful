@@ -113,7 +113,7 @@ body {
 
 .input-bar-check {
   border: none;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
 .container-form {
@@ -126,21 +126,21 @@ body {
 .input-form {
   border: none;
   margin-bottom: 20px;
-  padding:5px;
+  padding: 5px;
 }
 
 .text-area {
-  margin-bottom: 20px;
   border: none;
+  margin-bottom: 20px;
   padding: 5px;
 }
 
 .btn-sucess {
   background-color: rgb(35, 79, 114);
-  font-size: 16pt;
   border: none;
-  border-radius:5px;
+  border-radius: 5px;
   color: white;
+  font-size: 16pt;
   margin-top: 25px;
   margin-bottom: 25px;
   padding: 5px;

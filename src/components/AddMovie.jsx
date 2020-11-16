@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
         <label htmlFor="form-addMovie">
           Gênero:
           <select id="form-addMovie">
-            <option value=""/>
+            <option value="" />
             <option value="action">Ação</option>
             <option value="adventure">Aventura</option>
             <option value="fantasy">Fantasia</option>

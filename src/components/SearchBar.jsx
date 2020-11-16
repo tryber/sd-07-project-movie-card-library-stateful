@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="container-bar" data-testid="search-bar-form">
-        <label data-testid="text-input-label">
+        <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto:
           <input
             type="text"
@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
             onChange={this.onSearchTextChange}
             data-testid="text-input"
             className="input-search"
+            id="text-input"
           />
         </label>
         <div className="comp-serch">
@@ -31,8 +32,10 @@ class SearchBar extends React.Component {
         <div>
           <label data-testid="select-input-label" htmlFor="select-addMovie">
             Filtrar por gênero
-            <select value={this.props.selectedGenre} data-testid="select-input" 
-            id="select-addMovie">
+            <select value={this.props.selectedGenre}
+            data-testid="select-input"
+            id="select-addMovie"
+            >
               <option value="" data-testid="select-option">
                 Todos
               </option>
