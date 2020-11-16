@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
 import PropTypes from 'prop-types';
+import '../App.css';
 import SearchText from './SearchText';
 import BookMarkedOnly from './BookMarkedOnly';
 import SelectedGenre from './SelectedGenre';
