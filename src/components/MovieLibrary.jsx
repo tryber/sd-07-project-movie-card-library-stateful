@@ -9,7 +9,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    this.addMovie = this.addMovie.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -45,6 +45,7 @@ class MovieLibrary extends React.Component {
   filterFilms() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredFilms = movies;
+    MovieLibrary.propTypes = { movies: Proptypes.arrayOf(Proptypes.object).isRequired };
     if (bookmarkedOnly === true) {
       filteredFilms = movies.filter((movie) => (movie.bookmarked === true));
     } else {

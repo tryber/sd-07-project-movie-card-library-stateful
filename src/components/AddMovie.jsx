@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      <form data-testid="add-movie-form" >
         <label data-testid="title-input-label" htmlFor="title-input" >
           Título
           <input
@@ -75,10 +75,9 @@ class AddMovie extends React.Component {
 
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <input
+          <textarea
             className="inputs"
             id="storyline-input"
-            type="textarea"
             name="storyline"
             data-testid="storyline-input"
             onChange={this.changeHandler}
@@ -121,16 +120,17 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault();
             this.props.onClick(this.state);
-            this.setState(() => ({
+            this.setState({
               subtitle: '',
               title: '',
               imagePath: '',
               storyline: '',
               rating: 0,
               genre: 'action',
-            }));
+            });
           }}
         >Adicionar filme</button>
       </form>
