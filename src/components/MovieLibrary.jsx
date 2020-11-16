@@ -1,6 +1,7 @@
 // implement MovieLibrary component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import './components.css';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -62,19 +63,9 @@ class MovieLibrary extends React.Component {
     const filteredText = this.filteredTextFunction(filteredBookMarked, chosenText);
 
     return filteredText;
-    /* Colocar novo estado */
   }
 
-  addNewMovie(newObject) {
-    const newMovie = {
-      title: newObject.title,
-      subtitle: newObject.subtitle,
-      storyline: newObject.imagePath,
-      rating: newObject.storyline,
-      imagePath: newObject.rating,
-      genre: newObject.genre,
-    };
-
+  addNewMovie(newMovie) {
     const movies = this.state.movies;
     this.setState({ movies: [...movies, newMovie] });
   }
@@ -82,15 +73,17 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-        <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.handleChange}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.handleChange}
-          selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.handleChange}
-        />
-        <AddMovie onClick={this.addNewMovie} />
+        <div className="form-section">
+          <SearchBar
+            searchText={this.state.searchText}
+            onSearchTextChange={this.handleChange}
+            bookmarkedOnly={this.state.bookmarkedOnly}
+            onBookmarkedChange={this.handleChange}
+            selectedGenre={this.state.selectedGenre}
+            onSelectedGenreChange={this.handleChange}
+          />
+          <AddMovie onClick={this.addNewMovie} />
+        </div>
         <MovieList movies={this.filterMovies()} />
       </div>
     );
