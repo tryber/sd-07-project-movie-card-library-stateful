@@ -54,6 +54,7 @@ class AddMovie extends React.Component {
         </div>
         <div>
           <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+            Subtítulo
             <input
               name="subtitle"
               type="text"
@@ -61,7 +62,6 @@ class AddMovie extends React.Component {
               value={subtitle}
               onChange={this.handleChange}
             />
-            Subtítulo
           </label>
         </div>
         <div>
