@@ -7,15 +7,16 @@ import SearchBar from './SearchBar';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies
     };
   }
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -28,15 +29,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-MovieLibrary.defaultProps = {
-  SearchText: '', 
-  bookmarkedOnly: false,
-  selectedGenre: '' 
-}
 
-MovieLibrary.PropTypes = { searchText: PropTypes.string.isRequired, 
-                           bookmarkedOnly: PropTypes.bool.isRequired,
-                           selectedGenre: PropTypes.string.isRequired 
-                          };
+MovieLibrary.PropTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired }
 
 export default MovieLibrary;
