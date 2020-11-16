@@ -15,7 +15,7 @@ function App() {
         <SearchBar />
       </div>
       <MovieLibrary movies={data} />
-        <AddMovie />
+      <AddMovie />
     </div>
   );
 }
