@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    const initialState = {
+    super(props);
+    this.initialState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -11,15 +12,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    super(props);
-    this.state = initialState;
+    this.state = this.initialState;
 
     this.changeHandler = this.changeHandler.bind(this);
     this.submitNewMovie = this.submitNewMovie.bind(this);
   }
 
-  changeHandler({ target }) {
-    const { name, value } = target;
+  changeHandler({ target: { name, value } }) {
     this.setState(() => {
       if (name === 'rating') {
         return { [name]: parseFloat(value) };
@@ -44,23 +43,23 @@ class AddMovie extends React.Component {
       genre,
     } = this.state;
     return (
-      <form>
-        <label htmlFor="search-title" data-testid="title-input-label">
+      <form data-testid="add-movie-form">
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             type="text"
-            name="search-title"
-            id="search-title"
+            name="title"
+            id="title-input"
+            data-testid="title-input"
             value={title}
             onChange={this.changeHandler}
-            data-testid="title-input"
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
             type="text"
-            name="subtitle-input"
+            name="subtitle"
             id="subtitle-input"
             data-testid="subtitle-input"
             value={subtitle}
@@ -71,7 +70,7 @@ class AddMovie extends React.Component {
           Imagem
           <input
             type="text"
-            name="image-input"
+            name="imagePath"
             id="image-input"
             data-testid="image-input"
             value={imagePath}
@@ -81,7 +80,7 @@ class AddMovie extends React.Component {
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            name="storyline-input"
+            name="storyline"
             id="storyline-input"
             data-testid="storyline-input"
             value={storyline}
@@ -92,7 +91,7 @@ class AddMovie extends React.Component {
           Avaliação
           <input
             type="number"
-            name="rating-input"
+            name="rating"
             id="rating-input"
             data-testid="rating-input"
             value={rating}
@@ -102,7 +101,7 @@ class AddMovie extends React.Component {
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
-            name="genre-input"
+            name="genre"
             id="genre-input"
             data-testid="genre-input"
             value={genre}

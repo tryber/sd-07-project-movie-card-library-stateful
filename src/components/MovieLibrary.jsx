@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.searchMovies()} />
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
