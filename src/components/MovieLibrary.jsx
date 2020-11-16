@@ -14,7 +14,6 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies
     };
-    const { movies } = this.state;
   }
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -25,6 +24,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
+        <MovieList movies={movies}/>
       </div>
 
     );
