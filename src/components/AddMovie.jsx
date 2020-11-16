@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
     this.handleCard = this.handleCard.bind(this);
   }
 
-  handleCard(event) {
+  handleCard() {
     console.log('clicou');
   }
 
