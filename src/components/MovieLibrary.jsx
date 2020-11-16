@@ -9,9 +9,7 @@ class MovieLibrary extends Component {
     // Retirar prop
     const prop = this.props;
     this.onClick = this.onClick.bind(this);
-    this.SearchTextChange = this.SearchTextChange.bind(this);
-    this.BookmarkedChange = this.BookmarkedChange.bind(this);
-    this.SelectedGenreChange = this.SelectedGenreChange.bind(this);
+    this.changeSet = this.changeSet.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -21,50 +19,31 @@ class MovieLibrary extends Component {
   }
 
   onClick(e) {
+    // Retirar prop
     const prop = this.props;
     this.setState({ movies: [...prop.movies, e] });
   }
-  // Poderia ser só um método... Vamos ver se o CC deixa
-  SearchTextChange(value) {
-    const filterMovies = this.state.movies.filter((element) =>
-      element.title.includes(value) ||
-      element.subtitle.includes(value) ||
-      element.storyline.includes(value),
-    );
+
+  changeSet(key, value, callback) {
     this.setState({
-      searchText: value,
-      movies: filterMovies,
-    });
-  }
- // Poderia ser só um método... Vamos ver se o CC deixa
-  BookmarkedChange(value) {
-    this.setState({
-      bookmarkedOnly: value,
-      movies: this.state.movies.filter((e) => e.bookmarked),
-    });
-  }
- // Poderia ser só um método... Vamos ver se o CC deixa
-  SelectedGenreChange(value) {
-    this.setState({
-      selectedGenre: value,
-      movies: this.state.movies.filter(
-        (element) => element.genre.includes(value),
-      ),
+      [key]: value,
+      movies: callback(this.state.movies, value),
     });
   }
 
   render() {
+    const { state, changeSet, onClick } = this;
     return (
       <div>
         <h2> MovieLibrary Funciona</h2>
         <SearchBar
-          {...this.state}
-          onSearchTextChange={this.SearchTextChange}
-          onBookmarkedChange={this.BookmarkedChange}
-          onSelectedGenreChange={this.SelectedGenreChange}
+          {...state}
+          onSearchTextChange={changeSet}
+          onBookmarkedChange={changeSet}
+          onSelectedGenreChange={changeSet}
         />
-        <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick} />
+        <MovieList movies={state.movies} />
+        <AddMovie onClick={onClick} />
       </div>
     );
   }

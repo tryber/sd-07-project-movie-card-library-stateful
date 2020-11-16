@@ -1,6 +1,43 @@
 import React from 'react';
 
-export default class AddMovie extends React.Component {
+export class Select extends React.Component {
+ render() {
+   //retirar prop e adicionar as PropTypes
+   const prop = this.props;
+   const { label, select, changeSetState, option} = prop;
+   return (
+    <label {...label} htmlFor={select.id} >
+      {label.content}
+      <select {...select} onChange={(e) => {changeSetState(e.target.id, e.target.value)}}>
+        {option.map(element => 
+          <option {...element} data-testid="genre-option" >{element.content}</option>
+        )}
+      </select>
+    </label>
+   )
+ }
+}
+
+export class Inputs extends React.Component {
+  render() {
+    //retirar prop e adicionar as PropTypes
+    const prop = this.props;
+    const {label, input, changeSetState} = prop;
+    return (
+      <label htmlFor={input.id} {...label} >
+        {label.content}
+      <input
+        {...input}
+        onChange={(e) => {
+          const { id, value } = e.target;
+          changeSetState(id, value);
+        }}
+      />
+    </label>)
+  }
+}
+
+class AddMovie extends React.Component {
   constructor(prop) {
     super(prop);
     this.stateChange = this.stateChange.bind(this);
@@ -14,8 +51,8 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  stateChange(key, valeu) {
-    this.setState({ [key]: valeu });
+  stateChange(key, value) {
+    this.setState({ [key]: value });
   }
 
   resetState() {
@@ -30,78 +67,69 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
+    //retirar prop e adicionar as PropTypes
     const prop = this.props;
+    const { title, subtitle, imagePath, rating, genre } = this.state;
+    const { stateChange } = this;
     return (
       <form data-testid="add-movie-form" >
-        <label htmlFor="title" data-testid="title-input-label" >
-          Título
-        </label>
-        <input
-          id="title"
-          value={this.state.title}
-          data-testid="title-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
+
+        <Inputs 
+        input={{ value: title, 'data-testid': "title-input", id: 'title' }}
+        label={{ content: 'Título', 'data-testid': "title-input-label" }}
+        changeSetState={stateChange}
         />
-        <label htmlFor="subtitle" data-testid="subtitle-input-label" >
-          Subtítulo
-        </label>
-        <input
-          id="subtitle"
-          value={this.state.subtitle}
-          data-testid="subtitle-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
+
+        <Inputs 
+        input={{ value: subtitle, 'data-testid':"subtitle-input", id: 'subtitle' }}
+        label={{ content: 'Subtítulo', 'data-testid': "subtitle-input-label" }}
+        changeSetState={stateChange}
         />
-        <label htmlFor="imagePath" data-testid="image-input-label" >
-          Imagem
-        </label>
-        <input
-          id="imagePath"
-          value={this.state.imagePath}
-          data-testid="image-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
+
+        <Inputs 
+        input={{ value: imagePath, 'data-testid':"image-input", id: 'imagePath' }}
+        label={{ content: 'Imagem', 'data-testid': "image-input-label" }}
+        changeSetState={stateChange}
         />
+
         <label htmlFor="storyline" data-testid="storyline-input-label" >
           Sinopse
-        </label>
-        <textarea
+          <textarea
           id="storyline"
           value={this.state.storyline}
           data-testid="storyline-input"
           onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
-        />
-        <label htmlFor="rating" data-testid="rating-input-label" >
-          Avaliação
+          />
         </label>
-        <input
-          type="number"
-          id="rating"
-          value={this.state.rating}
-          data-testid="rating-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
+
+        <Inputs
+        input={{ type: 'number', value: rating, 'data-testid': "rating-input", id: 'rating' }}
+        label={{ content: 'Avaliação', 'data-testid': "rating-input-label" }}
+        changeSetState={stateChange}
         />
-        <label htmlFor="genre" data-testid="genre-input-label" >
-          Gênero
-        </label>
-        <select
-          id="genre"
-          value={this.state.genre}
-          data-testid="genre-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
-        >
-          <option value="action" data-testid="genre-option" >Ação</option>
-          <option value="comedy" data-testid="genre-option" >Comédia</option>
-          <option value="thriller" data-testid="genre-option" >Suspense</option>
-        </select>
+
+        <Select
+          select={{ 'data-testid': "genre-input", value: genre, id: 'genre' }}
+          label={{ 'data-testid': "genre-input-label", content: 'Gênero' }}
+          option={[
+            { value: "action", content: 'Ação' },
+            { value: "comedy", content: 'Comédia' },
+            { value: "thriller", content: 'Suspense' }
+          ]}
+          changeSetState={stateChange}
+        />
+
         <button
           data-testid="send-button"
           onClick={() => {
             prop.onClick(this.state);
             this.resetState();
           }}
-        >
-          Adicionar filme
-        </button>
+        >Adicionar filme</button>
+
       </form>
     );
   }
 }
+
+export default AddMovie;
