@@ -2,9 +2,25 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
+    this.subtitle = { value: '' };
+    this.title = { value: '' };
+    this.imagePath = { value: '' };
+    this.storyline = { value: '' };
+    this.rating = { value: 0 };
+    this.genre = { value: 'action' };
+
+    this.handleCard = this.handleCard.bind(this);
+  }
+
+  handleCard(event) {
+    console.log(event.target.value);
+  }
+
   render() {
     return (
-      <div className="container-form">
+      <form className="container-form">
         <input type="text" placeholder="Titulo" className="input-form" />
         <input type="text" placeholder="Subtitulo" className="input-form" />
         <input type="text" placeholder="Imagem" className="input-form" />
@@ -27,8 +43,14 @@ class AddMovie extends React.Component {
             <option value="sifi">Ficção</option>
           </select>
         </label>
-        <button className="btn-sucess" type="submit">Adcionar</button>
-      </div>
+        <button
+          className="btn-sucess"
+          type="submit"
+          onClick={this.props.handleCard}
+        >
+          Adcionar
+        </button>
+      </form>
     );
   }
 }
