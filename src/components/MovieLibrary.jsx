@@ -7,7 +7,10 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeOfText = this.handleChangeOfText.bind(this);
+    this.handleChangeOfMarked = this.handleChangeOfMarked.bind(this);
+    this.updateByText = this.updateByText.bind(this);
+    this.updateByChecked = this.updateByChecked.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
     const { movies } = this.props;
     this.state = {
@@ -18,10 +21,31 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
+  handleChangeOfText({ target }) {
+    // const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { value } = target;
+    this.setState({ searchText: value });
+    this.updateByText();
+  }
+
+  handleChangeOfMarked({ target }) {
+    const { checked } = target;
+    this.setState({ bookmarkedOnly: checked });
+    this.updateByChecked();
+  }
+
+  updateByText() {
+    const { movies, searchText } = this.state;
+    const newList = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    this.setState({ movies: newList });
+  }
+
+  updateByChecked() {
+    const { movies, bookmarkedOnly } = this.state;
+    const newList = movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
+    this.setState({ movies: newList });
   }
 
   addNewMovie({
@@ -55,9 +79,9 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.handleChange}
+          onSearchTextChange={this.handleChangeOfText}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.handleChange}
+          onBookmarkedChange={this.handleChangeOfMarked}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.handleChange}
         />
