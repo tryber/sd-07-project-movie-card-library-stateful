@@ -1,28 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export class Select extends React.Component {
+class Select extends React.Component {
  render() {
-   //retirar prop e adicionar as PropTypes
-   const prop = this.props;
-   const { label, select, changeSetState, option} = prop;
+   const { label, select, changeSetState, option} = this.props;
    return (
     <label {...label} htmlFor={select.id} >
       {label.content}
       <select {...select} onChange={(e) => {changeSetState(e.target.id, e.target.value)}}>
-        {option.map(element => 
-          <option {...element} data-testid="genre-option" >{element.content}</option>
+        {option.map((element, index) => 
+          <option {...element} data-testid="genre-option" key={`genre${index}`} >{element.content}</option>
         )}
       </select>
     </label>
    )
  }
 }
+Select.propTypes = {
+  label: PropTypes.object,
+  select: PropTypes.object,
+  changeSetState: PropTypes.func,
+  option: PropTypes.array
+}
 
-export class Inputs extends React.Component {
+class Inputs extends React.Component {
   render() {
-    //retirar prop e adicionar as PropTypes
-    const prop = this.props;
-    const {label, input, changeSetState} = prop;
+    const {label, input, changeSetState} = this.props;
     return (
       <label htmlFor={input.id} {...label} >
         {label.content}
@@ -36,11 +39,17 @@ export class Inputs extends React.Component {
     </label>)
   }
 }
+Inputs.propTypes = {
+  label: PropTypes.object,
+  input: PropTypes.object,
+  changeSetState: PropTypes.func
+}
 
 class AddMovie extends React.Component {
   constructor(prop) {
     super(prop);
     this.stateChange = this.stateChange.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -67,10 +76,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    //retirar prop e adicionar as PropTypes
-    const prop = this.props;
-    const { title, subtitle, imagePath, rating, genre } = this.state;
-    const { stateChange } = this;
+    const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
+    const { stateChange, resetState, state, props } = this;
     return (
       <form data-testid="add-movie-form" >
 
@@ -96,9 +103,9 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea
           id="storyline"
-          value={this.state.storyline}
+          value={storyline}
           data-testid="storyline-input"
-          onChange={(e) => { this.stateChange(e.target.id, e.target.value); }}
+          onChange={(e) => { stateChange(e.target.id, e.target.value); }}
           />
         </label>
 
@@ -122,8 +129,8 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           onClick={() => {
-            prop.onClick(this.state);
-            this.resetState();
+            props.onClick(state);
+            resetState();
           }}
         >Adicionar filme</button>
 
@@ -131,5 +138,7 @@ class AddMovie extends React.Component {
     );
   }
 }
-
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}
 export default AddMovie;

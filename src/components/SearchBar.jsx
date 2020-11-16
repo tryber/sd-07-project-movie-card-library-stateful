@@ -1,14 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Select extends React.Component {
   SelectedGenreChange(movies, value) {
     return movies.filter((movie) => movie.genre.includes(value));
   }
-
   render() {
-    // retirar prop e adicionar as PropTypes
-    const prop = this.props;
-    const { label, select, option, onSelectedGenreChange } = prop;
+    const { label, select, option, onSelectedGenreChange } = this.props;
     return (
       <label {...label} htmlFor={select.id} >
         {label.content}
@@ -26,7 +24,13 @@ export class Select extends React.Component {
     )
   }
  }
- 
+ Select.propTypes = {
+  label: PropTypes.object,
+  select: PropTypes.object,
+  onSelectedGenreChange: PropTypes.func,
+  option: PropTypes.array
+}
+
 export class Inputs extends React.Component {
   SearchTextChange(movies, value) {
     return movies.filter((movie) =>
@@ -39,10 +43,7 @@ export class Inputs extends React.Component {
     return movies.filter((movie) => movie.bookmarked)
   }
   render() {
-    //retirar prop e adicionar as PropTypes
-    const prop = this.props;
-    const {label, input, onSearchTextChange, onBookmarkedChange } = prop;
-    const { SearchTextChange, BookmarkedChange } = this;
+    const {label, input, onSearchTextChange, onBookmarkedChange } = this.props;
     return (<label htmlFor={input.id} {...label} >
       {label.content}
       <input
@@ -50,34 +51,42 @@ export class Inputs extends React.Component {
         onChange={(e) => {
           const { id, value } = e.target;
           id === 'searchText' ?
-            onSearchTextChange(id, value, SearchTextChange) :
-              onBookmarkedChange(id, value, BookmarkedChange);
+            onSearchTextChange(id, value, this.SearchTextChange) :
+              onBookmarkedChange(id, value, this.BookmarkedChange);
         }}
       />
     </label>)
   }
 }
+Inputs.propTypes = {
+  label: PropTypes.object,
+  input: PropTypes.object,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func
+}
 
-export default class SearchBar extends React.Component {
+class SearchBar extends React.Component {
   render() {
-    // retirar gambiarra quando feito protoType
-    const prop = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     return (
       <form id="search-bar-form" data-testid="search-bar-form" >
         <Inputs
-        {...prop}
+        {...this.props}
+        //Dá para pegar value por outro lugar
         label={{ content: 'Inclui o texto:', 'data-testid': "text-input-label" }}
-        input={{ value: prop.searchText, 'data-testid': "text-input", id: 'searchText' }}
+        input={{ value: searchText, 'data-testid': "text-input", id: 'searchText' }}
         />
         <Inputs
-        {...prop}
+        {...this.props}
+        //Dá para pegar checked por outro lugar
         label={{ content: 'Mostrar somente favoritos', 'data-testid': "checkbox-input-label" }}
-        input={{ checked: prop.bookmarkedOnly, 'data-testid': "checkbox-input", id: 'bookmarkedOnly', type: "checkbox" }}
+        input={{ checked: bookmarkedOnly, 'data-testid': "checkbox-input", id: 'bookmarkedOnly', type: "checkbox" }}
         />
         <Select
-          {...prop}
+          {...this.props}
+          //Dá para pegar value por outro lugar
           label={{ 'data-testid': "select-input-label", content: 'Filtrar por gênero' }}
-          select={{ 'data-testid': "select-input", value: prop.selectedGenre, id: 'selectedGenre' }}
+          select={{ 'data-testid': "select-input", value: selectedGenre, id: 'selectedGenre' }}
           option={[
             { value: "", content: 'Todos' },
             { value: "action", content: 'Ação' },
@@ -89,3 +98,10 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+SearchBar.propTypes = {
+  searchText: PropTypes.func,
+  bookmarkedOnly: PropTypes.func,
+  selectedGenre: PropTypes.func,
+  state: PropTypes.object,
+}
+export default SearchBar;

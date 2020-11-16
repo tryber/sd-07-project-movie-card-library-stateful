@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -6,22 +7,18 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    // Retirar prop
-    const prop = this.props;
     this.onClick = this.onClick.bind(this);
     this.changeSet = this.changeSet.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: prop.movies,
+      movies: this.props.movies,
     };
   }
 
   onClick(e) {
-    // Retirar prop
-    const prop = this.props;
-    this.setState({ movies: [...prop.movies, e] });
+    this.setState({ movies: [...this.props.movies, e] });
   }
 
   changeSet(key, value, callback) {
@@ -47,6 +44,9 @@ class MovieLibrary extends Component {
       </div>
     );
   }
+}
+MovieLibrary.propTypes = {
+  movies: PropTypes.array
 }
 
 export default MovieLibrary;
