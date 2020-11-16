@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
-import SearchText from './SearchText.js';
 import BookMarkedOnly from './BookMarkedOnly.js';
 import SelectedGenre from './SelectedGenre.js';
 
@@ -18,16 +17,16 @@ class SearchBar extends React.Component {
     return (
       <form className="alinhar" data-testid="search-bar-form">
         <label htmlFor="text" data-testid="text-input-label">
-        Inclui o texto:
-      <input
-        id="text"
-        name="searchText"
-        data-testid="text-input"
-        value={searchText}
-        type="text"
-        onChange={onSearchTextChange}
-      />
-      </label>
+          Inclui o texto:
+          <input
+            id="text"
+            name="searchText"
+            data-testid="text-input"
+            value={searchText}
+            type="text"
+            onChange={onSearchTextChange}
+          />
+        </label>
         {/* <SearchText
           searchText={searchText}
           onSearchTextChange={onSearchTextChange}
