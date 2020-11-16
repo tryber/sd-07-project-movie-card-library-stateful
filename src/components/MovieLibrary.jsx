@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import movies from '../data';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
 
@@ -19,6 +20,7 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar />
+        <MovieList movies={movies} />
         <AddMovie />
       </div>
     );
