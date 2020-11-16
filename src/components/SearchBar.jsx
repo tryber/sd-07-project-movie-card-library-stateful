@@ -17,10 +17,21 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form className="alinhar" data-testid="search-bar-form">
-        <SearchText
+        <label htmlFor="text" data-testid="text-input-label">
+        Inclui o texto:
+      <input
+        id="text"
+        name="searchText"
+        data-testid="text-input"
+        value={searchText}
+        type="text"
+        onChange={onSearchTextChange}
+      />
+      </label>
+        {/* <SearchText
           searchText={searchText}
           onSearchTextChange={onSearchTextChange}
-        />
+        /> */}
         <BookMarkedOnly
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={onBookmarkedChange}
