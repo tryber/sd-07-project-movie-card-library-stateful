@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
+    this.handelValue = this.handelValue.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,10 +14,13 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+  handelValue(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
   render() {
-    const { handelValue } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <div>
           <label
             data-testid="title-input-label"
@@ -29,7 +33,7 @@ class AddMovie extends React.Component {
             type="text"
             data-testid="title-input"
             value={this.state.title}
-            onChange={handelValue}
+            onChange={this.handelValue}
           />
         </div>
         <div>
@@ -44,7 +48,7 @@ class AddMovie extends React.Component {
             type="text"
             data-testid="subtitle-input"
             value={this.state.subtitle}
-            onChange={handelValue}
+            onChange={this.handelValue}
           />
         </div>
         <div>
@@ -59,7 +63,7 @@ class AddMovie extends React.Component {
             type="text"
             data-testid="image-input"
             value={this.state.imagePath}
-            onChange={handelValue}
+            onChange={this.handelValue}
           />
         </div>
         <div>
@@ -74,7 +78,7 @@ class AddMovie extends React.Component {
             type="textarea"
             data-testid="storyline-input"
             value={this.state.storyline}
-            onChange={handelValue}
+            onChange={this.handelValue}
           />
         </div>
         <div>
@@ -89,25 +93,25 @@ class AddMovie extends React.Component {
             type="number"
             data-testid="rating-input"
             value={this.state.rating}
-            onChange={handelValue}
+            onChange={this.handelValue}
           />
         </div>
         <div>
           <label
-            data-testid="select-input-label"
-            htmlFor="select-input"
+            data-testid="genre-input-label"
+            htmlFor="genre-input"
           >Gênero
           </label>
           <select
-            id="select-input"
-            data-testid="select-input"
+            id="genre-input"
+            data-testid="genre-input"
             name="genre"
             value={this.state.genre}
-            onChange={handelValue}
+            onChange={this.handelValue}
           >
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </div>
         <button data-testid="send-button">Adicionar filme</button>
