@@ -48,7 +48,7 @@ export default class AddMovie extends React.Component {
           <label htmlFor="addRating" data-testid="rating-input-label">
             Avaliação
           </label>
-          <input type="text" name="" id="addRating" data-testid="rating-input" />
+          <input type="number" name="" id="addRating" data-testid="rating-input" />
           <label htmlFor="addGender" data-testid="genre-input-label">
             Gênero
           </label>
@@ -57,6 +57,7 @@ export default class AddMovie extends React.Component {
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
+          <button data-testid="send-button" onClick={this.handleMovie}>Adicionar filme</button>
         </form>
       </div>
     );
