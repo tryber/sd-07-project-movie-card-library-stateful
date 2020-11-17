@@ -20,7 +20,11 @@ class AddMovie extends React.Component {
   }
 
   handleInputChange({ target }) {
-    this.setState({ [target.name]: target.value });
+    const { name, value } = target;
+    this.setState(() => {
+      if (name === 'rating') return { [name]: parseFloat(value) };
+      return { [name]: value };
+    });
   }
   resetState() {
     this.setState({

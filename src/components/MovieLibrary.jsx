@@ -48,8 +48,8 @@ class MovieLibrary extends Component {
   }
 
   handleSetState({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, type, checked } = target;
+    const value = type === 'checkbox' ? checked : target.value;
     this.setState({ [name]: value });
   }
 
