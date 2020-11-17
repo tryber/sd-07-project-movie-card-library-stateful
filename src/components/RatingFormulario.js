@@ -20,7 +20,7 @@ class Rating extends Component {
   }
 }
 Rating.defaultProps = {
-  value: '',
+  value: 0,
   handleChange: () => undefined,
 };
 Rating.protoTypes = {
