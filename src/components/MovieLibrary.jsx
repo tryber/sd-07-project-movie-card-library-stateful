@@ -33,7 +33,9 @@ class MovieLibrary extends React.Component {
   }
 
   filterMovie(movieList) {
-    return this.props.movies.filter((movie) => movie.title.toUpperCase().includes(this.state.searchText.toUpperCase()));
+    return this.props.movies
+    .filter((movie) => 
+    (movie.title.toUpperCase().includes(this.state.searchText.toUpperCase())));
   }
   
   render() {
