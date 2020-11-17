@@ -4,7 +4,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import StoryLine from './StoryLine';
-import Rating from './RatingFormulario.js';
+import Rating from './RatingFormulario';
 import Genre from './Genre';
 
 
