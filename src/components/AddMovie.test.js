@@ -104,20 +104,20 @@ describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
 });
 
 describe('Verifica o input de imagem do componente <AddMovie />', () => {
-  it.skip('Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme', () => {
+  it('Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
   
-  it.skip('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
+  it('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
     expect(imageInputLabel).toBeInTheDocument();
     expect(imageInputLabel).toHaveTextContent('Imagem');
   });
 
-  it.skip('Será validado se o estado inicial do input de imagem é "", ou seja, uma string vazia', () => {
+  it('Será validado se o estado inicial do input de imagem é "", ou seja, uma string vazia', () => {
     expect(imageInput).toHaveValue(initialState.imagePath);
   });
 
-  it.skip('Será validado se o valor do input de imagem muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de imagem muda quando algo é digitado por quem usa', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
   });
