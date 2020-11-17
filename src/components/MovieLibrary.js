@@ -41,7 +41,7 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: target.checked,
       movies:
-        checked === null
+        checked === false
           ? this.props.movies
           : this.props.movies.filter((element) => element.bookmarked),
     });
