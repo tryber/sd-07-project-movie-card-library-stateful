@@ -3,23 +3,22 @@ import './App.css';
 
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-    }
+    };
   }
 
-  // onSearchTextChange = (a) => a;
-
-  // onBookmarkedChange = (b) => b;
-
-  // onSelectedGenreChange = (c) => c;
+  onSearchTextChange() { 'a'; }
+  onBookmarkedChange() { 'b'; }
+  onSelectedGenreChange() { 'c'; }
 
   render() {
     return (
@@ -27,14 +26,15 @@ class App extends React.Component {
         <Header />
         <SearchBar
           searchText={this.searchText}
-          onSearchTextChange={this.onSearchTextChange("Strogonoff")}
+          onSearchTextChange={this.onSearchTextChange('Strogonoff')}
           bookmarkedOnly={this.bookMarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange("Lasagna")}
+          onBookmarkedChange={this.onBookmarkedChange('Lasagna')}
           selectedGenre={this.selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange("Pizza")}
+          onSelectedGenreChange={this.onSelectedGenreChange('Pizza')}
         />
+        <AddMovie onClick={() => 'a'} />
       </div>
-    )
+    );
   }
 }
 
