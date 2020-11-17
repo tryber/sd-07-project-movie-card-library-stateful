@@ -21,6 +21,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filters = this.filters.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
@@ -40,21 +41,61 @@ class MovieLibrary extends React.Component {
     event.preventDefault();
   }
 
+  filterByText(movies) {
+    const textInput = movies.filter(
+      (name) =>
+        name.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) >=
+        0 ||
+        name.subtitle
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0 ||
+        name.storyline
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0,
+    );
+
+    return textInput;
+  }
+  filters() {
+    const { movies, bookmarkedOnly, selectedGenre } = this.state;
+
+    if (bookmarkedOnly) {
+      return this.filterByText(movies).filter(
+        (name) => name.bookmarked === true,
+      );
+    }
+
+    if (selectedGenre) {
+      return this.filterByText(movies).filter(
+        (name) => name.genre === selectedGenre,
+      );
+    }
+
+    return this.filterByText(movies);
+  }
+
   render() {
-    const { movies } = this.props;
+    const {
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      onClick,
+      filters,
+    } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div>
         <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSearchTextChange={this.onSearchTextChange}
-          onBookmarkedChange={this.onBookmarkedChange}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          onSearchTextChange={onSearchTextChange}
+          onBookmarkedChange={onBookmarkedChange}
+          onSelectedGenreChange={onSelectedGenreChange}
         />
-        <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
+        <MovieList filters={filters} />
+        <AddMovie onClick={onClick} />
       </div>
     );
   }
