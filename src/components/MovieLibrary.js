@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import AddMovie from "./AddMovie";
-import MovieList from "./MovieList";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -12,9 +13,9 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies,
     };
   }
@@ -54,7 +55,7 @@ class MovieLibrary extends Component {
         value === null
           ? this.props.movies
           : this.props.movies.filter((element) => element.genre === value),
-    });
+    })
   };
   onClick(movie) {
     this.setState(() => ({ movies: this.state.movies.concat(movie) }));
