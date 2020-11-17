@@ -38,12 +38,12 @@ export default class AddMovie extends React.Component {
           <label htmlFor="addStoryline" data-testid="storyline-input-label">
             Sinopse
           </label>
-          <textarea 
+          <textarea
             name=""
             id="addStoryline"
             data-testid="storyline-input"
             cols="30"
-            rows="10" 
+            rows="10"
           />
           <label htmlFor="addRating" data-testid="rating-input-label">
             Avaliação
