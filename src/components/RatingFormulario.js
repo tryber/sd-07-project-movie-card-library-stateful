@@ -19,11 +19,8 @@ class Rating extends Component {
     );
   }
 }
-Rating.defaultProps = {
-  value: 0,
-  handleChange: () => undefined,
-};
-Rating.protoTypes = {
+Rating.defaultProps = { value: 0, handleChange: () => undefined };
+Rating.propTypes = {
   value: PropTypes.number,
   handleChange: PropTypes.func,
 };
