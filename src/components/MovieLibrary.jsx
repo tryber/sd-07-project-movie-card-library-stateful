@@ -17,11 +17,7 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange({ target }) {
-    this.setState(
-      {
-        searchText: target.value,
-      };
-    );
+    this.setState({ searchText: target.value });
   }
   render() {
     const movies = this.state.movies;
@@ -29,7 +25,7 @@ class MovieLibrary extends React.Component {
       <div>
         <MovieList movies={movies} />
         <SearchBar
-          onSearchTextChange={ this.onSearchTextChange} searchText={this.state.searchText } 
+          onSearchTextChange={this.onSearchTextChange} searchText={this.state.searchText}
         />
       </div>
     );
