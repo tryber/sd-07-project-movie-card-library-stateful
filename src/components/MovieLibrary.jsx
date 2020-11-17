@@ -1,19 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
     this.eventHandlerChange = this.eventHandlerChange.bind(this);
-
+    this.eventAddMovie = this.eventAddMovie.bind(this);
     this.state = {
       textInput: '',
       markedBook: false,
       genreSelected: '',
+      movies: this.props.movies,
     };
   }
+
 
   eventHandlerChange({ target: { name, value, checked } }) {
     let theValue = value;
@@ -24,7 +28,16 @@ class MovieLibrary extends React.Component {
   }
 
   eventAddMovie(object) {
-    console.log(object);
+    const array = this.state.movies.concat(object);
+    this.setState({ movies: array });
+  }
+
+  sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
   }
 
   render() {
@@ -39,13 +52,25 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.genreSelected}
           onSelectedGenreChange={this.eventHandlerChange}
         />
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.eventAddMovie} />
-        {/*
-        <MovieList movies={this.props.movies} />
-        */}
       </div>
     );
   }
 }
 
 export default MovieLibrary;
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  })),
+};
+
+MovieLibrary.defaultProps = { movies: [] };

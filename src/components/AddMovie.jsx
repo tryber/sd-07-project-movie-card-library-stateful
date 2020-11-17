@@ -18,14 +18,19 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     };
   }
 
   eventHandleChange({ target: { name, value } }) {
-    this.setState({ [name]: value });
+    if (name === 'rating') {
+      this.setState({ [name]: parseFloat(value) });
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   inputTitle() {
@@ -75,11 +80,11 @@ class AddMovie extends React.Component {
 
   inputSinopse() {
     return (
-      <label data-testid="storyline-input-label" htmlFor="storyLine">
+      <label data-testid="storyline-input-label" htmlFor="storyline">
         Sinopse
         <textarea
-          name="storyLine"
-          value={this.state.storyLine}
+          name="storyline"
+          value={this.state.storyline}
           data-testid="storyline-input"
           onChange={this.eventHandleChange}
         />
@@ -93,8 +98,10 @@ class AddMovie extends React.Component {
         Avaliação
         <input
           type="number"
-          max="5"
           name="rating"
+          min="0"
+          max="5"
+          step="0.1"
           value={this.state.rating}
           data-testid="rating-input"
           onChange={this.eventHandleChange}
@@ -132,13 +139,14 @@ class AddMovie extends React.Component {
     );
   }
 
-  submitEvent() {
+  submitEvent(event) {
+    event.preventDefault();
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
@@ -146,7 +154,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      <form data-testid="add-movie-form">
         {this.inputTitle()}
         {this.inputSubtitle()}
         {this.inputImagePath()}
