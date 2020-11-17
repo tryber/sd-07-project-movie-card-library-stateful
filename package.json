@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "acorn": ">=7.1.1",
+    "autoprefixer": "^10.0.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "minimist": ">=1.2.3",
     "react": "^16.12.0",

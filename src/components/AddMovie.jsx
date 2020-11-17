@@ -5,7 +5,7 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.handleChanged = this.handleChanged.bind(this);
-    this.handleReset = this.handleReset.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -25,16 +25,17 @@ class AddMovie extends Component {
     }));
   }
 
-  handleReset(event) {
+  handleClick(event) {
     event.preventDefault();
-    this.props.onClick(this.setState({
+    this.props.onClick(this.state);
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    }));
+    });
   }
 
   render() {
@@ -116,7 +117,7 @@ class AddMovie extends Component {
                </select>
         </label>
 
-        <button data-testid="send-button" onClick={this.handleReset}>
+        <button data-testid="send-button" onClick={this.handleClick}>
                 Adicionar filme
         </button>
 
