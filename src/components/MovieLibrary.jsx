@@ -21,15 +21,15 @@ class MovieLibrary extends React.Component {
   }
 
   onBookmarkedChange({ target }) {
-    this.setState({ bookmarkedOnly: target.type === 'checkbox' ? target.checked : target.value, });
+    this.setState({ bookmarkedOnly: target.type === 'checkbox' ? target.checked : target.value });
   }
 
   onSearchTextChange({ search }) {
-    this.setState({searchText: search});
+    this.setState({ searchText: search });
   }
 
   onSelectedGenreChange({ option }) {
-    this.setState({selectedGenre: option});
+    this.setState({ selectedGenre: option });
   }
 
   filterMovie() {
