@@ -137,6 +137,7 @@ class AddMovie extends Component {
         </fieldset>
 
         <button
+          type="button"
           data-testid="send-button"
           onClick={this.handlerClick}
         >Adicionar filme</button>
