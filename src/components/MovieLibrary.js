@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
             .includes(this.state.searchText.toLowerCase()) ||
           movie.storyline
             .toLowerCase()
-            .includes(this.state.searchText.toLowerCase())
+            .includes(this.state.searchText.toLowerCase()),
       );
       this.setState({ movies: selectedGenreMovies });
     });
@@ -45,7 +45,7 @@ class MovieLibrary extends Component {
           ? this.props.movies
           : this.props.movies.filter((element) => element.bookmarked),
     });
-  };
+  }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
@@ -55,12 +55,11 @@ class MovieLibrary extends Component {
         value === null
           ? this.props.movies
           : this.props.movies.filter((element) => element.genre === value),
-    })
-  };
+    });
+  }
   onClick(movie) {
     this.setState(() => ({ movies: this.state.movies.concat(movie) }));
   }
-  
   render() {
     return (
       <div>
