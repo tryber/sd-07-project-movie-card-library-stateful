@@ -76,7 +76,8 @@ export default class AddMovie extends React.Component {
             name=""
             id="addGender"
             onSelect={this.state.genre}
-            data-testid="genre-option">
+            data-testid="genre-option"
+          >
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
