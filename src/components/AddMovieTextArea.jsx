@@ -11,6 +11,7 @@ class AddMovieTextArea extends React.Component {
           data-testid="storyline-input"
           cols="30"
           rows="10"
+          id="storyline-input"
           // value={this.props}
           // onChange={}
         />

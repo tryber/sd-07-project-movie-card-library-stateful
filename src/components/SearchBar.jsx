@@ -7,20 +7,29 @@ import SearchBarSelect from './SearchBarSelect';
 
 class SearchBar extends React.Component {
   render() {
-    // const {
-    //   searchText,
-    //   onSearchTextChange,
-    //   bookmarkedOnly,
-    //   onBookmarkedChange,
-    //   selectedGenre,
-    //   onSelectedGenreChange,
-    // } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
 
     return (
       <form action="" data-testid="search-bar-form">
-        <SearchBarTextInput />
-        <SearchBarCheckbox />
-        <SearchBarSelect />
+        <SearchBarTextInput
+          searchText={searchText}
+          onSearchTextChange={onSearchTextChange}
+        />
+        <SearchBarCheckbox
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={onBookmarkedChange}
+        />
+        <SearchBarSelect
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={onSelectedGenreChange}
+        />
       </form>
     );
   }
