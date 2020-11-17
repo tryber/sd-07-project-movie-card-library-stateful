@@ -7,10 +7,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChangeOfText = this.handleChangeOfText.bind(this);
-    this.handleChangeOfMarked = this.handleChangeOfMarked.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.updateByText = this.updateByText.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.updateByChecked = this.updateByChecked.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.updateByGenre = this.updateByGenre.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
     const { movies } = this.props;
     this.state = {
@@ -21,17 +23,44 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  handleChangeOfText({ target }) {
+  onSearchTextChange({ target }) {
     // const value = target.type === 'checkbox' ? target.checked : target.value;
     const { value } = target;
     this.setState({ searchText: value });
     this.updateByText();
   }
 
-  handleChangeOfMarked({ target }) {
+  onBookmarkedChange({ target }) {
     const { checked } = target;
     this.setState({ bookmarkedOnly: checked });
     this.updateByChecked();
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    if (value !== '') {
+      this.setState({ selectedGenre: value });
+    }
+    const { selectedGenre } = this.state;
+    if (selectedGenre.length > 0) {
+      this.updateByGenre();
+    }
+  }
+
+  updateByGenre() {
+    const { movies, selectedGenre } = this.state;
+    if (selectedGenre.length !== 0) {
+      const newList = movies.filter((movie) => movie.genre === selectedGenre);
+      this.setState({ movies: newList });
+    }
+  }
+
+  updateByChecked() {
+    const { movies, bookmarkedOnly } = this.state;
+    if (bookmarkedOnly) {
+      const newList = movies.filter((movie) => movie.bookmarked);
+      this.setState({ movies: newList });
+    }
   }
 
   updateByText() {
@@ -42,11 +71,6 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: newList });
   }
 
-  updateByChecked() {
-    const { movies, bookmarkedOnly } = this.state;
-    const newList = movies.filter((movie) => movie.bookmarked === bookmarkedOnly);
-    this.setState({ movies: newList });
-  }
 
   addNewMovie({
     subtitle,
@@ -79,11 +103,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.handleChangeOfText}
+          onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.handleChangeOfMarked}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.handleChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
         <AddMovie onClick={this.addNewMovie} />
