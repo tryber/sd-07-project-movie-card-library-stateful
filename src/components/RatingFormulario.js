@@ -19,9 +19,12 @@ class Rating extends Component {
     );
   }
 }
-
+Rating.defaultProps = {
+  value: '',
+  handleChange: () => undefined,
+};
 Rating.protoTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   handleChange: PropTypes.func,
 };
 
