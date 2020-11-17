@@ -8,11 +8,10 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.updateByText = this.updateByText.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.updateByChecked = this.updateByChecked.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.updateByGenre = this.updateByGenre.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.filterByCheck = this.filterByCheck.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
     const { movies } = this.props;
     this.state = {
@@ -20,57 +19,42 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      moviesFiltered: movies,
     };
   }
 
   onSearchTextChange({ target }) {
     // const value = target.type === 'checkbox' ? target.checked : target.value;
     const { value } = target;
-    this.setState({ searchText: value });
-    this.updateByText();
+    this.setState({ searchText: value }, this.filterMovies);
   }
 
   onBookmarkedChange({ target }) {
     const { checked } = target;
-    this.setState({ bookmarkedOnly: checked });
-    this.updateByChecked();
+    this.setState({ bookmarkedOnly: checked }, this.filterMovies);
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
     if (value !== '') {
-      this.setState({ selectedGenre: value });
-    }
-    const { selectedGenre } = this.state;
-    if (selectedGenre.length > 0) {
-      this.updateByGenre();
+      this.setState({ selectedGenre: value }, this.filterMovies);
     }
   }
 
-  updateByGenre() {
-    const { movies, selectedGenre } = this.state;
-    if (selectedGenre.length !== 0) {
-      const newList = movies.filter((movie) => movie.genre === selectedGenre);
-      this.setState({ movies: newList });
-    }
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const newArrayOfMovies = movies.filter((movie) => movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText));
+    const finalList = this.filterByCheck(newArrayOfMovies, bookmarkedOnly, selectedGenre);
+    this.setState({ moviesFiltered: finalList });
   }
 
-  updateByChecked() {
-    const { movies, bookmarkedOnly } = this.state;
-    if (bookmarkedOnly) {
-      const newList = movies.filter((movie) => movie.bookmarked);
-      this.setState({ movies: newList });
-    }
+  //  Trecho inspirado no código de Álvaro Vasconcelos
+  filterByCheck(newArrayOfMovies, bookmarkedOnly, selectedGenre) {
+    return newArrayOfMovies.filter((movie) => (bookmarkedOnly ? movie.bookmarked : true)
+      && (selectedGenre ? movie.genre === selectedGenre : true));
   }
-
-  updateByText() {
-    const { movies, searchText } = this.state;
-    const newList = movies.filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText));
-    this.setState({ movies: newList });
-  }
-
 
   addNewMovie({
     subtitle,
@@ -88,8 +72,8 @@ class MovieLibrary extends React.Component {
       rating,
       genre,
     };
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, newMovie] });
+    const { moviesFiltered } = this.state;
+    this.setState({ moviesFiltered: [...moviesFiltered, newMovie] });
   }
 
   render() {
@@ -97,7 +81,7 @@ class MovieLibrary extends React.Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
+      moviesFiltered,
     } = this.state;
     return (
       <div>
@@ -109,7 +93,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={moviesFiltered} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
     );
