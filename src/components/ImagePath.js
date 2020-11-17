@@ -18,7 +18,7 @@ class ImagePath extends Component {
     );
   }
 }
-imagePath.defaultProps = { value: '', handleChange: () => undefined };
+ImagePath.defaultProps = { value: '', handleChange: () => undefined };
 ImagePath.propTypes = {
   value: PropTypes.string,
   handleChange: PropTypes.func,
