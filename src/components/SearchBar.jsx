@@ -63,6 +63,7 @@ class SearchBar extends React.Component {
     );
   }
 }
+
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
