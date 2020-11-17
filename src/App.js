@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
-import movie from './data'
+import movie from './data';
 import './App.css';
 
 import Header from './components/Header';
@@ -11,8 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-      <MovieLibrary movies={movie}
-       />
+      <MovieLibrary movies={movie} />
     </div>
   );
 }
