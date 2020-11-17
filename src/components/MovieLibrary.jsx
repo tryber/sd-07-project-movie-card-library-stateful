@@ -9,9 +9,10 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    this.search = this.search.bind(this);
-    this.searchResult = this.searchResult.bind(this);
+    this.onHandleInput = this.onHandleInput.bind(this);
+    this.onHandleResult = this.onHandleResult.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.onHandleCheckBox = this.onHandleCheckBox.bind(this);
 
     const { movies } = this.props;
 
@@ -23,20 +24,36 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  search({ target }) {
-    this.setState({ [target.name]: target.value });
+  onHandleInput({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
+
+  // Função onHandleCheckBox feito com ajuda de Thaydds :D Obrigado.
+
+  onHandleCheckBox() {
+    this.setState((previousState) => ({
+      bookmarkedOnly: !previousState.bookmarkedOnly,
+    }));
   }
 
   addMovie(movie) {
     this.setState((state) => ({ movies: state.movies.concat(movie) }));
   }
 
-  searchResult() {
-    const result = this.state.movies.filter(({ title, subtitle, storyline }) => title
-      .includes(this.state.searchText) ||
-      subtitle.includes(this.state.searchText) ||
-      storyline.includes(this.state.searchText))
-      .filter(({ genre }) => genre.includes(this.state.selectedGenre));
+  onHandleResult() {
+    const result = this.state.movies.filter(({ title, subtitle, storyline }) => title.toLowerCase()
+      .includes(this.state.searchText.toLowerCase()) ||
+      subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+      storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
+      .filter(({ genre }) => genre.includes(this.state.selectedGenre))
+      // Este restante da lógica feita com ajuda de Thaydds :D Obrigado.
+      .filter(({ bookmarked }) => {
+        if (this.state.bookmarkedOnly) {
+          return bookmarked
+        } else {
+          return true
+        }});
     return result;
   }
 
@@ -45,12 +62,14 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.search}
+          onSearchTextChange={this.onHandleInput}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onHandleCheckBox}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.search}
+          onSelectedGenreChange={this.onHandleInput}
         />
         <AddMovie onClick={this.addMovie} />
-        <MovieList movies={this.searchResult()} />
+        <MovieList movies={this.onHandleResult()} />
       </div>
     );
   }
