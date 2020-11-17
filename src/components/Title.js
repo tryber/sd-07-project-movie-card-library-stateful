@@ -18,12 +18,10 @@ class Title extends Component {
     );
   }
 }
-Title.defaultProps = {
-  value: ''
-};
+Title.defaultProps = {value: ''};
 
 Title.propTypes = {
-  handleChange: PropTypes.func.isRequired  
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default Title;

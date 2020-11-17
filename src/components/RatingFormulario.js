@@ -22,7 +22,7 @@ class Rating extends Component {
 
 Rating.protoTypes = {
   value: PropTypes.number.isRequired,
-  handleChange: PropTypes.func
+  handleChange: PropTypes.func,
 };
 
 export default Rating;

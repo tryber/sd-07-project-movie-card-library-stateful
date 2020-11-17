@@ -27,12 +27,10 @@ class Genre extends Component {
     );
   }
 }
-Genre.defaultProps = {
-  value: 'action'
-};
+Genre.defaultProps = {value: 'action',};
 
 Genre.propTypes = {
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default Genre;
