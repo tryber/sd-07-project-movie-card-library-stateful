@@ -36,13 +36,15 @@ class MovieLibrary extends React.Component {
   }
 
   onHandleResult() {
-    const result = this.state.movies.filter(({ title, subtitle, storyline }) => title.toLowerCase()
+    let result = this.state.movies.filter(({ title, subtitle, storyline }) => title.toLowerCase()
       .includes(this.state.searchText.toLowerCase()) ||
       subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
       storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
       .filter(({ genre }) => genre.includes(this.state.selectedGenre))
       // Este restante da lógica feita com ajuda de Thaydds :D Obrigado.
-      .filter(({ bookmarked }) => this.state.bookmarkedOnly ? bookmarked : true );
+    if (this.state.bookmarkedOnly) {
+      result = result.filter(({ bookmarked }) => bookmarked);
+    }
     return result;
   }
 
