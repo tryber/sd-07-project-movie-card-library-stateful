@@ -46,7 +46,7 @@ class MovieLibrary extends Component {
     });
   };
 
-  onSelectedGenreChange = ({ target }) => {
+  onSelectedGenreChange({ target }) {
     const { value } = target;
     this.setState({
       selectedGenre: target.value,
