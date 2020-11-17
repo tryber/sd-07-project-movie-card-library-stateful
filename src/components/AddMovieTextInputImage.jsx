@@ -1,21 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieTextInputImage extends React.Component {
   render() {
+    const { imagePath, handleChange } = this.props;
     return (
       <fieldset>
         <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
         <input
           type="text"
-          name="image-input"
+          name="imagePath"
           data-testid="image-input"
           id="image-input"
-          // value={this.props}
-          // onChange={}
+          value={imagePath}
+          onChange={handleChange}
         />
       </fieldset>
     );
   }
 }
+
+AddMovieTextInputImage.propTypes = {
+  imagePath: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieTextInputImage;

@@ -1,23 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieTextArea extends React.Component {
   render() {
+    const { storyline, handleChange } = this.props;
     return (
       <fieldset>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
         <textarea
           type="text"
-          name="storyline-input"
+          name="storyline"
           data-testid="storyline-input"
           cols="30"
           rows="10"
           id="storyline-input"
-          // value={this.props}
-          // onChange={}
+          value={storyline}
+          onChange={handleChange}
         />
       </fieldset>
     );
   }
 }
+
+AddMovieTextArea.propTypes = {
+  storyline: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieTextArea;
