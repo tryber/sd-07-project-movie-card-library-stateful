@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
+    this.resetButton = this.resetButton.bind(this);
+    this.changes = this.changes.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,7 +16,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  resetButton = () => {
+  resetButton() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -23,14 +26,12 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-  };
+  }
 
-  changes = ({ target: { id, value } }) => {
-    this.setState({
-      [id]: value,
-    });
-  };
-  // Feito por Pablo Pessanha.
+  changes({ target: { id, value } }) {
+    this.setState({ [id]: value });
+  }
+  // Feito pelo Pablo Pessanha.
 
   render() {
     return (
@@ -114,5 +115,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
