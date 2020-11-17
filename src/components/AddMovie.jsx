@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -12,12 +13,27 @@ class AddMovie extends Component {
       imageInput: '',
     };
     this.handlerChanges = this.handlerChanges.bind(this);
+    this.handlerClick = this.handlerClick.bind(this);
   }
 
   handlerChanges({ target }) {
     const { checked, name, type, value } = target;
     const getValue = type === 'checkbox' ? checked : value;
     this.setState({ [name]: getValue });
+  }
+
+  // Função baseada na solução de Vanessa Bidinotto:
+  handlerClick() {
+    // Capturo o estado atual na propriedade onClick:
+    this.props.onClick(this.state);
+    this.setState({ // Defino um novo estado
+      title: '',
+      subtitle: '',
+      storyline: '',
+      genre: 'action',
+      rating: 0,
+      imageInput: '',
+    });
   }
 
   render() {
@@ -27,8 +43,7 @@ class AddMovie extends Component {
           <label
             htmlFor="title-input"
             data-testid="title-input-label"
-          >
-          Título
+          >Título
           </label>
           <input
             type="text"
@@ -73,6 +88,7 @@ class AddMovie extends Component {
             data-testid="storyline-input-label"
           >Sinopse</label>
           <textarea
+            type="text"
             name="storyline"
             value={this.state.storyline}
             data-testid="storyline-input"
@@ -122,11 +138,13 @@ class AddMovie extends Component {
 
         <button
           data-testid="send-button"
-        //  onClick={}
+          onClick={this.handlerClick}
         >Adicionar filme</button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
