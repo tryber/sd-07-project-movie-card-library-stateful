@@ -42,7 +42,9 @@ class MovieLibrary extends React.Component {
       storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
       .filter(({ genre }) => genre.includes(this.state.selectedGenre))
       // Este restante da lógica feita com ajuda de Thaydds :D Obrigado.
-      .filter(({ bookmarked }) => this.state.bookmarkedOnly ? bookmarked : true );
+      .filter(function ({ bookmarked }) {
+        this.state.bookmarkedOnly ? bookmarked : true;
+      });
     return result;
   }
 
