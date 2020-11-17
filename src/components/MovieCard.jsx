@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 
 import Rating from './Rating';
 
@@ -31,4 +31,4 @@ MovieCard.propTypes = {
   }).isRequired,
 };
 
-export default MovieCard; */
+export default MovieCard;
