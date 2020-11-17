@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = { searchText: ''}
+  }
   render() {
     const {
       searchText,
@@ -17,7 +20,7 @@ class SearchBar extends React.Component {
         <label
           htmlFor="text-input"
           data-testid="text-input-label"
-        >
+        ></label>
           Inclui o texto:
           <input
             id="text-input"
@@ -27,7 +30,6 @@ class SearchBar extends React.Component {
             value={searchText}
             onChange={onSearchTextChange}
           />
-        </label>
         <label
           htmlFor="checkbox-input"
           data-testid="checkbox-input-label"

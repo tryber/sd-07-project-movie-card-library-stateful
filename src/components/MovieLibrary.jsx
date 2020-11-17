@@ -24,20 +24,21 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: target.type === 'checkbox' ? target.checked : target.value });
   }
 
-  onSearchTextChange({ search }) {
-    this.setState({ searchText: search });
+  onSearchTextChange({ target }) {
+    this.setState({ searchText: target.value });
   }
 
-  onSelectedGenreChange({ option }) {
-    this.setState({ selectedGenre: option });
+  onSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value });
   }
 
-  filterMovie() {
-    return this.props.movies.filter((movie) => movie.title.includes(this.state.searchText));
+  filterMovie(movieList) {
+    return this.props.movies.filter((movie) => movie.title.toUpperCase().includes(this.state.searchText.toUpperCase()));
   }
+  
   render() {
     // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -48,7 +49,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
           onSearchTextChange={this.onSearchTextChange}
         />
-        <MovieList movies={this.filterMovie()} />
+        <MovieList movies={this.filterMovie(movies)} />
         <AddMovie />
       </div>
     );
