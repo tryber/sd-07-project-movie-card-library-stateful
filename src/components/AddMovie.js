@@ -27,7 +27,7 @@ class AddMovie extends Component {
       [event.target.name]: event.target.value,
     });
   };
-  handleClick = (event) => {
+  handleClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
