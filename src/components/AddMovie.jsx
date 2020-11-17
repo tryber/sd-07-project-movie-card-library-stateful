@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
           Avaliação
           <input
             name="rating"
-            type="text"
+            type="number"
             id="rating-input"
             data-testid="rating-input"
             value={rating}
@@ -108,6 +108,9 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
+        <button data-testid="send-button" id="send-button" type="button" onClick="">
+          Adicionar filme
+        </button>
       </form>
     );
   }
