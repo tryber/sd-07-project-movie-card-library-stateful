@@ -4,6 +4,50 @@ body {
   font-size: 16px;
 }
 
+input , select {
+  margin: 10px;
+}
+
+label {
+  align-items: center;
+  display: flex;
+}
+
+.favorite-marked {
+  fill: rgb(211, 211, 40);
+}
+
+.favorite-unmarked , .favorite-marked {
+  height: 30px;
+  width: 30px;
+}
+
+.form-search , .form-addMovie {
+  align-items: center;
+  background-color: #6997ac;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.form-addMovie {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.button-addMovie {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 1500px;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
@@ -39,6 +83,8 @@ body {
 
 
 .movie-card-image {
+  height: 30%;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -62,6 +108,8 @@ body {
 
 .movie-card-storyline {
   font-size: 14px;
+  height: 100px;
+  overflow: hidden;
   text-align: justify;
 }
 
@@ -78,6 +126,6 @@ body {
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 12px 20px;
 }
