@@ -24,8 +24,8 @@ class AddMovie extends Component {
   }
 
   handleChange(event) {
-    this.setState({[event.target.name]: event.target.value})
-  };
+    this.setState({ [event.target.name]: event.target.value });
+  }
   handleClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
@@ -37,8 +37,8 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
-  };
+    });
+  }
 
   render() {
     return (
