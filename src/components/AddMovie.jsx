@@ -14,7 +14,7 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
+      rating: 0.00,
       bookmarked: false,
       genre: 'action',
     };
@@ -22,7 +22,11 @@ class AddMovie extends Component {
 
   getHandler({ target }) {
     const { name, value } = target;
-    this.setState(() => ({ [name]: value }));
+
+    this.setState(() => {
+      if (name === 'rating') return ({ [name]: Number(value) });
+      return ({ [name]: value });
+    });
   }
 
   async addMovie(event) {
@@ -37,7 +41,7 @@ class AddMovie extends Component {
         title: '',
         imagePath: '',
         storyline: '',
-        rating: 0,
+        rating: 0.00,
         bookmarked: false,
         genre: 'action',
       });
@@ -93,9 +97,12 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label htmlFor="rating" data-testid="rating-input-label">
+        <label htmlFor="rating" data-testid="rating-input-label" >
           Avaliação
           <input
+            step="0.1"
+            max="10.0"
+            min="0.00"
             name="rating"
             type="number"
             value={rating}
