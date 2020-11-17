@@ -75,6 +75,18 @@ class AddMovie extends Component {
           />
         </label>
 
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            data-testid="rating-input"
+            value={this.state.rating}
+            onChange={this.handleSearchValue}
+          />
+        </label>
       </form>
     );
   }
