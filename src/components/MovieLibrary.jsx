@@ -42,7 +42,7 @@ class MovieLibrary extends React.Component {
       return this.props.movies
       .filter((movie) =>
        (movie.genre === this.state.selectedGenre));
-    } 
+    }
     return this.props.movies;
   }
 
