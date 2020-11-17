@@ -32,12 +32,12 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: target.value });
   }
 
-  filterMovie(movieList) {
+  filterMovie() {
     return this.props.movies
-    .filter((movie) => 
+    .filter((movie) =>
     (movie.title.toUpperCase().includes(this.state.searchText.toUpperCase())));
   }
-  
+
   render() {
     // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
