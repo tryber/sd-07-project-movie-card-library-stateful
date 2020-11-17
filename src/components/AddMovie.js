@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import Title from "./Title";
-import Subtitle from "./Subtitle";
-import ImagePath from "./ImagePath";
-import StoryLine from "./StoryLine";
-import Rating from "./RatingFormulario.js";
-import Genre from "./Genre";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import StoryLine from './StoryLine';
+import Rating from './RatingFormulario.js';
+import Genre from './Genre';
+
 
 class AddMovie extends Component {
   constructor(props) {
@@ -13,19 +14,17 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
   handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+    this.setState({[event.target.name]: event.target.value})
   };
   handleClick(event) {
     event.preventDefault();
@@ -38,7 +37,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    });
+    })
   };
 
   render() {
