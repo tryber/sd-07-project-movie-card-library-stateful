@@ -124,20 +124,20 @@ describe('Verifica o input de imagem do componente <AddMovie />', () => {
 });
 
 describe('Verifica o input de sinopse do componente <AddMovie />', () => {
-  it.skip('Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme', () => {
+  it('Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
   
-  it.skip('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
+  it('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
     expect(storylineInputLabel).toBeInTheDocument();
     expect(storylineInputLabel).toHaveTextContent('Sinopse');
   });
 
-  it.skip('Será validado se o estado inicial do input de sinopse é "", ou seja, uma string vazia', () => {
+  it('Será validado se o estado inicial do input de sinopse é "", ou seja, uma string vazia', () => {
     expect(storylineInput).toHaveValue(initialState.storyline);
   });
 
-  it.skip('Será validado se o valor do input de sinopse muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de sinopse muda quando algo é digitado por quem usa', () => {
     const message = 'In the following movie, everyone dies.';
     fireEvent.change(storylineInput, { target: { value: message } });
     expect(storylineInput).toHaveValue(message);

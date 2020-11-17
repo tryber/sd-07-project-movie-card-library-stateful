@@ -61,6 +61,20 @@ class AddMovie extends Component {
             onChange={this.handleSearchValue}
           />
         </label>
+
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+
+          <input
+            type="textarea"
+            name="sinopse"
+            id="storyline"
+            data-testid="storyline-input"
+            value={this.state.storyline}
+            onChange={this.handleSearchValue}
+          />
+        </label>
+
       </form>
     );
   }
