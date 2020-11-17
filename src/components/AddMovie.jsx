@@ -23,7 +23,7 @@ export default class AddMovie extends React.Component {
           </label>
           <input type="text" name="" id="addTitle" data-testid="title-input" />
           <label htmlFor="addTitle" data-testid="subtitle-input-label">
-            Título
+            Subtítulo
           </label>
           <input
             type="text"
@@ -32,26 +32,30 @@ export default class AddMovie extends React.Component {
             data-testid="subtitle-input"
           />
           <label htmlFor="addTitle" data-testid="image-input-label">
-            Título
+            Imagem
           </label>
           <input type="text" name="" id="addTitle" data-testid="image-input" />
           <label htmlFor="addTitle" data-testid="storyline-input-label">
-            Título
+            Sinopse
           </label>
-          <input
-            type="text"
-            name=""
+          <textarea name=""
             id="addTitle"
-            data-testid="storyline-input"
-          />
+            data-testid="storyline-input" 
+            cols="30" 
+            rows="10">
+            </textarea>
           <label htmlFor="addTitle" data-testid="rating-input-label">
-            Título
+            Avaliação
           </label>
           <input type="text" name="" id="addTitle" data-testid="rating-input" />
           <label htmlFor="addTitle" data-testid="genre-input-label">
-            Título
+            Gênero
           </label>
-          <input type="text" name="" id="addTitle" data-testid="genre-input" />
+          <select name="" id="addTitle" data-testid="genre-option">
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
         </form>
       </div>
     );
