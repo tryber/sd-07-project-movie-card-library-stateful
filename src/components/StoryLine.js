@@ -17,6 +17,7 @@ class StoryLine extends Component {
     );
   }
 }
+StoryLine.defaultProps = { value: '', handleChange: () => undefined };
 StoryLine.propTypes = {
   value: PropTypes.string,
   handleChange: PropTypes.func,
