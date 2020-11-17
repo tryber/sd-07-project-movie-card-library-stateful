@@ -32,13 +32,7 @@ class MovieLibrary extends React.Component {
   // Função onHandleCheckBox feito com ajuda de Thaydds :D Obrigado.
 
   onHandleCheckBox() {
-    this.setState((previousState) => ({
-      bookmarkedOnly: !previousState.bookmarkedOnly,
-    }));
-  }
-
-  addMovie(movie) {
-    this.setState((state) => ({ movies: state.movies.concat(movie) }));
+    this.setState((previousState) => ({ bookmarkedOnly: !previousState.bookmarkedOnly }));
   }
 
   onHandleResult() {
@@ -48,13 +42,12 @@ class MovieLibrary extends React.Component {
       storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
       .filter(({ genre }) => genre.includes(this.state.selectedGenre))
       // Este restante da lógica feita com ajuda de Thaydds :D Obrigado.
-      .filter(({ bookmarked }) => {
-        if (this.state.bookmarkedOnly) {
-          return bookmarked
-        } else {
-          return true
-        }});
+      .filter(({ bookmarked }) => this.state.bookmarkedOnly ? bookmarked : true);
     return result;
+  }
+
+  addMovie(movie) {
+    this.setState((state) => ({ movies: state.movies.concat(movie) }));
   }
 
   render() {
