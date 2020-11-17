@@ -1,9 +1,11 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,10 +18,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={this.props.movies} />
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
 }
 
 export default MovieLibrary;
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.shape({ })) };
+
+MovieLibrary.defaultProps = { movies: [] };
