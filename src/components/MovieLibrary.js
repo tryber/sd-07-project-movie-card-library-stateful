@@ -56,7 +56,7 @@ class MovieLibrary extends Component {
           : this.props.movies.filter((element) => element.genre === value),
     });
   };
-  onClick = (movie) => {
+  onClick(movie) {
     this.setState(() => ({ movies: this.state.movies.concat(movie) }));
   }
   
