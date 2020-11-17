@@ -27,6 +27,23 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: theValue });
   }
 
+  filterMovies() {
+    const { movies, textInput, markedBook, genreSelected } = this.state;
+    return movies.filter(({ title, subtitle, bookmarked, genre, storyline }) => {
+      if (markedBook === false) {
+        return (title.includes(textInput) ||
+        subtitle.includes(textInput) ||
+        storyline.includes(textInput)) &&
+        genre.includes(genreSelected);
+      }
+      return bookmarked === true &&
+      genre.includes(genreSelected) &&
+      (title.includes(textInput) ||
+      subtitle.includes(textInput) ||
+      storyline.includes(textInput));
+    });
+  }
+
   eventAddMovie(object) {
     const array = this.state.movies.concat(object);
     this.setState({ movies: array });
@@ -52,7 +69,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.genreSelected}
           onSelectedGenreChange={this.eventHandlerChange}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={this.filterMovies()} />
         <AddMovie onClick={this.eventAddMovie} />
       </div>
     );
