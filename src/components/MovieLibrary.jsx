@@ -8,13 +8,12 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super();
-    this.resetState = this.resetState.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    // this.setNewMovie = this.setNewMovie.bind(this);
     this.onHandleNewMovie = this.onHandleNewMovie.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -35,10 +34,6 @@ class MovieLibrary extends React.Component {
       rating: this.state.rating,
       genre: this.state.genre,
     };
-  }
-
-  resetState() {
-    this.setState(this.baseStateNewMovie);
   }
 
   onSearchTextChange(event) {
@@ -76,6 +71,10 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: [...movies, movie] });
 
     this.resetState();
+  }
+
+  resetState() {
+    this.setState(this.baseStateNewMovie);
   }
 
   render() {

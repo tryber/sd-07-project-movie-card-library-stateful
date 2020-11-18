@@ -3,12 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  // constructor(props) {
-  //   super(props);
-    // this.onHandlerChange = this.onHandlerChange.bind(this);
-    // this.sendNewMovie = this.sendNewMovie.bind(this);
-  // }
-
+  
   render() {
     const {
       subtitle,
@@ -18,7 +13,7 @@ class AddMovie extends React.Component {
       rating,
       genre,
       onHandleNewMovie,
-      onClick
+      onClick,
     } = this.props;
 
     return (
