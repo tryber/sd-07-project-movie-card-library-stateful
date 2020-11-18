@@ -24,6 +24,11 @@ class AddMovie extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 // ------------------------------------------------------------------------
+  onClick(state) {
+  // const actualState = state
+  this.setState(this.initialState);
+  }
+
   newMovieHandler(event) {
     this.setState({ title: event.target.value });
   }
@@ -47,18 +52,13 @@ class AddMovie extends React.Component {
   newMovieGenreHandler(event) {
     this.setState({ genre: event.target.value });
   }
-
-  onClick(state) {
-    // const actualState = state
-    this.setState(this.initialState);
-  }
-// ------------------------------------------------------------------------  
-  render () {
+// ------------------------------------------------------------------------
+  render() {
     const { onClick } = this.props;
     return (
       <form action="">
         <label htmlFor="new-movie-title" data-testid="title-input-label">Título</label>
-        <input 
+        <input
           type="text"
           value={this.state.title}
           data-testid="title-input"
@@ -74,7 +74,7 @@ class AddMovie extends React.Component {
         />
 
         <label htmlFor="new-movie-image" data-testid="image-input-label">Imagem</label>
-        <input 
+        <input
           type="text"
           value={this.state.imagePath}
           data-testid="image-input"
@@ -82,7 +82,7 @@ class AddMovie extends React.Component {
         />
 
         <label htmlFor="new-movie-storyline" data-testid="storyline-input-label">Sinopse</label>
-        <input 
+        <input
           type="text"
           data-testid="storyline-input"
           value={this.state.storyline}
@@ -90,7 +90,7 @@ class AddMovie extends React.Component {
         />
 
         <label htmlFor="new-movie-rating" data-testid="rating-input-label">Avaliação</label>
-        <input 
+        <input
           type="number"
           value={this.state.rating}
           data-testid="rating-input"
@@ -98,8 +98,8 @@ class AddMovie extends React.Component {
         />
 
         <label htmlFor="new-movie-genre" data-testid="genre-input-label">Gênero</label>
-        <select 
-          name="new-movie-genre" 
+        <select
+          name="new-movie-genre"
           id="new-movie-genre"
           value={this.state.genre}
           data-testid="genre-input"
@@ -110,9 +110,12 @@ class AddMovie extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
 
-        <button data-testid="send-button" onClick={() => onClick(this.state)}>Adicionar filme</button>
+        <button
+          data-testid="send-button"
+          onClick={() => onClick(this.state)}
+        >Adicionar filme</button>
       </form>
-    )
+    );
   }
 }
 
