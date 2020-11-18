@@ -11,28 +11,12 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onHandleNewMovie = this.onHandleNewMovie.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.resetState = this.resetState.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-    this.baseStateNewMovie = {
-      subtitle: this.state.subtitle,
-      title: this.state.title,
-      imagePath: this.state.imagePath,
-      storyline: this.state.storyline,
-      rating: this.state.rating,
-      genre: this.state.genre,
     };
   }
 
@@ -50,26 +34,12 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: value });
   }
 
-  onHandleNewMovie({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  }
-
-  onClick(event) {
-    event.preventDefault();
-    const { subtitle, title, imagePath, storyline, genre } = this.state;
-    let { rating } = this.state;
-    rating = parseInt(rating, 10);
-    const movie = { title, subtitle, imagePath, storyline, rating, genre };
+  onClick(movie, callback) {
+    //console.log(movie)
     const { movies } = this.props;
     this.setState({ movies: [...movies, movie] });
 
-    this.resetState();
-  }
-
-  resetState() {
-    this.setState(this.baseStateNewMovie);
+    return callback();
   }
 
   render() {
