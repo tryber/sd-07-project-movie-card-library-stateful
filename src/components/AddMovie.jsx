@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
