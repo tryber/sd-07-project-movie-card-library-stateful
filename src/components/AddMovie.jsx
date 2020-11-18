@@ -115,7 +115,12 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button className="btn-sucess" type="submit" onClick={this.handleCard} data-testid="send-button">
+        <button
+          className="btn-sucess"
+          type="submit"
+          onClick={this.handleCard}
+          data-testid="send-button"
+        >
           Adicionar filme
         </button>
       </form>
@@ -123,5 +128,9 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTyps = { handleCard: PropTypes.func.isRequired };
+AddMovie.propTyps = {
+  handleCard: PropTypes.func.isRequired,
+  handleTitle: PropTypes.func.isRequired,
+  handleSubtitle: PropTypes.func.isRequired,
+};
 export default AddMovie;

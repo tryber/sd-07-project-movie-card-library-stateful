@@ -15,6 +15,7 @@ class SearchBar extends React.Component {
             data-testid="text-input"
             className="input-search"
             id="text-input"
+            name="searchText"
           />
         </label>
         <div className="comp-serch">
@@ -27,6 +28,7 @@ class SearchBar extends React.Component {
               checked={this.props.bookmarkedOnly}
               onChange={this.props.onBookmarkedChange}
               className="input-bar-check "
+              name="bookmarkedOnly"
             />
           </label>
         </div>
