@@ -89,8 +89,7 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
           value={this.state.storyline}
           onChange={this.onHandleNewMovie}
-        >
-        </textarea>
+        />
         <label className="label" htmlFor="rating" data-testid="rating-input-label">
           Avaliação
         </label>
