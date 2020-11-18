@@ -25,8 +25,8 @@ class AddMovie extends React.Component {
   }
 // ------------------------------------------------------------------------
   onClick(state) {
-  // const actualState = state
-  this.setState(this.initialState);
+    console.log(state);
+    this.setState(this.initialState);
   }
 
   newMovieHandler(event) {
