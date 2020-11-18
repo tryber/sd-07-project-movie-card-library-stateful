@@ -4,7 +4,16 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre, onHandleNewMovie, onClick } = this.props;
+    const {
+      subtitle,
+      title,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+      onHandleNewMovie,
+      onClick
+    } = this.props;
 
     return (
       <form data-testid="add-movie-form" className="form">
@@ -32,11 +41,8 @@ class AddMovie extends React.Component {
           value={subtitle}
           onChange={onHandleNewMovie}
         />
-        <label
-          className="label"
-          htmlFor="imagePath"
-          data-testid="image-input-label"
-        > Imagem
+        <label className="label" htmlFor="imagePath" data-testid="image-input-label" > 
+          Imagem
         </label>
         <input
           className="input"
@@ -47,11 +53,8 @@ class AddMovie extends React.Component {
           value={imagePath}
           onChange={onHandleNewMovie}
         />
-        <label
-          className="label"
-          htmlFor="storyline"
-          data-testid="storyline-input-label"
-        > Sinopse
+        <label className="label" htmlFor="storyline" data-testid="storyline-input-label" >
+          Sinopse
         </label>
         <input
           className="input"
@@ -73,11 +76,8 @@ class AddMovie extends React.Component {
           value={rating}
           onChange={onHandleNewMovie}
         />
-        <label
-          className="label"
-          htmlFor="genre"
-          data-testid="genre-input-label"
-        > Gênero:
+        <label className="label" htmlFor="genre" data-testid="genre-input-label" >
+          Gênero:
         </label>
         <div className="select is-primary">
           <select
