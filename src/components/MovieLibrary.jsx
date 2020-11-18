@@ -2,11 +2,10 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -17,18 +16,12 @@ class MovieLibrary extends React.Component {
     this.onChangeAddStoryline = this.onChangeAddStoryline.bind(this);
     this.onChangeAddRating = this.onChangeAddRating.bind(this);
     this.onChangeAddGenre = this.onChangeAddGenre.bind(this);
-    this.onChangeAddButton = this.onChangeAddButton.bind(this);
+    this.addMovie = this.addMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      movies: props.movies,
     };
   }
 
@@ -50,27 +43,13 @@ class MovieLibrary extends React.Component {
 
   onChangeAddGenre(event) { this.setState({ genre: event.target.value }); }
 
-  onChangeAddButton(event) {
-    event.preventDefault();
-    const addmovie = {
-      title: this.state.title,
-      subtitle: this.state.subtitle,
-      storyline: this.state.storyline,
-      rating: this.state.rating,
-      imagePath: this.state.imagePath,
-      bookmarked: false,
-      genre: this.state.genre,
-    };
-    this.setState({
-      movies: [...this.state.movies, addmovie],
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+  addMovie(newMovie) {
+    this.setState((previousState) => {
+      const newMovieList = [...previousState.movies, newMovie];
+      return ({ movies: newMovieList });
     });
   }
+
 
   filterMovie(movie, text, bookmarkedOnly, genre) {
     let filteredMovie = Boolean;
@@ -99,24 +78,12 @@ class MovieLibrary extends React.Component {
           this.state.bookmarkedOnly,
           this.state.selectedGenre))}
         />
-        <AddMovie
-          title={this.state.title}
-          onChangeAddTitle={this.onChangeAddTitle}
-          subtitle={this.state.subtitle}
-          onChangeAddSubtitle={this.onChangeAddSubtitle}
-          imagePath={this.state.imagePath}
-          onChangeAddImage={this.onChangeAddImage}
-          storyline={this.state.storyline}
-          onChangeAddStoryline={this.onChangeAddStoryline}
-          rating={this.state.rating}
-          onChangeAddRating={this.onChangeAddRating}
-          genre={this.state.genre}
-          onChangeAddGenre={this.onChangeAddGenre}
-          onChangeAddButton={this.onChangeAddButton}
+        <AddMovie onClick={this.addMovie}
         />
       </div>
     );
   }
 }
+MovieLibrary.defaultProps = { rating: 0 };
 
 export default MovieLibrary;
