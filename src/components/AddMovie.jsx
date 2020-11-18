@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -55,7 +55,7 @@ export default class AddMovie extends React.Component {
         storyline,
         imagePath,
         rating,
-        bookmarked,
+        bookmarked: true,
         genre,
       },
     );

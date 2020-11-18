@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
   }
 
   AddMovie(newMovie) {
-    this.setState({ movies: [...this.state.movies, newMovie]});
+    this.setState({ movies: [...this.state.movies, newMovie] });
   }
 
   render() {
