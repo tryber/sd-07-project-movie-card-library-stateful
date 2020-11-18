@@ -3,8 +3,7 @@ import React from 'react';
 class AddMovie extends React.Component {
   constructor() {
     super();
-
-    this.myfunction = this.myfunction.bind(this);
+    this.onClicAddMovie = this.onClicAddMovie.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,7 +14,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  myfunction() {
+  onClicAddMovie() {
 
   }
 
@@ -91,7 +90,7 @@ class AddMovie extends React.Component {
           <label htmlFor="addMovieButton">
             <button
               data-testid="send-button"
-              onClick={() => this.myfunction}
+              onClick={() => this.onClicAddMovie}
               name="addMovieButton"
             >
                 Adicionar filme
