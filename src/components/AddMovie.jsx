@@ -132,5 +132,10 @@ AddMovie.propTyps = {
   handleCard: PropTypes.func.isRequired,
   handleTitle: PropTypes.func.isRequired,
   handleSubtitle: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 export default AddMovie;
