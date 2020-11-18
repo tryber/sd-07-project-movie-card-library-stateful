@@ -10,6 +10,7 @@ export default class AddMovie extends React.Component {
     this.handleChangeRating = this.handleChangeRating.bind(this);
     this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
     this.handleChangeGender = this.handleChangeGender.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -42,6 +43,29 @@ export default class AddMovie extends React.Component {
 
   handleChangeGender({ target }) {
     this.setState({ genre: target.value });
+  }
+
+  resetState(){
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    this.props.onclick(
+      {
+        title: title,
+        subtitle: subtitle,
+        storyline: storyline,
+        imagePath: imagePath,
+        rating: rating,
+        bookmarked: true,
+        genre: genre,
+      }
+    )
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
   }
 
   render() {
@@ -129,7 +153,7 @@ export default class AddMovie extends React.Component {
           <button
             type="button"
             data-testid="send-button"
-            onClick={() => this.onClick(this.resetState)}
+            onClick={this.resetState}
           >
             Adicionar filme
           </button>
