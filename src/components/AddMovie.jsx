@@ -26,14 +26,13 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  sendNewMovie(callback) {
-    // event.preventDefault();
+  sendNewMovie(event) {
+    event.preventDefault();
     const { subtitle, title, imagePath, storyline, genre } = this.state;
     let { rating } = this.state;
     rating = parseInt(rating, 10);
     const movie = { title, subtitle, imagePath, storyline, rating, genre };
-
-    return callback(movie, this.resetState);
+    return this.props.onClick(movie, this.resetState);
   }
 
   resetState() {
@@ -97,7 +96,7 @@ class AddMovie extends React.Component {
         <input
           className="input"
           name="rating"
-          type="text"
+          type="number"
           data-testid="rating-input"
           value={this.state.rating}
           onChange={this.onHandleNewMovie}
@@ -122,7 +121,7 @@ class AddMovie extends React.Component {
             className="button is-primary"
             data-testid="send-button"
             type="button"
-            onClick={() => this.sendNewMovie(this.props.onClick)}
+            onClick={this.sendNewMovie}
           >
             Adicionar filme
           </button>
