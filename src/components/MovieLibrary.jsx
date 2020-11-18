@@ -17,9 +17,13 @@ class MovieLibrary extends Component {
       movies: this.props.movies,
     };
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.updateStatus = this.updateStatus.bind(this);
   }
 
-  handleAddMovie(currentState) {
+  handleAddMovie() {
+  }
+
+  updateStatus() {
   }
 
   render() {

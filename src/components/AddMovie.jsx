@@ -24,7 +24,8 @@ class AddMovie extends Component {
   }
 
   addMovieFunction() {
-    this.props.onClick(this.state);
+    const { onClick } = this.state;
+    onClick(this.state);
     this.setState(initialState);
   }
 
