@@ -75,12 +75,12 @@ export default class AddMovie extends React.Component {
           <select
             name=""
             id="addGender"
-            onSelect={this.state.genre}
-            data-testid="genre-option"
-          >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            value={this.state.genre}
+            data-testid="genre-input"
+            >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
           <button data-testid="send-button" onClick={this.handleMovie}>
             Adicionar filme
