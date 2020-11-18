@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       rating,
       genre,
       onHandleNewMovie,
-      onClick
+      onClick,
     } = this.props;
 
     return (
@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
           value={subtitle}
           onChange={onHandleNewMovie}
         />
-        <label className="label" htmlFor="imagePath" data-testid="image-input-label" > 
+        <label className="label" htmlFor="imagePath" data-testid="image-input-label" >
           Imagem
         </label>
         <input
