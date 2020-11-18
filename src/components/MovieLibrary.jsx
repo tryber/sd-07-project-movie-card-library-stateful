@@ -8,13 +8,22 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.changeFunc = this.changeFunc.bind(this);
-    this.state = {};
+    this.resetState = this.resetState.bind(this);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: '',
+      selectedGenre: '',
+    };
   }
 
   changeFunc({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  resetState(target) {
+    console.log(target);
   }
 
   render() {
@@ -30,7 +39,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.changeFunc}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.resetState} />
       </div>
     );
   }
@@ -45,13 +54,13 @@ MovieLibrary.defaultProps = {
   },
 };
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
+  movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     imagePath: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
-  }),
+  })),
 };
 
 export default MovieLibrary;

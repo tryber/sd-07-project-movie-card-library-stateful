@@ -24,13 +24,13 @@ MovieList.defaultProps = {
   },
 };
 MovieList.propTypes = {
-  movies: PropTypes.shape({
+  movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     imagePath: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
-  }),
+  })),
 };
 
 export default MovieList;
