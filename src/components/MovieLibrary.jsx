@@ -13,6 +13,7 @@ class MovieLibrary extends React.Component {
     this.handlebookmarkedOnly = this.handlebookmarkedOnly.bind(this);
     this.handleSelectGender = this.handleSelectGender.bind(this);
     this.showFilterMovies = this.showFilterMovies.bind(this);
+    this.handleMovie = this.handleMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -65,6 +66,13 @@ class MovieLibrary extends React.Component {
     return movieList;
   }
 
+  handleMovie(newMovie) {
+      this.setState((holdState) => {
+      const actuaMovieList = [...holdState.movies, newMovie];
+      return ({ movies: actuaMovieList });
+    });
+  }
+
   render() {
     let { movies } = this.state;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -94,7 +102,7 @@ class MovieLibrary extends React.Component {
         <div className="movie-list">
           <MovieList movies={movies} />
         </div>
-        <AddMovie />
+        <AddMovie onClick={this.handleMovie} />
       </div>
     );
   }
