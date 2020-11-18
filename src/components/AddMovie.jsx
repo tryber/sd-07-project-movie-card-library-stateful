@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -49,15 +50,15 @@ export default class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     this.props.onclick(
       {
-        title: title,
-        subtitle: subtitle,
-        storyline: storyline,
-        imagePath: imagePath,
-        rating: rating,
-        bookmarked: true,
-        genre: genre,
-      }
-    )
+        title,
+        subtitle,
+        storyline,
+        imagePath,
+        rating,
+        bookmarked,
+        genre,
+      },
+    );
     this.setState({
       subtitle: '',
       title: '',
@@ -65,7 +66,7 @@ export default class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 
   render() {
@@ -162,3 +163,5 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onclick: PropTypes.func.isRequired };

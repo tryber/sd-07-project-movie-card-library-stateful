@@ -48,12 +48,12 @@ class MovieLibrary extends React.Component {
   }
 
   AddMovie(newMovie) {
-    this.setState({ movies: [...this.state.movies, newMovie]})
-  };
+    this.setState({ movies: [...this.state.movies, newMovie]});
+  }
 
   render() {
     // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -65,7 +65,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={this.onSearchTextChange}
         />
         <MovieList movies={this.filterMovie()} />
-        <AddMovie onclick={this.AddMovie}/>
+        <AddMovie onclick={this.AddMovie} />
       </div>
     );
   }
