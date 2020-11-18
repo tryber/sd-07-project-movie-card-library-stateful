@@ -59,6 +59,7 @@ class MovieLibrary extends React.Component {
   onClick(event) {
     event.preventDefault();
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    rating = parseInt(rating, 10);
     const movie = { title, subtitle, imagePath, storyline, rating, genre };
     const { movies } = this.props;
     this.setState({ movies: [...movies, movie] });
@@ -88,7 +89,7 @@ class MovieLibrary extends React.Component {
           imagePath={this.state.imagePath}
           storyline={this.state.storyline}
           rating={this.state.rating}
-          genre={this.state.rating}
+          genre={this.state.genre}
           onHandleNewMovie={this.onHandleNewMovie}
           onClick={this.onClick}
         />
