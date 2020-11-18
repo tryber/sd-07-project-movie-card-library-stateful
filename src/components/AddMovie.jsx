@@ -23,12 +23,12 @@ export default class AddMovie extends React.Component {
                 Título
           </label>
           <input
-              value={title}
-              data-testid="title-input"
-              id="title-input"
-              onChange={this.handleChangeTitle}
-              type="text"
-            />
+            value={title}
+            data-testid="title-input"
+            id="title-input"
+            onChange={this.handleChangeTitle}
+            type="text"
+          />
           <label
             htmlFor="subtitle-input"
             data-testid="subtitle-input-label"
@@ -36,12 +36,12 @@ export default class AddMovie extends React.Component {
           Subtítulo
           </label>
           <input
-              id="subtitle-input"
-              value={subtitle}
-              data-testid="subtitle-input"
-              type="text"
-              onChange={this.handleChangeSubtitle}
-            />
+            id="subtitle-input"
+            value={subtitle}
+            data-testid="subtitle-input"
+            type="text"
+            onChange={this.handleChangeSubtitle}
+          />
           <label
             htmlFor="image-input"
             data-testid="image-input-label"
@@ -49,12 +49,12 @@ export default class AddMovie extends React.Component {
           Imagem
           </label>
           <input
-              id="image-input"
-              value={imagePath}
-              data-testid="image-input"
-              type="text"
-              onChange={this.handleChangeImagePath}
-            />
+            id="image-input"
+            value={imagePath}
+            data-testid="image-input"
+            type="text"
+            onChange={this.handleChangeImagePath}
+          />
           <label
             htmlFor="storyline-input"
             data-testid="storyline-input-label"
@@ -62,11 +62,11 @@ export default class AddMovie extends React.Component {
           Sinopse
           </label>
           <textarea
-              id="storyline-input"
-              value={storyline}
-              data-testid="storyline-input"
-              onChange={this.handleChangeStoryline}
-            />
+            id="storyline-input"
+            value={storyline}
+            data-testid="storyline-input"
+            onChange={this.handleChangeStoryline}
+          />
           <label
             htmlFor="rating-input"
             data-testid="rating-input-label"
@@ -74,28 +74,28 @@ export default class AddMovie extends React.Component {
           Avaliação
           </label>
           <input
-              id="rating-input"
-              value={rating}
-              data-testid="rating-input"
-              type="number"
-              onChange={this.handleChangeRating}
-            />
+            id="rating-input"
+            value={rating}
+            data-testid="rating-input"
+            type="number"
+            onChange={this.handleChangeRating}
+          />
           <label
             htmlFor="genre-input"
             data-testid="genre-input-label"
           >
             Gênero
           </label>
-            <select
-              id="genre-input"
-              data-testid="genre-input"
-              value={genre}
-              onChange={this.handleChangeSelected}
-            >
+          <select
+            id="genre-input"
+            data-testid="genre-input"
+            value={genre}
+            onChange={this.handleChangeSelected}
+          >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
-            </select>
+          </select>
           <button
             type="button"
             data-testid="send-button"
