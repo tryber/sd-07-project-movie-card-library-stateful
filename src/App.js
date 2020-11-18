@@ -20,6 +20,7 @@ class App extends React.Component {
   onBookmarkedChange() { 'b'; }
   onSelectedGenreChange() { 'c'; }
 
+  handleAddMovie() { 'd'; }
   render() {
     return (
       <div>
@@ -32,7 +33,7 @@ class App extends React.Component {
           selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange('Pizza')}
         />
-        <AddMovie onClick={() => 'a'} />
+        <AddMovie onChange={this.handleAddMovie} />
       </div>
     );
   }
