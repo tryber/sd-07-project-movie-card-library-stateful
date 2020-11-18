@@ -109,7 +109,7 @@ class AddMovie extends React.Component {
             data-testid="genre-input"
             onChange={this.handleGenre}
           >
-            <option value="" />
+            <option value= "" />
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -134,8 +134,8 @@ AddMovie.propTyps = {
   handleSubtitle: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
+   imagePath: PropTypes.string.isRequired,
+   storyline: PropTypes.string.isRequired,
+   genre: PropTypes.string.isRequired,
 };
 export default AddMovie;
