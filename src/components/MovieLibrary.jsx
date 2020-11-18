@@ -59,14 +59,7 @@ class MovieLibrary extends React.Component {
   onClick(event) {
     event.preventDefault();
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const movie = {
-      title: title,
-      subtitle: subtitle,
-      imagePath: imagePath,
-      storyline: storyline,
-      rating: rating,
-      genre: genre,
-    };
+    const movie = { title, subtitle, imagePath, storyline, rating, genre };
     const { movies } = this.props;
     this.setState({ movies: [...movies, movie] });
 

@@ -6,14 +6,7 @@ class AddMovie extends React.Component {
   
   render() {
     const {
-      subtitle,
-      title,
-      imagePath,
-      storyline,
-      rating,
-      genre,
-      onHandleNewMovie,
-      onClick,
+      subtitle, title, imagePath, storyline, rating, genre, onHandleNewMovie, onClick,
     } = this.props;
 
     return (
