@@ -20,30 +20,30 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  handleChangeTitle({target}) {
+  handleChangeTitle({ target }) {
     this.setState({ title: target.value });
   }
 
-  handleChangeSubtitle({target}) {
+  handleChangeSubtitle({ target }) {
     this.setState({ subtitle: target.value });
   }
 
-  handleChangeImagePath({target}) {
+  handleChangeImagePath({ target }) {
     this.setState({ imagePath: target.value });
   }
 
-  handleChangeStoryline({target}) {
+  handleChangeStoryline({ target }) {
     this.setState({ storyline: target.value });
   }
 
-  handleChangeRating({target}) {
+  handleChangeRating({ target }) {
     this.setState({ rating: target.value });
   }
 
-  handleChangeGender({target}) {
+  handleChangeGender({ target }) {
     this.setState({ genre: target.value });
   }
-  
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
