@@ -1,4 +1,4 @@
-// implement AddMovie component here
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class AddMovie extends React.Component {
@@ -24,27 +24,27 @@ class AddMovie extends React.Component {
   }
 
   onChangeAddTitle(event) {
-    this.setState({title: event.target.value})
+    this.setState({ title: event.target.value });
   }
 
   onChangeAddSubtitle(event) {
-    this.setState({subtitle: event.target.value})
+    this.setState({ subtitle: event.target.value });
   }
 
   onChangeAddImage(event) {
-    this.setState({imagePath: event.target.value})
+    this.setState({ imagePath: event.target.value });
   }
 
   onChangeAddStoryline(event) {
-    this.setState({storyline: event.target.value})
+    this.setState({ storyline: event.target.value });
   }
 
   onChangeAddRating(event) {
-    this.setState({rating: event.target.value})
+    this.setState({ rating: event.target.value });
   }
 
   onChangeAddGenre(event) {
-    this.setState({genre: event.target.value})
+    this.setState({ genre: event.target.value });
   }
 
   addMovie(event) {
@@ -134,5 +134,6 @@ class AddMovie extends React.Component {
     );
   }
 }
+AddMovie.propTypes = ({ onClick: PropTypes.func }).isRequired;
 
 export default AddMovie;

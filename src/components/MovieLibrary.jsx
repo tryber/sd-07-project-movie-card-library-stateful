@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -78,12 +79,11 @@ class MovieLibrary extends React.Component {
           this.state.bookmarkedOnly,
           this.state.selectedGenre))}
         />
-        <AddMovie onClick={this.addMovie}
-        />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
 }
-MovieLibrary.defaultProps = { rating: 0 };
+MovieLibrary.propTypes = { movies: PropTypes.shape().isRequired };
 
 export default MovieLibrary;
