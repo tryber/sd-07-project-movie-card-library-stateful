@@ -46,7 +46,7 @@ export default class AddMovie extends React.Component {
     this.setState({ genre: target.value });
   }
 
-  resetState(){
+  resetState() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     this.props.onclick(
       {
