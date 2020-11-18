@@ -14,10 +14,15 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: this.props.movies,
     };
+    this.addNewMovieHandle = this.addNewMovieHandle.bind(this);
   }
   onSearchTextChange() { 'a'; }
   onBookmarkedChange() { 'b'; }
   onSelectedGenreChange() { 'c'; }
+
+  addNewMovieHandle() {
+    console.log('xablau');
+  }
   render() {
     return (
       <div>
@@ -34,7 +39,7 @@ class MovieLibrary extends React.Component {
           <MovieList movies={this.props.movies} />
         </div>
 
-        <AddMovie onChange={this.handleAddMovie} />
+        <AddMovie onClick={this.addNewMovieHandle} />
       </div>
     );
   }
