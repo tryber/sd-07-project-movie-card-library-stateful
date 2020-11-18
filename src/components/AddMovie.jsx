@@ -63,7 +63,6 @@ export default class AddMovie extends React.Component {
     );
 
     this.setState(initialState);
-    console.log(this.state)
   }
 
   render() {
