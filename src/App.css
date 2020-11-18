@@ -11,9 +11,9 @@ body {
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0px;
+  margin-bottom: 1px;
   padding-top: 20px;
-  text-align: flex-end;
+  text-align: start;
 }
 
 .button {

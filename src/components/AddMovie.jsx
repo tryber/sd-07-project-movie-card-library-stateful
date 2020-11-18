@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   // constructor(props) {
@@ -10,7 +10,17 @@ class AddMovie extends React.Component {
   // }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre, onHandleNewMovie, onClick } = this.props;
+    const {
+      subtitle,
+      title,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+      onHandleNewMovie,
+      onClick
+    } = this.props;
+
     return (
       <form data-testid="add-movie-form" className="form">
         <label className="label" htmlFor="title" data-testid="title-input-label" >
@@ -113,4 +123,13 @@ class AddMovie extends React.Component {
 
 export default AddMovie;
 
-// AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = {
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
+  onHandleNewMovie: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
