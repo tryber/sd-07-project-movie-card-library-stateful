@@ -34,17 +34,21 @@ class MovieLibrary extends React.Component {
   }
 
   filterMovie() {
-    if (this.state.searchText !== '') {
-      return this.props.movies
-      .filter((movie) =>
-      (movie.title.toUpperCase().includes(this.state.searchText.toUpperCase())));
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (searchText !== '') {
+      return movies.filter((movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
+      || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+      || movie.storyline.toUpperCase().includes(searchText.toUpperCase()));
     }
-    if (this.state.selectedGenre !== '') {
-      return this.props.movies
-      .filter((movie) =>
-       (movie.genre === this.state.selectedGenre));
+    if (selectedGenre !== '') {
+      return movies
+        .filter((movie) => movie.genre === selectedGenre);
     }
-    return this.state.movies;
+    if (bookmarkedOnly) {
+      return movies
+        .filter((movie) => movie.bookmarked === bookmarkedOnly);
+    }
+    return movies;
   }
 
   AddMovie(newMovie) {

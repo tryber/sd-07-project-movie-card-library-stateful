@@ -2,9 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+}
+
 export default class AddMovie extends React.Component {
   constructor() {
     super();
+    this.state = initialState;
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
     this.handleChangeImagePath = this.handleChangeImagePath.bind(this);
@@ -12,14 +22,6 @@ export default class AddMovie extends React.Component {
     this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
     this.handleChangeGender = this.handleChangeGender.bind(this);
     this.resetState = this.resetState.bind(this);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
   }
 
   handleChangeTitle({ target }) {
@@ -59,14 +61,9 @@ export default class AddMovie extends React.Component {
         genre,
       },
     );
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+
+    this.setState(initialState);
+    console.log(this.state)
   }
 
   render() {
