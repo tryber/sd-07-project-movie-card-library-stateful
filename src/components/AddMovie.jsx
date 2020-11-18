@@ -30,7 +30,6 @@ class AddMovie extends React.Component{
                 name="subtitle"
                 />
                 </label>
-
                 <label  htmlFor="imagem-input">
                     imagem
                 <input
