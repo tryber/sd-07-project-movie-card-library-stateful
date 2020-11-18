@@ -32,7 +32,8 @@ class AddMovie extends React.Component {
     let { rating } = this.state;
     rating = parseInt(rating, 10);
     const movie = { title, subtitle, imagePath, storyline, rating, genre };
-    return this.props.onClick(movie, this.resetState);
+    this.resetState();
+    return this.props.onClick(movie);
   }
 
   resetState() {
@@ -81,15 +82,15 @@ class AddMovie extends React.Component {
         <label className="label" htmlFor="storyline" data-testid="storyline-input-label" >
           Sinopse
         </label>
-        <input
+        <textarea
           className="input"
           name="storyline"
-          type="textarea"
           placeholder="Insira o caminho para imagem do novo filme"
           data-testid="storyline-input"
           value={this.state.storyline}
           onChange={this.onHandleNewMovie}
-        />
+        >
+        </textarea>
         <label className="label" htmlFor="rating" data-testid="rating-input-label">
           Avaliação
         </label>

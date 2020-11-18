@@ -34,11 +34,9 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: value });
   }
 
-  onClick(movie, callback) {
+  onClick(movie) {
     const { movies } = this.props;
     this.setState({ movies: [...movies, movie] });
-
-    return callback();
   }
 
   render() {
