@@ -6,7 +6,9 @@ class AddMovieTextInputSubtitle extends React.Component {
     const { subtitle, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo</label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+        </label>
         <input
           type="text"
           name="subtitle"

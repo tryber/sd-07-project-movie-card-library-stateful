@@ -6,7 +6,9 @@ class AddMovieInputRating extends React.Component {
     const { rating, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="rating-input" data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+        </label>
         <input
           type="number"
           name="rating"

@@ -6,7 +6,9 @@ class AddMovieTextInputImage extends React.Component {
     const { imagePath, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+        </label>
         <input
           type="text"
           name="imagePath"
@@ -21,7 +23,7 @@ class AddMovieTextInputImage extends React.Component {
 }
 
 AddMovieTextInputImage.propTypes = {
-  imagePath: PropTypes.number.isRequired,
+  imagePath: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

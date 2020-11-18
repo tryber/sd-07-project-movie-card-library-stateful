@@ -6,7 +6,9 @@ class AddMovieTextInputTitle extends React.Component {
     const { title, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="title-input" data-testid="title-input-label">Título</label>
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+        </label>
         <input
           type="text"
           name="title"

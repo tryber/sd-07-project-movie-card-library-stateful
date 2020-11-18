@@ -7,7 +7,9 @@ class SearchBarTextInput extends React.Component {
 
     return (
       <fieldset>
-        <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto:</label>
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+        </label>
         <input
           type="text"
           name="text-input"

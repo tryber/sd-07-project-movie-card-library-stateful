@@ -6,7 +6,9 @@ class AddMovieTextArea extends React.Component {
     const { storyline, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+        </label>
         <textarea
           type="text"
           name="storyline"
@@ -23,7 +25,7 @@ class AddMovieTextArea extends React.Component {
 }
 
 AddMovieTextArea.propTypes = {
-  storyline: PropTypes.number.isRequired,
+  storyline: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

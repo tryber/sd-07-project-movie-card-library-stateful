@@ -5,10 +5,7 @@ class AddMovieSendButton extends React.Component {
   render() {
     const { onClick } = this.props;
     return (
-      <button
-        data-testid="send-button"
-        onClick={onClick}
-      >
+      <button data-testid="send-button" onClick={onClick}>
         Adicionar filme
       </button>
     );

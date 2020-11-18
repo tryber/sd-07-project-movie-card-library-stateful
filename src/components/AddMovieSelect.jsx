@@ -6,7 +6,9 @@ class AddMovieSelect extends React.Component {
     const { genre, handleChange } = this.props;
     return (
       <fieldset>
-        <label htmlFor="genre-input" data-testid="genre-input-label">Gênero </label>
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          Gênero
+        </label>
         <select
           name="genre"
           value={genre}
@@ -14,9 +16,15 @@ class AddMovieSelect extends React.Component {
           data-testid="genre-input"
           id="genre-input"
         >
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
+          <option value="action" data-testid="genre-option">
+            Ação
+          </option>
+          <option value="comedy" data-testid="genre-option">
+            Comédia
+          </option>
+          <option value="thriller" data-testid="genre-option">
+            Suspense
+          </option>
         </select>
       </fieldset>
     );
