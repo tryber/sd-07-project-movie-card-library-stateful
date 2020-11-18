@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     return (
       <div className="search-bar">
-        <form>
+        <form data-testid="add-movie-form">
           <div>
             <label htmlFor="title-input" data-testid="title-input-label">Título</label>
             <input
