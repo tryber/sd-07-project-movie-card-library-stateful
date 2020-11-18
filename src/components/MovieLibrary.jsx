@@ -67,10 +67,10 @@ class MovieLibrary extends React.Component {
   }
 
   handleMovie(newMovie) {
-      this.setState((holdState) => {
-      const actuaMovieList = [...holdState.movies, newMovie];
-      return ({ movies: actuaMovieList });
-    });
+    this.setState((holdState) => {
+        const actuaMovieList = [...holdState.movies, newMovie];
+        return ({ movies: actuaMovieList });
+      });
   }
 
   render() {
