@@ -18,6 +18,7 @@ class AddMovieInputRating extends React.Component {
           value={rating}
           min="0"
           max="5"
+          step="any"
         />
       </fieldset>
     );

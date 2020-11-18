@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AddMovieTextInputTitle from './AddMovieTextInputTitle';
 import AddMovieTextInputSubtitle from './AddMovieTextInputSubtitle';
@@ -22,11 +23,14 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleSendButton = this.handleSendButton.bind(this);
   }
 
-  onClick(event) {
+  handleSendButton(event) {
+    const { onClick } = this.props;
     event.preventDefault();
+    const state = this.state;
+    onClick(state);
     this.setState({
       subtitle: '',
       title: '',
@@ -43,14 +47,15 @@ class AddMovie extends React.Component {
     const name = target.name;
 
     if (name === 'rating') {
-      return this.setState({ [name]: parseFloat(value) });
+      return this.setState({ [name]: value });
     }
 
     return this.setState({ [name]: value });
   }
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick, handleChange } = this;
+    const { handleSendButton, handleChange } = this;
+    // const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
         <AddMovieTextInputTitle title={title} handleChange={handleChange} />
@@ -65,10 +70,12 @@ class AddMovie extends React.Component {
         <AddMovieTextArea storyline={storyline} handleChange={handleChange} />
         <AddMovieInputRating rating={rating} handleChange={handleChange} />
         <AddMovieSelect genre={genre} handleChange={handleChange} />
-        <AddMovieSendButton onClick={onClick} />
+        <AddMovieSendButton handleSendButton={handleSendButton} />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

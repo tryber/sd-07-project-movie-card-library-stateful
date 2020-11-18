@@ -22,6 +22,7 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filters = this.filters.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -36,21 +37,10 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  filterByText(movies) {
-    const textInput = movies.filter(
-      (name) =>
-        name.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) >=
-        0 ||
-        name.subtitle
-          .toLowerCase()
-          .indexOf(this.state.searchText.toLowerCase()) >= 0 ||
-        name.storyline
-          .toLowerCase()
-          .indexOf(this.state.searchText.toLowerCase()) >= 0,
-    );
-
-    return textInput;
+  onClick(newMovieObj) {
+    this.setState((oldState) => ({ movies: [...oldState.movies, newMovieObj] }));
   }
+
   filters() {
     const { movies, bookmarkedOnly, selectedGenre } = this.state;
 
@@ -75,12 +65,29 @@ class MovieLibrary extends React.Component {
     return this.filterByText(movies);
   }
 
+  filterByText(movies) {
+    const textInput = movies.filter(
+      (name) =>
+        name.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) >=
+        0 ||
+        name.subtitle
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0 ||
+        name.storyline
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0,
+    );
+
+    return textInput;
+  }
+
   render() {
     const {
       onSearchTextChange,
       onBookmarkedChange,
       onSelectedGenreChange,
       filters,
+      onClick,
     } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
@@ -95,7 +102,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={onSelectedGenreChange}
         />
         <MovieList filters={filters} />
-        <AddMovie />
+        <AddMovie onClick={onClick} />
       </div>
     );
   }
