@@ -3,6 +3,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
+  constructor() {
+    super();
+    this.sendNewMovie = this.sendNewMovie.bind(this);
+  }
+
+  sendNewMovie(event) {
+    this.props.onClick(event);
+  }
+
   render() {
     const {
       subtitle,
@@ -12,7 +21,6 @@ class AddMovie extends React.Component {
       rating,
       genre,
       onHandleNewMovie,
-      onClick,
     } = this.props;
 
     return (
@@ -96,7 +104,7 @@ class AddMovie extends React.Component {
             className="button is-primary"
             data-testid="send-button"
             type="button"
-            onClick={onClick}
+            onClick={this.sendNewMovie}
           >
             Adicionar filme
           </button>
