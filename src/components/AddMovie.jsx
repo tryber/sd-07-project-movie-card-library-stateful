@@ -43,10 +43,10 @@ class AddMovie extends React.Component {
     const name = target.name;
 
     if (name === 'rating') {
-      this.setState({ [name]: parseInt(value, 10) });
-    } else {
-      this.setState({ [name]: value });
+      return this.setState({ [name]: parseFloat(value) });
     }
+
+    return this.setState({ [name]: value });
   }
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
