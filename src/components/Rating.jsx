@@ -9,7 +9,7 @@ class Rating extends React.Component {
         <span className="rating">{rating}</span>
       </div>
     );
-  };
+  }
 }
 
 Rating.propTypes = { rating: PropTypes.number.isRequired };
