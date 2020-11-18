@@ -4,7 +4,12 @@ import React from 'react';
 export default class AddMovie extends React.Component {
   constructor() {
     super();
-
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
+    this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
+    this.handleChangeImagePath = this.handleChangeImagePath.bind(this);
+    this.handleChangeRating = this.handleChangeRating.bind(this);
+    this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
+    this.handleChangeGender = this.handleChangeGender.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -14,6 +19,31 @@ export default class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+
+  handleChangeTitle({target}) {
+    this.setState({ title: target.value });
+  }
+
+  handleChangeSubtitle({target}) {
+    this.setState({ subtitle: target.value });
+  }
+
+  handleChangeImagePath({target}) {
+    this.setState({ imagePath: target.value });
+  }
+
+  handleChangeStoryline({target}) {
+    this.setState({ storyline: target.value });
+  }
+
+  handleChangeRating({target}) {
+    this.setState({ rating: target.value });
+  }
+
+  handleChangeGender({target}) {
+    this.setState({ genre: target.value });
+  }
+  
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -90,7 +120,7 @@ export default class AddMovie extends React.Component {
             id="genre-input"
             data-testid="genre-input"
             value={genre}
-            onChange={this.handleChangeSelected}
+            onChange={this.handleChangeGender}
           >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
