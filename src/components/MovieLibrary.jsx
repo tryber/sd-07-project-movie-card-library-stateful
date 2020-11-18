@@ -35,7 +35,6 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(movie, callback) {
-    //console.log(movie)
     const { movies } = this.props;
     this.setState({ movies: [...movies, movie] });
 

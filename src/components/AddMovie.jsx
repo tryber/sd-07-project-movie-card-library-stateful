@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
     let { rating } = this.state;
     rating = parseInt(rating, 10);
     const movie = { title, subtitle, imagePath, storyline, rating, genre };
-    
+
     return callback(movie, this.resetState);
   }
 
@@ -134,13 +134,4 @@ class AddMovie extends React.Component {
 
 export default AddMovie;
 
-AddMovie.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
-  onHandleNewMovie: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
