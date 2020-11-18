@@ -20,15 +20,11 @@ class AddMovie extends Component {
     this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
     this.handleChangeRating = this.handleChangeRating.bind(this);
     this.handleChangeSelected = this.handleChangeSelected.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.addMovieFunction = this.addMovieFunction.bind(this);
   }
 
-  onClick(Callback) {
-    Callback();
-  }
-
-  resetState() {
+  addMovieFunction() {
+    this.props.onClick(this.state);
     this.setState(initialState);
   }
 
@@ -159,7 +155,7 @@ class AddMovie extends Component {
           <button
             type="button"
             data-testid="send-button"
-            onClick={() => this.onClick(this.resetState)}
+            onClick={this.addMovieFunction}
           >
             Adicionar filme
           </button>
