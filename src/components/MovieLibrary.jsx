@@ -69,7 +69,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={this.onSearchTextChange}
         />
         <MovieList movies={this.filterMovie()} />
-        <AddMovie onclick={this.AddMovie} />
+        <AddMovie onClick={this.AddMovie} />
       </div>
     );
   }

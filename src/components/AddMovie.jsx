@@ -50,7 +50,8 @@ export default class AddMovie extends React.Component {
 
   resetState() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    this.props.onclick(
+    const { onClick } = this.props;
+    onClick(
       {
         title,
         subtitle,
@@ -160,4 +161,4 @@ export default class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onclick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
