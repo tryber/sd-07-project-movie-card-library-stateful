@@ -6,11 +6,18 @@ import movies from '../data';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
     };
+  }
+
+  handleChange({ target }) {
+    const { name, type } = target;
+    const value = type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -19,11 +26,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange="function"
+          onSearchTextChange={this.handleChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange="function"
+          onBookmarkedChange={this.handleChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange="function"
+          onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={movies} />
       </div>
