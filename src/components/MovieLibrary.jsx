@@ -7,32 +7,67 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.newMovie = this.newMovie.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: this.props.movies,
     };
+
+    this.newMovie = this.newMovie.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.movieFilter = this.movieFilter.bind(this);
   }
 
   newMovie(movie) {
     this.setState((oldState) => oldState.movies.push(movie));
   }
 
+  changeHandler(event) {
+    const value = event.target.type === 'option' ? true : event.target.value;
+    this.setState({ [event.target.name]: value });
+  }
+
+  movieFilter() {
+    console.log(this.state.movies);
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let filtered = movies;
+    if (bookmarkedOnly) {
+      filtered = filtered
+      .filter((movie) => bookmarkedOnly === movie.bookmarked);
+    }
+    if (selectedGenre) {
+      filtered = filtered
+      .filter((movie) => selectedGenre === movie.genre);
+    }
+    filtered = filtered
+      .filter((movie) =>
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+
+    return filtered;
+  }
+
   render() {
-    const { movies } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+    } = this.state;
+
     return (
       <div>
         <SearchBar
-          searchText=""
-          onSearchTextChange=""
-          bookmarkedOnly=""
-          onBookmarkedChange=""
-          selectedGenre=""
-          onSelectedGenreChange=""
+          searchText={searchText}
+          onSearchTextChange={this.changeHandler}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.changeHandler}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.changeHandler}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={this.movieFilter()} />
         <AddMovie newMovie={this.newMovie} />
       </div>
     );

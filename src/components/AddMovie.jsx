@@ -103,6 +103,7 @@ class AddMovies extends React.Component {
             </select>
           </label>
           <button
+            id="send-button"
             type="button"
             data-testid="send-button"
             onClick={() => this.props.newMovie(this.state)}
