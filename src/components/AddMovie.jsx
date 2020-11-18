@@ -116,6 +116,7 @@ class AddMovie extends React.Component {
             value={rating}
             className="input-form"
             onChange={this.handleCard}
+            data-testid="rating-input"
           />
         </label>
 
