@@ -10,14 +10,14 @@ class App extends React.Component {
   onSearchTextChange() {
     console.log('test');
   }
-  
-  bookmarkedOnly() {
-    console.log('teste3');
-  } 
 
   onBookmarkedChange() {
     console.log('teste4');
   }
+
+  bookmarkedOnly() {
+    console.log('teste3');
+  } 
 
   searchText() {
     console.log('teste2');
@@ -28,7 +28,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <MovieLibrary movies={movies} />
-        <SearchBar 
+        <SearchBar
           onSearchTextChange={this.onSearchTextChange}
           searchText={this.searchText}
           bookmarkedOnly={this.bookmarkedOnly}
