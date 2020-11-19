@@ -1,10 +1,11 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.onClicAddMovie = this.onClicAddMovie.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -14,9 +15,21 @@ class AddMovie extends React.Component {
       genre: 0,
     };
   }
-
-  onClicAddMovie() {
-
+  onClicAddMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.resetState();
+  }
+  resetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleChange({ target }) {
@@ -93,7 +106,7 @@ class AddMovie extends React.Component {
           <label htmlFor="addMovieButton">
             <button
               data-testid="send-button"
-              onClick={() => this.onClicAddMovie}
+              onClick={(event) => this.onClicAddMovie(event)}
               name="addMovieButton"
             >
                 Adicionar filme
@@ -104,5 +117,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
