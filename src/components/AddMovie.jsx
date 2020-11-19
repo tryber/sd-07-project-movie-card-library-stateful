@@ -2,13 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
-    render(){
+       render(){
         return (
-            <div> Olá mundo </div>
+            <form data-testid="search-bar-form">
+            </form>
         );
     }
 }
