@@ -53,13 +53,13 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
+  it('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
     const { getAllByTestId } = searchBar();
     const textInput = getAllByTestId('text-input');
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Será validado que o input de texto contém a label "Inclui o texto"', () => {
+  it('Será validado que o input de texto contém a label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);
@@ -84,13 +84,13 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado se uma checkbox é renderizada dentro do form', () => {
+  it('Será validado se uma checkbox é renderizada dentro do form', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInput = getAllByTestId('checkbox-input');
     expect(checkboxInput).toHaveLength(1);
   });
 
-  it.skip('Será validado que o checkbox tem a label "Mostrar somente favoritos"', () => {
+  it('Será validado que o checkbox tem a label "Mostrar somente favoritos"', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInputLabel = getAllByTestId('checkbox-input-label');
     expect(checkboxInputLabel).toHaveLength(1);
@@ -122,7 +122,7 @@ describe('Verifica se o componente <SearchBar /> renderiza um select de gênero'
     expect(selectInput).toHaveLength(1);
   });
 
-  it.skip('Será validado se o componente tem uma label com o texto "Filtrar por gênero"', () => {
+  it('Será validado se o componente tem uma label com o texto "Filtrar por gênero"', () => {
     const { getAllByTestId } = searchBar();
     const selectInputLabel = getAllByTestId('select-input-label');
     expect(selectInputLabel).toHaveLength(1);
