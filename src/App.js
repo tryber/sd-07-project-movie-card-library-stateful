@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   selectedGenre() {
-    console.log("test5");
+    console.log('test5');
   }
 
   render() {
