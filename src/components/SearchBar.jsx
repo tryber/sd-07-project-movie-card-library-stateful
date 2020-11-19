@@ -3,18 +3,17 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-      const {SearchText , onSearchTextChange } = this.props;
-      
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="for" data-testid="text-input-label">
         Inclui o texto:
-          <input 
+          <input
             data-testid="text-input"
             id="for"
             type="text"
-            value={SearchText} 
-            onChange={onSearchTextChange} 
+            value={searchText}
+            onChange={onSearchTextChange}
           />
         </label >
       </form>
