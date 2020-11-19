@@ -1,37 +1,16 @@
 import React, { Component } from 'react';
-
-const genre = ['Todos', 'Ação', 'Comédia', 'Suspense']
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
-
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  }
-
-  onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value });
-  }
-
-  onBookmarkedChange({ target }) {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({ bookmarkedOnly: value });
-  }
-
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
-  }
-
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -42,9 +21,9 @@ class SearchBar extends Component {
                 id="text-input"
                 data-testid="text-input"
                 type="text"
-                name="text-input-label"
-                value={this.state.searchText}
-                onChange={this.onSearchTextChange}
+                name="searchText"
+                value={searchText}
+                onChange={onSearchTextChange}
               />
             </label>
           </div>
@@ -56,9 +35,9 @@ class SearchBar extends Component {
                 id="check-input"
                 data-testid="checkbox-input"
                 type="checkbox"
-                name="checkbox-input-label"
-                value={this.state.bookmarkedOnly}
-                onChange={this.onBookmarkedChange}
+                name="bookmarkedOnly"
+                checked={bookmarkedOnly}
+                onChange={onBookmarkedChange}
               />
             </label>
           </div>
@@ -70,14 +49,15 @@ class SearchBar extends Component {
               <select
                 id="select-input"
                 data-testid="select-input"
-                name="select-input-label"
-                value={this.state.selectedGenre}
-                onChange={this.onSelectedGenreChange}
+                name="selectedGenre"
+                value={selectedGenre}
+                onChange={onSelectedGenreChange}
               >
-                {genre.map((value, key) =>
-                  <option key={key}>{value} </option>
-                )
-                }
+                <option data-testid="select-option" value="">Todos</option>
+                <option data-testid="select-option" value="action">Ação</option>
+                <option data-testid="select-option" value="comedy">Comédia</option>
+                <option data-testid="select-option" value="thriller">Suspense</option>
+
               </select>
             </label>
           </div>
@@ -86,5 +66,14 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
