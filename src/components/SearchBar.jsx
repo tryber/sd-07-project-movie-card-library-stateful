@@ -1,9 +1,9 @@
 // implement SearchBar component here
 import React from 'react';
-import PropTrybes from 'prop-types';
+import PropTybes from 'prop-types';
 
 class SearchBar extends React.Component {
-  imputSearch() {
+  inputSearch() {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <label htmlFor="search-text" data-testid="text-input-label">
@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
           type="text"
           name="search-text"
           value={searchText}
-          OnChange={onSearchTextChange}
+          onChange={onSearchTextChange}
           data-testid="text-input"
           data-key="searchText"
         />
@@ -28,10 +28,10 @@ class SearchBar extends React.Component {
         <input
           type="checkbox"
           name="bookmarked-change"
-          OnChange={onBookmarkedChange}
+          onChange={onBookmarkedChange}
+          checked={bookmarkedOnly}
           data-testid="checkbox-input"
           data-key="bookmarkedOnly"
-          checked={bookmarkedOnly}
         />
       </label>
     );
@@ -40,12 +40,12 @@ class SearchBar extends React.Component {
   selectedGenre() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <label htmlFor="select-imput" data-testid="select-input-label">
+      <label htmlFor="select-input" data-testid="select-input-label">
         Filtrar por gênero
         <select
           name="selected-genre"
           value={selectedGenre}
-          OnChange={onSelectedGenreChange}
+          onChange={onSelectedGenreChange}
           data-testid="select-input"
           data-key="selectedGenre"
         >
@@ -84,12 +84,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTrybes.string.isRequired,
-  onSearchTextChange: PropTrybes.func.isRequired,
-  bookmarkedOnly: PropTrybes.bool.isRequired,
-  onBookmarkedChange: PropTrybes.func.isRequired,
-  selectedGenre: PropTrybes.string.isRequired,
-  onSelectedGenreChange: PropTrybes.func.isRequired,
+  searchText: PropTybes.string.isRequired,
+  onSearchTextChange: PropTybes.func.isRequired,
+  bookmarkedOnly: PropTybes.bool.isRequired,
+  onBookmarkedChange: PropTybes.func.isRequired,
+  selectedGenre: PropTybes.string.isRequired,
+  onSelectedGenreChange: PropTybes.func.isRequired,
 };
 
 export default SearchBar;
