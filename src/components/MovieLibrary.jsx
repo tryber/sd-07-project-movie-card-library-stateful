@@ -101,7 +101,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={onBookmarkedChange}
           onSelectedGenreChange={onSelectedGenreChange}
         />
-        <MovieList filters={filters} />
+        <MovieList movies={filters()} />
         <AddMovie onClick={onClick} />
       </div>
     );

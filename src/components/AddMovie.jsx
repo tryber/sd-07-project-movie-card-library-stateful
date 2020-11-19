@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
     const name = target.name;
 
     if (name === 'rating') {
-      return this.setState({ [name]: value });
+      return this.setState({ [name]: Number(value) });
     }
 
     return this.setState({ [name]: value });
