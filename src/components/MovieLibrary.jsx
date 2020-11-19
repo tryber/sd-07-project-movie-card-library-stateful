@@ -30,9 +30,11 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          bookmarkedOnly={bookmarkedOnly}
-          selectedGenre={selectedGenre}
           onSearchTextChange={this.handleChange}
+          bookmarkedOnly={bookmarkedOnly}
+          // onBookmarkedChange={props.onBookmarkedChange} peguei do arq de testes - arrumar
+          selectedGenre={selectedGenre}
+          // onSelectedGenreChange={props.onSelectedGenreChange} peguei do arq de testes - arrumar
         />
         <MovieList movies={movies} />
         {/* <AddMovie /> */}
