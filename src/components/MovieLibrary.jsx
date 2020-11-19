@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -9,7 +10,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onClick = this.onClick.bind(this);
-    this.state = { movies: this.props.movies, };
+    this.state = { movies: this.props.movies };
   }
 
   onClick(newState) {
@@ -28,5 +29,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired }; // Retirado de: https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/21/files#diff-f93a41729e61cd4c21f08e8fbbf630da87e14d18a479267fe157d29cafc00abc
 
 export default MovieLibrary;
