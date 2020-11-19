@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -40,10 +40,14 @@ class MovieLibrary extends React.Component {
     }
 
     this.setState({ movies: filteredSearch });
-    console.log(filteredSearch);
+    // console.log(filteredSearch);
 
     // source: https://github.com/tryber/sd-07-project-movie-card-library-stateful/tree/vitorRc1-project-movie-cards-library-stateful
     // usei o repo do Vitor de base pra fazer o filtro
+  }
+
+  addMovie() {
+    console.log('clicou');
   }
 
   render() {
@@ -61,7 +65,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={movies} />
-        {/* <AddMovie /> */}
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
