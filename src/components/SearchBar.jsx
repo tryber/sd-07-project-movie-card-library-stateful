@@ -4,7 +4,14 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
 
   render() {
-    const { searchText, handleChange, bookmarkedOnly, selectedGenre } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      selectedGenre,
+      bookmarkedOnly,
+    } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -14,7 +21,7 @@ class SearchBar extends React.Component {
             id="search-bar"
             type="text"
             data-testid="text-input"
-            onChange={handleChange}
+            onChange={onSearchTextChange}
             value={searchText}
           />
 
@@ -26,7 +33,7 @@ class SearchBar extends React.Component {
             name="bookmarkedOnly"
             type="checkbox"
             checked={bookmarkedOnly}
-            onChange={handleChange}
+            onChange={onBookmarkedChange}
             data-testid="checkbox-input"
           />
 
@@ -37,7 +44,7 @@ class SearchBar extends React.Component {
             id="selectedGenre"
             name="selectedGenre"
             value={selectedGenre}
-            onChange={handleChange}
+            onChange={onSelectedGenreChange}
             data-testid="select-input"
           >
             <option value="" data-testid="select-option">Todos</option>
@@ -55,13 +62,17 @@ export default SearchBar;
 
 SearchBar.propTypes = {
   searchText: PropTypes.string,
-  handleChange: PropTypes.func,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
 };
 SearchBar.defaultProps = {
   searchText: PropTypes.string,
-  handleChange: PropTypes.func,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
 };
