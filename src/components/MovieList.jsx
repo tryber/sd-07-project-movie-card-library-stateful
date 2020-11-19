@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+
 
 import MovieCard from './MovieCard';
 
@@ -13,5 +15,8 @@ class MovieList extends React.Component {
     );
   }
 }
+
+const aux = PropTypes.shape({ title: PropTypes.string });
+MovieList.propTypes = { movies: PropTypes.arrayOf(aux).isRequired };
 
 export default MovieList;
