@@ -132,7 +132,8 @@ class AddMovie extends Component {
               data-testid="send-button"
               value="1"
               type="submit"
-              onClick={this.preventEvent}>Adicionar filme</button>
+              onClick={this.preventEvent}
+            >Adicionar filme</button>
           </div>
         </fieldset>
       </form>
