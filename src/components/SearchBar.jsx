@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
 }
 SearchBar.propTypes = {
   searchText: PropTypes.func.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired
-}
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
