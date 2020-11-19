@@ -54,7 +54,7 @@ class AddMovie extends Component {
               maxLength="40"
               pattern="[A-zÀ-ÿ ]{1,}"
               required="required"
-              />
+            />
           </div>
           <div>
             <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
@@ -68,7 +68,7 @@ class AddMovie extends Component {
               maxLength="100"
               patern="[A-zÀ-ÿ ]{1,}"
               required="required"
-              />
+            />
           </div>
           <div>
             <label htmlFor="image" data-testid="image-input-label">Imagem</label>
@@ -80,7 +80,7 @@ class AddMovie extends Component {
               onChange={this.handleChange}
               placeholder="Digite o link da imagem do filme"
               required="required"
-              />
+            />
           </div>
           <div>
             <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
@@ -95,7 +95,7 @@ class AddMovie extends Component {
               rows="20"
               pattern="[A-zÀ-ÿ0-9, ]{1,}"
               required="required"
-              />
+            />
           </div>
           <div>
             <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
@@ -110,7 +110,7 @@ class AddMovie extends Component {
               onChange={this.handleChange}
               placeholder="Digite a avaliação do filme"
               required="required"
-              />
+            />
           </div>
           <div>
             <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>

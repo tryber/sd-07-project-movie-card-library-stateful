@@ -25,7 +25,7 @@ class SearchBar extends Component {
               value={searchText}
               onChange={onSearchTextChange}
               pattern="[A-zÀ-ÿ ]{1,}"
-              />
+            />
           </div>
           <div>
             <label htmlFor="checkbox" data-testid="checkbox-input-label">
@@ -36,7 +36,7 @@ class SearchBar extends Component {
               type="checkbox"
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
-              />
+            />
           </div>
           <div>
             <label htmlFor="selectedGenre" data-testid="select-input-label">
