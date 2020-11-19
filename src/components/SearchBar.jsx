@@ -24,11 +24,11 @@ class SearchBar extends React.Component {
           />
         </label >
 
-        <label htmlFor="favoritos" data-testid="checkbox-input-label">
+        <label htmlFor="for" data-testid="checkbox-input-label">
         Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
-            id="favoritos"
+            id="for"
             type="checkbox"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
