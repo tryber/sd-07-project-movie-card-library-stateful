@@ -1,15 +1,27 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(54, 54, 54);
   box-sizing: border-box;
   font-size: 16px;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: #343a40;
+  background-color: black;
   display: flex;
   height: 100px;
   justify-content: center;
+}
+
+.search-bar {
+  background-color: rgb(76, 76, 77);
+  color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  padding: 0.1rem;
+}
+
+.search-bar input , select {
+  margin: 1rem;
 }
 
 .page-title {
