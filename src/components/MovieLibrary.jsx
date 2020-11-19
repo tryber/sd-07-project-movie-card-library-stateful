@@ -19,7 +19,31 @@ class MovieLibrary extends React.Component {
   handleChange(event) {
     const { name } = event.target;
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, this.searchFilters);
+  }
+
+  searchFilters() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.props;
+    let filteredSearch = [];
+
+    filteredSearch = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+
+    if (bookmarkedOnly) {
+      filteredSearch = filteredSearch.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre !== '') {
+      filteredSearch = filteredSearch.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    this.setState({ movies: filteredSearch });
+    console.log(filteredSearch);
+
+    // source: https://github.com/tryber/sd-07-project-movie-card-library-stateful/tree/vitorRc1-project-movie-cards-library-stateful
+    // usei o repo do Vitor de base pra fazer o filtro
   }
 
   render() {
@@ -32,9 +56,9 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           onSearchTextChange={this.handleChange}
           bookmarkedOnly={bookmarkedOnly}
-          // onBookmarkedChange={props.onBookmarkedChange} peguei do arq de testes - arrumar
+          onBookmarkedChange={this.handleChange}
           selectedGenre={selectedGenre}
-          // onSelectedGenreChange={props.onSelectedGenreChange} peguei do arq de testes - arrumar
+          onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={movies} />
         {/* <AddMovie /> */}
