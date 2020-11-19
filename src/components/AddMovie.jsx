@@ -18,22 +18,12 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-
   onClicAddMovie(event) {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.resetState();
   }
-
-  handleChange({ target }) {
-    const { name, value } = target;
-    this.setState(() => {
-      if (name === 'rating') return { [name]: Number(value) };
-      return { [name]: value };
-    });
-  }
-
   resetState() {
     this.setState({
       subtitle: '',
@@ -42,6 +32,13 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+    });
+  }
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState(() => {
+      if (name === 'rating') return { [name]: Number(value) };
+      return { [name]: value };
     });
   }
   render() {
@@ -120,6 +117,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.protoTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
