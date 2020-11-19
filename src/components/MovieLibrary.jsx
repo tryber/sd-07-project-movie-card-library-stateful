@@ -26,25 +26,27 @@ class MovieLibrary extends React.Component {
   }
 
   addMovie(add) {
-    console.log(add);
+    this.setState((state) => ({ movies: state.movies.concat(add) }));
   }
 
   filterMovies() {
     console.log('oi');
+    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    // const filteredMovie = this.state.filter((movie) => movie.includes(this.state))
   }
 
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.state;
 
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={searchText}
-          bookmarkedOnly={bookmarkedOnly}
-          selectedGenre={selectedGenre}
+          searchText={this.searchText}
           onSearchTextChange={this.handleChange}
+          bookmarkedOnly={this.bookmarkedOnly}
           onBookmarkedChange={this.handleChange}
+          selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={movies} />

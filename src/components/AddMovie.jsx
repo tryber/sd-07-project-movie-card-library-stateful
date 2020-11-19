@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.addMovie = this.addMovie.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -17,7 +17,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  addMovie() {
+  handleClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
   }
@@ -120,10 +121,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button
-          data-testid="send-button"
-          onClick={this.addMovie}
-        >
+        <button data-testid="send-button" onClick={this.handleClick}>
           Adicionar filme
         </button>
       </form>
