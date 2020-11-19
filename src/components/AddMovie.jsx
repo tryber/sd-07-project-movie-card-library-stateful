@@ -5,8 +5,9 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
-    this.addMovie = this.addMovie.bind(this);
-    this.setState = {
+    this.changingInputsState = this.changingInputsState.bind(this);
+    this.buttonOnclick = this.buttonOnclick.bind(this);
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',

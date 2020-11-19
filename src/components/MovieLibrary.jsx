@@ -1,78 +1,93 @@
-import React from 'react';
-import Proptype from 'prop-types';
-import SearchBar from './SearchBar';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const movies = this.props.movies;
+
+    this.computedInputsSearchBar = this.computedInputsSearchBar.bind(this);
+    this.addComputedMovie = this.addComputedMovie.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies,
     };
   }
 
-  searchTextChange({ target }) {
-    const { movies } = this.state;
-    const { value } = target;
-    const showMovie = (value !== 'undefined') ? movies.filter((movie) => movie.title.includes(value)
-    || movie.subtitle.includes(value)
-    || movie.storyline.includes(value)) : movies;
-    this.setState({
-      searchText: value,
-      movies: showMovie,
-    });
+  addComputedMovie(result) {
+    this.setState({ movies: [...this.state.movies, result] });
   }
 
-  bookmarkedOnlyChange({ target }) {
-    const { movies } = this.state;
-    const { checked } = target;
-    const favoriteMovies = (checked) ? movies.filter((movie) => movie.bookmarked) : movies;
-    this.setState({
-      bookmarkedOnly: checked,
-      movies: favoriteMovies,
+  isBookmarkeds(movies) {
+    const moviesFiltered = movies.filter((movie) => {
+      if (this.state.bookmarkedOnly) {
+        return movie.bookmarked === this.state.bookmarkedOnly;
+      }
+      return movie;
     });
+    return moviesFiltered;
   }
 
-  slectedGenreChange({ target }) {
-    const { movies } = this.state;
-    const { value } = target;
-    const genreMovies = (value !== '') ? movies.filter((movie) => movie.genre === value) : movies;
-
-    this.setState({
-      selectedGenre: value,
-      movies: genreMovies,
-    });
+  // prettier-ignore
+  searchField(movies, field) {
+    const foundMovies = movies.filter((movie) =>
+      movie[field].toLowerCase().includes(this.state.searchText.toLowerCase()));
+    return foundMovies;
   }
 
-  AddNewMovie(movie) {
-    this.setState((estadoAnterior) => ({ movies: [...estadoAnterior.movies, movie] }));
+  searchMoviesInFields(movies) {
+    const allMoviesFounds = [
+      ...this.searchField(movies, 'title'),
+      ...this.searchField(movies, 'subtitle'),
+      ...this.searchField(movies, 'storyline'),
+    ];
+
+    const removeRepeated = [
+      ...new Set(allMoviesFounds.reduce((acc, movie) => [...acc, movie], [])),
+    ];
+    console.log(removeRepeated);
+    return removeRepeated;
+  }
+
+  // prettier-ignore
+  moviesSearchResult() {
+    const moviesGenre = this.state.movies.filter((movie) =>
+      movie.genre.includes(this.state.selectedGenre));
+
+    const Bookmarkeds = this.isBookmarkeds(moviesGenre);
+    const moviesResult = this.searchMoviesInFields(Bookmarkeds);
+    return moviesResult;
+  }
+
+  computedInputsSearchBar({ target: { value, checked, dataset, type } }) {
+    const isValue = type === 'checkbox' ? checked : value;
+    this.setState({ [dataset.key]: isValue });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <h1>Movie Library</h1>
         <SearchBar
-          searchText={searchText}
-          onSearchTextChange={this.searchTextChange}
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.bookmarkedOnlyChange}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.slectedGenreChange}
+          searchText={this.state.searchText}
+          onSearchTextChange={this.computedInputsSearchBar}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.computedInputsSearchBar}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.computedInputsSearchBar}
         />
-        <MovieList movies={movies} />
-        <AddMovie onClick={this.AddNewMovie} />
+        <MovieList movies={this.moviesSearchResult()} />
+        <AddMovie onClick={this.addComputedMovie} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: Proptype.arrayOf(PropTypes.number).isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
