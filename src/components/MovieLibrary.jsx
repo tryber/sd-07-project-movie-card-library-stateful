@@ -23,7 +23,8 @@ class MovieLibrary extends Component {
         <SearchBar
           searchText={this.searchText}
           bookmarkedOnly={this.bookmarkedOnly}
-          selectedGenre={this.selectedGenre} />
+          selectedGenre={this.selectedGenre} 
+          />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>
