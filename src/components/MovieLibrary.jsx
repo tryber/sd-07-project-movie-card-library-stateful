@@ -24,9 +24,9 @@ class MovieLibrary extends React.Component {
     this.setState((oldState) => ({ movies: [...oldState.movies, movie] }));
   }
 
-  changeHandler(event) {
-    const value = event.target.type === 'option' ? true : event.target.value;
-    this.setState({ [event.target.name]: value });
+  changeHandler({ target }) {
+    const value = target.type === 'checkbox' ? true : target.value;
+    this.setState({ [target.name]: value });
   }
 
   movieFilter() {
