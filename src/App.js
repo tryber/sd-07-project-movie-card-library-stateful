@@ -17,7 +17,7 @@ class App extends React.Component {
 
   bookmarkedOnly() {
     console.log('teste3');
-  } 
+  }
 
   searchText() {
     console.log('teste2');
