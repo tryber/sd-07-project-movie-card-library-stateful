@@ -7,23 +7,20 @@ import SearchBar from './components/SearchBar';
 
 
 class App extends React.Component {
-  constructor() {
-    super() 
-      this.bookmarkedOnly = this.bookmarkedOnly.bind(this)
-  }
   onSearchTextChange() {
     console.log('test');
+  }
+  
+  bookmarkedOnly() {
+    console.log('teste3');
+  } 
+
+  onBookmarkedChange() {
+    console.log('teste4');
   }
 
   searchText() {
     console.log('teste2');
-  }
-  bookmarkedOnly() {
-    console.log("teste3");
-  } 
-
-  onBookmarkedChange() {
-    console.log("teste4");
   }
 
   render() {
@@ -32,10 +29,10 @@ class App extends React.Component {
         <Header />
         <MovieLibrary movies={movies} />
         <SearchBar 
-        onSearchTextChange={this.onSearchTextChange}
-        searchText={this.searchText}
-        bookmarkedOnly={this.bookmarkedOnly}
-        onBookmarkedChange={this.onBookmarkedChange}
+          onSearchTextChange={this.onSearchTextChange}
+          searchText={this.searchText}
+          bookmarkedOnly={this.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
         />
       </div>
     );
