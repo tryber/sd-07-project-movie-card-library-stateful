@@ -18,14 +18,9 @@ class App extends React.Component {
   searchText() {
     console.log('teste2');
   }
-  bookmarkedOnly({target}) {
-    const { name } = target
-    const value = target.type === "checkbox" ? target.checked : target.value
-
-    this.setState({
-      [name]:value
-    })
-  }
+  bookmarkedOnly() {
+    console.log("teste3");
+  } 
 
   onBookmarkedChange() {
     console.log("teste4");
