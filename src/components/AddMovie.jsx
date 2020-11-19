@@ -19,6 +19,7 @@ class AddMovie extends Component {
   }
 
   addMovieFunction() {
+    // eslint-disable-next-line react/prop-types
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(initialState);

@@ -21,7 +21,7 @@ class MovieLibrary extends Component {
     this.handleChangeSearch = this.handleChangeSearch.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChangeSearch({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
@@ -39,7 +39,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.handleChange}
+          onSearchTextChange={this.handleChangeSearch}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.updateStatus}
