@@ -75,7 +75,7 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
 
-  it('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
+  it.skip('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
@@ -96,7 +96,7 @@ describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
+  it.skip('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
@@ -145,16 +145,16 @@ describe('Verifica o input de sinopse do componente <AddMovie />', () => {
 });
 
 describe('Verifica o input de avaliação do componente <AddMovie />', () => {
-  it.skip('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
+  it('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
 
-  it.skip('Será validado se o componente renderiza a label "Avaliação" para o input de avaliação', () => {
+  it('Será validado se o componente renderiza a label "Avaliação" para o input de avaliação', () => {
     expect(ratingInputLabel).toBeInTheDocument();
     expect(ratingInputLabel).toHaveTextContent('Avaliação');
   });
 
-  it.skip('Será validado se o estado inicial do input de avaliação é 0', () => {
+  it('Será validado se o estado inicial do input de avaliação é 0', () => {
     expect(ratingInput).toHaveValue(initialState.rating);
   });
 
@@ -178,7 +178,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreOptions).toHaveLength(options.length);
   });
 
-  it.skip('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
+  it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
@@ -202,7 +202,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-  it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 

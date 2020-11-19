@@ -26,16 +26,26 @@ class AddMovie extends Component {
     return (
       <form>
         <label data-testid="title-input-label">Título</label>
-        <input data-testid="title-input" type="text" value={this.title} onChange={this.onChange} />
+        <input data-testid="title-input" type="text" value={this.state.title} onChange={this.onChange} />
         <label data-testid="subtitle-input-label">Subtítulo</label>
-        <input data-testid="subtitle-input" type="text" value={this.subtitle} />
+        <input data-testid="subtitle-input" type="text" value={this.state.subtitle} />
 
         <label data-testid="image-input-label">Imagem</label>
-        <input data-testid="image-input" type="text" value={this.imagePath} />
+        <input data-testid="image-input" type="text" value={this.state.imagePath} />
 
         <label data-testid="storyline-input-label">Sinopse</label>
-        <input data-testid="storyline-input" type="textarea" value={this.storyline} />
+        <input data-testid="storyline-input" type="textarea" value={this.state.storyline} />
 
+        <label data-testid="rating-input-label">Avaliação</label>
+        <input data-testid="rating-input" type="number" value={this.state.rating} />
+
+        <label data-testid="genre-input-label">Gênero</label>
+        <select value={this.state.genre}>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+        <button data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
