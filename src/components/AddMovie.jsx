@@ -55,7 +55,6 @@ class AddMovie extends React.Component {
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { handleSendButton, handleChange } = this;
-    // const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
         <AddMovieTextInputTitle title={title} handleChange={handleChange} />

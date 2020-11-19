@@ -37,8 +37,24 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  onClick(newMovieObj) {
-    this.setState((oldState) => ({ movies: [...oldState.movies, newMovieObj] }));
+  onClick(newMovie) {
+    this.setState((pastState) => ({ movies: [...pastState.movies, newMovie] }));
+  }
+
+  filterByText(movies) {
+    const textInput = movies.filter(
+      (name) =>
+        name.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) >=
+        0 ||
+        name.subtitle
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0 ||
+        name.storyline
+          .toLowerCase()
+          .indexOf(this.state.searchText.toLowerCase()) >= 0,
+    );
+
+    return textInput;
   }
 
   filters() {
@@ -63,22 +79,6 @@ class MovieLibrary extends React.Component {
     }
 
     return this.filterByText(movies);
-  }
-
-  filterByText(movies) {
-    const textInput = movies.filter(
-      (name) =>
-        name.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) >=
-        0 ||
-        name.subtitle
-          .toLowerCase()
-          .indexOf(this.state.searchText.toLowerCase()) >= 0 ||
-        name.storyline
-          .toLowerCase()
-          .indexOf(this.state.searchText.toLowerCase()) >= 0,
-    );
-
-    return textInput;
   }
 
   render() {
