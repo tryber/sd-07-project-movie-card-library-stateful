@@ -19,11 +19,11 @@ class AddMovie extends React.Component {
   changingInputsState(event) {
     const { name, valeu } = event.target;
     this.setState({ [name]: valeu });
-  };
+  }
 
   buttonOnclick() {
     this.changingInputsState();
-  };
+  }
 
   render() {
     return (
@@ -80,10 +80,10 @@ class AddMovie extends React.Component {
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
-          name="genre"
-          value={this.genre}
-          onChange={this.handleChange}
-          data-testid="genre-input"
+            name="genre"
+            value={this.genre}
+            onChange={this.handleChange}
+            data-testid="genre-input"
           >
             <option
               data-testid="genre-option"
@@ -106,8 +106,8 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-        data-testid="send-button"
-        onClick={this.buttonOnclick}
+          data-testid="send-button"
+          onClick={this.buttonOnclick}
         >
           Adicionar filme
         </button>
