@@ -5,8 +5,9 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import SearchBar from './components/SearchBar';
 
+
 class App extends React.Component {
-  onSearchTextChange() { 
+  onSearchTextChange() {
     console.log('test');
   }
 
@@ -15,14 +16,15 @@ class App extends React.Component {
   }
 
   render() {
-  return (
-    <div className="App">
-      <Header />
-      <MovieLibrary movies={movies} />
-      <SearchBar onSearchTextChange={this.onSearchTextChange} searchText={this.searchText} />
-    </div>
-  );
+    return (
+      <div className="App">
+        <Header />
+        <MovieLibrary movies={movies} />
+        <SearchBar onSearchTextChange={this.onSearchTextChange} searchText={this.searchText} />
+      </div>
+    );
   }
 }
+
 
 export default App;

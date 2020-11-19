@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -19,6 +20,10 @@ class SearchBar extends React.Component {
       </form>
     );
   }
+}
+SearchBar.propTypes = {
+  searchText: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired
 }
 
 export default SearchBar;
