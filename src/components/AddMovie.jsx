@@ -107,7 +107,7 @@ class AddMovies extends React.Component {
             type="button"
             data-testid="send-button"
             onClick={() => {
-              this.props.newMovie(this.state);
+              this.props.onClick(this.state);
               this.setState({
                 subtitle: '',
                 title: '',
