@@ -20,7 +20,7 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar searchText={this.state.searchText} />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie rating={0} />
       </div>
     );
   }

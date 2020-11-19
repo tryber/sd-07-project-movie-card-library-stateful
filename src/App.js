@@ -8,14 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <MovieLibrary />
-      {/* <SearchBar searchText=""
-      onSearchTextChange={() => {}}
-      bookmarkedOnly={true}
-      onBookmarkedChange={() => {}}
-      selectedGenre=""
-      onSelectedGenreChange={() => {}}
-      />
-      <AddMovie onClick={() => {}}/> */}
     </div>
 
   );
