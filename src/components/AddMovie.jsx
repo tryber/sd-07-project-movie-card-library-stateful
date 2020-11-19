@@ -124,7 +124,7 @@ class AddMovies extends React.Component {
   }
 }
 
-AddMovies.propTypes = { newMovie: PropTypes.func.isRequired };
+AddMovies.propTypes = { onClick: PropTypes.func.isRequired };
 //   subtitle: PropTypes.string.isRequired,
 //   title: PropTypes.string.isRequired,
 //   imagePath: PropTypes.string.isRequired,
