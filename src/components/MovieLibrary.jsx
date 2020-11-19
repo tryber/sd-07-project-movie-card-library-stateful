@@ -119,7 +119,14 @@ class MovieLibrary extends Component {
     });*/
     return (
       <div>
-        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.handleChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.handleChange} selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.handleChange} />
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.handleChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.handleChange}
+        />
         <MovieList movies={filteredMovies} />
         <AddMovie onClick={this.addMovieToList} />
       </div>
