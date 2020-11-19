@@ -7,12 +7,12 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
 
     this.newMovie = this.newMovie.bind(this);
@@ -21,7 +21,7 @@ class MovieLibrary extends React.Component {
   }
 
   newMovie(movie) {
-    this.setState((oldState) => oldState.movies.push(movie));
+    this.setState((oldState) => ({ movies: [...oldState.movies, movie] }));
   }
 
   changeHandler(event) {
@@ -30,7 +30,6 @@ class MovieLibrary extends React.Component {
   }
 
   movieFilter() {
-    console.log(this.state.movies);
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     let filtered = movies;
     if (bookmarkedOnly) {

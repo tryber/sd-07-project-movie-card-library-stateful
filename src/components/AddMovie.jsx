@@ -106,7 +106,17 @@ class AddMovies extends React.Component {
             id="send-button"
             type="button"
             data-testid="send-button"
-            onClick={() => this.props.newMovie(this.state)}
+            onClick={() => {
+              this.props.newMovie(this.state);
+              this.setState({
+                subtitle: '',
+                title: '',
+                imagePath: '',
+                storyline: '',
+                rating: 0,
+                genre: 'action',
+              });
+            }}
           >Adicionar filme</button>
         </form>
       </div>
