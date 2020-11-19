@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,6 +13,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+  }
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -27,7 +32,8 @@ class AddMovie extends React.Component {
               type="text"
               value={title}
               data-testid="title-input"
-              onChange="titleaqui"
+              onChange={this.handleChange}
+              name="title"
             />
           </label>
 
@@ -37,7 +43,8 @@ class AddMovie extends React.Component {
               type="text"
               value={subtitle}
               data-testid="subtitle-input"
-              onChange="subtitleaqui"
+              onChange={this.handleChange}
+              name="subtitle"
             />
           </label>
 
@@ -47,7 +54,8 @@ class AddMovie extends React.Component {
               type="text"
               value={imagePath}
               data-testid="image-input"
-              onChange="imageaqui"
+              onChange={this.handleChange}
+              name="imagePath"
             />
           </label>
 
@@ -56,17 +64,19 @@ class AddMovie extends React.Component {
             <textarea
               value={storyline}
               data-testid="storyline-input"
-              onChange="storyline"
+              onChange={this.handleChange}
+              name="storyline"
             />
           </label>
 
-          <label htmlFor="storyline" data-testid="rating-input-label">
+          <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
             <input
               type="number"
               value={rating}
-              data-testid="storyline-input"
-              onChange="storyline"
+              data-testid="rating-input"
+              onChange={this.handleChange}
+              name="rating"
             />
           </label>
 
@@ -75,7 +85,8 @@ class AddMovie extends React.Component {
             <select
               value={genre}
               data-testid="genre-input"
-              onChange="genre"
+              onChange={this.handleChange}
+              name="genre"
             >
               <option value="action" data-testid="genre-option">
                 Ação
