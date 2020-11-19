@@ -46,8 +46,9 @@ class MovieLibrary extends React.Component {
     // usei o repo do Vitor de base pra fazer o filtro
   }
 
-  addMovie() {
-    // this.setState({ movies: [...movies, newMovie] });
+  addMovie(addNew) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, addNew] });
   }
 
   render() {

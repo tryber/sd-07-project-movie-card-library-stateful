@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.btnAddMovie = this.btnAddMovie.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -20,12 +21,25 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  btnAddMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
+
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <label htmlFor="title" data-testid="title-input-label">
             Título
             <input
@@ -100,11 +114,7 @@ class AddMovie extends React.Component {
             </select>
           </label>
 
-          <button
-            type="button"
-            data-testid="send-button"
-            onClick={onClick}
-          >
+          <button type="button" data-testid="send-button" onClick={this.btnAddMovie}>
             Adicionar filme
           </button>
         </form>
