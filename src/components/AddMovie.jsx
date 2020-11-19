@@ -12,98 +12,86 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
-    this.initialState = Object.assign(this.state);
-
-    this.newMovieHandler = this.newMovieHandler.bind(this);
-    this.newMovieSubtitleHandler = this.newMovieSubtitleHandler.bind(this);
-    this.newMovieImageHandler = this.newMovieImageHandler.bind(this);
-    this.newMovieStorylineHandler = this.newMovieStorylineHandler.bind(this);
-    this.newMovieRatingHandler = this.newMovieRatingHandler.bind(this);
-    this.newMovieGenreHandler = this.newMovieGenreHandler.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.addMovieHandler = this.addMovieHandler.bind(this);
+    this.addMovieButton = this.addMovieButton.bind(this);
   }
 // ------------------------------------------------------------------------
-  onClick(state) {
-    console.log(state);
-    this.setState(this.initialState);
+  addMovieHandler(event) {
+    const state = event.target.name;
+    const newValue = state === 'rating' ? Number(event.target.value) : event.target.value;
+    this.setState({
+      [state]: newValue,
+    });
   }
 
-  newMovieHandler(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  newMovieSubtitleHandler(event) {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  newMovieImageHandler(event) {
-    this.setState({ imagePath: event.target.value });
-  }
-
-  newMovieStorylineHandler(event) {
-    this.setState({ storyline: event.target.value });
-  }
-
-  newMovieRatingHandler(event) {
-    this.setState({ rating: event.target.value });
-  }
-
-  newMovieGenreHandler(event) {
-    this.setState({ genre: event.target.value });
+  addMovieButton(callback) {
+    callback(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
   }
 // ------------------------------------------------------------------------
   render() {
     const { onClick } = this.props;
     return (
-      <form action="">
+      <form data-testid="add-movie-form">
         <label htmlFor="new-movie-title" data-testid="title-input-label">Título</label>
         <input
           type="text"
+          name="title"
           value={this.state.title}
           data-testid="title-input"
-          onChange={this.newMovieHandler}
+          onChange={this.addMovieHandler}
         />
 
         <label htmlFor="new-movie-subtitle" data-testid="subtitle-input-label">Subtítulo</label>
         <input
           type="text"
+          name="subtitle"
           value={this.state.subtitle}
           data-testid="subtitle-input"
-          onChange={this.newMovieSubtitleHandler}
+          onChange={this.addMovieHandler}
         />
 
         <label htmlFor="new-movie-image" data-testid="image-input-label">Imagem</label>
         <input
           type="text"
+          name="imagePath"
           value={this.state.imagePath}
           data-testid="image-input"
-          onChange={this.newMovieImageHandler}
+          onChange={this.addMovieHandler}
         />
 
         <label htmlFor="new-movie-storyline" data-testid="storyline-input-label">Sinopse</label>
         <input
           type="text"
+          name="storyline"
           data-testid="storyline-input"
           value={this.state.storyline}
-          onChange={this.newMovieStorylineHandler}
+          onChange={this.addMovieHandler}
         />
 
         <label htmlFor="new-movie-rating" data-testid="rating-input-label">Avaliação</label>
         <input
           type="number"
+          name="rating"
           value={this.state.rating}
           data-testid="rating-input"
-          onChange={this.newMovieRatingHandler}
+          onChange={this.addMovieHandler}
         />
 
-        <label htmlFor="new-movie-genre" data-testid="genre-input-label">Gênero</label>
+        <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
         <select
-          name="new-movie-genre"
-          id="new-movie-genre"
+          name="genre"
+          id="genre"
           value={this.state.genre}
           data-testid="genre-input"
-          onChange={this.newMovieGenreHandler}
+          onChange={this.addMovieHandler}
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -112,7 +100,7 @@ class AddMovie extends React.Component {
 
         <button
           data-testid="send-button"
-          onClick={() => onClick(this.state)}
+          onClick={() => this.addMovieButton(onClick)}
         >Adicionar filme</button>
       </form>
     );
