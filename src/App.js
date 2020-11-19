@@ -6,14 +6,20 @@ import MovieLibrary from './components/MovieLibrary';
 import SearchBar from './components/SearchBar';
 
 class App extends React.Component {
-    onSearchTextChange() { "hello" }
-    searchText() { "word" }
+    onSearchTextChange() { 
+      console.log('test');
+    }
+
+    searchText() { 
+      console.log('teste2'); 
+    }
+
     render() {
     return (  
       <div className="App">
         <Header />
         <MovieLibrary movies={movies} />
-        <SearchBar />
+        <SearchBar onSearchTextChange={this.onSearchTextChange} earchText={this.earchText} />
       </div>
     );
   }
