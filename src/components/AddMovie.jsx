@@ -17,8 +17,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  changingInputsState(event) {
-    const { name, valeu } = event.target;
+  changingInputsState({ target }) {
+    const { name, valeu } = target;
     this.setState({ [name]: valeu });
   }
 
