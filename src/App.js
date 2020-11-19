@@ -23,6 +23,10 @@ class App extends React.Component {
     console.log('teste2');
   }
 
+  selectedGenre() {
+    console.log("test5");
+  }
+
   render() {
     return (
       <div className="App">
@@ -33,6 +37,7 @@ class App extends React.Component {
           searchText={this.searchText}
           bookmarkedOnly={this.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.selectedGenre}
         />
       </div>
     );
