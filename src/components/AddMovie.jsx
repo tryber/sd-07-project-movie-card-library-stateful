@@ -14,13 +14,8 @@ class AddMovie extends Component {
     super(props);
     this.state = initialState;
 
-    this.handleChangeTitle = this.handleChangeTitle.bind(this);
-    this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
-    this.handleChangeImagePath = this.handleChangeImagePath.bind(this);
-    this.handleChangeStoryline = this.handleChangeStoryline.bind(this);
-    this.handleChangeRating = this.handleChangeRating.bind(this);
-    this.handleChangeSelected = this.handleChangeSelected.bind(this);
     this.addMovieFunction = this.addMovieFunction.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   addMovieFunction() {
@@ -29,46 +24,9 @@ class AddMovie extends Component {
     this.setState(initialState);
   }
 
-  handleChangeTitle(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.title = event.target.value;
-    this.setState(state);
-  }
-
-  handleChangeSubtitle(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.subtitle = event.target.value;
-    this.setState(state);
-  }
-
-  handleChangeImagePath(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.imagePath = event.target.value;
-    this.setState(state);
-  }
-
-  handleChangeStoryline(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.storyline = event.target.value;
-    this.setState(state);
-  }
-
-  handleChangeRating(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.rating = event.target.value;
-    this.setState(state);
-  }
-
-  handleChangeSelected(event) {
-    // eslint-disable-next-line prefer-destructuring
-    const state = this.state;
-    state.genre = event.target.value;
-    this.setState(state);
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -79,10 +37,11 @@ class AddMovie extends Component {
           <label htmlFor="title-input" data-testid="title-input-label">
                 Título
             <input
+              name="title"
               value={title}
               data-testid="title-input"
               id="title-input"
-              onChange={this.handleChangeTitle}
+              onChange={this.handleChange}
               type="text"
             />
           </label>
@@ -92,11 +51,12 @@ class AddMovie extends Component {
           >
           Subtítulo
             <input
+              name="subtitle"
               id="subtitle-input"
               value={subtitle}
               data-testid="subtitle-input"
               type="text"
-              onChange={this.handleChangeSubtitle}
+              onChange={this.handleChange}
             />
           </label>
           <label
@@ -105,11 +65,12 @@ class AddMovie extends Component {
           >
           Imagem
             <input
+              name="imagePath"
               id="image-input"
               value={imagePath}
               data-testid="image-input"
               type="text"
-              onChange={this.handleChangeImagePath}
+              onChange={this.handleChange}
             />
           </label>
           <label
@@ -118,10 +79,11 @@ class AddMovie extends Component {
           >
           Sinopse
             <textarea
+              name="storyline"
               id="storyline-input"
               value={storyline}
               data-testid="storyline-input"
-              onChange={this.handleChangeStoryline}
+              onChange={this.handleChange}
             />
           </label>
           <label
@@ -130,11 +92,12 @@ class AddMovie extends Component {
           >
           Avaliação
             <input
+              name="rating"
               id="rating-input"
               value={rating}
               data-testid="rating-input"
               type="number"
-              onChange={this.handleChangeRating}
+              onChange={this.handleChange}
             />
           </label>
           <label
@@ -143,10 +106,11 @@ class AddMovie extends Component {
           >
             Gênero
             <select
+              name="genre"
               id="genre-input"
               data-testid="genre-input"
               value={genre}
-              onChange={this.handleChangeSelected}
+              onChange={this.handleChange}
             >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>

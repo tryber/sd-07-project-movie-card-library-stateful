@@ -1,29 +1,35 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
+const initialState = {
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
+  movies: this.props.movies,
+};
+
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.state = initialState;
 
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: this.props.movies,
-    };
     this.handleAddMovie = this.handleAddMovie.bind(this);
-    this.updateStatus = this.updateStatus.bind(this);
+    this.handleChangeSearch = this.handleChangeSearch.bind(this);
   }
 
-  handleAddMovie() {
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
-  updateStatus() {
+  handleAddMovie(currentState) {
+    // adicionar um filme. Precisa atualizar o estado de AddMovie
+    this.setState(initialState);
+    console.log(currentState);
   }
 
   render() {
@@ -33,8 +39,10 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
+          onSearchTextChange={this.handleChange}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.updateStatus}
         />
         <MovieList movies={movies} />
         <AddMovie onClick={this.handleAddMovie} />
@@ -43,6 +51,5 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: propTypes.arrayOf(propTypes.object).isRequired };
 
 export default MovieLibrary;
