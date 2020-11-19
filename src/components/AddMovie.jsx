@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
             />
           </label>
           <label data-testid="image-input-label" htmlFor="addMovieImagem">
-           Imagem 
+           Imagem
             <input
               data-testid="image-input"
               name="addMovieImagem"
