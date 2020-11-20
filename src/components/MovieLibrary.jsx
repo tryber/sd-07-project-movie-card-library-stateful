@@ -44,7 +44,7 @@ class MovieLibrary extends React.Component {
       (movie) =>
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText)
+        movie.storyline.includes(searchText),
        );
     if (bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
