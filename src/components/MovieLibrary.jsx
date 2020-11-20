@@ -15,9 +15,10 @@ export default class MovieLibrary extends Component {
       MovieData: Data,
       filteredMovieData: Data
     }
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  onSearchTextChange = (event) => {
+  onSearchTextChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     }, () => this.filterMovieList());
