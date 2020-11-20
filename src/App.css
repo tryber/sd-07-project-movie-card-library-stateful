@@ -4,6 +4,23 @@ body {
   font-size: 16px;
 }
 
+.form-add-movie {
+  align-items: center;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.form-bar-search {
+  align-items: center;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding: 5px;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
