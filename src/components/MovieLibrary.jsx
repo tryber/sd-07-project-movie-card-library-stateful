@@ -39,6 +39,7 @@ class MovieLibrary extends Component {
 
   handleChangeGere({ target }) {
     const { name, value } = target;
+    console.log(value);
     this.setState({ [name]: value }, () => { this.filterMovieForGenre(); });
   }
 
@@ -50,7 +51,10 @@ class MovieLibrary extends Component {
     const { searchText } = state;
 
     if (searchText !== '') {
-      newArrayMovie = movies.filter((item) => item.title.indexOf(searchText) !== -1);
+      console.log(searchText)
+      newArrayMovie = movies.filter((item) => item.title.includes(searchText)
+      || item.subtitle.includes(searchText)
+      || item.storyline.includes(searchText));
     } else {
       newArrayMovie = this.props.movies;
     }
@@ -92,6 +96,49 @@ class MovieLibrary extends Component {
     state.movies = newArrayMovie;
     this.setState(state);
   }
+
+  /**
+   * filterMovie() {
+    const state = this.state;
+    let { movies } = state;
+    let newArrayMovie = [];
+
+    const { bookmarkedOnly, searchText, selectedGenre } = state;
+
+    if (bookmarkedOnly) {
+      console.log("bookmakedOnly");
+      newArrayMovie = movies.filter((item) => item.bookmarked === bookmarkedOnly);
+    } else {
+      newArrayMovie = movies;
+    }
+
+    if (searchText !== '') {
+      console.log("searchText");
+      newArrayMovie = movies.filter((item) => item.title.indexOf(searchText) !== -1);
+    }
+    if (selectedGenre !== '') {
+      console.log("selectedGenre");
+      newArrayMovie = movies.filter((item) => item.genre === selectedGenre);
+    }
+    // Porque so funciona com state.moves?
+    state.movies = newArrayMovie;
+
+    console.log(movies);
+    this.setState(state);
+  }
+
+    filterMovie() {
+    const { movies } = this.props;
+    // eslint-disable-next-line prefer-destructuring
+    const state = this.state;
+
+    state.movies = movies
+      .filter((movie) => movie.bookmarked === state.bookmarkedOnly
+      || movie.title.indexOf(state.searchText)
+      || movie.gere === state.selectedGenre);
+
+    this.setState(state);
+  } */
 
   handleAddMovie(currentState) {
     // adicionar um filme. Precisa atualizar o estado de AddMovie
