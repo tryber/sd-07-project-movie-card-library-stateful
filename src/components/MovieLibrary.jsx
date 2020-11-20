@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import movies from '../data';
+
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -23,6 +23,7 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      movies,
     } = this.state;
 
     return (

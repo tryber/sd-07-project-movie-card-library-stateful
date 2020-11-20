@@ -114,6 +114,7 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
+
         <button
           type="button"
           data-testid="send-button"
