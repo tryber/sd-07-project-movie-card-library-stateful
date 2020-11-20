@@ -10,6 +10,7 @@ class MovieLibrary extends Component {
     this.changeFunc = this.changeFunc.bind(this);
     this.resetState = this.resetState.bind(this);
     this.state = {
+      movies: this.props.movies,
       searchText: '',
       bookmarkedOnly: '',
       selectedGenre: '',
@@ -23,7 +24,7 @@ class MovieLibrary extends Component {
   }
 
   resetState(target) {
-    console.log(target);
+    this.setState({ movies: [...this.state.movies, target] }); // Valeu, Cosmo o/
   }
 
   render() {
@@ -38,7 +39,12 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.changeFunc}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList
+          movies={this.state.movies}
+          selectedGenre={this.state.selectedGenre}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          searchText={this.state.searchText}
+        />
         <AddMovie onClick={this.resetState} />
       </div>
     );
@@ -60,7 +66,8 @@ MovieLibrary.propTypes = {
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
-  })),
+  }),
+  ),
 };
 
 export default MovieLibrary;

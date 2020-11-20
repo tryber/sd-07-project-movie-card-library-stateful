@@ -5,12 +5,14 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
+    this.stateFunc = this.stateFunc.bind(this);
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
+      bookmarked: false,
       genre: 'action',
     };
     this.baseState = this.state;
@@ -20,13 +22,13 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
-  render() {
-    const { onClick } = this.props;
 
-    const stateFunc = () => {
-      onClick(this.state);
-      this.setState(this.baseState);
-    };
+  stateFunc() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this.baseState);
+  }
+  render() {
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -104,10 +106,11 @@ class AddMovie extends React.Component {
               Suspense
             </option>
           </select>
-        </form>
-        <button data-testid="send-button" onClick={stateFunc}>
+          <button data-testid="send-button" type="button" onClick={this.stateFunc}>
           Adicionar filme
         </button>
+        </form>
+
       </div>
     );
   }
