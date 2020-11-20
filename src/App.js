@@ -15,10 +15,6 @@ class App extends React.Component {
     console.log('teste4');
   }
 
-  bookmarkedOnly() {
-    console.log('teste3');
-  }
-
   searchText() {
     console.log('teste2');
   }
@@ -29,6 +25,10 @@ class App extends React.Component {
 
   onSelectedGenreChange() {
     console.log('teste6');
+  }
+  
+  bookmarkedOnly() {
+    console.log('teste3');
   }
 
   render() {
