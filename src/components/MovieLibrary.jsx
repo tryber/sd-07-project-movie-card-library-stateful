@@ -21,15 +21,14 @@ export default class MovieLibrary extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ [event.target.name]: event.target.value},
+    this.setState({ [event.target.name]: event.target.value },
       () => this.filterMovieList());
   }
 
   onBookmarkedChange(event) { // event.target.name é null dentro do prevState, pk?
     const eventTargetName = event.target.name;
-    this.setState((prevState) => ({
-     [eventTargetName]: !prevState.bookmarkedOnly
-    }), () => console.log(this.state.bookmarkedOnly));
+    this.setState((prevState) => ({ [eventTargetName]: !prevState.bookmarkedOnly }),
+    () => console.log(this.state.bookmarkedOnly));
   }
 
   onSelectedGenreChange(event) {
@@ -39,8 +38,10 @@ export default class MovieLibrary extends Component {
   filterMovieList() {
     this.setState((prevState) => {
       console.log(prevState.MovieData);
-      this.setState({ filteredMovieData: prevState.MovieData
-        .filter(({ title }) => title.includes(this.state.searchText)) });
+      this.setState({
+        filteredMovieData: prevState.MovieData
+          .filter(({ title }) => title.includes(this.state.searchText))
+      });
     }, () => console.log(this.state.filteredMovieData));
   }
 
