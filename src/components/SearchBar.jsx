@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
       <div>
         <h1 className="search">Searching</h1>
         <button onClick={this.handleClick}>Meu Botao</button>
-        <form className="form">
+        <form className="form" data-testid="search-bar-form">
           <div>
             <label htmlFor="includes-text">Inclui o Texto:</label>
             <input type="text" id="includes-text" />
