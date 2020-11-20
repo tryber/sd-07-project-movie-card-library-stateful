@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -51,5 +52,15 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+  })),
+};
 
 export default MovieLibrary;
