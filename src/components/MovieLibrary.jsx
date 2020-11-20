@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import movies from '../data';
 
@@ -31,6 +32,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
+        <MovieList movies={movies} />
         <AddMovie />
       </div>
     );

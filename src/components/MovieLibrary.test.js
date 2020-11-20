@@ -104,7 +104,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
-  it.skip('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
+  it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
@@ -186,7 +186,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />', () => {
-  it.skip('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {
+  it('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
