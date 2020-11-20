@@ -34,7 +34,19 @@ class AddMovie extends React.Component {
                   <textarea data-testid="storyline-input"/*ESTADO INCIAL */ onChange={/* rever atributo*/}/>
               </div>
               <div>
-                
+              <label data-test="rating-input-label">Avaliação</label>
+              <input type="number" /* estado incial*/ data-testid="rating-input" onChange={/* rever atributo*/}/>
+              </div>
+              <div>
+              <label data-test="genre-input-label">Genero</label>
+              <select  /* estado incial*/ data-testid="genre-input" onChange={/* rever atributo*/}>
+               <option value="action" data-testid="genre-option">Ação</option>
+               <option value="comedy" data-testid="genre-option">Comédia</option>
+               <option value="thriller" data-testid="genre-option">Suspense</option>
+               </select>
+               </div>
+               <div>
+             <button data-testid="send-button" onClick={/* Fazer função */} >Adicionar Filmes</button>           
               </div>
             </form>
             </div>
