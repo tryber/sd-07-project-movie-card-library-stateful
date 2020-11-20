@@ -195,7 +195,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
 
-  it('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
+  it.skip('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
   });
