@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
 
     this.state = {
       subtitle: '',
@@ -20,10 +22,12 @@ class AddMovie extends React.Component {
     const { name, value } = target;
 
     this.setState({ [name]: value });
+    // console.log(value);
   }
 
   addMovie() {
-    this.state = {
+    this.props.onClick(this.state);
+    this.setState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -110,3 +114,5 @@ class AddMovie extends React.Component {
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
