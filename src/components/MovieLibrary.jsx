@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import movies from '../data';
 
 
 class MovieLibrary extends Component {
@@ -36,7 +35,8 @@ class MovieLibrary extends Component {
   updateShowMovies() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     const showMovies = movies
-      .filter((movie) => this.filterAllConditions(movie, searchText, bookmarkedOnly, selectedGenre));
+      .filter((movie) => this
+        .filterAllConditions(movie, searchText, bookmarkedOnly, selectedGenre));
     this.setState(
       (beforeState) => ({
         ...beforeState,
