@@ -17,8 +17,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  changingInputsState( event ) {
-    this.setState({name: event.target.value});
+  changingInputsState(event) {
+    this.setState({ name: event.target.value });
   }
 
   buttonOnclick() {
@@ -116,6 +116,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
