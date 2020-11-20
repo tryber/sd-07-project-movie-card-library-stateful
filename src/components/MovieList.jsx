@@ -5,7 +5,7 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, searchText, selectedGenre } = this.props;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
@@ -16,7 +16,7 @@ class MovieList extends React.Component {
               subtitle.includes(searchText) ||
               storyline.includes(searchText),
           )
-          // .filter(({ bookmarked }) => bookmarked)
+          .filter(({ bookmarked }) => bookmarkedOnly ? bookmarked : true)
           .filter(({ genre }) => genre.includes(selectedGenre))
           .map((movie) => (
             <MovieCard key={movie.title} movie={movie} />
@@ -29,8 +29,9 @@ class MovieList extends React.Component {
 export default MovieList;
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf({}),
+  movies: PropTypes.arrayOf(PropTypes.shape({ })),
   searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   selectedGenre: PropTypes.string.isRequired,
 };
 

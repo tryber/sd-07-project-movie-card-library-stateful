@@ -19,7 +19,10 @@ class MovieLibrary extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
+
+  addNewMovie(movie) { this.setState({ movies: [...this.state.movies, movie] }) };
 
   handleChange({ target: { checked, name, type, value } }) {
     const fieldValue = type === 'checkbox' ? checked : value;
@@ -46,13 +49,13 @@ class MovieLibrary extends Component {
         />
 
         <MovieList
-          movies={this.props.movies}
+          movies={this.state.movies}
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
 
-        <AddMovie />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }
