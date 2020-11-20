@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
 
   handleClick() {
     console.log(this);
-    console.log("clicou!");
+    console.log('clicou!');
   }
   render() {
     return (
@@ -18,13 +18,11 @@ class SearchBar extends React.Component {
         <button onClick={this.handleClick}>Meu Botao</button>
         <form className="form">
           <div>
-            <label for="includes-text">Inclui o Texto:</label>
-            <br></br>
+            <label htmlFor="includes-text">Inclui o Texto:</label>
             <input type="text" id="includes-text" />
           </div>
           <div>
-            <br></br>
-            <input type="checkbox"></input>
+            <input type="checkbox"/>
             <label>Mostrar somente favoritos</label>
           </div>
           <div>
