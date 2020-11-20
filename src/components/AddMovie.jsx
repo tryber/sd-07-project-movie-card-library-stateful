@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genre: '',
     };
   }
 
@@ -26,15 +26,16 @@ class AddMovie extends React.Component {
   }
 
   addMovie() {
-    this.props.onClick(this.state);
-    this.setState = {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    };
+    });
   }
 
   render() {
@@ -74,7 +75,6 @@ class AddMovie extends React.Component {
           <label htmlFor="storyline-input" data-testid="storyline-input-label">
             Sinopse
             <textarea
-              type="text"
               name="storyline"
               data-testid="storyline-input"
               value={this.state.storyline}
@@ -105,7 +105,12 @@ class AddMovie extends React.Component {
             </select>
           </label>
         </form>
-        <button type="submit" data-testid="send-button" onClick={this.addMovie}>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={this.addMovie}
+          className="button-add-film"
+        >
           Adicionar filme
         </button>
       </div>
