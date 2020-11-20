@@ -14,11 +14,8 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label
-          htmlFor="incluiTexto"
-          data-testid="text-input-label"
-        >
-            Inclui o texto
+        <label htmlFor="incluiTexto" data-testid="text-input-label">
+          Inclui o texto
         </label>
         <input
           type="text"
@@ -36,13 +33,12 @@ class SearchBar extends Component {
         />
 
         <label htmlFor="filtrar" data-testid="select-input-label">Filtrar por gênero</label>
-        <select value={this.selectedGenre} onChange={this.onSearchTextChange}>
-          <option value="">Todos</option>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
+        <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
         </select>
-
       </form>
     );
   }
