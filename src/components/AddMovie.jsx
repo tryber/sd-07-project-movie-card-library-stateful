@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -97,7 +98,7 @@ class AddMovie extends Component {
             onChange={this.handleSearchValue}
           />
         </label>
-                
+
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
 
@@ -129,5 +130,8 @@ class AddMovie extends Component {
   }
 }
 
-
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+
+AddMovie.defaultProps = { children: PropTypes.element };

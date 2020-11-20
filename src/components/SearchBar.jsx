@@ -1,8 +1,9 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
+
   render() {
     const {
       searchText,
@@ -20,7 +21,7 @@ class SearchBar extends Component {
             Inclui o texto:
             <input
               type="text"
-              name="search"
+              name="searchText"
               data-testid="text-input"
               value={searchText}
               onChange={onSearchTextChange}
@@ -31,7 +32,7 @@ class SearchBar extends Component {
             Mostrar somente favoritos
             <input
               type="checkbox"
-              name="favoritos"
+              name="bookmarkedOnly"
               data-testid="checkbox-input"
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
@@ -42,7 +43,7 @@ class SearchBar extends Component {
             Filtrar por gênero
 
             <select
-              name="genero"
+              name="selectedGenre"
               data-testid="select-input"
               value={selectedGenre}
               onChange={onSelectedGenreChange}
@@ -71,20 +72,11 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-// SearchBar.propTypes = {
-//   searchText: PropTypes.string,
-//   onSearchTextChange: PropTypes.func,
-//   bookmarkedOnly: PropTypes.bool,
-//   onBookmarkedChange: PropTypes.func,
-//   selectedGenre: PropTypes.bool,
-//   onSelectedGenreChange: PropTypes.func
-// }
-
-// SearchBar.defaultProps = {
-//   searchText: undefined,
-//   onSearchTextChange: PropTypes.string,
-//   bookmarkedOnly: PropTypes.bool,
-//   onBookmarkedChange: PropTypes.func,
-//   selectedGenre: PropTypes.bool,
-//   onSelectedGenreChange: PropTypes.func
-// }
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};

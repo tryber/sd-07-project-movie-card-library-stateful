@@ -5,11 +5,22 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies } = this.props;
+    const { movies, searchText, selectedGenre } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+        {movies
+          .filter(
+            ({ title, subtitle, storyline }) =>
+              title.includes(searchText) ||
+              subtitle.includes(searchText) ||
+              storyline.includes(searchText),
+          )
+          // .filter(({ bookmarked }) => bookmarked)
+          .filter(({ genre }) => genre.includes(selectedGenre))
+          .map((movie) => (
+            <MovieCard key={movie.title} movie={movie} />
+          ))}
       </div>
     );
   }
@@ -17,6 +28,10 @@ class MovieList extends React.Component {
 
 export default MovieList;
 
-MovieList.propTypes = { movies: PropTypes.arrayOf(PropTypes.shape({ })) };
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf({}),
+  searchText: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+};
 
 MovieList.defaultProps = { movies: [] };
