@@ -52,16 +52,16 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
 
         <label htmlFor="title-input" data-testid="title-input-label">
-           Título
-            <input
-              type="text"
-              id="title-input"
-              data-testid="title-input"
-              value={title}
-              name="title"
-              onChange={this.handleChange}
-            />
-          </label>
+          Título
+          <input
+            type="text"
+            id="title-input"
+            data-testid="title-input"
+            value={title}
+            name="title"
+            onChange={this.handleChange}
+          />
+        </label>
 
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
@@ -93,7 +93,8 @@ class AddMovie extends Component {
             type="text"
             id="storyline-input"
             value={storyline}
-            name="storyline"              data-testid="storyline-input"
+            name="storyline"
+            data-testid="storyline-input"
             onChange={this.handleChange}
           />
         </label>
