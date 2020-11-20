@@ -11,13 +11,21 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange({ target }) {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({ [target.name]: value });
   }
 
   render() {
     const { onClick } = this.props;
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
 
           <label htmlFor="title" data-testid="title-input-label">
             Título
@@ -25,8 +33,9 @@ class AddMovie extends Component {
               id="title"
               type="text"
               data-testid="title-input"
-              onChange={this.state.title}
+              onChange={this.handleInputChange}
               value={this.state.title}
+              name="title"
             />
           </label>
 
@@ -36,8 +45,9 @@ class AddMovie extends Component {
               id="subtitle"
               type="text"
               data-testid="subtitle-input"
-              onChange={this.state.subtitle}
+              onChange={this.handleInputChange}
               value={this.state.subtitle}
+              name="subtitle"
             />
           </label>
 
@@ -47,8 +57,9 @@ class AddMovie extends Component {
               id="image"
               type="text"
               data-testid="image-input"
-              onChange={this.state.imagePath}
+              onChange={this.handleInputChange}
               value={this.state.imagePath}
+              name="imagePath"
             />
           </label>
 
@@ -57,8 +68,9 @@ class AddMovie extends Component {
             <textarea
               id="storyline"
               value={this.state.storyline}
-              onChange={this.state.storyline}
+              onChange={this.handleInputChange}
               data-testid="storyline-input"
+              name="storyline"
             />
           </label>
 
@@ -68,8 +80,9 @@ class AddMovie extends Component {
               id="rating"
               type="number"
               data-testid="rating-input"
-              onChange={this.state.rating}
+              onChange={this.handleInputChange}
               value={this.state.rating}
+              name="rating"
             />
           </label>
 
@@ -78,10 +91,11 @@ class AddMovie extends Component {
             <select
               id="genre"
               data-testid="genre-input"
-              value={this.props.genre}
-              onChange={this.props.genre}
+              value={this.state.genre}
+              onChange={this.handleInputChange}
+              name="genre"
             >
-              <option data-testid="genre-option" selected value="action">
+              <option data-testid="genre-option" value="action">
                 Ação
               </option>
               <option data-testid="genre-option" value="comedy">
@@ -93,7 +107,7 @@ class AddMovie extends Component {
             </select>
           </label>
 
-          <button type="button" data-testid="send-button">
+          <button type="submit" data-testid="send-button" onClick={onClick}>
             Adicionar filme
           </button>
 
