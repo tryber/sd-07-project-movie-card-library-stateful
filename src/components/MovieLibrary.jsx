@@ -73,14 +73,7 @@ class MovieLibrary extends Component {
   render() {
     return (
       <div>
-        <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.computedInputsSearchBar}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.computedInputsSearchBar}
-          selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.computedInputsSearchBar}
-        />
+        <SearchBar />
         <MovieList movies={this.moviesSearchResult()} />
         <AddMovie onClick={this.addComputedMovie} />
       </div>

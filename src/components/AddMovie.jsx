@@ -12,14 +12,13 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
       genre: 'action',
+      rating: 0,
     };
   }
 
-  changingInputsState({ target }) {
-    const { name, valeu } = target;
-    this.setState({ [name]: valeu });
+  changingInputsState( event ) {
+    this.setState({name: event.target.value});
   }
 
   buttonOnclick() {
@@ -28,7 +27,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="titleText" data-testid="title-input-label">
           Título
           <input
@@ -59,7 +58,7 @@ class AddMovie extends React.Component {
             onChange={this.changingInputsState}
           />
         </label>
-        <label htmlFor="storylineTxt" ddata-testid="storyline-input-label">
+        <label htmlFor="storylineTxt" data-testid="storyline-input-label">
           Sinopse
           <textarea
             name="storylineTxt"
@@ -73,7 +72,7 @@ class AddMovie extends React.Component {
           <input
             type="number"
             name="grade"
-            value={this.rating}
+            value={this.state.rating}
             data-testid="rating-input"
             onChange={this.changingInputsState}
           />
@@ -117,6 +116,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func };
 
 export default AddMovie;
