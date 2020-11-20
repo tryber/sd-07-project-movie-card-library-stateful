@@ -69,7 +69,7 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
-  it.skip('Será validado se um componente `SearchBar` é renderizado', () => {
+  it('Será validado se um componente `SearchBar` é renderizado', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const searchBar = getAllByTestId('search-bar-form');
     expect(searchBar).toHaveLength(1);

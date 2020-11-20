@@ -19,7 +19,11 @@ class MovieLibrary extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={this.searchText}
+          bookmarkedOnly={this.bookmarkedOnly}
+          selectedGenre={this.selectedGenre}
+        />
         <AddMovie />
       </div>
     );
