@@ -37,19 +37,19 @@ const movies = [
 
 
 describe('Verifica o componente <MovieLibrary />', () => {
-  it.skip('Será validado se o componente é renderizado com sucesso', () => {
+  it('Será validado se o componente é renderizado com sucesso', () => {
     render(<MovieLibrary movies={movies} />);
   });
 });
 
 describe('Verifica o estado inicial do component <MovieLibrary />', () => {
-  it.skip('Será validado se o `searchText` é inicializado com uma string vazia', () => {
+  it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const searchText = getByTestId('text-input');
     expect(searchText).toHaveValue('');
   });
 
-  it.skip('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
+  it('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const bookmarkedOnly = getByTestId('checkbox-input');
     expect(bookmarkedOnly).not.toBeChecked();
