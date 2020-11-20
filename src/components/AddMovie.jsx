@@ -23,6 +23,18 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  addMovieButton(callback) {
+    callback(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { onClick } = this.props;
 
@@ -111,6 +123,12 @@ class AddMovie extends React.Component {
               Suspense
             </option>
           </select>
+          <button
+            data-testid="send-button"
+            onClick={() => this.addMovieButton(onClick)}
+          >
+            Adicionar filme
+          </button>
         </div>
       </form>
     );
