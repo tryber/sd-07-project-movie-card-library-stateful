@@ -20,9 +20,7 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'option' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
   render() {
     return (
