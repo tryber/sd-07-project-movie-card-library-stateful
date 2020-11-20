@@ -4,6 +4,7 @@ import movies from './data';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 
 class App extends React.Component {
@@ -45,6 +46,7 @@ class App extends React.Component {
           selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
+        <AddMovie />
       </div>
     );
   }
