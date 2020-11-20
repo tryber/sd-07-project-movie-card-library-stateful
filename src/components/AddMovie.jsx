@@ -32,16 +32,16 @@ class AddMovie extends React.Component {
               id="titulo"
               type="text"
               data-testid="title-input"
-              value={this.state.title}  
+              value={this.state.title}
             />
         </label>
 
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">Subtítulo
-           <input 
-              id="subtitulo"
-              type="text"
-              data-testid="subtitle-input"
-              value={this.state.subtitle}
+           <input
+             id="subtitulo"
+             type="text"
+             data-testid="subtitle-input"
+             value={this.state.subtitle}
             />
         </label>
 
@@ -57,8 +57,8 @@ class AddMovie extends React.Component {
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse
             <input
               id="sinopse"
-              data-testid="storyline-input" 
-              type="textarea" 
+              data-testid="storyline-input"
+              type="textarea"
               value={this.state.storyline}
             />
         </label>
@@ -74,14 +74,14 @@ class AddMovie extends React.Component {
 
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
         <select value={this.state.genre}>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
         <button data-testid="send-button">Adicionar filme</button>
-    </form>
-    )
-   }   
+      </form>
+    );
+  } 
 }
 
 export default AddMovie;
