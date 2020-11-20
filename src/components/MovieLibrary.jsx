@@ -1,9 +1,10 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
-import PropTypes from 'prop-types';
+
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -31,17 +32,18 @@ class MovieLibrary extends Component {
   movieHandle() {
     console.log('test');
   }
-//codigo Bruno Nogueira 
+// codigo Bruno Nogueira
+
   render() {
     return (
       <div>
-         <SearchBar
-          searchText={this.searchText}
-          onSearchTextChange={this.onSearchTextChange('Strogonoff')}
-          bookmarkedOnly={this.bookMarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange('Lasagna')}
-          selectedGenre={this.selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange('Pizza')}
+        <SearchBar
+           searchText={this.searchText}
+           onSearchTextChange={this.onSearchTextChange('Strogonoff')}
+           bookmarkedOnly={this.bookMarkedOnly}
+           onBookmarkedChange={this.onBookmarkedChange('Lasagna')}
+           selectedGenre={this.selectedGenre}
+           onSelectedGenreChange={this.onSelectedGenreChange('Pizza')}
         />
         <div className="movie-list">
           <MovieList movies={this.props.movies} />
@@ -54,13 +56,11 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
     imagePath: PropTypes.string,
-  })),
 };
 
 export default MovieLibrary;
