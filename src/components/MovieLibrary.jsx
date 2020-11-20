@@ -75,7 +75,7 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
+      showMovies,
     } = this.state;
 
     return (
@@ -88,7 +88,7 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.handleSearch}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={showMovies} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );
