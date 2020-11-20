@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -13,5 +13,16 @@ class MovieList extends React.Component {
     );
   }
 }
+
+MovieList.propTypes = { movies: PropTypes.arrayOf(PropTypes.object) };
+MovieList.defaultProps = {
+  movies: [{
+    title: 'NO MOVIE TITLE',
+    subtitle: 'NO MOVIE SUBTITLE',
+    storyline: 'NO MOVIE SINOPSE',
+    imagePath: 'NO IMAGE',
+    rating: 0.0,
+  }],
+};
 
 export default MovieList;
