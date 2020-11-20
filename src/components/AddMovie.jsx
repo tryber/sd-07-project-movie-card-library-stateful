@@ -27,9 +27,9 @@ class AddMovie extends React.Component {
   }
 
   buttonHandler() {
-      this.setState(this.state);
-      const { onClick } = this.props;
-      onClick();
+    this.setState(this.state);
+    const { onClick } = this.props;
+    onClick();
   }
   render() {
     const {
@@ -43,45 +43,45 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label htmlFor="titulo" data-testid="title-input-label">Titulo</label>
-            <input
-              id="titulo"
-              type="text"
-              data-testid="title-input"
-              value={title}
-              onChange={this.handlerTextAreaChange}
-            />
+        <input
+          id="titulo"
+          type="text"
+          data-testid="title-input"
+          value={title}
+          onChange={this.handlerTextAreaChange}
+        />
         
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">Subtítulo</label>
-            <input
-              id="subtitulo"
-              type="text"
-              data-testid="subtitle-input"
-              value={subtitle}
-            />
+        <input
+          id="subtitulo"
+          type="text"
+          data-testid="subtitle-input"
+          value={subtitle}
+        />
         
         <label htmlFor="photo" data-testid="image-input-label">Imagem</label>
-            <input
-              id="photo"
-              type="text"
-              data-testid="image-input"
-              value={imagePath}
-            />
+        <input
+          id="photo"
+          type="text"
+          data-testid="image-input"
+          value={imagePath}
+        />
         
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
-            <input
-              id="sinopse"
-              data-testid="storyline-input"
-              type="textarea"
-              value={storyline}
-            />
+        <input
+          id="sinopse"
+          data-testid="storyline-input"
+          type="textarea"
+          value={storyline}
+        />
         
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
-            <input
-              id="avaliaçao"
-              data-testid="rating-input"
-              type="number"
-              value={rating}             
-            />
+        <input
+          id="avaliaçao"
+          data-testid="rating-input"
+          type="number"
+          value={rating}
+        />
         
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
         <select data-testid="genre-input" value={genre}> 
