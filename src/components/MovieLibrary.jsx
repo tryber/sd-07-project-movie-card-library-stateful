@@ -16,6 +16,8 @@ export default class MovieLibrary extends Component {
       filteredMovieData: Data
     }
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -36,8 +38,7 @@ export default class MovieLibrary extends Component {
       [event.target.name]: event.target.value
     }, () => console.log(this.state.selectedGenre));
   }
-
-  filterMovieList = () => {
+  filterMovieList() {
     this.setState(prevState => {
       console.log(prevState.MovieData)
       this.setState({
@@ -45,7 +46,7 @@ export default class MovieLibrary extends Component {
       })
     }, () => console.log(this.state.filteredMovieData));
   }
-
+  
   render() {
     return (
       <div>
