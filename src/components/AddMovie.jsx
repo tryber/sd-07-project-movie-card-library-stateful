@@ -64,16 +64,34 @@ class AddMovie extends Component {
         />
 
         <label htmlFor="imagem" data-testid="image-input-label">Imagem</label>
-        <input name="imagePath" data-testid="image-input" type="text" value={imagePath} />
+        <input
+          name="imagePath"
+          data-testid="image-input"
+          type="text"
+          value={imagePath}
+          onChange={this.handleChange}
+        />
 
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
-        <input name="storyline" data-testid="storyline-input" type="textarea" value={storyline} />
+        <input
+          name="storyline"
+          data-testid="storyline-input"
+          type="textarea"
+          value={storyline}
+          onChange={this.handleChange}
+        />
 
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
-        <input name="rating" data-testid="rating-input" type="number" value={rating} />
+        <input
+          name="rating"
+          data-testid="rating-input"
+          type="number"
+          value={rating}
+          onChange={this.handleChange}
+        />
 
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
-        <select data-testid="genre-input" value={genre}>
+        <select name="genre" data-testid="genre-input" value={genre} onChange={this.handleChange}>
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
