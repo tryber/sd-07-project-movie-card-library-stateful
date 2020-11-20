@@ -22,11 +22,11 @@ class SearchBar extends React.Component {
             <input type="text" id="includes-text" />
           </div>
           <div>
-            <input type="checkbox" name="show-favorites"/>
+            <input type="checkbox" name="show-favorites" />
             <label htmlFor="show-favorites">Mostrar somente favoritos</label>
           </div>
           <div>
-            <label>
+            <label htmlFor="filter-by-genre">
               Filtrar por gênero:
               <select name="favorite-genre">
                 <option value="all">Todos</option>
