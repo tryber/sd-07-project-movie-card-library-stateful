@@ -9,22 +9,51 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.state = { movies: this.props.movies };
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
   }
 
-  onClick(newState) {
+  onSearchTextChange(e) {
+    this.setState({ searchText: e.target.value });
+  }
+
+  onClick(newMovie) {
     const movieList = [...this.props.movies];
-    movieList.push(newState);
+    movieList.push(newMovie);
     this.setState({ movies: movieList });
   }
 
+  onBookmarkedChange(e) {
+    this.setState({ bookmarkedOnly: e.target.checked });
+  }
+
+  onSelectedGenreChange(e) {
+    this.setState({ selectedGenre: e.target.value });
+  }
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <SearchBar />
-        <MovieList movies={this.state.movies} />
-        <AddMovie addMovieToList={this.addMovieToList} />
+        <SearchBar
+          searchText={searchText}
+          bookmarkedOnly={bookmarkedOnly}
+          selectedGenre={selectedGenre}
+          onSearchTextChange={this.onSearchTextChange}
+          onBookmarkedChange={this.onBookmarkedChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+        />
+        <MovieList movies={movies} />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
