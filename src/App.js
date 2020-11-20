@@ -46,7 +46,7 @@ class App extends React.Component {
           selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <AddMovie />
+        <AddMovie onClick={this.buttonClick}/>
       </div>
     );
   }

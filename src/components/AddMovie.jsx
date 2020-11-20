@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = this.state;
+    this.stateInicio = this.state;
     this.handlerTextAreaChange = this.handlerTextAreaChange.bind(this);
     this.buttonHandler = this.buttonHandler.bind(this);
 
@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   buttonHandler() {
-    this.setState(this.state);
+    this.setState(this.stateInicio);
     const { onClick } = this.props;
     onClick();
   }
@@ -41,10 +41,11 @@ class AddMovie extends React.Component {
         genre,
       } = this.state;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="titulo" data-testid="title-input-label">Titulo</label>
         <input
           id="titulo"
+          name="title"
           type="text"
           data-testid="title-input"
           value={title}
@@ -56,6 +57,7 @@ class AddMovie extends React.Component {
           type="text"
           data-testid="subtitle-input"
           value={subtitle}
+          onChange={this.handlerTextAreaChange}
         />
         <label htmlFor="photo" data-testid="image-input-label">Imagem</label>
         <input
@@ -63,6 +65,7 @@ class AddMovie extends React.Component {
           type="text"
           data-testid="image-input"
           value={imagePath}
+          onChange={this.handlerTextAreaChange}
         />
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
         <input
@@ -70,6 +73,7 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
           type="textarea"
           value={storyline}
+          onChange={this.handlerTextAreaChange}
         />
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
         <input
@@ -77,9 +81,10 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
           type="number"
           value={rating}
+          onChange={this.handlerTextAreaChange}
         />
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
-        <select data-testid="genre-input" value={genre}>
+        <select data-testid="genre-input" value={genre} onChange={this.handlerTextAreaChange}>
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
