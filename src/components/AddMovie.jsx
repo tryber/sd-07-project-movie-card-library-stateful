@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -7,12 +8,12 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
@@ -37,7 +38,7 @@ class AddMovie extends React.Component {
             value={this.state.title}
             onChange={this.handleChange}
             name="title"
-          ></input>
+          />
         </div>
         <div>
           <label htmlFor="subtitle" data-testid="subtitle-input-label">
@@ -49,7 +50,7 @@ class AddMovie extends React.Component {
             value={this.state.subtitle}
             onChange={this.handleChange}
             name="subtitle"
-          ></input>
+          />
         </div>
         <div>
           <label htmlFor="imagePath" data-testid="image-input-label">
@@ -61,7 +62,7 @@ class AddMovie extends React.Component {
             value={this.state.imagePath}
             onChange={this.handleChange}
             name="imagePath"
-          ></input>
+          />
         </div>
         <div>
           <label htmlFor="story-line" data-testid="storyline-input-label">
@@ -73,7 +74,7 @@ class AddMovie extends React.Component {
             value={this.state.storyline}
             onChange={this.handleChange}
             name="storyline"
-          ></input>
+          />
         </div>
         <div>
           <label htmlFor="rating-number" data-testid="rating-input-label">
@@ -88,7 +89,7 @@ class AddMovie extends React.Component {
             min="0.0"
             max="5.0"
             step="0.25"
-          ></input>
+          />
         </div>
         <div>
           <label htmlFor="gerne-label" data-testid="genre-input-label">
@@ -115,5 +116,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
