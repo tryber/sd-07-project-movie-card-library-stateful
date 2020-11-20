@@ -69,7 +69,7 @@ class SearchBar extends React.Component {
                   Comédia
                 </option>
                 <option value="thriller" data-testid="select-option">
-                  Fantasia
+                  Suspense
                 </option>
               </select>
             </label>
