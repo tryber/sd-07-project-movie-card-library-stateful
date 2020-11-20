@@ -66,7 +66,7 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
     expect(textInputLabel[0]).toHaveTextContent('Inclui o texto');
   });
 
-  it.skip('Será validado se o input de texto tem o valor passado pela props `searchText`', () => {
+  it('Será validado se o input de texto tem o valor passado pela props `searchText`', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId('text-input');
     expect(textInput).toHaveValue(props.searchText);
