@@ -20,10 +20,7 @@ export default class MovieLibrary extends Component {
   onSearchTextChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    }, () => {
-    console.log(this.state.searchText)
-    this.filterMovieList()
-    });
+    }, () => this.filterMovieList());
   }
 
   onBookmarkedChange = event => { // event.target.name é null dentro do prevState, pk?

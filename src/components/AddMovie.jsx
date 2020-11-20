@@ -5,8 +5,8 @@ export default class AddMovie extends Component {
   render() {
     return (
       <div>
-        pipi   
+        pipi
       </div>
-    )
+    );
   }
 }
