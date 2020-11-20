@@ -22,7 +22,6 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
     } = this.state;
 
     return (
