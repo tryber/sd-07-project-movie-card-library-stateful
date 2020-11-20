@@ -41,7 +41,7 @@ class SearchBar extends React.Component {
             id="for"
             onChange={onSelectedGenreChange}
           />
-          <select value={selectedGenre} data-testid="select-input" onChange={selectedGenre}>
+          <select value={selectedGenre} data-testid="select-input" onChange={onSelectedGenreChange}>
             <option data-testid="select-option" value="" id="for">Todos</option>
             <option data-testid="select-option" value="action" id="for">Ação</option>
             <option data-testid="select-option" value="comedy" id="for">Comédia</option>
