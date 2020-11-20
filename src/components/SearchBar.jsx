@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
 
   handleClick() {
     console.log(this);
-    console.log("clicou!");
+    console.log('clicou!');
   }
   render() {
     const {
