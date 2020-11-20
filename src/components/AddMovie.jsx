@@ -36,10 +36,10 @@ class AddMovie extends Component {
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
         <input data-testid="storyline-input" type="textarea" value={this.state.storyline} />
 
-        <label data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
         <input data-testid="rating-input" type="number" value={this.state.rating} />
 
-        <label data-testid="genre-input-label">Gênero</label>
+        <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
         <select value={this.state.genre}>
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
