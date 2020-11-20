@@ -1,5 +1,5 @@
 import React from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -12,6 +12,14 @@ class SearchBar extends React.Component {
     console.log('clicou!');
   }
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <div>
         <h1 className="search">Searching</h1>
