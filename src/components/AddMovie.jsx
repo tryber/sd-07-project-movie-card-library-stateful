@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
 
     return (
       <form>
@@ -50,5 +51,14 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
+}.isRequired;
 
 export default AddMovie;
