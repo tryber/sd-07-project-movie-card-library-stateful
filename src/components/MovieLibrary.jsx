@@ -17,7 +17,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      myMovies: movies,
       showMovies: movies,
     };
   }
@@ -33,8 +33,8 @@ class MovieLibrary extends Component {
 
   // referencia Rafael Guimarães
   updateShowMovies() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const showMovies = movies
+    const { myMovies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const showMovies = myMovies
       .filter((movie) => this
         .filterAllConditions(movie, searchText, bookmarkedOnly, selectedGenre));
     this.setState(
@@ -45,6 +45,7 @@ class MovieLibrary extends Component {
     );
   }
 
+  // referencia Rafael Guimarães
   handleSearch({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -63,7 +64,7 @@ class MovieLibrary extends Component {
     this.setState(
       (beforeState) => ({
         ...beforeState,
-        movies: beforeState.movies.concat(newMovie),
+        myMovies: beforeState.myMovies.concat(newMovie),
       }),
       this.updateShowMovies,
     );
@@ -88,7 +89,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.handleSearch}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
