@@ -99,7 +99,7 @@ MovieLibrary.propTypes = {
   searchText: PropTypes.string,
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
-  movie: PropTypes.array,
+  movies: PropTypes.array,
 }.isRequired;
 
 export default MovieLibrary;
