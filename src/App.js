@@ -18,7 +18,7 @@ class App extends React.Component {
   onSelectedGenreChange() {
     console.log('teste6');
   }
-  
+
   selectedGenre() {
     console.log('test5');
   }
