@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
@@ -118,3 +119,5 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropTypes.element.isRequired };
