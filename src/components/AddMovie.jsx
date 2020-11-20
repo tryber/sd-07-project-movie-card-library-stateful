@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
         </label>
 
         <label htmlFor="photo" data-testid="image-input-label">Imagem
-            <input 
+            <input
               id="photo"
               type="text"
               data-testid="image-input"
@@ -66,9 +66,9 @@ class AddMovie extends React.Component {
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação
             <input
               id="avaliaçao"
-              data-testid="rating-input" 
-              type="number" 
-              value={this.state.rating} 
+              data-testid="rating-input"
+              type="number"
+              value={this.state.rating}
             />
         </label>
 
@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
         <button data-testid="send-button">Adicionar filme</button>
       </form>
     );
-  } 
+  }
 }
 
 export default AddMovie;
