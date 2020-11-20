@@ -140,18 +140,28 @@ class MovieLibrary extends Component {
     this.setState(state);
   } */
 
-  handleAddMovie(currentState) {
-    // adicionar um filme. Precisa atualizar o estado de AddMovie
-    let state = this.setState;
-    state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: this.props.movies,
-    };
-    this.setState(state);
+  /** {
+    title: 'Ghost In The Shell',
+    subtitle: 'Ghost In The Shell',
+    storyline: 'A hacker known as the Puppet Master is
+    hunted by a female cyborg cop and her partner.
+    This film is a revised version of Ghost in the Shell (1995).',
+    rating: 5,
+    imagePath: 'images/Ghost_In_The_Shell_2_0.jpg',
+    bookmarked: false,
+    genre: 'comedy',
+  }, */
 
-    console.log(currentState);
+  handleAddMovie(newMovie) {
+    // eslint-disable-next-line prefer-destructuring
+    const state = this.state;
+    const { movies } = state;
+    state.movies = [...this.state.movies, newMovie];
+    // state.movies.push(newMovie);
+
+    console.log(movies.length);
+    console.log(movies);
+    this.setState(state);
   }
 
   render() {
