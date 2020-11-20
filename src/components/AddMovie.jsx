@@ -50,7 +50,6 @@ class AddMovie extends React.Component {
           value={title}
           onChange={this.handlerTextAreaChange}
         />
-        
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">Subtítulo</label>
         <input
           id="subtitulo"
@@ -58,7 +57,6 @@ class AddMovie extends React.Component {
           data-testid="subtitle-input"
           value={subtitle}
         />
-        
         <label htmlFor="photo" data-testid="image-input-label">Imagem</label>
         <input
           id="photo"
@@ -66,7 +64,6 @@ class AddMovie extends React.Component {
           data-testid="image-input"
           value={imagePath}
         />
-        
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
         <input
           id="sinopse"
@@ -74,7 +71,6 @@ class AddMovie extends React.Component {
           type="textarea"
           value={storyline}
         />
-        
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
         <input
           id="avaliaçao"
@@ -82,7 +78,6 @@ class AddMovie extends React.Component {
           type="number"
           value={rating}
         />
-        
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
         <select data-testid="genre-input" value={genre}> 
           <option data-testid="genre-option" value="action">Ação</option>
@@ -90,20 +85,22 @@ class AddMovie extends React.Component {
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
         <button
-        data-testid="send-button"
-        onClick={this.buttonHandler}>Adicionar filme</button>
+          data-testid="send-button"
+          onClick={this.buttonHandler}
+        >Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-    subtitle: PropTypes.string,
-    title: PropTypes.string,
-    imagePath: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    genre: PropTypes.string,
-  }.isRequired;
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
+}.isRequired;
 
 export default AddMovie;
