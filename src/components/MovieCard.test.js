@@ -16,7 +16,7 @@ describe('Verifica o componente <MovieCard />', () => {
   it('Será validadado se o componente é renderizado com sucesso', () => {
     render(<MovieCard movie={movie} />);
   });
-  
+
   it('Será validado se o a imagem do filme é renderizada dentro de uma tag "img"', () => {
     const { getByRole } = render(<MovieCard movie={movie} />);
     const image = getByRole('img');

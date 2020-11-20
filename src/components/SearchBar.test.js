@@ -103,7 +103,7 @@ describe('Verfica que o componente <SearchBar /> renderiza uma checkbox.', () =>
 
     expect(checkboxInput).toBeChecked();
   });
-  
+
   it('Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId('checkbox-input');
