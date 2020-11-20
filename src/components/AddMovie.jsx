@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -16,7 +16,7 @@ class AddMovie extends Component {
     };
   }
 
-  onChange({ target }) {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
@@ -41,19 +41,19 @@ class AddMovie extends Component {
         >
           Título
         </label>
-        <input data-testid="title-input" type="text" value={title} onChange={this.onChange} />
+        <input name="title" data-testid="title-input" type="text" value={title} onChange={this.handleChange} />
 
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">Subtítulo</label>
-        <input data-testid="subtitle-input" type="text" value={subtitle} />
+        <input name="subtitle" data-testid="subtitle-input" type="text" value={subtitle} onChange={this.handleChange} />
 
         <label htmlFor="imagem" data-testid="image-input-label">Imagem</label>
-        <input data-testid="image-input" type="text" value={imagePath} />
+        <input name="imagePath" data-testid="image-input" type="text" value={imagePath} />
 
         <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse</label>
-        <input data-testid="storyline-input" type="textarea" value={storyline} />
+        <input name="storyline" data-testid="storyline-input" type="textarea" value={storyline} />
 
         <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
-        <input data-testid="rating-input" type="number" value={rating} />
+        <input name="rating" data-testid="rating-input" type="number" value={rating} />
 
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
         <select data-testid="genre-input" value={genre}>

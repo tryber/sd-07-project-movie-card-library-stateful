@@ -96,7 +96,7 @@ describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it.skip('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
+  it('Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
@@ -117,7 +117,7 @@ describe('Verifica o input de imagem do componente <AddMovie />', () => {
     expect(imageInput).toHaveValue(initialState.imagePath);
   });
 
-  it.skip('Será validado se o valor do input de imagem muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de imagem muda quando algo é digitado por quem usa', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
   });
@@ -137,7 +137,7 @@ describe('Verifica o input de sinopse do componente <AddMovie />', () => {
     expect(storylineInput).toHaveValue(initialState.storyline);
   });
 
-  it.skip('Será validado se o valor do input de sinopse muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de sinopse muda quando algo é digitado por quem usa', () => {
     const message = 'In the following movie, everyone dies.';
     fireEvent.change(storylineInput, { target: { value: message } });
     expect(storylineInput).toHaveValue(message);
@@ -158,7 +158,7 @@ describe('Verifica o input de avaliação do componente <AddMovie />', () => {
     expect(ratingInput).toHaveValue(initialState.rating);
   });
 
-  it.skip('Será validado se o valor do input de avaliação muda quando algo é digitado por quem usa', () => {
+  it('Será validado se o valor do input de avaliação muda quando algo é digitado por quem usa', () => {
     event.type(ratingInput, '1.5');
 
     expect(ratingInput).toHaveValue(1.5);
@@ -195,7 +195,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
 
-  it.skip('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
+  it('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
   });
