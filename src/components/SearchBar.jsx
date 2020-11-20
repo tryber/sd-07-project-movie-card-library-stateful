@@ -16,9 +16,12 @@ class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <div>
-          <label htmlFor="searchText" data-testid="text-input-label">Inclui o texto:</label>
+          <label
+          htmlFor="searchText"
+          data-testid="text-input-label"
+          >Inclui o texto:</label>
           <div>
-            <input 
+            <input
               type="text"
               name="searchText"
               id="searchText"
@@ -28,7 +31,7 @@ class SearchBar extends React.Component {
             />
           </div>
           <div>
-            <input 
+            <input
               type="checkbox"
               name="bookmarkedOnly"
               id="bookmarkedOnly"
@@ -36,10 +39,16 @@ class SearchBar extends React.Component {
               checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
             />
-            <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+            <label
+            htmlFor="bookmarkedOnly"
+            data-testid="checkbox-input-label"
+            >Mostrar somente favoritos</label>
           </div>
           <div>
-            <label htmlFor="selectedGenre" data-testid="select-input-label">Filtrar por gênero</label>
+            <label
+            htmlFor="selectedGenre"
+            data-testid="select-input-label"
+            >Filtrar por gênero</label>
             <select
               name="selectedGenre"
               id="selectedGenre"

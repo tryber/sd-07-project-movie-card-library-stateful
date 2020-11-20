@@ -17,7 +17,7 @@ export default class MovieLibrary extends Component {
     }
   }
 
-  onSearchTextChange = event => {
+  onSearchTextChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     }, () => this.filterMovieList());
