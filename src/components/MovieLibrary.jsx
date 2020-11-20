@@ -26,14 +26,14 @@ export default class MovieLibrary extends Component {
     }, () => this.filterMovieList());
   }
 
-  onBookmarkedChange = event => { // event.target.name é null dentro do prevState, pk?
+  onBookmarkedChange(event) { // event.target.name é null dentro do prevState, pk?
     const eventTargetName = event.target.name
     this.setState(prevState => ({
      [eventTargetName]: !prevState.bookmarkedOnly
     }), () => console.log(this.state.bookmarkedOnly));
   }
 
-  onSelectedGenreChange = event => {
+  onSelectedGenreChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     }, () => console.log(this.state.selectedGenre));
@@ -46,7 +46,7 @@ export default class MovieLibrary extends Component {
       })
     }, () => console.log(this.state.filteredMovieData));
   }
-  
+
   render() {
     return (
       <div>
