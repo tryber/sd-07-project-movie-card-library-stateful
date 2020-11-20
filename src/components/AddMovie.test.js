@@ -56,7 +56,7 @@ describe('Verifica o componente <AddMovie />', () => {
     render(<AddMovie onClick={() => jest.fn()} />);
   });
 
-  it.skip('Será validado se o componente renderiza 1, e apenas 1, form', () => {
+  it('Será validado se o componente renderiza 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });

@@ -34,7 +34,7 @@ class AddMovie extends Component {
     } = this.state;
 
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label
           htmlFor="titulo"
           data-testid="title-input-label"
@@ -81,7 +81,12 @@ class AddMovie extends Component {
           onChange={this.handleChange}
         />
 
-        <label htmlFor="avaliacao" data-testid="rating-input-label">Avaliação</label>
+        <label
+          htmlFor="avaliacao"
+          data-testid="rating-input-label"
+        >
+            Avaliação
+        </label>
         <input
           name="rating"
           data-testid="rating-input"
@@ -96,7 +101,7 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-        <button data-testid="send-button">Adicionar filme</button>
+        <button type="button" data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
