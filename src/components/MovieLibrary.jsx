@@ -45,7 +45,7 @@ class MovieLibrary extends React.Component {
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
         movie.storyline.includes(searchText)
-       );      
+       );
     if (bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
@@ -53,7 +53,7 @@ class MovieLibrary extends React.Component {
     if (selectedGenre) {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
-      
+
     return filteredMovies;
   }
 

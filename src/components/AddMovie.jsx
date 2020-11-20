@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -103,6 +104,10 @@ class AddMovie extends React.Component {
       </form>
     );
   }
+}
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }
 
 export default AddMovie;
