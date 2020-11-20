@@ -27,6 +27,10 @@ class App extends React.Component {
     console.log('test5');
   }
 
+  onSelectedGenreChange() {
+    console.log('teste6');
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,6 +42,7 @@ class App extends React.Component {
           bookmarkedOnly={this.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
       </div>
     );
