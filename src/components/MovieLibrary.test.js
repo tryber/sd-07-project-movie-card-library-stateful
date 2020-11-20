@@ -55,13 +55,13 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it.skip('Será validado se o `selectedGenre` é inicializado com uma string vazia', () => {
+  it('Será validado se o `selectedGenre` é inicializado com uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const selectInput = getByTestId('select-input');
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Será validado se o todos os `movies` são renderezidados.', () => {
+  it('Será validado se o todos os `movies` são renderezidados.', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
     expect(movieCards).toHaveLength(movies.length);
