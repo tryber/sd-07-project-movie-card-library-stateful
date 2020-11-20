@@ -32,7 +32,7 @@ class MovieLibrary extends React.Component {
     //     filtroGenero = true;
     //   }
     //   if (
-    //     this.state.searchText === '' || 
+    //     this.state.searchText === '' ||
     //     title.includes(this.state.searchText) ||
     //     subtitle.includes(this.state.searchText) ||
     //     storyline.includes(this.state.searchText)
