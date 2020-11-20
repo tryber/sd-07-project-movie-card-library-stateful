@@ -29,10 +29,10 @@ class AddMovie extends React.Component {
         <form>
             <label htmlFor="titulo" data-testid="title-input-label">Titulo
                 <input 
-                  id="titulo"
-                  type="text"
-                  data-testid="title-input"
-                  value={this.state.title}  
+                    id="titulo"
+                    type="text"
+                    data-testid="title-input"
+                    value={this.state.title}  
                 />
             </label>
 
