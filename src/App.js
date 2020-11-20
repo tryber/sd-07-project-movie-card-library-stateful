@@ -3,23 +3,8 @@ import './App.css';
 import movies from './data';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
-
 
 class App extends React.Component {
-  onSearchTextChange() {
-    console.log('test');
-  }
-
-  onBookmarkedChange() {
-    console.log('teste4');
-  }
-
-  onSelectedGenreChange() {
-    console.log('teste6');
-  }
-
   selectedGenre() {
     console.log('test5');
   }
@@ -38,15 +23,6 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <MovieLibrary movies={movies} />
-        <SearchBar
-          onSearchTextChange={this.onSearchTextChange}
-          searchText={this.searchText}
-          bookmarkedOnly={this.bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange}
-          selectedGenre={this.selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange}
-        />
-        <AddMovie onClick={this.buttonClick} />
       </div>
     );
   }
