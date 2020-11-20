@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleButton = this.handleButton.bind(this);
+    this.handleResetState = this.handleResetState.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,8 +25,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleButton() {
-    this.props.onClick(this.state);
+  handleResetState() {
     this.setState({
       title: '',
       subtitle: '',
@@ -115,8 +114,9 @@ class AddMovie extends React.Component {
           </label>
         </form>
         <button
+          type="button"
           data-testid="send-button"
-          onClick={this.handleButton}
+          onClick={this.handleResetState}
         >
           Adicionar filme
         </button>
