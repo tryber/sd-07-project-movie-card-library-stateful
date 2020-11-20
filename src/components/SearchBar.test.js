@@ -72,7 +72,7 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
     expect(textInput).toHaveValue(props.searchText);
   });
 
-  it.skip('Será validado que a props `onSearchTextChange` é passada para o atributo `onChange` do input', () => {
+  it('Será validado que a props `onSearchTextChange` é passada para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId('text-input');
     event.type(textInput, 'change');
