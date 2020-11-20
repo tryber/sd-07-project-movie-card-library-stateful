@@ -6,6 +6,16 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
+  }
+
   render() {
     return (
       <div>
@@ -18,7 +28,16 @@ class MovieLibrary extends Component {
   }
 }
 
-// alterar
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      subtitle: PropTypes.string,
+      imagePath: PropTypes.string,
+      storyline: PropTypes.string,
+      rating: PropTypes.number,
+    }))
+  .isRequired,
+};
 
 export default MovieLibrary;
