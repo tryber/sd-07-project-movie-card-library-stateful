@@ -51,7 +51,7 @@ class MovieLibrary extends Component {
     const { searchText } = state;
 
     if (searchText !== '') {
-      console.log(searchText)
+      console.log(searchText);
       newArrayMovie = movies.filter((item) => item.title.includes(searchText)
       || item.subtitle.includes(searchText)
       || item.storyline.includes(searchText));
