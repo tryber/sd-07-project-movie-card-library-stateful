@@ -15,13 +15,14 @@ class App extends React.Component {
     console.log('teste4');
   }
 
+  onSelectedGenreChange() {
+    console.log('teste6');
+  }
+  
   selectedGenre() {
     console.log('test5');
   }
 
-  onSelectedGenreChange() {
-    console.log('teste6');
-  }
 
   searchText() {
     console.log('teste2');
