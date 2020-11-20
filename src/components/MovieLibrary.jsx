@@ -24,62 +24,60 @@ class MovieLibrary extends React.Component {
     this.addNewMovie = this.addNewMovie.bind(this);
   }
 // -----------------------------------------------------------------
-    searchTextChange(event) {
-      this.setState({ searchText: event.target.value });
+  searchTextChange(event) {
+    this.setState({ searchText: event.target.value });
+  }
+
+  bookmarkedChange(event) {
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
+
+  selectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
+
+  handleMovieFilter() {
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    let filteredMovies = movies.filter(
+      (movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText)
+       );      
+    if (bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
 
-    bookmarkedChange(event) {
-      this.setState({ bookmarkedOnly: event.target.checked });
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
-
-    selectedGenreChange(event) {
-      this.setState({ selectedGenre: event.target.value });
-    }
-
-    handleMovieFilter() {
-      const { movies } = this.props;
-      const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-      let filteredMovies = movies.filter(
-        ({ title, subtitle, storyline }) =>
-          title.includes(searchText) ||
-          subtitle.includes(searchText) ||
-          storyline.includes(searchText)
-        );
       
-      if (bookmarkedOnly) {
-        filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
-      }
+    return filteredMovies;
+  }
 
-      if (selectedGenre) {
-        filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
-      }
-      
-      return filteredMovies;
-    }
-
-    addNewMovie(movie) {
-      this.setState((previous) => ({ movies: [...previous.movies, movie] }));
-    }
+  addNewMovie(movie) {
+    this.setState((previous) => ({ movies: [...previous.movies, movie] }));
+  }
 // -----------------------------------------------------------------
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre  } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <SearchBar 
-        searchText={searchText}
-        onSearchTextChange={this.searchTextChange}
-        bookmarkedOnly={bookmarkedOnly}
-        onBookmarkedChange={this.bookmarkedChange}
-        selectedGenre={selectedGenre}
-        onSelectedGenreChange={this.selectedGenreChange}
-      />
+        <SearchBar
+          searchText={searchText}
+          onSearchTextChange={this.searchTextChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.bookmarkedChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.selectedGenreChange}
+        />
 
-      <MovieList movies={this.handleMovieFilter()}/>
-      <AddMovie onClick={this.addNewMovie}/>
+        <MovieList movies={this.handleMovieFilter()} />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
-      
-    )
+    );
   }
 }
 

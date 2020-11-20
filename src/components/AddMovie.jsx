@@ -19,9 +19,7 @@ class AddMovie extends React.Component {
   addMovieHandler(event) {
     const state = event.target.name;
     const newValue = state === 'rating' ? Number(event.target.value) : event.target.value;
-    this.setState({
-      [state]: newValue,
-    });
+    this.setState({ [state]: newValue });
   }
 
   addMovieButton(callback) {
@@ -33,7 +31,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 // ------------------------------------------------------------------------
   render() {
