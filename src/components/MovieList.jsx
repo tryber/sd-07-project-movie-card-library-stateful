@@ -55,15 +55,15 @@ MovieList.propTypes = {
   selectedGenre: PropTypes.string,
 };
 MovieList.defaultProps = {
-  searchText: 'string',
-  bookmarkedOnly: false,
-  selectedGenre: 'string',
   movies: {
     title: 'string',
     imagePath: 'string',
     subtitle: 'string',
     storyline: 'string',
     rating: 10,
+    searchText: 'string',
+    bookmarkedOnly: false,
+    selectedGenre: 'string',
   },
 };
 

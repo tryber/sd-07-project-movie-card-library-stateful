@@ -78,9 +78,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
-SearchBar.defaultProps = { selectedGenre: '' };
 
 export default SearchBar;
