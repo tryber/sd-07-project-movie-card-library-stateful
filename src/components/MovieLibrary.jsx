@@ -7,7 +7,7 @@ import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -16,7 +16,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: this.props.movies,
     };
   }
 
@@ -46,7 +46,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
-          selectedGenre={this.selectedGenre}
+          selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList
@@ -63,4 +63,22 @@ class MovieLibrary extends React.Component {
 
 export default MovieLibrary;
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
+MovieLibrary.defaultProps = {
+  movies: {
+    title: 'string',
+    imagePath: 'string',
+    subtitle: 'string',
+    storyline: 'string',
+    rating: 10,
+  },
+};
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    imagePath: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+  }),
+  ),
+};

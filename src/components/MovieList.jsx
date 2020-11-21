@@ -49,10 +49,7 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({})),
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
+  movies: PropTypes.arrayOf(PropTypes.shape({}))
 };
 MovieList.defaultProps = {
   movies: {
@@ -61,10 +58,7 @@ MovieList.defaultProps = {
     subtitle: 'string',
     storyline: 'string',
     rating: 10,
-    searchText: 'string',
-    bookmarkedOnly: false,
-    selectedGenre: 'string',
-  },
+  }
 };
 
 export default MovieList;
