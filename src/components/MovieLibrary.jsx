@@ -65,10 +65,10 @@ export default MovieLibrary;
 
 MovieLibrary.defaultProps = {
   movies: {
-    title: 'string',
-    imagePath: 'string',
-    subtitle: 'string',
-    storyline: 'string',
+    title: '',
+    imagePath: '',
+    subtitle: '',
+    storyline: '',
     rating: 10,
   },
 };
