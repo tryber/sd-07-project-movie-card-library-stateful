@@ -48,8 +48,12 @@ class MovieList extends React.Component {
   }
 }
 
-export default MovieList;
-
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({})),
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+};
 MovieList.defaultProps = {
   movies: {
     title: 'string',
@@ -63,9 +67,4 @@ MovieList.defaultProps = {
   },
 };
 
-MovieList.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({})),
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
-  searchText: PropTypes.string,
-};
+export default MovieList;
