@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import AddMovie  from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      searchText:'',
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre:'',
+      selectedGenre: '',
       movies: this.props.movies,
     };
     this.onSearchText = this.onSearchText.bind(this);
@@ -31,16 +31,16 @@ class MovieLibrary extends React.Component {
     this.setState({ onSelectedGenre: event.target.value });
   }
 
-  render () {
+  render() {
     return (
       <div>
         <SearchBar
-        searchText={this.state.searchText}
-        onSearchText={this.onSearchText}
-        bookmarkedOnly={this.state.searchText}
-        onBookmarkedOnly={this.onBookmarkedOnly}
-        selectedGenre={this.state.selectedGenre}
-        onSelectedGenre={this.onSelectedGenre}
+          searchText={this.state.searchText}
+          onSearchText={this.onSearchText}
+          bookmarkedOnly={this.state.searchText}
+          onBookmarkedOnly={this.onBookmarkedOnly}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenre={this.onSelectedGenre}
         />
         <MovieList />
         <AddMovie />
