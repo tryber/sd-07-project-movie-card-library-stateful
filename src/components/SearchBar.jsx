@@ -81,6 +81,6 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
-MovieList.defaultProps = { selectedGenre: '' };
+SearchBar.defaultProps = { selectedGenre: '' };
 
 export default SearchBar;
