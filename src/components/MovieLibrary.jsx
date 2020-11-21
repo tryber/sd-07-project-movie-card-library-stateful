@@ -49,7 +49,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList 
+        <MovieList
           movies={this.state.movies}
           selectedGenre={this.state.selectedGenre}
           bookmarkedOnly={this.state.bookmarkedOnly}

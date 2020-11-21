@@ -57,6 +57,9 @@ MovieList.defaultProps = {
     subtitle: 'string',
     storyline: 'string',
     rating: 10,
+    searchText: 'string',
+    bookmarkedOnly: false,
+    selectedGenre: 'string',
   },
 };
 

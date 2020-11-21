@@ -47,10 +47,10 @@ class SearchBar extends React.Component {
         </div>
         <div className="field">
           <div className="control">
-          <label
-              className="label"
-              htmlFor="genre-select"
-              data-testid="select-input-label"
+            <label
+            className="label"
+            htmlFor="genre-select"
+            data-testid="select-input-label"
             >
               Filtrar por gênero:
             </label>
@@ -73,13 +73,12 @@ class SearchBar extends React.Component {
   }
 }
 
-
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
