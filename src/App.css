@@ -4,6 +4,22 @@ body {
   font-size: 16px;
 }
 
+.form {
+  margin: 15px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1px;
+  padding-top: 20px;
+  text-align: start;
+}
+
+.button {
+  margin-top: 20px;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
