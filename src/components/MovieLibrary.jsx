@@ -22,11 +22,10 @@ class MovieLibrary extends React.Component {
 
   onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
-    this.filterMovies(event.target.value);
   }
 
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+  onSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value });
   }
 
   onBookmarkedChange({ target }) {
@@ -50,7 +49,12 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList 
+          movies={this.state.movies}
+          selectedGenre={this.state.selectedGenre}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          searchText={this.state.searchText}
+        />
         <AddMovie onClick={this.onClick} />
       </div>
     );
