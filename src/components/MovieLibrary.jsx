@@ -50,7 +50,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <SearchBar
           searchText={this.searchText}

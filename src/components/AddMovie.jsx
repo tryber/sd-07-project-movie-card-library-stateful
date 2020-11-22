@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
           Subtítulo
           <input
             name="subtitleText"
-            type="text" 
+            type="text"
             value={this.subtitle}
             data-testid="subtitle-input"
             onChange={this.changingInputsState}
@@ -88,8 +88,12 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
-          <select name="genre" value={this.genre}
-            onChange={this.handleChange} data-testid="genre-input" >
+          <select
+            name="genre"
+            value={this.genre}
+            onChange={this.handleChange}
+            data-testid="genre-input"
+          >
             <option data-testid="genre-option" value="action" >
               Ação
             </option>
