@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
     };
     this.searchTextChange = this.searchTextChange.bind(this);
   }
-  searchTextChange({ target }){
+  searchTextChange({ name, valeu }){
     this.setState({
       name: value
     });
