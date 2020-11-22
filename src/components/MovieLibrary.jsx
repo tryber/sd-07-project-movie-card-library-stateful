@@ -28,7 +28,7 @@ class MovieLibrary extends React.Component {
     || movie.storyline.includes(value)) : movies;
     this.setState(() => ({ searchText: value, movies: filterMovie }));
   }
-   
+
   onBookmarkedChange({ target }) {
     const { movies } = this.state;
     const { checked } = target;
