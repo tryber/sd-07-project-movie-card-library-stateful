@@ -5,8 +5,6 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
-    this.changingInputsState = this.changingInputsState.bind(this);
-    this.buttonOnclick = this.buttonOnclick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,17 +13,20 @@ class AddMovie extends React.Component {
       genre: 'action',
       rating: 0,
     };
+
+    this.changingInputsState = this.changingInputsState.bind(this);
+    this.buttonOnclick = this.buttonOnclick.bind(this);
   }
 
-  changingInputsState({ target }) {
-    this.setState({ [name]: value });
+  changingInputsState({ name, valeu }) {
+    this.setState({ [name]: valeu });
   }
 
-  buttonOnclick() {
-    changingStates(this.state);
+  buttonOnclick(callback) {
+    callback(this.state);
     this.setState({
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -34,6 +35,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="titleText" data-testid="title-input-label">
@@ -41,7 +43,7 @@ class AddMovie extends React.Component {
           <input
             name="titleText"
             type="text"
-            value={this.state.title}
+            value={this.title}
             data-testid="title-input"
             onChange={this.changingInputsState}
           />
@@ -51,7 +53,7 @@ class AddMovie extends React.Component {
           <input
             name="subtitleText"
             type="text"
-            value={this.state.subtitle}
+            value={this.subtitle}
             data-testid="subtitle-input"
             onChange={this.changingInputsState}
           />
@@ -61,7 +63,7 @@ class AddMovie extends React.Component {
           <input
             name="img"
             type="text"
-            value={this.state.imagePath}
+            value={this.imagePath}
             data-testid="image-input"
             onChange={this.changingInputsState}
           />
@@ -70,7 +72,7 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea
             name="storylineTxt"
-            value={this.state.storyline}
+            value={this.storyline}
             data-testid="storyline-input"
             onChange={this.changingInputsState}
           />
@@ -80,7 +82,7 @@ class AddMovie extends React.Component {
           <input
             type="number"
             name="grade"
-            value={this.state.rating}
+            value={this.rating}
             data-testid="rating-input"
             onChange={this.changingInputsState}
           />
@@ -89,7 +91,7 @@ class AddMovie extends React.Component {
           Gênero
           <select
             name="genre"
-            value={this.state.genre}
+            value={this.genre}
             onChange={this.handleChange}
             data-testid="genre-input"
           >
@@ -115,7 +117,7 @@ class AddMovie extends React.Component {
         </label>
         <button
           data-testid="send-button"
-          onClick={this.buttonOnclick}
+          onClick={() => this.buttonOnclick(onClick)}
         >
           Adicionar filme
         </button>
