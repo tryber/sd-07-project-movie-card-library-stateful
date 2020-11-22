@@ -109,7 +109,11 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="button" data-testid="send-button" onClick={() => this.createFilm(addNewMovie)}>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={() => this.createFilm(addNewMovie)}
+        >
           Adicionar filme
         </button>
       </form>
