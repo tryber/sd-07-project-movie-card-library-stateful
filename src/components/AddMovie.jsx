@@ -12,6 +12,8 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.chanceStateAddMovie = this.chanceStateAddMovie.bind(this);
+    this.clearAndAddMovieState = this.clearAndAddMovieState.bind(this);
   }
 
   chanceStateAddMovie({ target }) {
