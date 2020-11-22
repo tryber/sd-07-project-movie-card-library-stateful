@@ -14,16 +14,28 @@ class AddMovie extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.sendMovie = this.sendMovie.bind(this);
+  }
+
+  sendMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleInputChange({ target }) {
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({ [target.name]: value });
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -108,7 +120,7 @@ class AddMovie extends Component {
             </select>
           </label>
 
-          <button type="submit" data-testid="send-button" onClick={onClick}>
+          <button type="submit" data-testid="send-button" onClick={this.sendMovie}>
             Adicionar filme
           </button>
 
