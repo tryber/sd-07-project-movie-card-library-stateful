@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -8,18 +8,18 @@ export default class AddMovie extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.initialState = this.initialState.bind(this);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState((beforeState) => ({
       ...beforeState,
       [name]: value,
@@ -34,12 +34,12 @@ export default class AddMovie extends Component {
 
   initialState() {
     this.setState({
-      title: "",
-      subtitle: "",
-      imagePath: "",
-      storyline: "",
-      rating: "0",
-      genre: "action",
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
