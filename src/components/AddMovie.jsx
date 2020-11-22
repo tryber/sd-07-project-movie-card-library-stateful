@@ -23,8 +23,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  createFilm(onClick) {
-    onClick(this.state);
+  createFilm(addNewMovie) {
+    addNewMovie(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -37,7 +37,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
+    const { addNewMovie } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -109,7 +109,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="button" data-testid="send-button" onClick={() => this.createFilm(onClick)}>
+        <button type="button" data-testid="send-button" onClick={() => this.createFilm(addNewMovie)}>
           Adicionar filme
         </button>
       </form>
@@ -117,6 +117,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { addNewMovie: PropTypes.func.isRequired };
 
 export default AddMovie;
