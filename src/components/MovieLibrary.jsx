@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.addNewMovie = this.addNewMovie(this);
   }
 
@@ -45,7 +45,7 @@ class MovieLibrary extends Component {
     const { value } = event.target;
     this.setState(() => ({ selectedGenre: value }));
 
-    if (value !== '') {
+    if (event.target.value !== '') {
       const moviesSelectedies = this.state.movies.filter((movie) => movie.genre === value);
       this.setState(() => ({ movies: moviesSelectedies }));
     }
