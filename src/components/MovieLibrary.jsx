@@ -13,20 +13,23 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: this.props.movies,
     };
-    this.searchTextChange = this.searchTextChange.bind(this);
+
+    this.onChange = this.onChange.bind(this);
   }
-  searchTextChange({ name, valeu }){
-    this.setState({
-      name: value
-    });
+
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
     return(
       <SearchBar
         searchText={this.state.searchText}
-        onChange={this.searchTextChange}
+        onSearchChange={this.onChange}
         bookmarkedOnly={this.state.bookmarkedOnly}
+        onBookmarkedChange={this.onChange}
+        selectedGenre={this.state.selectedGenre}
+        onSelectedGenreChange={this.onChange}
       />
     );
   }
