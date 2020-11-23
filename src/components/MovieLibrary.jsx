@@ -9,7 +9,7 @@ class MovieLibrary extends Component {
     super(props);
 
     const { movies } = this.props;
-    
+
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -24,14 +24,14 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange({ target }) {
-   const { value } = target;
-   const { movies } = this.state;
+    const { value } = target;
+    const { movies } = this.state;
 
-   const filteredMovies = value !== '' ? movies.filter((movie) => movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)) : movies;
-   this.setState(() => ({
-     searchText: value,
-     movies: filteredMovies
-   }))
+    const filteredMovies = value !== '' ? movies.filter((movie) => movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)) : movies;
+    this.setState(() => ({
+      searchText: value,
+      movies: filteredMovies,
+    }));
   }
 
   onBookmarkedChange({ target }) {
@@ -41,8 +41,8 @@ class MovieLibrary extends Component {
     const filteredMovies = checked ? movies.filter((movie) => movie.bookmarked) : movies;
     this.setState(() => ({
       bookmarkedOnly: checked,
-      movies: filteredMovies
-    }))
+      movies: filteredMovies,
+    }));
   }
 
   onSelectedGenreChange({ target }) {
