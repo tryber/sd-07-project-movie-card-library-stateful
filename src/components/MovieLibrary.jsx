@@ -19,25 +19,26 @@ class MovieLibrary extends Component {
     this.addNewMovies = this.addNewMovies.bind(this);
   }
 
-  onChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  onChange({ target }) {
+    const name = target.name;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   filterMovies() {
     const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     let filteredMovies = movies.filter(
       (movie) =>
-        movie.title.includes(searchText) ||
-        movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText),
+        movie.title.includes(this.state.searchText) ||
+        movie.subtitle.includes(this.state.searchText) ||
+        movie.storyline.includes(this.state.searchText),
       );
-    if (bookmarkedOnly) {
+    if (this.state.bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
 
-    if (selectedGenre) {
+    if (this.state.selectedGenre) {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
 
