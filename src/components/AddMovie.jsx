@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor(props) {
     super(props);
+
     this.chanceStateAddMovie = this.chanceStateAddMovie.bind(this);
     this.clearAndAddMovieState = this.clearAndAddMovieState.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -17,18 +19,20 @@ class AddMovie extends Component {
   }
 
   chanceStateAddMovie({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+    const { name } = target;
+    const value = target.name === 'rating' ? Number(target.value) : target.value;
+    this.setState(() => ({ [name]: value }));
   }
 
   clearAndAddMovieState() {
     const { onClick } = this.props;
-    onClick([this.state]);
+    const { state } = this;
+    onClick(state);
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
@@ -73,13 +77,14 @@ class AddMovie extends Component {
 
         <label htmlFor="storyLine" data-testid="storyline-input-label">
           Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyLine"
-            value={this.state.storyLine}
-            onChange={this.chanceStateAddMovie}
-          />
         </label>
+        <input
+          data-testid="storyline-input"
+          type="text"
+          name="storyLine"
+          value={this.state.storyLine}
+          onChange={this.chanceStateAddMovie}
+        />
 
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
