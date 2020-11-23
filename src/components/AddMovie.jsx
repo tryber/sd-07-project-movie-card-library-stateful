@@ -18,16 +18,14 @@ class AddMovie extends Component {
     };
   }
 
-  chanceStateAddMovie({ target }) {
-    const { name } = target;
-    const value = target.name === 'rating' ? Number(target.value) : target.value;
-    this.setState(() => ({ [name]: value }));
+  chanceStateAddMovie(event) {
+    const state = event.target.name;
+    const newValue = state === 'rating' ? Number(event.target.value) : event.target.value;
+    this.setState({ [state]: newValue });
   }
 
-  clearAndAddMovieState() {
-    const { onClick } = this.props;
-    const { state } = this;
-    onClick(state);
+  clearAndAddMovieState(callback) {
+    callback(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -39,6 +37,7 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
 
@@ -109,7 +108,11 @@ class AddMovie extends Component {
           </select>
         </label>
 
-        <button data-testid="send-button" type="button" onClick={this.clearAndAddMovieState}>
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={() => this.clearAndAddMovieState(onClick)}
+        >
           Adicionar filme
         </button>
       </form>

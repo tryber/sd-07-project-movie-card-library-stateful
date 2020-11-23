@@ -8,8 +8,6 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
-
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -19,41 +17,42 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: this.props.movies,
     };
   }
 
   onSearchTextChange({ target }) {
-    const { value } = target;
-    const { movies } = this.state;
-
-    const filteredMovies = value !== '' ? movies.filter((movie) => movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)) : movies;
-    this.setState(() => ({
-      searchText: value,
-      movies: filteredMovies,
-    }));
+    this.setState({ searchText: target.value });
   }
 
   onBookmarkedChange({ target }) {
-    const { checked } = target;
-    const { movies } = this.state;
-
-    const filteredMovies = checked ? movies.filter((movie) => movie.bookmarked) : movies;
-    this.setState(() => ({
-      bookmarkedOnly: checked,
-      movies: filteredMovies,
-    }));
+    this.setState({ bookmarkedOnly: target.checked });
   }
 
   onSelectedGenreChange({ target }) {
-    const { value } = target;
-    const { movies } = this.state;
+    this.setState({ selectedGenre: target.value });
+  }
 
-    const filteredMovies = value !== '' ? movies.filter((movie) => movie.genre === value) : movies;
-    this.setState(() => ({
-      selectedGenre: value,
-      movies: filteredMovies,
-    }));
+  handleMovieFilter() {  // Ideia tirada do codigo do Lucas Ribeiro - https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/127
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    let filteredMovies = movies.filter(
+      (movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText),
+       );
+
+    if (bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filteredMovies;
   }
 
   addNewMovie(newMovie) {
@@ -72,13 +71,13 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.handleMovieFilter()} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }
 }
-
+// //Ideia tirada do codigo do Lucas Ribeiro - https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/127
 MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
