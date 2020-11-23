@@ -24,20 +24,20 @@ class AddMovie extends Component {
     this.setState({ [state]: newValue });
   }
 
-  clearAndAddMovieState(callback) {
-    callback(this.state);
+  clearAndAddMovieState() {
+    const click = this.props.onClick;
+    click();
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyline: '',
+      storyLine: '',
       rating: 0,
       genre: 'action',
     });
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
 
@@ -111,7 +111,7 @@ class AddMovie extends Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={() => this.clearAndAddMovieState(onClick)}
+          onClick={this.clearAndAddMovieState}
         >
           Adicionar filme
         </button>
