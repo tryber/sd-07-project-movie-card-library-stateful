@@ -33,7 +33,7 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: target.value });
   }
 
-  handleMovieFilter() {  // Ideia tirada do codigo do Lucas Ribeiro - https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/127
+  handleMovieFilter() {  // Ideia tirada do codigo do Lucas Ribeiro - https://github.com/tryber/sd-07-project-movie-card-library-stateful/pull/127.
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
