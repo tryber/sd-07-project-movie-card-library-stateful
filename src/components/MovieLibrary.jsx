@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import PropTypes from 'prop-types';
 
 export default class MovieLibrary extends Component {
-  const { movies } = this.props;
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -29,19 +30,48 @@ export default class MovieLibrary extends Component {
   onBookmarkedChange(event) { // event.target.name é null dentro do prevState, pk?
     const eventTargetName = event.target.name;
     this.setState((prevState) => ({ [eventTargetName]: !prevState.bookmarkedOnly }),
-    () => console.log(this.state.bookmarkedOnly));
+    () => {
+      console.log(this.state.bookmarkedOnly)
+      this.filterFavoriteList()
+    });
   }
 
   onSelectedGenreChange(event) {
     this.setState({ [event.target.name]: event.target.value },
-      () => console.log(this.state.selectedGenre));
+      () => {
+        console.log(this.state.selectedGenre)
+        this.filterGenreList()
+      });
   }
   filterMovieList() {
     this.setState((prevState) => ({
       filteredMovieData: prevState.MovieData
-      .filter(({ title }) => title.includes(this.state.searchText)),
-    }),
+      .filter(({ title, subtitle, storyline }) => (title.includes(this.state.searchText) ||
+        subtitle.includes(this.state.searchText) ||
+        storyline.includes(this.state.searchText))),
+    }), () => console.log(this.state.filteredMovieData));
+  }
+
+  filterGenreList() {
+    this.setState((prevState) => {
+      if(this.state.selectedGenre === '') {
+        return { filteredMovieData: prevState.MovieData }
+      }
+      return { filteredMovieData: prevState.MovieData
+      .filter(({ genre }) => genre === this.state.selectedGenre) }
+    }, () => console.log(this.state.filteredMovieData));
+  }
+
+  filterFavoriteList() {
+    if (this.state.bookmarkedOnly) {
+      this.setState((prevState) => ({
+        filteredMovieData: prevState.MovieData
+        .filter(({ bookmarked }) => bookmarked === true),
+      }), () => console.log(this.state.filteredMovieData));
+    } else {
+      this.setState((prevState) => ({ filteredMovieData: prevState.MovieData }),
     () => console.log(this.state.filteredMovieData));
+    }
   }
 
   addMovieToData(newMovie) {
@@ -68,3 +98,5 @@ export default class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
