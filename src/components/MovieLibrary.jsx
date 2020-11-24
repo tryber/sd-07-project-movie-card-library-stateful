@@ -18,6 +18,7 @@ export default class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.addMovieToData = this.addMovieToData.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -36,13 +37,16 @@ export default class MovieLibrary extends Component {
       () => console.log(this.state.selectedGenre));
   }
   filterMovieList() {
-    this.setState((prevState) => {
-      console.log(prevState.MovieData);
-      this.setState({
-        filteredMovieData: prevState.MovieData
-          .filter(({ title }) => title.includes(this.state.searchText))
-      });
-    }, () => console.log(this.state.filteredMovieData));
+    this.setState((prevState) => ({ filteredMovieData: prevState.MovieData
+      .filter(({ title }) => title.includes(this.state.searchText)) }),
+    () => console.log(this.state.filteredMovieData));
+  }
+
+  addMovieToData(newMovie) {
+    this.setState(({ MovieData }) => {
+      const addNewMovie = [...MovieData, newMovie];
+      return ({ MovieData: addNewMovie });
+    });
   }
 
   render() {
@@ -57,7 +61,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.filteredMovieData} />
-        <AddMovie />
+        <AddMovie onClick={this.addMovieToData} />
       </div>
     );
   }
