@@ -42,10 +42,7 @@ export default class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <div>
-            <label
-              htmlFor="title"
-              data-testid="title-input-label"
-            >Título</label>
+            <label htmlFor="title" data-testid="title-input-label">Título</label>
             <div>
               <input
                 type="text"
@@ -58,10 +55,9 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="subtitle"
-              data-testid="subtitle-input-label"
-            >Subtítulo</label>
+            <label htmlFor="subtitle" data-testid="subtitle-input-label">
+              Subtítulo
+            </label>
             <div>
               <input
                 type="text"
@@ -74,10 +70,7 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="imagePath"
-              data-testid="image-input-label"
-            >Imagem</label>
+            <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
             <div>
               <input
                 type="text"
@@ -90,10 +83,7 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="storyline"
-              data-testid="storyline-input-label"
-            >Sinopse</label>
+            <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
             <div>
               <textarea
                 name="storyline"
@@ -105,10 +95,7 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="rating"
-              data-testid="rating-input-label"
-            >Avaliação</label>
+            <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
             <div>
               <input
                 max="5"
@@ -123,10 +110,7 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label
-              htmlFor="selectaddMovieCardedGenre"
-              data-testid="genre-input-label"
-            >Gênero</label>
+            <label htmlFor="selectaddMovieCardedGenre" data-testid="genre-input-label">Gênero</label>
             <div>
               <select
                 name="genre"
@@ -142,10 +126,7 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <button
-              data-testid="send-button"
-              onClick={this.newMovie}
-            >Adicionar filme</button>
+            <button data-testid="send-button" onClick={this.newMovie}>Adicionar filme</button>
           </div>
         </form>
       </div>
