@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
-  const { movies } = this.props
+  const { movies } = this.props;
   constructor(props) {
     super(props);
     this.state = {
