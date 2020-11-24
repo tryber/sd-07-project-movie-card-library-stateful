@@ -79,7 +79,7 @@ export default class MovieLibrary extends Component {
   addMovieToData(newMovie) {
     this.setState(({ MovieData }) => {
       const addNewMovie = [...MovieData, newMovie];
-      return ({ MovieData: addNewMovie });
+      return { MovieData: addNewMovie, filteredMovieData: addNewMovie };
     });
   }
 
