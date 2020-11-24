@@ -57,9 +57,8 @@ export default class MovieLibrary extends Component {
       if (this.state.selectedGenre === '') {
         return { filteredMovieData: prevState.MovieData };
       }
-      return {
-        filteredMovieData: prevState.MovieData.filter(({ genre }) => genre === this.state.selectedGenre)
-      };
+      return { filteredMovieData: prevState.MovieData
+        .filter(({ genre }) => genre === this.state.selectedGenre) }
     }, () => console.log(this.state.filteredMovieData));
   }
 
