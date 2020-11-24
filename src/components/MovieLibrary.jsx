@@ -1,9 +1,9 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import PropTypes from 'prop-types';
 
 export default class MovieLibrary extends Component {
   constructor(props) {
@@ -31,16 +31,16 @@ export default class MovieLibrary extends Component {
     const eventTargetName = event.target.name;
     this.setState((prevState) => ({ [eventTargetName]: !prevState.bookmarkedOnly }),
     () => {
-      console.log(this.state.bookmarkedOnly)
-      this.filterFavoriteList()
+      console.log(this.state.bookmarkedOnly);
+      this.filterFavoriteList();
     });
   }
 
   onSelectedGenreChange(event) {
     this.setState({ [event.target.name]: event.target.value },
       () => {
-        console.log(this.state.selectedGenre)
-        this.filterGenreList()
+        console.log(this.state.selectedGenre);
+        this.filterGenreList();
       });
   }
   filterMovieList() {
@@ -54,11 +54,12 @@ export default class MovieLibrary extends Component {
 
   filterGenreList() {
     this.setState((prevState) => {
-      if(this.state.selectedGenre === '') {
-        return { filteredMovieData: prevState.MovieData }
+      if (this.state.selectedGenre === '') {
+        return { filteredMovieData: prevState.MovieData };
       }
-      return { filteredMovieData: prevState.MovieData
-      .filter(({ genre }) => genre === this.state.selectedGenre) }
+      return {
+        filteredMovieData: prevState.MovieData.filter(({ genre }) => genre === this.state.selectedGenre)
+      };
     }, () => console.log(this.state.filteredMovieData));
   }
 
