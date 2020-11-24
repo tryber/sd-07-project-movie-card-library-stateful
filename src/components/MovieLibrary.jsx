@@ -39,7 +39,7 @@ export default class MovieLibrary extends Component {
   filterMovieList() {
     this.setState((prevState) => ({
       filteredMovieData: prevState.MovieData
-      .filter(({ title }) => title.includes(this.state.searchText))
+      .filter(({ title }) => title.includes(this.state.searchText)),
     }),
     () => console.log(this.state.filteredMovieData));
   }

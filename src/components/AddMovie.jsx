@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-   this.onTextChange = this.onTextChange.bind(this);
-   this.newMovie = this.newMovie.bind(this);
+    this.onTextChange = this.onTextChange.bind(this);
+    this.newMovie = this.newMovie.bind(this);
   }
 
   onTextChange(event) {
@@ -21,7 +22,7 @@ export default class AddMovie extends Component {
   }
 
   newMovie(event) {
-    const { onClick } = this.props
+    const { onClick } = this.props;
     event.preventDefault();
     this.setState((prevState) => {
       onClick(prevState);
@@ -33,7 +34,7 @@ export default class AddMovie extends Component {
         rating: 0,
         genre: 'action',
       };
-    })
+    });
   }
 
   render() {
@@ -41,12 +42,10 @@ export default class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <div>
-            <div>
-              <label
-                htmlFor="title"
-                data-testid="title-input-label"
-              >Título</label>
-            </div>
+            <label
+              htmlFor="title"
+              data-testid="title-input-label"
+            >Título</label>
             <div>
               <input
                 type="text"
@@ -59,12 +58,10 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <label
-                htmlFor="subtitle"
-                data-testid="subtitle-input-label"
-              >Subtítulo</label>
-            </div>
+            <label
+              htmlFor="subtitle"
+              data-testid="subtitle-input-label"
+            >Subtítulo</label>
             <div>
               <input
                 type="text"
@@ -77,12 +74,10 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <label
-                htmlFor="imagePath"
-                data-testid="image-input-label"
-              >Imagem</label>
-            </div>
+            <label
+              htmlFor="imagePath"
+              data-testid="image-input-label"
+            >Imagem</label>
             <div>
               <input
                 type="text"
@@ -95,12 +90,10 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <label
-                htmlFor="storyline"
-                data-testid="storyline-input-label"
-              >Sinopse</label>
-            </div>
+            <label
+              htmlFor="storyline"
+              data-testid="storyline-input-label"
+            >Sinopse</label>
             <div>
               <textarea
                 name="storyline"
@@ -112,12 +105,10 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <div>
-              <label
-                htmlFor="rating"
-                data-testid="rating-input-label"
-              >Avaliação</label>
-            </div>
+            <label
+              htmlFor="rating"
+              data-testid="rating-input-label"
+            >Avaliação</label>
             <div>
               <input
                 max="5"
@@ -161,3 +152,5 @@ export default class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
