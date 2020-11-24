@@ -110,7 +110,9 @@ export default class AddMovie extends Component {
             </div>
           </div>
           <div>
-            <label htmlFor="selectaddMovieCardedGenre" data-testid="genre-input-label">Gênero</label>
+            <label htmlFor="selectaddMovieCardedGenre" data-testid="genre-input-label">
+              Gênero
+            </label>
             <div>
               <select
                 name="genre"
