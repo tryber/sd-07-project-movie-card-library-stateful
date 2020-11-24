@@ -1,19 +1,19 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
-import Data from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
+  const { movies } = this.props
   constructor(props) {
     super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      MovieData: Data,
-      filteredMovieData: Data,
+      MovieData: movies,
+      filteredMovieData: movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
