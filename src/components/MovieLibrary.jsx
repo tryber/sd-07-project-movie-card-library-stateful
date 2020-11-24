@@ -38,8 +38,8 @@ class MovieLibrary extends Component {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
 
-    if (this.state.selectedGenre) {
-      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    if (this.selectedGenre) {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === this.state.selectedGenre);
     }
 
     return filteredMovies;
