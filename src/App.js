@@ -2,47 +2,15 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
-import SearchBar from './components/SearchBar';
 import movies from './data';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-      searchText: '',
-      bookmarkedOnly: false,
-      selectGenre: '',
-    };
-  }
-
-  handleChange({ target }) {
-    const { id } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [id]: value });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.handleChange}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.handleChange}
-          onSelectGenreChange={this.handleChange}
-        />
-        <MovieLibrary movies={movies} />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <MovieLibrary movies={movies} />
+    </div>
+  );
 }
 
 export default App;

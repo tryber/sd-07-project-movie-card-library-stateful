@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   render() {
     const { handleChange, subtitle, title, imagePath, genre, rating, storyline } = this.props;
-    const onClick = () => {console.log('clicou')};
-    
     return (
       <form>
         <div>
@@ -30,7 +28,8 @@ class AddMovie extends React.Component {
         </div>
         <div>
           <label htmlFor="image-input" data-testid="image-input-label">Imagem</label>
-          <img
+          <input
+            type="text"
             id="image-input"
             alt="moive-cover"
             data-testid="image-input"
@@ -39,10 +38,10 @@ class AddMovie extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor="input-label" data-testid="storyline-input-label">Sinopse</label>
+          <label htmlFor="storyline-label" data-testid="storyline-input-label">Sinopse</label>
           <input
             type="textarea"
-            id="input-label"
+            id="storyline-label"
             data-testid="storyline-input"
             onChange={storyline}
           />
@@ -70,7 +69,7 @@ class AddMovie extends React.Component {
           </select>
         </div>
         <div>
-          <button data-testid="send-button" onClick={onClick}>Adicionar filme</button>
+          <button data-testid="send-button" onClick={'onClick'}>Adicionar filme</button>
         </div>
       </form>
     );
@@ -81,12 +80,20 @@ AddMovie.defaultProps = {
   handleChange: PropTypes.func,
   title: '',
   subtitle: '',
+  imagePath: '',
+  genre: 'action',
+  rating: 0,
+  storyline: '',
 };
 
 AddMovie.propTypes = {
   handleChange: PropTypes.func,
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  imagePath: PropTypes.string,
+  genre: PropTypes.string,
+  rating: PropTypes.number,
+  storyline: PropTypes.string,
 };
 
 export default AddMovie;
