@@ -2,43 +2,44 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import movies from '../data';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+
+    this.searchByTitleOrSubtitle = this.searchByTitleOrSubtitle.bind(this);
+    this.searchByGenre = this.searchByGenre.bind(this);
+    this.searchByBookmarked = this.searchByBookmarked.bind(this);
+
     this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      moviesList: movies,
+      movies: props.movies,
     };
   }
 
-  handleChange({ target }) {
-    const { id } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    // console.log(`NAME: ${id} - VALUE: ${value}`);
-    this.setState({ [id]: value });
+  searchByTitleOrSubtitle({ target }) {
+    const { value } = target;
+    const { movies } = this.state;
+    const afterFilter = value === '' ? movies : movies.filter((movie) => movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value));
+    this.setState({ searchText: value, movies: afterFilter });
   }
 
-  // filterByTitleOrSubtitle = (name) =>
-    // movies.filter(
-    //   (movie) => movie.title.contains(name) || movie.subtitle.contains(name)
-    // );
+  searchByGenre({ target }) {
+    const { value } = target;
+    const { movies } = this.state;
+    const afterFilter = value === '' ? movies : movies.filter((movie) => movie.genre === value);
+    this.setState({ selectedGenre: value, movies: afterFilter });
+  }
 
-  // filterByGenre = (genre) =>
-  //   genre === "" ? movies : movies.filter((movie) => movie.genre === genre);
-
-  // filterByBookmarked = () =>
-  //   movies.filter((movie) => movie.bookmarked === true);
+  searchByBookmarked({ target }) {
+    const { checked } = target;
+    const { movies } = this.state;
+    const afterFilter = checked ? movies.filter((movie) => movie.bookmarked) : movies;
+    this.setState({ bookmarkedOnly: checked, movies: afterFilter });
+  }
 
   render() {
     return (
@@ -46,14 +47,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.handleChange}
+          onSearchTextChange={this.searchByTitleOrSubtitle}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.handleChange}
+          onBookmarkedChange={this.searchByBookmarked}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.handleChange}
+          onSelectedGenreChange={this.searchByGenre}
         />
-        <MovieList movies={this.state.moviesList} />
-        {/* <AddMovie props={} onChange={}/> */}
+        <MovieList movies={this.state.movies} />
+        {/* <AddMovie onClick={}/> */}
       </div>
     );
   }
@@ -61,12 +62,6 @@ class MovieLibrary extends Component {
 
 MovieLibrary.defaultProps = {
   movies: PropTypes.arrayOf(PropTypes.object),
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyLine: '',
-  rating: 0,
-  genre: 'action',
   searchText: '',
   bookmarkedOnly: false,
   selectedGenre: '',
@@ -74,15 +69,9 @@ MovieLibrary.defaultProps = {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
-  imagePath: PropTypes.string,
-  storyLine: PropTypes.string,
-  rating: PropTypes.number,
-  genre: PropTypes.string,
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
+  // searchText: PropTypes.string,
+  // bookmarked: PropTypes.bool,
+  // selectedGenre: PropTypes.string,
 };
 
 export default MovieLibrary;
