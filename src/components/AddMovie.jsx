@@ -5,28 +5,33 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
+    this.changingInputsState = this.changingInputsState.bind(this);
+    this.buttonOnclick = this.buttonOnclick.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
-      genre: 'action',
       rating: 0,
+      genre: 'action',
     };
-
-    this.changingInputsState = this.changingInputsState.bind(this);
-    this.buttonOnclick = this.buttonOnclick.bind(this);
   }
 
-  changingInputsState({ name, valeu }) {
-    this.setState({ [name]: valeu });
+  changingInputsState({ target }) {
+    const { name, value } = target;
+
+    this.setState({ [name]: value });
   }
 
-  buttonOnclick(callback) {
-    callback(this.state);
+  buttonOnclick() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+
     this.setState({
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -35,80 +40,91 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="titleText" data-testid="title-input-label">
+        <label htmlFor data-testid="title-input-label">
           Título
+          <br />
           <input
-            name="titleText"
-            type="text" value={this.title}
+            type="text"
+            name="title"
+            value={title}
+            onChange={this.changingInputsState}
             data-testid="title-input"
-            onChange={this.changingInputsState}
           />
         </label>
-        <label htmlFor="subtitleText" data-testid="subtitle-input-label">
+        <br />
+        <label htmlFor data-testid="subtitle-input-label">
           Subtítulo
+          <br />
           <input
-            name="subtitleText"
             type="text"
-            value={this.subtitle}
+            name="subtitle"
+            value={subtitle}
+            onChange={this.changingInputsState}
             data-testid="subtitle-input"
-            onChange={this.changingInputsState}
           />
         </label>
-        <label htmlFor="img" data-testid="image-input-label">
+        <br />
+        <label htmlFor data-testid="image-input-label">
           Imagem
+          <br />
           <input
-            name="img"
             type="text"
-            value={this.imagePath}
+            name="imagePath"
+            value={imagePath}
+            onChange={this.changingInputsState}
             data-testid="image-input"
-            onChange={this.changingInputsState}
           />
         </label>
-        <label htmlFor="storylineTxt" data-testid="storyline-input-label">
+        <br />
+        <label htmlFor data-testid="storyline-input-label">
           Sinopse
+          <br />
           <textarea
-            name="storylineTxt"
-            value={this.storyline}
-            data-testid="storyline-input"
+            name="storyline"
+            value={storyline}
             onChange={this.changingInputsState}
+            data-testid="storyline-input"
           />
         </label>
-        <label htmlFor="grade" data-testid="rating-input-label">
+        <br />
+        <label htmlFor data-testid="rating-input-label">
           Avaliação
+          <br />
           <input
             type="number"
-            name="grade"
-            value={this.rating}
-            data-testid="rating-input"
+            step="0.1"
+            min="0"
+            max="5"
+            name="rating"
+            value={rating}
             onChange={this.changingInputsState}
+            data-testid="rating-input"
           />
         </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
+        <br />
+        <label htmlFor data-testid="genre-input-label">
           Gênero
+          <br />
           <select
             name="genre"
-            value={this.genre}
-            onChange={this.handleChange}
+            value={genre}
+            onChange={this.changingInputsState}
             data-testid="genre-input"
           >
-            <option data-testid="genre-option" value="action" >
-              Ação
-            </option>
-            <option data-testid="genre-option" value="comedy" >
-              Comédia
-            </option>
-            <option data-testid="genre-option" value="thriller" >
-              Suspense
-            </option>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <br />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={() => this.buttonOnclick(onClick)}
+          onClick={this.buttonOnclick}
         >
           Adicionar filme
         </button>
