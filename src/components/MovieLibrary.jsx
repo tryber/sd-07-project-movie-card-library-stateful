@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,15 +17,28 @@ class MovieLibrary extends Component {
       genre: 'action',
       searchText: '',
       bookmarkedOnly: false,
-      selectGenre: '',
+      selectedGenre: '',
+      moviesList: movies,
     };
   }
 
   handleChange({ target }) {
     const { id } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    // console.log(`NAME: ${id} - VALUE: ${value}`);
     this.setState({ [id]: value });
   }
+
+  // filterByTitleOrSubtitle = (name) =>
+    // movies.filter(
+    //   (movie) => movie.title.contains(name) || movie.subtitle.contains(name)
+    // );
+
+  // filterByGenre = (genre) =>
+  //   genre === "" ? movies : movies.filter((movie) => movie.genre === genre);
+
+  // filterByBookmarked = () =>
+  //   movies.filter((movie) => movie.bookmarked === true);
 
   render() {
     return (
@@ -35,9 +49,10 @@ class MovieLibrary extends Component {
           onSearchTextChange={this.handleChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.handleChange}
-          onSelectGenreChange={this.handleChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.handleChange}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.state.moviesList} />
         {/* <AddMovie props={} onChange={}/> */}
       </div>
     );
@@ -46,6 +61,12 @@ class MovieLibrary extends Component {
 
 MovieLibrary.defaultProps = {
   movies: PropTypes.arrayOf(PropTypes.object),
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyLine: '',
+  rating: 0,
+  genre: 'action',
   searchText: '',
   bookmarkedOnly: false,
   selectedGenre: '',
@@ -53,9 +74,15 @@ MovieLibrary.defaultProps = {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
-  // searchText: PropTypes.string,
-  // bookmarked: PropTypes.bool,
-  // selectedGenre: PropTypes.string,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyLine: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
 };
 
 export default MovieLibrary;
