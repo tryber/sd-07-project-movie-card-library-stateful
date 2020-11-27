@@ -5,27 +5,28 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: '',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: '',
     };
-    this.changeHandler = this.handChanger.bind(this);
-    this.addNewMovie = this.HandClickButton.bind(this);   
+    this.handChanger = this.handChanger.bind(this);
+    this.HandClickButton = this.HandClickButton.bind(this);
   }
 
   handChanger(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    event.preventDefalut()
+    event.preventDefault();
   }
 
-  HandClickButton() {
+  HandClickButton(event) {
+    event.preventDefault();
     this.props.onClick(this.state);
     this.setState({
-        subtitle: '',
+      subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
@@ -35,12 +36,12 @@ class AddMovie extends React.Component {
   }
 
   render() {
-      const { subtitle , title, imagePath, storyline, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div className="add-movie">
         <form data-testid="add-movie-form">
           <label htmlFor="title-input" data-testid="title-input-label">
-          Título
+            Título
             <input
               type="text"
               data-testid="title-input"

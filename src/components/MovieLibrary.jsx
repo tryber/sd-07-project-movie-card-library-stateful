@@ -1,80 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-
-    this.filterObjectMovies = this.filterObjectMovies.bind(this);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      objectMovies: this.props.movies,
+      movies: props.movies,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleFilterMovie = this.handleFilterMovie.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value });
+  onClick(addMovie) {
+    this.setState((oldState) => ({ movies: [...oldState.movies, addMovie] }));
   }
 
-  onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked });
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value }, () => { this.handleFilterMovie(); });
   }
 
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
-  }
-
-  onClick(stateNewMovie) {
-    this.setState({ objectMovies: [...this.state.objectMovies, stateNewMovie] });
-  }
-
-  filterObjectMovies() {
-    const filterMovies = this.state.objectMovies.filter((movie) =>
-      movie.title.toUpperCase().includes(this.state.searchText.toUpperCase()) ||
-      movie.subtitle.toUpperCase().includes(this.state.searchText.toUpperCase()) ||
-      movie.storyline.toUpperCase().includes(this.state.searchText.toUpperCase()),
-    );
-
-    if (this.state.bookmarkedOnly === true && this.state.selectedGenre !== '') {
-      return filterMovies
-        .filter((movie) => movie.bookmarked === true)
-        .filter((movie) => movie.genre === this.state.selectedGenre);
+  handleFilterMovie() {
+    let myMovies = this.props.movies;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    if (bookmarkedOnly) myMovies = myMovies.filter((movie) => movie.bookmarked === true);
+    if (selectedGenre !== '') myMovies = myMovies.filter((movie) => movie.genre === selectedGenre);
+    if (searchText !== '') {
+      myMovies = myMovies.filter((movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText),
+      );
     }
-
-    if (this.state.bookmarkedOnly === true) {
-      return filterMovies.filter((movie) => movie.bookmarked === true);
-    }
-
-    if (this.state.selectedGenre !== '') {
-      return filterMovies.filter((movie) => movie.genre === this.state.selectedGenre);
-    }
-
-    return filterMovies;
+    console.log(myMovies);
+    this.setState({ movies: myMovies });
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    console.log(movies);
     return (
       <div>
         <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={this.onSearchTextChange}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange}
-          selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          searchText={searchText}
+          onSearchTextChange={this.handleChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.handleChange}
         />
-        <MovieList movies={this.filterObjectMovies()} />
+        <MovieList movies={movies} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
