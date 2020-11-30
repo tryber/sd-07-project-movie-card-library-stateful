@@ -5,7 +5,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <Forms />
+        <Forms searchText={this.props.searchText} onSearchTextChange={this.props.onSearchTextChange} />
       </div>);
   }
 }

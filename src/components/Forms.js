@@ -20,7 +20,7 @@ class Forms extends Component {
 }
 
 Forms.propTypes = {
-  searchText: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
 };
 
