@@ -4,8 +4,7 @@ class Forms extends Component {
   render() {
     return (
       <div>
-        Forms
-        <form data-testid="search-bar-form"></form>
+        <form data-testid="search-bar-form">Forms</form>
       </div>
     );
   }
