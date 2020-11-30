@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import movies from '../data';
-import App from './SearchBar';
 
 export default class SearchBar extends Component {
   render() {
@@ -25,7 +24,7 @@ export default class SearchBar extends Component {
               data-testid="text-input"
               name="searchText"
             />
-            <label htmlFor="checkbox-input" data-testid="checkbox-input-label" />
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label" />
             Mostrar somente favoritos
             <input
               type="checkbox"

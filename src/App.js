@@ -18,21 +18,15 @@ export default class App extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({
-      ['searchText']: event.target.value,
-    })
+    this.setState({ searchText: event.target.value, });
   }
 
   onBookmarkedChange(event) {
-    this.setState({
-      ['bookmarkedOnly']: event.target.checked,
-    })
+    this.setState({ bookmarkedOnly: event.target.checked, });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({
-      ['selectedGenre']: event.target.value,
-    })
+    this.setState({ selectedGenre: event.target.value, });
   }
 
   render() {
