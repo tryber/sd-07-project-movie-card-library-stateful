@@ -6,7 +6,7 @@ class Forms extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label for="searchInput" data-testid="text-input-label">Inclui o texto:</label>
+          <label htmlFor="searchInput" data-testid="text-input-label">Inclui o texto:</label>
           <input
             id="searchInput"
             value={this.props.searchText}
@@ -19,7 +19,7 @@ class Forms extends Component {
   }
 }
 
-Forms.propTypes = { 
+Forms.propTypes = {
   searchText: PropTypes.func.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
 };
