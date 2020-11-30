@@ -24,7 +24,12 @@ export default class SearchBar extends Component {
             data-testid="text-input"
             name="searchText"
           />
-          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+          <label
+            htmlFor="checkbox-input"
+            data-testid="checkbox-input-label"
+          >
+          Mostrar somente favoritos
+          </label>
           <input
             type="checkbox"
             checked={bookmarkedOnly}
@@ -45,7 +50,7 @@ export default class SearchBar extends Component {
         </div>
       </div>
     );
-  };
+  }
 }
 
 SearchBar.propTypes = {
