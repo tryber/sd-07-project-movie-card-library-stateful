@@ -5,11 +5,13 @@ import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  searchText() {}
+  onSearchTextChange() {}
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar searchText={this.searchText} onSearchTextChange={this.onSearchTextChange} />
         <MovieList movies={this.props.movies} />
         {/* <AddMovie /> */}
       </div>
