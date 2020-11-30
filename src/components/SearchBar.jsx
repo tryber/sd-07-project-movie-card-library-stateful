@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
   render() {
-    const { 
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
-    } = this.props;
+    // const {
+    //   searchText,
+    //   onSearchTextChange,
+    //   bookmarkedOnly,
+    //   onBookmarkedChange,
+    //   selectedGenre,
+    //   onSelectedGenreChange,
+    // } = this.props;
 
     return (
       <form data-testid="search-bar-form">
@@ -33,7 +33,7 @@ export default class SearchBar extends Component {
         </label>
         <label data-testid="select-input-label">
           Filtrar por gênero
-          <select value={selectedGenre} onchange={onSelectedGenreChange}>
+          <select value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
@@ -41,6 +41,6 @@ export default class SearchBar extends Component {
           </select>
         </label>
       </form>
-    )
+    );
   }
 }
