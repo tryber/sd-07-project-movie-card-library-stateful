@@ -7,6 +7,7 @@ const movies = [
     imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
     bookmarked: true,
     genre: 'action',
+    searchText: '',
   },
   {
     title: 'Final Fantasy',
