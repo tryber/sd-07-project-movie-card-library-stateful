@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import PropTypes from 'prop-types';
 
 export default class App extends Component {
   constructor() {
@@ -18,15 +19,15 @@ export default class App extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value, });
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked, });
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value, });
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -41,5 +42,14 @@ export default class App extends Component {
         />
       </div>
     );
-  } 
+    }
+}
+
+App.propTypes = {
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
 }
