@@ -5,8 +5,8 @@ import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  searchText() {}
   onSearchTextChange() {}
+  searchText() {}
   render() {
     return (
       <div>
