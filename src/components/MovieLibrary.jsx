@@ -22,7 +22,7 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked});
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   render() {
