@@ -22,7 +22,7 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked})
+    this.setState({ bookmarkedOnly: event.target.checked});
   }
 
   render() {
@@ -30,11 +30,11 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar 
+        <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange} 
-          onSearchTextChange={this.onSearchTextChange} 
+          onSearchTextChange={this.onSearchTextChange}
+          onBookmarkedChange={this.onBookmarkedChange}
         />
         <MovieList movies={this.props.movies} />
         {/* <AddMovie /> */}
