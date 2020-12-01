@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import MovieList from './MovieList';
-import movies from '../data';
 
 export default class SearchBar extends Component {
   render() {
@@ -50,9 +48,6 @@ export default class SearchBar extends Component {
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </form>
-        <div>
-          <MovieList movies={movies} />
-        </div>
       </div>
     );
   }
