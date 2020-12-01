@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(newMovie) {
-    this.setState((prevState, _props) => ({ movies: [...prevState.movies, newMovie] }));
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
 
   render() {
