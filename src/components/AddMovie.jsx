@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -15,6 +16,7 @@ class AddMovie extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleResetForm = this.handleResetForm.bind(this);
   }
+
   handleResetForm() {
     this.setState({
       subtitle: '',
@@ -25,17 +27,20 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
   }
+
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
+
   handleSubmit(e) {
     const { handleAddMovie } = this.props;
     handleAddMovie(this.state);
     this.handleResetForm();
     e.preventDefault();
   }
+
   render() {
     const {
       title,
