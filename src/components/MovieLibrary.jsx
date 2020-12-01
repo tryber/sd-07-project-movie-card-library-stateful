@@ -10,8 +10,8 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies:'',
-    }
+      movies: '',
+    };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -48,6 +48,6 @@ export default class MovieLibrary extends Component {
         />
         <MovieList movies={movies} />
       </div>
-    )
+    );
   }
-}
+};
