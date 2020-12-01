@@ -22,7 +22,8 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form>
+      <div>
+        <form>
         <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           value={this.title}
@@ -65,6 +66,7 @@ class AddMovie extends Component {
           onChange={this.handleChange}
         />
       </form>
+    </div>  
     );
   }
 }
