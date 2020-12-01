@@ -66,7 +66,7 @@ class AddMovie extends Component {
             onChange={this.handleChange}
           />
         </form>
-      </div>  
+      </div>
     );
   }
 }
