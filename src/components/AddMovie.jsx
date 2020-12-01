@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class AddMovie extends Component {
   render() {
-    return(
+    return (
       <form>
         Aqui é o AddMovie
       </form>
