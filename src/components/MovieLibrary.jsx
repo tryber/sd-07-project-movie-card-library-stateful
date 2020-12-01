@@ -50,4 +50,4 @@ export default class MovieLibrary extends Component {
       </div>
     );
   }
-};
+}
