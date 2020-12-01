@@ -24,49 +24,49 @@ class AddMovie extends Component {
     return (
       <div>
         <form>
-        <label htmlFor="title" data-testid="title-input-label">Título</label>
-        <input
-          value={this.title}
-          id="title"
-          name="title"
-          data-testid="title-input"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
-        <input
-          value={this.subtitle}
-          id="subtitle"
-          name="subtitle"
-          data-testid="subtitle-input"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
-        <input
-          value={this.imagePath}
-          id="imagePath"
-          name="imagePath"
-          data-testid="image-input"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
-        <input
-          value={this.storyline}
-          id="storyline"
-          name="storyline"
-          data-testid="storyline-input"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
-        <input
-          type="number"
-          value={this.rating}
-          id="rating"
-          name="rating"
-          data-testid="rating-input"
-          onChange={this.handleChange}
-        />
-      </form>
-    </div>  
+          <label htmlFor="title" data-testid="title-input-label">Título</label>
+          <input
+            value={this.title}
+            id="title"
+            name="title"
+            data-testid="title-input"
+            onChange={this.handleChange}
+          />
+          <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
+          <input
+            value={this.subtitle}
+            id="subtitle"
+            name="subtitle"
+            data-testid="subtitle-input"
+            onChange={this.handleChange}
+          />
+          <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
+          <input
+            value={this.imagePath}
+            id="imagePath"
+            name="imagePath"
+            data-testid="image-input"
+            onChange={this.handleChange}
+          />
+          <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
+          <input
+            value={this.storyline}
+            id="storyline"
+            name="storyline"
+            data-testid="storyline-input"
+            onChange={this.handleChange}
+          />
+          <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
+          <input
+            type="number"
+            value={this.rating}
+            id="rating"
+            name="rating"
+            data-testid="rating-input"
+            onChange={this.handleChange}
+          />
+        </form>
+      </div>  
     );
   }
 }
