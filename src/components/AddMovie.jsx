@@ -66,8 +66,8 @@ class AddMovie extends Component {
             data-testid="rating-input"
             onChange={this.handleChange}
           />
-          <label htmlfor="genre" data-testid="genre-input-label">Gênero</label>
-            <select 
+          <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
+            <select
               name="genre" 
               id="genre" 
               onChange={this.handleChange} 
