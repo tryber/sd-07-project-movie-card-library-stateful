@@ -47,7 +47,8 @@ class SearchBar extends Component {
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </form>
-      </div>);
+      </div>
+    );
   }
 }
 

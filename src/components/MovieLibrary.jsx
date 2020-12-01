@@ -30,6 +30,8 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  onClick() {}
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -44,7 +46,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.onClick}/>
       </div>
     );
   }
