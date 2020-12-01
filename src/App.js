@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 export default class App extends Component {
   constructor() {
@@ -39,6 +40,7 @@ export default class App extends Component {
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
+        <AddMovie />
       </div>
     );
   }
