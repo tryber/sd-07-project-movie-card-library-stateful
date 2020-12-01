@@ -4,12 +4,12 @@ export default class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      subtitle:'',
-      title:'',
-      imagePath:'',
-      storyline:'',
-      rating:0,
-      genre:'action',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
 
     this.updatePropsState = this.updatePropsState.bind(this);
@@ -20,17 +20,17 @@ export default class AddMovie extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-    })
+    });
   }
 
   clearState() {
     this.setState({
-      subtitle:'',
-      title:'',
-      imagePath:'',
-      storyline:'',
-      rating:0,
-      genre:'action',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -99,6 +99,6 @@ export default class AddMovie extends Component {
           <button onClick={this.clearState} data-testid="send-button">Adicionar filme</button>
         </form>
       </div>
-    )
+    );
   }
 }
