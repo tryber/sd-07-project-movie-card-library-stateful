@@ -19,27 +19,6 @@ export default class MovieLibrary extends Component {
     this.filterMovies = this.filterMovies.bind(this);
   }
 
-  filterMovies() {
-    let filteredMovies = [];
-    
-    movies.forEach((movie) => {
-      const text = this.state.searchText;
-      const bookmarkedOnly = this.state.bookmarkedOnly;
-      if (text === '' && bookmarkedOnly === false) {
-        filteredMovies.push(movie);
-      } else {
-        let titleMovie = movie.title;
-        if (titleMovie.includes(text)) {
-          filteredMovies.push(movie)
-        } else if (bookmarkedOnly && movie.bookmarked) {
-          filteredMovies.push(movie)
-        }
-      }
-    })
-
-    return filteredMovies;
-  }
-
   onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
   }
@@ -50,6 +29,27 @@ export default class MovieLibrary extends Component {
 
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  filterMovies() {
+    const filteredMovies = [];
+
+    movies.forEach((movie) => {
+      const text = this.state.searchText;
+      const bookmarkedOnly = this.state.bookmarkedOnly;
+      if (text === '' && bookmarkedOnly === false) {
+        filteredMovies.push(movie);
+      } else {
+        const titleMovie = movie.title;
+        if (titleMovie.includes(text)) {
+          filteredMovies.push(movie);
+        } else if (bookmarkedOnly && movie.bookmarked) {
+          filteredMovies.push(movie);
+        }
+      }
+    });
+
+    return filteredMovies;
   }
 
   render() {
@@ -68,7 +68,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.filterMovies()}/>
+        <MovieList movies={this.filterMovies()} />
       </div>
     );
   }
