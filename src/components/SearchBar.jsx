@@ -12,7 +12,7 @@ export default class SearchBar extends Component {
     const {
       onSearchTextChange,
       onBookmarkedChange,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (

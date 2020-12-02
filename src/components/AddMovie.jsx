@@ -25,7 +25,7 @@ export default class AddMovie extends Component {
   }
 
   clearState() {
-    this.props.onClick(this.state); //@CarolSi-hub
+    this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
