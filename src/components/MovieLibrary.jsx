@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import AddMovie from './AddMovie';
 import React, { Component } from 'react';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
@@ -33,34 +33,23 @@ export default class MovieLibrary extends Component {
   }
 
   filterMovies() {
-  const filteredMovies = [];
-  const movies = this.state.movies;
-  const bookmarkedOnly = this.state.bookmarkedOnly;
-  const selectedGenre = this.state.selectedGenre;
-  if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true); // @CarolSi-hub
-  if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre); // @CarolSi-hub
-  movies.forEach((movie) => {
-    const text = this.state.searchText;
-
-
-    if (text === '' && bookmarkedOnly === false) {
-      filteredMovies.push(movie);
-    } else {
+    const filteredMovies = [];
+    const movies = this.state.movies;
+    const bookmarkedOnly = this.state.bookmarkedOnly;
+    const selectedGenre = this.state.selectedGenre;
+    if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true); // @CarolSi-hub
+    movies.forEach((movie) => {
+      const text = this.state.searchText;
       const { title, subtitle, storyline } = movie;
-      if (title.includes(text)
-      || subtitle.includes(text)
-      || storyline.includes(text)) {
+      if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre); // @CarolSi-hub
+      if (text === ''
+        || title.includes(text)
+        || subtitle.includes(text)
+        || storyline.includes(text)
+      ) {
         filteredMovies.push(movie);
       }
-      if (bookmarkedOnly) {
-        return filteredMovies.filter(element => element.bookmarked === true);
-      }
-      // if (selectedGenre === genre || selectedGenre === "") {
-      //   filteredMovies.push(movie);
-      // }
-      // if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre);
-    }
-  });
+    });
   return filteredMovies;
 }
 
