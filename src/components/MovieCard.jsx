@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Rating from './Rating';
 
-class MovieCard extends React.Component {
+export default class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
-    const { title, subtitle, storyline, rating, imagePath } = movie;
+    console.log(this.props.movie)
+    const { title, subtitle, storyline, rating, imagePath } = this.props.movie;
     return (
       <div className="movie-card" data-testid='movie-card'>
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
@@ -16,16 +16,19 @@ class MovieCard extends React.Component {
         </div>
         <Rating rating={rating} />
       </div>
+
     );
   }
 }
 
-export default MovieCard;
-
 MovieCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  imagePath: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+  }).isRequired,
 };
+
+// Após muitas tentativas fui ao repositório da @CarolSi-hub e vi que deveria usar o PropTypes.shape()
