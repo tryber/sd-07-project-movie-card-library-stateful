@@ -4,7 +4,6 @@ import Rating from './Rating';
 
 export default class MovieCard extends React.Component {
   render() {
-    console.log(this.props.movie)
     const { title, subtitle, storyline, rating, imagePath } = this.props.movie;
     return (
       <div className="movie-card" data-testid='movie-card'>
@@ -31,4 +30,5 @@ MovieCard.propTypes = {
   }).isRequired,
 };
 
-// Após muitas tentativas fui ao repositório da @CarolSi-hub e vi que deveria usar o PropTypes.shape()
+// Após muitas tentativas tentando utilizar "static get propTypes()" e lendo fóruns, documentação
+// fui ao repositório da @CarolSi-hub e vi que deveria usar o PropTypes.shape()
