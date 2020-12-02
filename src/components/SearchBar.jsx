@@ -52,9 +52,9 @@ export default class SearchBar extends Component {
     );
   }
 }
-//CC sem sentido
+
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
+  [movie.searchText]: PropTypes.string.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
