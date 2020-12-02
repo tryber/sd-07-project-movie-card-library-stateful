@@ -75,16 +75,6 @@ export default class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      storyline: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      imagePath: PropTypes.string.isRequired,
-    })
-  )
-};             
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 // Só fiz o propTypes após vez o exemplo de link de como usar o arrayOf com PropTypes.shape():
-// https://til.hashrocket.com/posts/ytrzhrpfxk-proptypes-array-of-shape
+// https://til.hashrocket.com/posts/ytrzhrpfxk-proptypes-array-of-shape e o repositório da @CarolSi-hub
