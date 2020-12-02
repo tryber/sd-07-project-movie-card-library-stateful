@@ -9,12 +9,17 @@ export default class SearchBar extends Component {
       selectedGenre,
     } = this.props;
 
-    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
+    const {
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange
+    } = this.props;
 
     return (
       <div>
-        <form data-testid="search-bar-form">
-          <label htmlFor="searchText" data-testid="text-input-label">Inclui o texto:</label>
+        <form data-testid="search-bar-form" action="">
+          <label htmlFor="searchText" data-testid="text-input-label">
+            Inclui o texto:
           <input
             type="text"
             value={searchText}
@@ -22,12 +27,12 @@ export default class SearchBar extends Component {
             data-testid="text-input"
             name="searchText"
           />
+          </label>
           <label
             htmlFor="checkbox-input"
             data-testid="checkbox-input-label"
           >
-          Mostrar somente favoritos
-          </label>
+            Mostrar somente favoritos
           <input
             type="checkbox"
             checked={bookmarkedOnly}
@@ -35,18 +40,21 @@ export default class SearchBar extends Component {
             data-testid="checkbox-input"
             name="checkbox-input"
           />
-          <label htmlFor="select" data-testid="select-input-label">Filtrar por gênero</label>
+          </label>
+          <label htmlFor="select" data-testid="select-input-label">
+            Filtrar por gênero
           <select
             name="select"
             data-testid="select-input"
             value={selectedGenre}
-            onClick={onSelectedGenreChange}
+            onChange={onSelectedGenreChange}
           >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
+          </label>
         </form>
       </div>
     );

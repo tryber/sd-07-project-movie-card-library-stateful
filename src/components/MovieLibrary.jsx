@@ -1,82 +1,80 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
-export default class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+    this.handleBookmarkedOnlyChange = this.handleBookmarkedOnlyChange.bind(this);
+    this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
     };
-
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
   }
 
-  onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value });
+
+  handleSearchTextChange({ target }) {
+    this.setState({ searchText: target.value });
   }
 
-  onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked });
+  handleBookmarkedOnlyChange({ target }) {
+    this.setState({ bookmarkedOnly: target.checked });
   }
 
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+  handleSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value });
   }
 
   filterMovies() {
-    const filteredMovies = [];
-    const movies = this.state.movies;
-    const bookmarkedOnly = this.state.bookmarkedOnly;
-    const selectedGenre = this.state.selectedGenre;
-    if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true); // @CarolSi-hub
-    movies.forEach((movie) => {
-      const text = this.state.searchText;
-      const { title, subtitle, storyline } = movie;
-      if (selectedGenre !== '') return movies.filter((element) => element.genre === selectedGenre); // @CarolSi-hub
-      if (text === ''
-        || title.includes(text)
-        || subtitle.includes(text)
-        || storyline.includes(text)
-      ) {
-        filteredMovies.push(movie);
-      }
-      return filteredMovies;
-    });
-    return filteredMovies;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+
+    if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true);
+    if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre);
+    if (searchText !== '') {
+      return movies.filter(
+        (movie) => ((movie.title.includes(searchText))
+  || (movie.subtitle.includes(searchText))
+  || (movie.storyline.includes(searchText))),
+      );
+    }
+    return movies;
+  }
+//  solução pós consulta PR MunizDev
+  addNewMovie(newMovie) {
+    const joined = this.state.movies.concat(newMovie);
+    this.setState({ movies: joined });
   }
 
   render() {
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-    } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.onSearchTextChange}
+          onSearchTextChange={this.handleSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.onBookmarkedChange}
+          onBookmarkedChange={this.handleBookmarkedOnlyChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          onSelectedGenreChange={this.handleSelectedGenreChange}
         />
+        <AddMovie onClick={this.addNewMovie} />
         <MovieList movies={this.filterMovies()} />
-        <AddMovie />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
-// Só fiz o propTypes após vez o exemplo de link de como usar o arrayOf com PropTypes.shape():
-// https://til.hashrocket.com/posts/ytrzhrpfxk-proptypes-array-of-shape e o repositório da @CarolSi-hub
+
+
+export default MovieLibrary;

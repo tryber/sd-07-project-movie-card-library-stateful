@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -24,6 +25,7 @@ export default class AddMovie extends Component {
   }
 
   clearState() {
+    this.props.onClick(this.state); //@CarolSi-hub
     this.setState({
       subtitle: '',
       title: '',
@@ -35,6 +37,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -45,50 +48,53 @@ export default class AddMovie extends Component {
             data-testid="title-input"
             type="text"
             onChange={this.updatePropsState}
+            value={title}
           />
           </label>
           <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
-            name="subtitle"
             data-testid="subtitle-input"
-            type="text"
+            name="subtitle"
+            type="text" value={subtitle}
             onChange={this.updatePropsState}
           />
           </label>
           <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
-            name="imagePath"
             data-testid="image-input"
-            type="text"
+            name="imagePath" type="text"
+            value={imagePath}
             onChange={this.updatePropsState}
           />
           </label>
           <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            name="storyline"
             data-testid="storyline-input"
+            name="storyline"
+            type="text"
+            value={storyline}
             onChange={this.updatePropsState}
           />
           </label>
           <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
-            name="rating"
             data-testid="rating-input"
+            name="rating"
             type="number"
+            value={rating}
             onChange={this.updatePropsState}
-            value={this.state.rating}
           />
           </label>
           <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
-            name="genre"
             data-testid="genre-input"
-            value={this.state.genre}
+            name="genre"
+            value={genre}
             onChange={this.updatePropsState}
           >
             <option data-testid="genre-option" value="action">Ação</option>
@@ -96,9 +102,17 @@ export default class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
           </label>
-          <button onClick={this.clearState} data-testid="send-button">Adicionar filme</button>
+          <button
+            data-testid="send-button"
+            type="submit"
+            onClick={this.clearState}
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
