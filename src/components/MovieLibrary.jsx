@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -32,26 +33,36 @@ export default class MovieLibrary extends Component {
   }
 
   filterMovies() {
-    const filteredMovies = [];
-    const movies = this.state.movies;
+  const filteredMovies = [];
+  const movies = this.state.movies;
+  const bookmarkedOnly = this.state.bookmarkedOnly;
+  const selectedGenre = this.state.selectedGenre;
+  if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true); // @CarolSi-hub
+  if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre); // @CarolSi-hub
+  movies.forEach((movie) => {
+    const text = this.state.searchText;
 
-    movies.forEach((movie) => {
-      const text = this.state.searchText;
-      const bookmarkedOnly = this.state.bookmarkedOnly;
-      if (text === '' && bookmarkedOnly === false) {
+
+    if (text === '' && bookmarkedOnly === false) {
+      filteredMovies.push(movie);
+    } else {
+      const { title, subtitle, storyline } = movie;
+      if (title.includes(text)
+      || subtitle.includes(text)
+      || storyline.includes(text)) {
         filteredMovies.push(movie);
-      } else {
-        const titleMovie = movie.title;
-        if (titleMovie.includes(text)) {
-          filteredMovies.push(movie);
-        } else if (bookmarkedOnly && movie.bookmarked) {
-          filteredMovies.push(movie);
-        }
       }
-    });
-
-    return filteredMovies;
-  }
+      if (bookmarkedOnly) {
+        return filteredMovies.filter(element => element.bookmarked === true);
+      }
+      // if (selectedGenre === genre || selectedGenre === "") {
+      //   filteredMovies.push(movie);
+      // }
+      // if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre);
+    }
+  });
+  return filteredMovies;
+}
 
   render() {
     const {
@@ -70,6 +81,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.filterMovies()} />
+        <AddMovie />
       </div>
     );
   }

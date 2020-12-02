@@ -37,7 +37,7 @@ export default class AddMovie extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           <label htmlFor="title" data-testid="title-input-label">
           Título
           <input

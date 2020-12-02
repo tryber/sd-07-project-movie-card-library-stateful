@@ -40,7 +40,7 @@ export default class SearchBar extends Component {
             name="select"
             data-testid="select-input"
             value={selectedGenre}
-            onChange={onSelectedGenreChange}
+            onClick={onSelectedGenreChange}
           >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
