@@ -41,7 +41,7 @@ export default class MovieLibrary extends Component {
     movies.forEach((movie) => {
       const text = this.state.searchText;
       const { title, subtitle, storyline } = movie;
-      if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre); // @CarolSi-hub
+      if (selectedGenre !== '') return movies.filter(element => element.genre === selectedGenre); // @CarolSi-hub
       if (text === ''
         || title.includes(text)
         || subtitle.includes(text)
@@ -49,9 +49,10 @@ export default class MovieLibrary extends Component {
       ) {
         filteredMovies.push(movie);
       }
+      return filteredMovies;
     });
-  return filteredMovies;
-}
+    return filteredMovies;
+  }
 
   render() {
     const {
