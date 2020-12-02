@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import movies from '../data';
 
 export default class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
+      movies: this.props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -33,6 +32,7 @@ export default class MovieLibrary extends Component {
 
   filterMovies() {
     const filteredMovies = [];
+    const movies = this.state.movies;
 
     movies.forEach((movie) => {
       const text = this.state.searchText;
