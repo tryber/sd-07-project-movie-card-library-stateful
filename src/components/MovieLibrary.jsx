@@ -16,6 +16,28 @@ export default class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+  }
+
+  filterMovies() {
+    let filteredMovies = [];
+    
+    movies.forEach((movie) => {
+      const text = this.state.searchText;
+      const bookmarkedOnly = this.state.bookmarkedOnly;
+      if (text === '' && bookmarkedOnly === false) {
+        filteredMovies.push(movie);
+      } else {
+        let titleMovie = movie.title;
+        if (titleMovie.includes(text)) {
+          filteredMovies.push(movie)
+        } else if (bookmarkedOnly && movie.bookmarked) {
+          filteredMovies.push(movie)
+        }
+      }
+    })
+
+    return filteredMovies;
   }
 
   onSearchTextChange(event) {
@@ -46,7 +68,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={this.filterMovies()}/>
       </div>
     );
   }
