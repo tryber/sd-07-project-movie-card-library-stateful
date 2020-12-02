@@ -31,4 +31,5 @@ MovieCard.propTypes = {
 };
 
 // Após muitas tentativas tentando utilizar "static get propTypes()" e lendo fóruns, documentação
-// fui ao repositório da @CarolSi-hub e vi que deveria usar o PropTypes.shape()
+// fui ao repositório da @CarolSi-hub e vi que deveria usar o PropTypes.shape().
+
