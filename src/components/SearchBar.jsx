@@ -13,53 +13,53 @@ class SearchBar extends React.Component {
      } = this.props;
     return (
       <div>
-      <form data-testid="search-bar-form">
-        <label htmlFor="text-input"data-testid="text-input-label">
-        Inclui o texto:
-        </label>
-        <input
-          name="text-input"
-                type="text"
-                value={searchText}
-                data-testid="text-input"
-                onChange={onSearchTextChange} />
+        <form data-testid="search-bar-form">
+          <label htmlFor="text-input"data-testid="text-input-label">
+          Inclui o texto:
+          </label>
+          <input
+            name="text-input"
+            type="text"
+            value={searchText}
+            data-testid="text-input"
+            onChange={onSearchTextChange} />
            
-              <label htmlFor="checkbox-input"data-testid="checkbox-input-label">
-                Mostrar somente favoritos
-              </label>
-              <input 
-                name ="checkbox-input"
-                type="checkbox" 
-                checked={bookmarkedOnly} 
-                onChange={onBookmarkedChange} 
-                data-testid="checkbox-input"/>
+          <label htmlFor="checkbox-input"data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          </label>
+          <input 
+            name ="checkbox-input"
+            type="checkbox" 
+            checked={bookmarkedOnly} 
+            onChange={onBookmarkedChange} 
+            data-testid="checkbox-input"/>
             
-              <label htmlFor="genre-input"ata-testid="select-input-label">
-              Filtrar por gênero
-              </label>
-              <select 
-                name="genre-input" 
-                value={selectedGenre} 
-                onChange={onSelectedGenreChange} 
-                data-testid="select-input">
+          <label htmlFor="genre-input"ata-testid="select-input-label">
+           Filtrar por gênero
+          </label>
+           <select 
+            name="genre-input" 
+            value={selectedGenre} 
+            onChange={onSelectedGenreChange} 
+            data-testid="select-input">
               <option value="" data-testid="select-option">
-                Todos
+              Todos
               </option>
-                <option value="action"data-testid="select-option">
-                Ação
+              <option value="action"data-testid="select-option">
+              Ação
               </option>
               <option value="comedy" data-testid="select-option">
-                Comédia
+              Comédia
               </option>
               <option value="thriller" data-testid="select-option">
-                Suspense
+              Suspense
               </option>
               </select>
-          </form>
-          </div>
-        );
-    }
-   }
+        </form>
+      </div>
+    );
+  }
+}
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
