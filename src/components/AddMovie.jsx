@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
             name="title-input"
             value={this.state.title}
             data-testid="title-input"
-            onChange={ (event) => this.setState({ title: event.target.value })}
+            onChange={(event) => this.setState({ title: event.target.value })}
           />
 
           <label data-testid="subtitle-input-label" htmlFor="subtitle-input">Subtítulo</label>
@@ -55,8 +55,9 @@ class AddMovie extends React.Component {
             type="text"
             name="subtitle-input"
             value={this.state.subtitle}
-            data-testid="subtitle-input" 
-            onChange={(event) => this.setState({ subtitle: event.target.value })}/>
+            data-testid="subtitle-input"
+            onChange={(event) => this.setState({ subtitle: event.target.value })} 
+          />
 
           <label data-testid="image-input-label" htmlFor="image-input">Imagem</label>
           <input
@@ -64,12 +65,12 @@ class AddMovie extends React.Component {
             name="image-input"
             value={this.state.imagePath}
             data-testid="image-input"
-            onChange={(event) => this.setState({ imagePath: event.target.value})}
+            onChange={(event) => this.setState({ imagePath: event.target.value })}
           />
           <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse</label>
-          <textarea 
+          <textarea
             data-testid="storyline-input"
-            name="storyline-input"value={this.state.storyline} 
+            name="storyline-input"value={this.state.storyline}
             onChange={(event) => this.setState({ storyline: event.target.value })}
           />
           <label data-testid="rating-input-label" htmlFor="rating-input">Avaliação</label>
@@ -106,6 +107,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired }
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
