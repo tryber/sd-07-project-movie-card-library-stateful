@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -42,8 +43,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.proptypes = {
-  onCLick: React.PropTypes,
-};
+AddMovie.proptypes = { onCLick: PropTypes.func};
 
 export default AddMovie;
