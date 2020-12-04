@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.proptypes = {
-  onCLick: React.PropTypes
-}
+  onCLick: React.PropTypes,
+};
 
 export default AddMovie;
