@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             name="subtitle-input"
             value={this.state.subtitle}
             data-testid="subtitle-input"
-            onChange={(event) => this.setState({ subtitle: event.target.value })} 
+            onChange={(event) => this.setState({ subtitle: event.target.value })}
           />
 
           <label data-testid="image-input-label" htmlFor="image-input">Imagem</label>
