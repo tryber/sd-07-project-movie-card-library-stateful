@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    //const { onClick } = this.props;
     return (
       <form>
         <label htmlFor="titulo" data-testid="title-input-label">
@@ -43,6 +43,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.proptypes = { onCLick: PropTypes.func };
+//AddMovie.proptypes = { onCLick: PropTypes.func };
 
 export default AddMovie;
