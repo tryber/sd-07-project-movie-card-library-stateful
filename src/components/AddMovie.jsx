@@ -26,7 +26,6 @@ class AddMovie extends React.Component {
           data-testid="title-input"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
-          data-testid="title-input"
         />
         <label htmlFor="titulo" data-testid="subtitle-input-label">
           Subtítulo
@@ -41,6 +40,10 @@ class AddMovie extends React.Component {
       </form>
     );
   }
+}
+
+AddMovie.proptypes = {
+  onCLick: React.PropTypes
 }
 
 export default AddMovie;
