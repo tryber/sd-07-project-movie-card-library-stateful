@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -28,7 +28,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
-        <AddMovie />
+        <AddMovie value={this.props.handleSumit} />
         <MovieList movies={movies} />
       </div>
     );
