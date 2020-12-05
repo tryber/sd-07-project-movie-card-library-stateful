@@ -93,13 +93,15 @@ class AddMovie extends React.Component {
             Suspense
           </option>
         </select>
-        <button data-testid="send-button" onCLick={this.handleSubmit}>Adicionar filme</button>
+        <button data-testid="send-button" onCLick={this.handleSubmit}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 // AddMovie.propTypes = { onCLick: PropTypes.func }.isRequired;
-AddMovie.propTypes = { handleSubmit: PropTypes.func}.isRequired;
+AddMovie.propTypes = { handleSubmit: PropTypes.func }.isRequired;
 
 export default AddMovie;
