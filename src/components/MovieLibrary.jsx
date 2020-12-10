@@ -24,12 +24,21 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           onSearchTextChange={(event) => this.setState({ searchText: event.target.value })}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedOnlyChange={(event) => this.setState({ bookmarkedOnly: event.target.value })}
+          onBookmarkedChange={() => this.setState({ bookmarkedOnly: !bookmarkedOnly })}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
-        <AddMovie onClick={this.props.handleSumit} />
-        <MovieList movies={movies} />
+        <MovieList
+          movies={movies}
+          bookmarkedOnly={bookmarkedOnly}
+          selectedGenre={selectedGenre}
+          searchText={searchText}
+        />
+        <AddMovie
+          onClick={(newMovie) => {
+            this.setState({ movies: [...this.state.movies, newMovie] });
+          }}
+        />
       </div>
     );
   }
