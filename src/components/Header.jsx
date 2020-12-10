@@ -1,5 +1,4 @@
 import React from 'react';
-import AddMovie from './AddMovie';
 
 class Header extends React.Component {
   render() {
