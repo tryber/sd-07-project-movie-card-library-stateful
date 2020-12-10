@@ -8,23 +8,35 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      sotryLine: '',
+      storyLine: '',
       rating: 0,
       genre: 'action',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleResetForm() {
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleSubmit(e) {
-    const { handleAddMovie } = this.props;
-    handleAddMovie(this.state);
-    this.handleResetForm();
     e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.handleResetForm();
   }
 
   render() {
     // const { onClick } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="titulo" data-testid="title-input-label">
           Título
         </label>
@@ -41,7 +53,7 @@ class AddMovie extends React.Component {
         <input
           type="text"
           name="subtitulo"
-          data-testid="title-input"
+          data-testid="subtitle-input"
           value={this.state.subtitle}
           onChange={(event) => this.setState({ subtitle: event.target.value })}
         />
@@ -61,8 +73,8 @@ class AddMovie extends React.Component {
         <textarea
           name="sinopse"
           data-testid="storyline-input"
-          value={this.state.sotryLine}
-          onChange={(event) => this.setState({ storyline: event.target.value })}
+          value={this.state.storyLine}
+          onChange={(event) => this.setState({ storyLine: event.target.value })}
         />
         <label htmlFor="nota" data-testid="rating-input-label">
           Avaliação
@@ -93,7 +105,7 @@ class AddMovie extends React.Component {
             Suspense
           </option>
         </select>
-        <button data-testid="send-button" onCLick={this.handleSubmit}>
+        <button data-testid="send-button" onClick={this.handleSubmit}>
           Adicionar filme
         </button>
       </form>
