@@ -1,17 +1,13 @@
 import React from 'react';
 import './App.css';
-
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import data from './data';
-import SearchBar from './components/SearchBar';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      movies: data,
-    };
+    this.state = { movies: data };
   }
   render() {
     return (

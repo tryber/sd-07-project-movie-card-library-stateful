@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -28,10 +28,8 @@ class MovieList extends React.Component {
           .filter((movie) => {
             if (selectedGenre === '') {
               return true;
-            }else{
-              return movie.genre === (selectedGenre)
-
             }
+            return movie.genre === selectedGenre;
           })
           .map((movie) => (
             <MovieCard key={movie.title} movie={movie} />
@@ -40,5 +38,12 @@ class MovieList extends React.Component {
     );
   }
 }
+
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.instanceOf(Object)).isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
+};
 
 export default MovieList;
