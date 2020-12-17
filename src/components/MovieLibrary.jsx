@@ -8,20 +8,20 @@ import movies from '../data';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.addMovie = this.addMovie.bind(this);
   }
 
   addMovie() {
-    console.log("Função Add Movie");
+    console.log('Função Add Movie');
   }
 
   render() {
     return (
       <div>
         <SearchBar />
-        <MovieList movies={ movies } />
-        <AddMovie onClick={ this.addMovie } />
+        <MovieList movies={movies} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
