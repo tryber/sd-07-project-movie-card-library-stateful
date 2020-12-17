@@ -18,7 +18,7 @@ class MovieLibrary extends React.Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: 'false',
+      bookmarkedOnly: false,
       selectedGenre: '',
       objectMovies: this.props.movies,
     };
