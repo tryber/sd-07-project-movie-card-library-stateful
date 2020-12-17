@@ -7,15 +7,18 @@ body {
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
+  border: 4px solid #007bff;
   display: flex;
   height: 100px;
   justify-content: center;
 }
 
 .page-title {
+  border: 4px solid #007bff;
   color: #f8f9fa;
   font-size: 28px;
   font-weight: 500;
+  padding: 1% 35%;
   text-align: center;
 }
 
