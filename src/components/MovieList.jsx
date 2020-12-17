@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PopTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
 
-class MovieList extends React.Component {
+class MovieList extends Component {
+  constructor() {
+    super();
+
+    this.state = { movies: [] };
+  }
   render() {
     const { movies } = this.props;
 
@@ -13,5 +19,7 @@ class MovieList extends React.Component {
     );
   }
 }
+
+MovieList.propType = { movies: PopTypes.array.isRequired };
 
 export default MovieList;
