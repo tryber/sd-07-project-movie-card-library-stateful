@@ -23,10 +23,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
+  handleClick(callback) {
+    callback(this.state);
     this.setState({
       title: '',
       imagePath: '',
@@ -38,8 +36,9 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     return (
-      <form className="form">
+      <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input-label">
           Título
           <input
@@ -109,7 +108,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" type="submit" onClick={this.handleClick}> Adicionar filme</button>
+        <button data-testid="send-button" type="submit" onClick={() => this.handleClick(onClick)}> Adicionar filme</button>
       </form>
     );
   }
