@@ -18,8 +18,8 @@ class SearchBar extends Component {
           Inclui o texto:
           <input
             type="text"
-            value={this.state.searchText}
-            onChange={this.onSearchTextChange}
+            value={searchText}
+            onChange={onSearchTextChange}
             data-testid="text-input"
           />
         </label>
@@ -28,14 +28,14 @@ class SearchBar extends Component {
           <input
             name="isGoing"
             type="checkbox"
-            checked={this.state.bookmarkedOnly}
-            onChange={this.onBookmarkedChange}
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
             data-testid="checkbox-input"
           />
         </label>
         <label htmlFor="select-input" data-testid="select-input-label">
         Filtrar por gênero
-          <select value={this.state.selectedGenre} onChange={this.onSelectedGenreChange}>
+          <select value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
