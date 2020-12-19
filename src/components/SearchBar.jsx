@@ -13,7 +13,7 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <form  data-testid="search-bar-form">
+      <form data-testid="search-bar-form">
         <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto:
           <input
@@ -33,6 +33,15 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
+        <label htmlFor="select-input" data-testid="select-input-label">
+        Filtrar por gênero
+          <select value={this.state.selectedGenre} onChange={this.onSelectedGenreChange}>
+            <option value="">Todos</option>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+          </label>
       </form>
     );
   }
