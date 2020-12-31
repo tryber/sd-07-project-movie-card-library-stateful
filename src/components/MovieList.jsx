@@ -10,23 +10,23 @@ class MovieList extends React.Component {
       <div data-testid="movie-list" className="movie-list">
         {movies
           .filter((movie) => {
-            if (bookmarkedOnly === false) {
+            if (bookmarkedOnly === false || bookmarkedOnly === undefined) {
               return true;
             }
             return movie.bookmarked;
           })
           .filter((movie) => {
-            if (searchText === '') {
+            if (searchText === '' || searchText === undefined) {
               return true;
             }
             return (
-              movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
-              movie.subtitle.toUpperCase().includes(searchText.toUpperCase()) ||
-              movie.storyline.toUpperCase().includes(searchText.toUpperCase())
+              movie.title.toUpperCase().includes(searchText.toUpperCase())
+              || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+              || movie.storyline.toUpperCase().includes(searchText.toUpperCase())
             );
           })
           .filter((movie) => {
-            if (selectedGenre === '') {
+            if (selectedGenre === '' || selectedGenre === undefined) {
               return true;
             }
             return movie.genre === selectedGenre;
