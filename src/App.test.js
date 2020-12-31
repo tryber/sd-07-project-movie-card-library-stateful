@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import App from './App';
+import Header from './components/Header';
 
 describe('<App /> component', () => {
   it('renders a `Header` component', () => {
