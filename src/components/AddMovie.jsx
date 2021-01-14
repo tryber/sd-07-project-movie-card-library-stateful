@@ -27,7 +27,8 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      // Identifiquei o data-testid pelo AddMovie.test.js
+      <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="input-text">
           Título
           <input
@@ -81,6 +82,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <label data-testid="genre-input-label" htmlFor="select">
+          Gênero
           <select
             name="genre"
             value={this.state.genre}
@@ -98,7 +100,7 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={this.handleClick} />
+        <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
       </form>
     );
   }
