@@ -19,12 +19,12 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     console.log(name);
     this.setState({ [name]: [value] });
-    }
+  }
 
   handleClick() {
     console.log(this.state);
   }
-  
+
   render() {
     return (
       <form>
