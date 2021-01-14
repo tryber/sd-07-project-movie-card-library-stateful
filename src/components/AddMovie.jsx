@@ -4,12 +4,12 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -17,14 +17,14 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-    console.log(name)
+    console.log(name);
     this.setState({ [name]: [value] });
-   }
+    }
 
   handleClick() {
-      console.log(this.state);
-    }
-    
+    console.log(this.state);
+  }
+  
   render() {
     return (
       <form>
