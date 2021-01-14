@@ -17,13 +17,12 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-    console.log(name);
     this.setState({ [name]: [value] });
   }
 
   clearState() {
-    // const currentState = this.props.state;
-    // console.log(currentState);
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -44,9 +43,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             data-testid="title-input"
-            // O input vai ser lido pelo state do values
             value={this.state.title}
-            // O onChange não deve utilizar () na função
             onChange={this.handleChange}
           />
         </label>
@@ -109,7 +106,7 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={this.clearState}>Adicionar filme</button>
+        <button type="button" data-testid="send-button" onClick={this.clearState}>Adicionar filme</button>
       </form>
     );
   }
