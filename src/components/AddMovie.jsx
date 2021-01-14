@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -106,10 +107,19 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button type="button" data-testid="send-button" onClick={this.clearState}>Adicionar filme</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={this.clearState}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+
 
 export default AddMovie;
