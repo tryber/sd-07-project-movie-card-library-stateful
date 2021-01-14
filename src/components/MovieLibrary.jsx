@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import PropTypes from "prop-types";
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      //Olhei como deveria declarar o movies abaixo no código da Carol https://github.com/tryber/sd-07-project-movie-card-library-stateful/blob/8e067008c119be3ecc45971c9552f12bf6f3dcaa/src/components/MovieLibrary.jsx
+      movies: props.movies,
     }
   }
 
@@ -26,5 +28,8 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+//validação de props abaixo consultado no primeiro projeto de movie library
+MovieLibrary.propTypes = {movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
