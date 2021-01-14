@@ -22,6 +22,7 @@ class AddMovie extends React.Component {
   }
 
   clearState() {
+    // Função criada com ajuda do Cosmo e Arthur Massaini!
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
