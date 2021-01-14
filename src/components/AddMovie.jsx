@@ -1,17 +1,18 @@
-import React from "react";
+import React from ' react' ;
 
 this.state = {
-  subtitle: "",
-  title: "",
-  imagePath: "",
-  storyline: "",
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
   rating: 0,
-  genre: "action",
+  genre: 'action',
 };
+
 class AddMovie extends React.Component {
   render() {
     //  const onClick
-    return <form></form>;
+    return <form />;
   }
 }
 
