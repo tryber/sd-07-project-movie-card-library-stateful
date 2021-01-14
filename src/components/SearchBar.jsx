@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="Text" data-testid="text-input-label">
+        <label data-testid="text-input-label">
           Inclui o texto:
           <input
           type="text"
@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
           data-testid="text-input"
           />
         </label>
-        <label htmlFor="checkbox" data-testid="checkbox-input-label">
+        <label data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
           type="checkbox"
@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
           data-testid="checkbox-input"
           />
         </label>
-        <label htmlFor="select" data-testid="select-input-label">
+        <label data-testid="select-input-label">
           Filtrar por gênero
           <select value={selectedGenre}
           onChange={onSelectedGenreChange}
