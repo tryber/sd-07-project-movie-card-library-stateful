@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import movies from "../data";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   // constructor(props) {

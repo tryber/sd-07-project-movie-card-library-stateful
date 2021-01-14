@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import MovieList from "./MovieList";
-import SearchBar from "./SearchBar";
-import AddMovie from "./AddMovie";
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -30,8 +30,6 @@ class MovieLibrary extends Component {
 }
 
 // validação de props abaixo consultado no primeiro projeto de movie library
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
