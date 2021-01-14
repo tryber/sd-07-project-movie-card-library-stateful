@@ -9,9 +9,9 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       // Olhei como deveria declarar o movies abaixo no código da Carol https://github.com/tryber/sd-07-project-movie-card-library-stateful/blob/8e067008c119be3ecc45971c9552f12bf6f3dcaa/src/components/MovieLibrary.jsx
       movies: props.movies,
     };
