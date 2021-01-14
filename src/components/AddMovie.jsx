@@ -21,9 +21,9 @@ class AddMovie extends React.Component {
     this.setState({ [name]: [value] });
   }
 
-  clearState(){
-    const currentState = this.props.state;
-    console.log(currentState);
+  clearState() {
+    // const currentState = this.props.state;
+    // console.log(currentState);
     this.setState({
       subtitle: '',
       title: '',
@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 
   render() {
